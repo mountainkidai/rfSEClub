@@ -109,9 +109,10 @@ myPromise
       err
     );
   }); */
+const fs = require("fs");
 
-/* const filePromise = new Promise((resolve, reject) => {
-  fs.readFile("frieszdfnds.txt", "utf-8", (err, data) => {
+const filePromise = new Promise((resolve, reject) => {
+  fs.readFile("friends.txt", "utf-8", (err, data) => {
     if (err) {
       reject(err);
     } else {
@@ -119,33 +120,41 @@ myPromise
     }
   });
 });
-
 filePromise
   .then((data) => {
     console.log("frieds recieved from friends.txt", data);
-    return fs.promises.writeFile("addedFriends.txt", data);
+    fs.promises.writeFile("addedFriends.txt", data);
+    return "just added friends";
   })
-  .then(() => {
-    console.log("friends added");
+  .then((logStatus) => {
+    console.log(" afteraddingFriendsData", logStatus);
     return fs.promises.readFile("addedFriends.txt", "utf-8");
   })
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.log(err);
-  }); */
-
-const fs = require("fs");
-fs.promises
-  .readFile("friends.txt", "utf-8")
-  .then((data) => {
-    console.log(data);
-    return data;
-  })
-  .then((data) => {
-    console.log("friends added", data);
+  .then((addFriendsData) => {
+    console.log(addFriendsData);
   })
   .catch((err) => {
     console.log(err);
   });
+
+// const fs = require("fs");
+// fs.readFile("friends.txt", "utf-8", (err, data) => {
+//   if (err) {
+//     console.log("File not found:", err);
+//   } else {
+//     console.log(data);
+//   }
+// });
+
+// fs.promises
+//   .readFile("friends.txt", "utf-8")
+//   .then((data) => {
+//     console.log(data);
+//     return data;
+//   })
+//   .then((data) => {
+//     console.log("friends added", data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
