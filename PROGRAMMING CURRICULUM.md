@@ -1,4 +1,4 @@
-# Programming Curriculum for EduFirst HP
+# Programming Curriculum for rfSE Club | HP Initiative(First-Principles Approach)
 
 ## Level 2: How Computers Work (Expanded)
 
