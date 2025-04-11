@@ -1,71 +1,17 @@
-# rfSEClub
+# rfSE Club - Round Table for Students & Engineers 🌏
 
-# Creating Engineers for the Planet Earth 🌏
+## What We Are
 
-Welcome to the **rfSE - Remote FullStack Software Engineer / Roundtable of Forward thinking Scintists & Engineers** initiative! Our mission is to transform Himachal Pradesh's economy from being predominantly tourism-driven to a **software and startup-driven economy** by fostering a new generation of engineers, innovators, and entrepreneurs.
+rfSE Club (Round Table for Students & Engineers) is an innovative education initiative by MountainKid Innovations Private Limited & H.P Government, based in Jakhu Hill, Shimla, Himachal Pradesh. We are revolutionizing education by deploying engineers to teach directly in schools, bypassing traditional systems and focusing on first-principles thinking. Our pilot project targets 4 schools in Himachal Pradesh, impacting 400-600 students in 10th, 11th, and 12th grades. We teach Problem Analysis, Mathematics, Programming (C, JS, Python), and Communication Skills (English - written, spoken, and soft skills), preparing students to think like engineers and solve real-world challenges.
 
-## Vision 🌟
+## Who We Are
 
-To create a sustainable platform where engineering, creativity, and innovation converge, empowering individuals to solve global problems.
+MountainKid Innovations Private Limited, led by Aariv, is a Shimla-based tech company dedicated to solving Food, Health, Tourism, and Agriculture problems using AI, Rust, and Blockchain technologies. Aariv, the Founder & CEO, brings 7 years of software development experience, having delivered projects for companies like Confitence AI (a San Francisco-based 3D-tech company), WestCoast Leather, Susanamonaco, and Sorabyrd. He also recently launched Sari beta v0.1, a health app, in 2025. Our team includes 5 engineers (4 teaching directly, with Aariv as the 5th overseeing curriculum and coding), supported by 3 mathematics teachers and 1 communication skills teacher per school, ensuring a blend of technical expertise and local context.
 
-## Our Mission 🚀
+## Our Dream
 
-We aim to establish a unique space that combines the best aspects of:
-
-1. **Self-Learning**: Mastering knowledge through curiosity and exploration.
-2. **Project-Oriented Learning**: Understanding the **Why**, **What**, and **How** behind every challenge and solution.
-3. **Community Interaction**: Collaborating and growing together with like-minded peers and mentors.
-4. **Guidance and Mentorship**: Providing support to help individuals achieve their personal and professional goals.
-
-## Why Himachal Pradesh? 🏔️
-
-Himachal Pradesh is a land of immense potential. While its economy has been traditionally reliant on tourism, the state has the talent and drive to pivot towards becoming a hub for **technology, startups, and innovation**. Our initiative seeks to:
-
-- Empower local talent to solve problems through engineering and programming.
-- Build a vibrant ecosystem for startups and technology.
-- Provide career-defining opportunities for budding engineers, scientists, and entrepreneurs.
-
-## Our Approach 🔧
-
-At **Creating Engineers for the Planet Earth**, we focus on building **real-world skills** and **future-ready engineers** through:
-
-1. **Learning Modules**: Tailored content for **math**, **science**, and **programming** that encourages critical thinking.
-2. **Hands-On Projects**: Real-world challenges where members apply concepts and build solutions.
-3. **Collaborative Environment**: A safe space to discuss, ideate, and create with peers.
-4. **Guided Pathways**: Expert mentorship to navigate self-learning and career growth.
-5. **Global Exposure**: Opportunities to connect with experts and leaders worldwide.
-
-## Who Can Join? 🌐
-
-We welcome:
-
-- Students passionate about **engineering**, **programming**, and **science**.
-- Professionals seeking to expand their skillset and create meaningful impact.
-- Entrepreneurs eager to solve real-world problems through technology.
-- Anyone who dreams of **building, innovating, and transforming their community**.
-
-## Features and Benefits ✨
-
-- **Exclusive Membership**: Access to curated learning resources and expert-led workshops.
-- **Project-Based Learning**: Build your portfolio by working on real-world projects.
-- **Networking Opportunities**: Connect with like-minded individuals, mentors, and industry experts.
-- **Certification**: Gain recognition for completing projects and contributing to the community.
-
-## How to Join 📥
-
-1. Visit our website [Link Placeholder].
-2. Sign up for membership (subscription-based).
-3. Gain instant access to resources, events, and the community.
-4. Start your journey to becoming an engineer for the planet Earth!
+We dream of transforming Himachal Pradesh into India’s next tech valley by 2030, making it one of the top 5 economies in the country. Through rfSE Club, we aim to empower students with first-principles thinking, equipping them to innovate, solve problems, and build a future where they can stay in Himachal and contribute to its growth. We envision a state where education fosters engineers who push human civilization forward—starting with an open-source curriculum branded as a “Himachal Pradesh Education Department Initiative.” Our ultimate goal is to scale this model across Himachal, integrating advanced technologies like small language models and AR/VR-based learning, to create a sustainable, tech-driven education system that inspires the next generation of innovators.
 
 ---
 
-## Contributing 🤝
-
-We’re always looking for contributors to help grow our platform and create a bigger impact. If you’re interested in teaching, mentoring, or supporting our vision, feel free to reach out at **mountainkidlabs@gmail.com / hello@mountainkid.ai**.
-
-## Join the Movement 🌍
-
-Be part of a revolution that’s **changing lives** and **building futures**. Together, let’s transform Himachal Pradesh into a global technology and innovation hub while solving the planet's biggest challenges.
-
-**Let’s engineer a better tomorrow!**
+**Join us in building the future of education in Himachal Pradesh!**
