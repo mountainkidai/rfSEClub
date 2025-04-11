@@ -1,4 +1,4 @@
-# Problem Analysis Curriculum for EduFirst HP
+# Problem Analysis Curriculum for rfSE Club | HP Initiative(First-Principles Approach)
 
 ## Overview
 
