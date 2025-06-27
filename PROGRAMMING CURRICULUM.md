@@ -11,14 +11,53 @@ The rfSE Club programming curriculum, designed by MountainKid AI, equips 10th-12
 **Topic**: Why Programming Matters  
 **Why?**: Programming solves problems and automates systems. Core purpose? To instruct machines to execute tasks efficiently.  
 **Subtopics**:
+  # Tools
+- **Laptop Setup Guide**
 
-- **What is Programming?**: Writing instructions for computers.
-- **Algorithms**: Step-by-step problem-solving processes. PROGRAMMING CURRICULUM
-- **Applications**: Traffic systems, health apps, trading algorithms.
-- **Tools**: IDEs (VS Code), terminals, browsers.
-- **Interaction**: Share a problem to solve with code (e.g., landslide alerts).
-- **Syllabus**: Hardware, Git, JavaScript, Rust, web development, React.  
-  **Application**: Write pseudocode to automate solar panel energy tracking.
+##  Preferred Laptop
+- **MacBook Air M4** *(Preferred)*
+- If not MacBook, choose any laptop with:
+  - **16GB RAM**
+  - **250GB SSD**
+  - **OS:** Linux Ubuntu
+    - For better speed, replace **GNOME** with **XFCE**
+
+---
+
+##  Accounts to Create / Have
+- **Gmail account**
+  - Preferred username: `trinadhsuroju`
+  - Avoid usernames like: `trinadhindia`
+- [Canva](https://www.canva.com/)
+- [GitHub](https://github.com/)
+- [Typing Bolt](https://typingbolt.com/)
+- [Netlify](https://www.netlify.com/) *(For hosting)*
+- [Vercel](https://vercel.com/) *(For hosting)*
+
+---
+
+##  Browsers
+- Chrome *(Recommended)*
+- Arc *(Optional)*
+- Brave *(Optional)*
+
+---
+
+## Must-Have Apps (Mobile & Desktop)
+- [Slack](https://slack.com/intl/en-in/help/articles/212681477-Sign-in-to-Slack) *(Mobile app + Browser version)*
+- [Google Calendar](https://calendar.google.com/)
+- [BeeKeeper Studio](https://www.beekeeperstudio.io/)
+- [AWS Account](https://aws.amazon.com/)
+- [Jira](https://www.atlassian.com/software/jira)
+- [Confluence](https://www.atlassian.com/software/confluence)
+- [PostHog](https://posthog.com/)
+
+---
+
+##  Software to Install
+- [Git](https://git-scm.com/)
+- [VS Code](https://code.visualstudio.com/)
+- [Vim Editor](https://www.vim.org/)
 
 ```plaintext
 Input: solar_output (watts)
