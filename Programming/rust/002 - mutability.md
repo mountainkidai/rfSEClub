@@ -12,19 +12,19 @@ Application
 Koel Auth: Mutable KYC status (verified: bool) to update after API calls, immutable Aadhaar ID.
 KoelPass: Mutable pass status to mark as used or expired.
 
-```
+```rust
 IMMUTABLE BY DEFAULT
 let x = 5; // Immutable
 // x = 6; // Error: cannot assign to immutable variable
 ```
 
-```
+```rust
 Mutable with mut:
 let mut y = 5; // Mutable
 y = 6; // OK
 ```
 
-```
+```rust
 Scope Restriction: Changes only within the variable’s scope.
 {
     let mut z = 10;
