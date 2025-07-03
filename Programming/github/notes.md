@@ -563,7 +563,7 @@ This will show you the list of remote branches.
 
 Example:
 
-```
+```bash
 origin/main
 origin/newbranch
 ```
@@ -678,7 +678,7 @@ git tag -l  # write version name or common tag name
 
 How to write version names or semantic versioning:
 
-```
+```text
 2.3.1
 ```
 
@@ -732,7 +732,13 @@ This will show all the details of project like at what time what you have done.
 
 ```bash
 git reflog show HEAD
+```
+
+```bash
 git reflog show main
+```
+
+```bash
 git reflog head/branch-name@{qualifier}
 ```
 
