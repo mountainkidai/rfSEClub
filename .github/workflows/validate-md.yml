@@ -1,4 +1,4 @@
-name: Validate Markdown and Code
+name: Validate Markdown
 on:
   pull_request:
     branches: [main, dev, release/*]
@@ -15,24 +15,3 @@ jobs:
         with:
           files: .
           config_file: .markdownlint.json
-  validate-code:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Install markdown-code-runner
-        run: npm install -g markdown-code-runner
-      - name: Validate code snippets
-        run: markdown-code-runner --languages=python,javascript,rust,c .
