@@ -3,7 +3,6 @@
 ## Table of Contents
 
 1. Phase 1: Basic Git Operations
-    
     - Configuration
     - Project Initialization
     - Status and Tracking

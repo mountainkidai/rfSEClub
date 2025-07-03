@@ -416,7 +416,7 @@ git clone <remote repo link>
 
 ### SSH Keys Configuration
 
-Config SSH keys: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+Config SSH keys: <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>
 
 ### Two Ways to Link Git Repo to GitHub
 
@@ -580,7 +580,9 @@ git switch newbranch
 
 Now this will create the branch newbranch and shows you the code.
 
-**Git pull = git fetch + git merge**
+### Git Pull vs Git Fetch + Merge
+
+#### Git pull = git fetch + git merge
 
 ---
 
