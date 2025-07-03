@@ -6,14 +6,12 @@ describes the visual style of the html content.
 
 Eg :
 
-```
+```css
 h1 {
   font-size: 20px;
   color: blue;
 }
 ```
-
-<br>
 
 h1 - selector
 
@@ -34,7 +32,7 @@ font-size - property
 
 ## CSS RULE
 
-```
+```css
 h1 {
   font-size: 20px;
   color: blue;
@@ -45,7 +43,7 @@ h1 {
 
 ## WHAT TO LEARN?
 
-0. **comments**
+1. **comments**
 
 ````css
    /* comment */
@@ -170,14 +168,11 @@ h1 {
  </ul>
 
  **Alternative with :first-child pseudo class**
-
-````
-
+```css
 li:first-child {
 color: rgb(1, 107, 36);
 }
-
-````
+```
 
 ```css
   li:first-child {
@@ -193,8 +188,8 @@ color: rgb(1, 107, 36);
    text-decoration: none;
  }
 
- a:link {
  ```css
+ a:link {
      a {
        text-decoration: none;
      }
@@ -264,13 +259,12 @@ color: rgb(1, 107, 36);
 23. **Absolute and relative positioning**
 24. **Pseudo elements**
 
- ```
+ ```css
  h1::first-letter {
    font-size: 2em;
  }
  p::first-line {
    color: gray;
- ```css
      h1::first-letter {
        font-size: 2em;
      }
@@ -280,18 +274,18 @@ color: rgb(1, 107, 36);
      ```
 26. **after and before**
 
- ```
+ ```css
  p::before {
    content: "Note: ";
  }
  p::after {
    content: " (end)";
- ```css
      p::before {
        content: "Note: ";
      }
      p::after {
        content: " (end)";
      }
-     ```
+ }
+```
 ````
