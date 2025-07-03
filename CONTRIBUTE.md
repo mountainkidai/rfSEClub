@@ -47,7 +47,7 @@ Kindly read this before you proceed for contribution.
 
      Use ownership to manage resources in a Himachal tourism app...
 
-     ```
+     ```rust
 
      ```
 

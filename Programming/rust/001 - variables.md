@@ -20,14 +20,14 @@ Blockchain ledger to store the transactions history
 
 Declaration: Use let to bind a value to a variable.
 
-```
+```rust
 let x = 5; // Immutable variable
 // x = 6; // Error: cannot assign to immutable variable
 ```
 
 Scoping: Variables are only accessible within their scope.
 
-```
+```rust
 {
     let y = 10; // y exists only in this block
     println!("{}", y); // OK
@@ -38,7 +38,7 @@ Scoping: Variables are only accessible within their scope.
 Type Inference: Rust infers (the compiler automatically determines the data type of a variable based on its usage or context, without requiring explicit type annotations.
 ) types, but you can annotate if needed.
 
-```
+```rust
 let id = 123; //infers i32
 let aadhaar: String = "123412341234".to_string(); //explicit type
 ```
@@ -46,7 +46,7 @@ let aadhaar: String = "123412341234".to_string(); //explicit type
 Example:
 A function to store an Aadhaar ID immutably:
 
-```
+```rust
 fn store_aadhaar(input: &str) -> String {
     let aadhaar = input.to_string(); // Immutable variable
     aadhaar // Return immutable Aadhaar

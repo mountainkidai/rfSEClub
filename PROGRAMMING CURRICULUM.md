@@ -389,8 +389,8 @@ fn main() {
 **Why?**: To create interfaces. Core purpose? Organize data for display.  
 **Subtopics**:
 
-- **Tags**: <div>, <p>, <h1>.
-- **Structure**: <html>, <body>.  
+- **Tags**: `<div>`, `<p>`, `<h1>`.
+- **Structure**:`<html>`, `<body>`.  
   **Application**: Create a tourism app page.
 
 ```html
