@@ -1,9 +1,9 @@
 # Basic Types
 
 **Explanation**:  
-TypeScript’s basic types define variable data types for type safety.  
+TypeScript’s basic types define variable data types for type safety.
 
-### Key Types:
+## Key Types
 
 - **Primitive Types**: `string`, `number`, `boolean`, `null`, `undefined`, `bigint`, `symbol`
 - **Any**: Allows any type, bypassing type checks (use sparingly)
@@ -11,7 +11,7 @@ TypeScript’s basic types define variable data types for type safety.
 - **Void**: For functions returning nothing
 - **Never**: For functions that never return (e.g., throw errors or infinite loops)
 
-### Example:
+## Example
 
 ```ts
 let aadhaar: string = "1234-5678-9012";
@@ -26,11 +26,15 @@ function logError(): void {
 function crash(): never {
   throw new Error("Crash");
 }
+
 ```
 
 ## any in Addition Program
-**What**: any allows any value without type checking, bypassing TypeScript’s safety. Risk: No compile-time errors, but runtime errors if types are wrong.
-```
+
+**What**: `any` allows any value without type checking, bypassing TypeScript’s safety.  
+**Risk**: No compile-time errors, but runtime errors if types are wrong.
+
+```ts
 function addScores(a: any, b: any) {
   return a + b; // No type checks
 }
@@ -40,20 +44,27 @@ let score2 = 5678;
 console.log(addScores(score1, score2)); // "12345678" (string concatenation, not addition!)
 ```
 ## unknown in Addition Program
-**What**: unknown accepts any value but requires type checking before operations, ensuring safety. Benefit: Forces validation, preventing runtime errors.
-```function addScores(a: unknown, b: unknown): number {
+
+**What**: `unknown` accepts any value but requires type checking before operations, ensuring safety.  
+**Benefit**: Forces validation, preventing runtime errors.
+
+```ts
+function addScores(a: unknown, b: unknown): number {
   if (typeof a === "number" && typeof b === "number") {
     return a + b; // Type-safe
   }
   throw new Error("Invalid inputs");
 }
-```
+
 let score1: unknown = JSON.parse('{"score": 1234}').score; // API response
 let score2: unknown = 5678;
 console.log(addScores(score1, score2)); // 6912 (if score1 is number)
+
+```
 ## never in Addition Program
 **What**: never is for functions that never return, like error handlers in validation. Benefit: Ensures TypeScript catches unhandled cases in logic.
-```function validateInput(input: unknown): number {
+```ts
+function validateInput(input: unknown): number {
   if (typeof input === "number") {
     return input;
   }
@@ -84,20 +95,32 @@ console.log(addScores(score1, score2)); // Throws: "Invalid input for addition"
 - **Void**: For functions returning nothing, e.g., logging.
 - **Never**: For functions that never return (throws or loops).
 
-```let aadhaar: string = "1234-5678-9012";
+```ts
+let aadhaar: string = "1234-5678-9012";
 let score: number = 100;
 let isVerified: boolean = true;
 let noData: null = null;
 let token: undefined = undefined;
 let bigId: bigint = 12345678901234567890n;
 let key: symbol = Symbol("auth");
+
 let rawData: any = { aadhaar: "1234" }; // Unsafe
 let apiResponse: unknown = JSON.parse(data); // Safer
-function log(): void { console.log("Logged"); }
-function crash(): never { throw new Error("Invalid Aadhaar"); } 
+
+function log(): void {
+  console.log("Logged");
+}
+
+function crash(): never {
+  throw new Error("Invalid Aadhaar");
+}
+
 ```
-## Inferred type:
-Inferred type in TypeScript refers to the ability of the TypeScript compiler to automatically determine the type of a variable, expression, or function return value without requiring explicit type annotations.This feature significantly reduces the verbosity of code while maintaining type safety.
-```    let age = 30; // Inferred type: number
-    const name = "Alice"; // Inferred type: "Alice" (literal type)
-```
+## Inferred Type
+
+Inferred type in TypeScript refers to the ability of the TypeScript compiler to automatically determine the type of a variable, expression, or function return value without requiring explicit type annotations.  
+This feature significantly reduces the verbosity of code while maintaining type safety.
+
+```ts
+let age = 30; // Inferred type: number
+const name = "Alice"; // Inferred type: "Alice" (literal type)
