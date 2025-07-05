@@ -196,7 +196,7 @@ getWeather().then((temp) => console.log(temp));
 async function getData() {
   try {
     let data = await new Promise((r) =>
-      setTimeout(() => r("Tourism data"), 1000)
+      setTimeout(() => r("Tourism data"), 1000),
     );
     console.log(data);
   } catch (e) {
@@ -593,7 +593,7 @@ fn main() {
     const [scores, setScores] = React.useState([90]);
     const avg = React.useMemo(
       () => scores.reduce((s, v) => s + v, 0) / scores.length,
-      [scores]
+      [scores],
     );
     return (
       <div>

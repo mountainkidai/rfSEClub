@@ -5,19 +5,16 @@ Kindly read this before you proceed for contribution.
 ## How to Contribute
 
 1. **Understand the Scope**
-
    - Contributions are limited to Markdown files (.md) containing curriculum content: concepts, code examples, or improvements to existing files.
    - Focus areas: Problem Analysis, Mathematics, Programming (C, JS, Python, Rust), Communication Skills (English - writing, speaking, leadership). (refer to the curriculum files for each subject.)
    - Content must be clear, practical, and tailored for 8th-12th grade students.
 
 2. **Set Up the Repository**
-
    - Fork the repo: `https://github.com/mountainkidai/rfSEClub`.
    - Clone your fork: `git clone https://github.com/YOUR-USERNAME/rfSEClub.git`.
    - Create a feature branch: `git checkout -b feature/your-feature`.
 
 3. **Make Changes**
-
    - Edit or create `.md` files in the appropriate directory (e.g., `curriculum/programming/`).
    - Ensure code examples are:
      - Functional and tested (e.g., run Python/Rust code locally).
@@ -52,7 +49,6 @@ Kindly read this before you proceed for contribution.
      ```
 
 4. **Submit a Pull Request (PR)**
-
    - Push your branch: `git push origin feature/your-feature`.
    - Open a PR to the `main` branch of `mountainkidai/rfSEClub`.
    - Include in the PR description:
@@ -62,7 +58,6 @@ Kindly read this before you proceed for contribution.
    - PRs require approval from `@aariv-mountainkid`. Expect feedback within 48 hours.
 
 5. **Quality Standards**
-
    - Content must align with the first-principles approach (break down concepts to their core).
    - Code must be educational, with clear comments and student-friendly explanations.
    - Avoid redundancy; check existing files before adding new content.

@@ -11,7 +11,6 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
 **Why Arithmetic?** Numbers are the language of engineering—quantifying resources, distances, and efficiencies. Let’s rebuild from first principles: why do numbers exist, and how do they help us build?
 
 - **1.1 Understanding Numbers**
-
   - **Why?**: To measure and count the world (e.g., 5 volts in a circuit, 3 meters of cable).
   - **Core Truth**: Numbers represent quantities; their types reflect different real-world scenarios.
   - **1.1.1 Natural Numbers (1, 2, 3, ...)**: Counting starts with 1. Why? To tally discrete items (e.g., 3 solar panels).
@@ -22,7 +21,6 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
   - **Application**: Calculate the total voltage in a circuit: 3 batteries, each 1.5V → 3 × 1.5 = 4.5V.
 
 - **1.2 Arithmetic Operations**
-
   - **Why?**: To manipulate quantities (e.g., combine, divide resources).
   - **Core Truth**: Operations model real-world actions.
   - **1.2.1 Addition/Subtraction**: Why? To combine or remove (e.g., 5 kg cement + 3 kg = 8 kg; use 2 kg, left 6 kg).
@@ -31,7 +29,6 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
   - **Application**: A robot moves 2 meters forward, then 3 meters × 4 times in a loop: 2 + (3 × 4) = 14 meters.
 
 - **1.3 Factors, Multiples, and Primes**
-
   - **Why?**: To understand number structures (e.g., for efficient resource allocation).
   - **Core Truth**: Numbers can be broken down or scaled up.
   - **1.3.1 Factors**: Why? To divide resources (e.g., 12 desks into 3 rows: 12 ÷ 3 = 4 desks/row).
@@ -54,19 +51,16 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
 **Why Algebra?** Engineers use algebra to model relationships (e.g., voltage vs. current). Let’s rebuild from first principles: why do we need unknowns?
 
 - **2.1 Variables and Equations**
-
   - **Why?**: To represent unknowns (e.g., how many solar panels for 600W if each produces x watts?).
   - **Core Truth**: Variables (x) are placeholders; equations balance relationships (600 = x × n).
   - **Application**: A car travels 100 km at x km/h in 2 hours: 100 = x × 2 → x = 50 km/h.
 
 - **2.2 Linear Equations**
-
   - **Why?**: To solve for one unknown (e.g., cost of materials).
   - **Core Truth**: Linear equations (ax + b = c) model straight-line relationships.
   - **Application**: 2x + 3 = 9 (cost of 2 items plus ₹3 tax is ₹9) → x = ₹3/item.
 
 - **2.3 Systems of Equations**
-
   - **Why?**: To solve multiple unknowns (e.g., cost of panels and batteries).
   - **Core Truth**: Two equations with two unknowns can be solved together.
   - **Application**: 2 panels + 3 batteries = ₹13; 1 panel + 2 batteries = ₹8 → panel = ₹1, battery = ₹4.
@@ -83,7 +77,6 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
 **Why Geometry and Trig?** Engineers design and navigate (e.g., satellite angles, bridge structures). Let’s rebuild from first principles: why do shapes and angles matter?
 
 - **3.1 Basic Geometry**
-
   - **Why?**: To model physical structures (e.g., a bridge’s triangular supports).
   - **Core Truth**: Geometry starts with points, lines, and angles to define shapes.
   - **3.1.1 Lines and Angles**: Why? To define directions (e.g., angle of a solar panel).
@@ -104,13 +97,11 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
 **Why Discrete Math?** Engineers need to optimize systems (e.g., shortest path for a delivery drone). Let’s rebuild from first principles: why do we need discrete structures?
 
 - **4.1 Logic and Propositional Calculus**
-
   - **Why?**: To reason about systems (e.g., if a sensor detects rain, activate wipers).
   - **Core Truth**: Logic uses true/false statements (e.g., AND, OR, NOT).
   - **Application**: If temperature > 30°C AND humidity > 70%, turn on AC.
 
 - **4.2 Combinatorics**
-
   - **Why?**: To count possibilities (e.g., number of ways to arrange solar panels).
   - **Core Truth**: Permutations (order matters) and combinations (order doesn’t).
   - **Application**: 3 sensors, 2 slots: Combinations = 3!/(2!(3-2)!) = 3.
@@ -127,7 +118,6 @@ This Math curriculum, designed by MountainKid AI for the rfSE Club pilot project
 **Why Probability and Stats?** Engineers deal with uncertainty (e.g., failure rates of a bridge). Let’s rebuild from first principles: why do we need to quantify uncertainty?
 
 - **5.1 Basic Probability**
-
   - **Why?**: To predict outcomes (e.g., chance of a circuit failing).
   - **Core Truth**: Probability measures likelihood (e.g., P(event) = favorable outcomes/total outcomes).
   - **Application**: A sensor fails 1 in 10 times: P(failure) = 1/10 = 0.1.

@@ -27,7 +27,6 @@ Problem analysis, rooted in first-principles thinking, teaches students to break
 #### 3. Case Studies and Practice Questions
 
 - **Case Study 1: Landslides in Himachal Pradesh**
-
   - **Problem**: Frequent landslides disrupt lives and infrastructure (e.g., Shimla-Kullu highway).
   - **Data**: Annual rainfall 1,500 mm, 30% deforestation in 10 years, loose soil in hilly areas.
   - **Core Components**: Heavy rain, deforestation, soil instability.
@@ -36,7 +35,6 @@ Problem analysis, rooted in first-principles thinking, teaches students to break
   - **Practice Question**: Design a low-cost early warning system for landslides using local weather data and sensors. What are the first principles involved?
 
 - **Case Study 2: Tourism Issues in Himachal Pradesh**
-
   - **Problem**: Unsustainable tourism damages the environment (e.g., littering in Rohtang Pass).
   - **Data**: 1.5 million tourists annually, 500 tons of waste generated, lack of regulation.
   - **Core Components**: High tourist influx, lack of waste management, unregulated activities.
