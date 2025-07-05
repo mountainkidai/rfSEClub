@@ -1,10 +1,12 @@
-
 # Prerequisites Explained (Chronological Order for Decorators)
+
 These are the key JavaScript/TypeScript concepts needed to understand decorators, ordered by how they appear in decorator usage.
 
 ## Classes
+
 **What**: Blueprints for objects with properties and methods (e.g., a calculator with `add`).  
-**Why for Decorators**: Decorators modify classes, methods, or properties, so classes are the foundation.  
+**Why for Decorators**: Decorators modify classes, methods, or properties, so classes are the foundation.
+
 ```typescript
 class Calculator {
   add(a: number, b: number): number {
@@ -12,15 +14,18 @@ class Calculator {
   }
 }
 ```
+
 **Explanation**: Class defines a calculator with an `add` method.
 
 ## Prototype
+
 The **prototype** is an object shared by all instances of a class, holding methods to save memory.  
 In JavaScript, not all methods and properties are added to the prototype by default.  
-**Key Points**:  
-- **Instance Properties/Methods**: Defined inside the constructor or with class field syntax (e.g., `this.x`) are added to each instance, not the prototype.  
-- **Class Methods**: Defined directly in the class body (e.g., `method() {}`) are added to the prototype by default.  
-- **Static Methods/Properties**: Defined with `static` (e.g., `static method() {}`) are added to the class itself, not the prototype or instances.  
+**Key Points**:
+
+- **Instance Properties/Methods**: Defined inside the constructor or with class field syntax (e.g., `this.x`) are added to each instance, not the prototype.
+- **Class Methods**: Defined directly in the class body (e.g., `method() {}`) are added to the prototype by default.
+- **Static Methods/Properties**: Defined with `static` (e.g., `static method() {}`) are added to the class itself, not the prototype or instances.
 - **Class Fields (Properties)**: Defined with class field syntax (e.g., `x = 10;`) are added to each instance, not the prototype, unless explicitly assigned to the prototype.
 
 ```typescript

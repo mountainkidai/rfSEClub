@@ -1,12 +1,15 @@
 # Arrays and Tuples
+
 **Explanation**: Arrays and tuples manage collections in TypeScript, critical for Koel’s Aadhaar data (e.g., lists of users or structured auth data).
 
-## Arrays:
+## Arrays
+
 - **Homogeneous**: All elements are the same type (e.g., string[] for Aadhaar numbers).
 - **Dynamic length**: Add or remove elements freely (e.g., push, pop).
 - **Example**: `let aadhaarList: string[] = ["1234-5678-9012"]; aadhaarList.push("5678-9012-3456");` — flexible size.
 
-## Tuples:
+## Tuples
+
 - **Heterogeneous**: Elements can have different types (e.g., [string, boolean] for Aadhaar + verification).
 - **Fixed length**: Locked to a specific number of elements (e.g., [string, boolean] always has two).
 - **Example**: `let kycRecord: [string, boolean] = ["1234-5678-9012", true];` — can’t push more.

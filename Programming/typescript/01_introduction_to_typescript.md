@@ -32,7 +32,7 @@ Setting `"strict": true` in `tsconfig.json` enables all strict type-checking opt
 
 ## Example tsconfig.json
 
-```json
+````json
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -41,3 +41,4 @@ Setting `"strict": true` in `tsconfig.json` enables all strict type-checking opt
     "outDir": "./dist"
   }
 }```
+````

@@ -1,60 +1,90 @@
 # Inline Object Type + Issue
+
 **Explanation**: Inline object types define an object’s shape directly in a variable or function. They’re quick but not reusable, leading to repetition and errors in Koel’s Aadhaar system.
 
 - **Example** (Koel Aadhaar auth):
+
 ```typescript
 // Inline object type for Aadhaar user
-let user: { aadhaar: string; name: string } = { aadhaar: "1234-5678-9012", name: "Jack" };
+let user: { aadhaar: string; name: string } = {
+  aadhaar: "1234-5678-9012",
+  name: "Jack",
+};
 
 // Same type repeated for another user
-let user2: { aadhaar: string; name: string } = { aadhaar: "5678-9012-3456", name: "Steve" };
+let user2: { aadhaar: string; name: string } = {
+  aadhaar: "5678-9012-3456",
+  name: "Steve",
+};
 ```
 
-- **Issue**: You need to add a `verified: boolean` property to both users. You update one but forget the other, causing inconsistency.
+- **Issue**: You need to add a verified: boolean property to both users. You update one but forget the other, causing inconsistency.
+
 ```typescript
-let user: { aadhaar: string; name: string; verified: boolean } = { 
-  aadhaar: "1234-5678-9012", 
-  name: "Aariv", 
-  verified: true 
+let user: { aadhaar: string; name: string; verified: boolean } = {
+  aadhaar: "1234-5678-9012",
+  name: "Aariv",
+  verified: true,
 };
 // Forgot to update user2
-let user2: { aadhaar: string; name: string } = { aadhaar: "5678-9012-3456", name: "Steve" }; // Missing verified
+let user2: { aadhaar: string; name: string } = {
+  aadhaar: "5678-9012-3456",
+  name: "Steve",
+}; // Missing verified
 // Bug: user2 lacks verified, TypeScript doesn’t catch it
 ```
 
-# Type Alias + Fix + New Issue
+## Type Alias + Fix + New Issue
+
 **Explanation**: A type alias (`type`) gives a reusable name to an object type, fixing the repetition issue. It’s flexible for Koel’s API data but lacks extensibility.
 
-### Fix for Inline Issue:
+### Fix for Inline Issue
+
 ```typescript
 // Type alias: Reusable
 type KoelUser = { aadhaar: string; name: string; verified: boolean };
 
-let user: KoelUser = { aadhaar: "1234-5678-9012", name: "Aariv", verified: true };
-let user2: KoelUser = { aadhaar: "5678-9012-3456", name: "Steve", verified: false };
+let user: KoelUser = {
+  aadhaar: "1234-5678-9012",
+  name: "Aariv",
+  verified: true,
+};
+let user2: KoelUser = {
+  aadhaar: "5678-9012-3456",
+  name: "Steve",
+  verified: false,
+};
 ```
 
 **How It Fixes**: `KoelUser` is defined once, reused everywhere. Adding `verified` updates all users, ensuring consistency across Koel’s auth system.
 
 **New Issue**: You want to extend `KoelUser` for admins with an `adminRole: string`. Type aliases can’t be extended easily, so you create a new type, leading to duplication.
+
 ```typescript
 type KoelUser = { aadhaar: string; name: string; verified: boolean };
-type AdminUser = { aadhaar: string; name: string; verified: boolean; adminRole: string };
+type AdminUser = {
+  aadhaar: string;
+  name: string;
+  verified: boolean;
+  adminRole: string;
+};
 // Duplication: Repeating aadhaar, name, verified
-let admin: AdminUser = { 
-  aadhaar: "1234-5678-9012", 
-  name: "Aariv", 
-  verified: true, 
-  adminRole: "superadmin" 
+let admin: AdminUser = {
+  aadhaar: "1234-5678-9012",
+  name: "Aariv",
+  verified: true,
+  adminRole: "superadmin",
 };
 ```
 
 **Problem**: Duplicating fields is error-prone and hard to maintain in Koel’s growing auth system.
 
-# Interface + Fix
+## Interface + Fix
+
 **Explanation**: Interfaces define reusable object shapes and support extending/merging, perfect for Koel’s scalable Aadhaar user data.
 
-### Fix for Type Alias Issue:
+### Fix for Type Alias Issue
+
 ```typescript
 // Interface: Reusable and extensible
 interface KoelUser {
@@ -68,16 +98,21 @@ interface AdminUser extends KoelUser {
   adminRole: string;
 }
 
-let user: KoelUser = { aadhaar: "1234-5678-9012", name: "Aariv", verified: true };
-let admin: AdminUser = { 
-  aadhaar: "1234-5678-9012", 
-  name: "Aariv", 
-  verified: true, 
-  adminRole: "superadmin" 
+let user: KoelUser = {
+  aadhaar: "1234-5678-9012",
+  name: "Aariv",
+  verified: true,
+};
+let admin: AdminUser = {
+  aadhaar: "1234-5678-9012",
+  name: "Aariv",
+  verified: true,
+  adminRole: "superadmin",
 };
 ```
 
 ## Property Features (For Object Types, Type Aliases, Interfaces)
+
 - **Required Properties**: All properties are required by default (must be provided).
 - **Optional Properties (?)**: Properties that can be omitted.
 - **Readonly Properties (readonly)**: Properties that can’t be modified after initialization.
@@ -126,6 +161,7 @@ user3.metadata = "custom"; // OK: index signature
 - **Index Signature**: Supports dynamic user attributes.
 
 ## Spread vs Rest Parameters
+
 **Explanation**: Spread and rest are JavaScript/TypeScript features for handling arrays/objects, critical for Koel’s Aadhaar auth (e.g., processing user lists). They’re distinct but related.
 
 - **Rest Parameters**: Collects multiple arguments into a typed array in a function definition. Used to gather inputs.
@@ -147,7 +183,8 @@ const baseUser = { aadhaar: "1234-5678-9012" };
 const fullUser = { ...baseUser, name: "Aariv" }; // { aadhaar: "1234-5678-9012", name: "Aariv" }
 ```
 
-### Key Difference:
+### Key Difference
+
 - **Rest**: Gathers inputs into an array (e.g., collecting Aadhaar IDs in a function).
 - **Spread**: Splits an array/object into parts (e.g., passing Aadhaar list or merging user data).
 - **They’re opposites**: rest combines, spread separates.

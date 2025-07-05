@@ -1,21 +1,60 @@
-# Type Aliases (Super Concise, Koel Context)
-**Explanation**: Type aliases create named types for any TypeScript type (objects, unions, primitives) using the `type` keyword. They’re reusable, flexible for Koel’s Aadhaar auth, and support complex types like unions and intersections.
-- **Type Alias**: Names a type for reuse.
-- **Union Types**: Allow multiple types (e.g., `string | number`).
-- **Intersection Types**: Combine types (e.g., `TypeA & TypeB`).
+# Enums: (Super Concise, Koel Context)
+
+**Explanation**: Enums in TypeScript define a set of named constants, either numeric or string, for consistent values in Koel’s Aadhaar auth system. They improve readability and type safety.
+
+- **Numeric Enums**: Auto-incrementing numbers (e.g., 0, 1).
+- **String Enums**: Explicit string values.
+- **Const Enums**: Compile-time only, erased in JavaScript output (no runtime code).
 
 ```typescript
-// Type Alias: Aadhaar user
-type KoelUser = { aadhaar: string; name: string };
+// Numeric Enum: Verification steps
+enum VerificationStep {
+  Pending, // 0
+  Approved, // 1
+  Rejected, // 2
+}
 
-// Union: User or error response
-type ApiResponse = KoelUser | { error: string };
+// String Enum: API status
+enum ResponseStatus {
+  Success = "SUCCESS",
+  Error = "ERROR",
+}
 
-// Intersection: User with metadata
-type UserWithMeta = KoelUser & { verified: boolean };
+// Const Enum: Auth levels (no runtime code)
+const enum AuthLevel {
+  Basic = "BASIC",
+  Admin = "ADMIN",
+}
 
 // Usage
-const user: KoelUser = { aadhaar: "1234-5678-9012", name: "Aariv" };
-const response: ApiResponse = { error: "Invalid Aadhaar" }; // or KoelUser
-const verifiedUser: UserWithMeta = { aadhaar: "1234-5678-9012", name: "Aariv", verified: true };
+let step: VerificationStep = VerificationStep.Approved; // 1
+let status: ResponseStatus = ResponseStatus.Success; // "SUCCESS"
+let level: AuthLevel = AuthLevel.Basic; // "BASIC" (inlined)
+```
+
+**Numeric/String Enums**: Generate runtime objects, useful for dynamic access (e.g., `Object.keys(VerificationStep)`).  
+**Const Enums**: Erased at compile time, inlined as values (e.g., `"BASIC"`), reducing code size but no runtime object.  
+**Why Use**: Numeric for ordered steps, string for explicit Aadhaar API statuses, const for static auth levels.  
+**Compiled Output**:
+
+- **Numeric/String**: JavaScript object (e.g., `VerificationStep = { Pending: 0, Approved: 1, Rejected: 2 }`).
+- **Const**: No object, just inlined values (e.g., `let level = "BASIC"`).  
+  **Use** `const enum` for fixed auth levels to save size, regular enums for runtime status lists.
+
+```typescript
+// Const Enum: Lightweight, compile-time only
+const enum ResponseStatus {
+  Success = "SUCCESS",
+  Error = "ERROR",
+}
+let status: ResponseStatus = ResponseStatus.Success; // "SUCCESS" (inlined)
+// Object.keys(ResponseStatus); // Error: No runtime object
+
+// Regular String Enum: Runtime access
+enum ResponseStatusRegular {
+  Success = "SUCCESS",
+  Error = "ERROR",
+}
+let status2: ResponseStatusRegular = ResponseStatusRegular.Success; // "SUCCESS"
+console.log(Object.values(ResponseStatusRegular)); // ["SUCCESS", "ERROR"]
 ```

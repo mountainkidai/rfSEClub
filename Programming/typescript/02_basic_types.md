@@ -26,7 +26,6 @@ function logError(): void {
 function crash(): never {
   throw new Error("Crash");
 }
-
 ```
 
 ## any in Addition Program
@@ -43,6 +42,7 @@ let score1 = "1234"; // Aadhaar-based score (string by mistake)
 let score2 = 5678;
 console.log(addScores(score1, score2)); // "12345678" (string concatenation, not addition!)
 ```
+
 ## unknown in Addition Program
 
 **What**: `unknown` accepts any value but requires type checking before operations, ensuring safety.  
@@ -59,10 +59,12 @@ function addScores(a: unknown, b: unknown): number {
 let score1: unknown = JSON.parse('{"score": 1234}').score; // API response
 let score2: unknown = 5678;
 console.log(addScores(score1, score2)); // 6912 (if score1 is number)
-
 ```
+
 ## never in Addition Program
+
 **What**: never is for functions that never return, like error handlers in validation. Benefit: Ensures TypeScript catches unhandled cases in logic.
+
 ```ts
 function validateInput(input: unknown): number {
   if (typeof input === "number") {
@@ -83,6 +85,7 @@ let score1 = 1234;
 let score2 = "5678"; // Bad input
 console.log(addScores(score1, score2)); // Throws: "Invalid input for addition"
 ```
+
 - **String**: Text data, e.g., Aadhaar number as text.
 - **Number**: Numeric values, e.g., user scores.
 - **Boolean**: True/false, e.g., verification status.
@@ -114,8 +117,8 @@ function log(): void {
 function crash(): never {
   throw new Error("Invalid Aadhaar");
 }
-
 ```
+
 ## Inferred Type
 
 Inferred type in TypeScript refers to the ability of the TypeScript compiler to automatically determine the type of a variable, expression, or function return value without requiring explicit type annotations.  
@@ -124,3 +127,4 @@ This feature significantly reduces the verbosity of code while maintaining type 
 ```ts
 let age = 30; // Inferred type: number
 const name = "Alice"; // Inferred type: "Alice" (literal type)
+```
