@@ -1,71 +1,140 @@
-## How It Happens (Non-Strict Mode)
+# Error Handling in TypeScript
 
-In non-strict mode, `this` in a global function defaults to the global object (`window`/`global`).  
-Assigning to an undeclared variable or property of `this` attaches it to the global object.  
-This pollutes the global namespace, risking conflicts, bugs, or security issues.
+Error handling is the process of responding to and managing runtime exceptions. TypeScript, being a superset of JavaScript, uses the same mechanisms (try-catch, throw, etc.), but adds type safety and structure to improve reliability.
 
-```javascript
-function leakyFunction() {
-  undeclaredVar = 42; // No 'var', 'let', or 'const'
-  console.log(this.undeclaredVar); // 42 (attached to window/global)
-}
-leakyFunction();
-console.log(window.undeclaredVar); // 42 (global leak)
-```
+## try-catch Statement
 
-### How Can Others Access `window.undeclaredVar`?
+🔹 Description:
+Wraps potentially unsafe code in a block (try) and handles any errors that occur in the catch block.
 
-Even if a user doesn’t manually check `window.undeclaredVar`, leaks are exploitable in these ways:
+Example:
 
-- **Malicious Scripts**: Attackers inject scripts (e.g., via XSS) to enumerate `window` properties:
-
-```javascript
-for (let prop in window) {
-  if (window[prop] === 42) console.log(prop, window[prop]); // Finds undeclaredVar
+```typescript
+try {
+  const value = JSON.parse("not valid JSON"); // This will throw
+} catch (error) {
+  console.error("Parsing failed!", error);
 }
 ```
 
-- **Browser Console**: Developers or attackers can open the console and inspect `window` directly.
-- **Third-Party Libraries**: Libraries loaded on your page (e.g., analytics) can accidentally or intentionally read/write to `window.undeclaredVar`, causing conflicts.
-- **Extensions**: Browser extensions with JavaScript access can scan `window` for sensitive data.
-- **Global Conflicts**: If another script uses `undeclaredVar`, your leak might overwrite it, causing bugs.
+Without the try-catch, the program would crash.
 
-### How Strict Mode Fixes This
+## Typing the error Object
 
-In strict mode (`"use strict";`):
+🔹 Description:
+In TypeScript, catch (error) is typed as unknown by default, so you need to narrow the type to access properties like message.
 
-- Assigning to undeclared variables throws a `ReferenceError`:
+ Example 1: Type assertion
 
-```javascript
-"use strict";
-undeclaredVar = 42; // ReferenceError: undeclaredVar is not defined
-```
-
-- `this` in global functions is `undefined`, so you can’t accidentally set `this.undeclaredVar` on `window`.
-- **Result**: No global leak, no exposure.
-
-```javascript
-"use strict";
-function processKyc() {
-  const aadhaarId = "1234-5678-9012"; // Explicit, scoped
-  return aadhaarId;
+```typescript
+try {
+  throw new Error("Something went wrong");
+} catch (error) {
+  const err = error as Error;
+  console.log(err.message); // Accessing the error message
 }
-processKyc();
-console.log(window.aadhaarId); // undefined (no leak)
 ```
 
-```javascript
-var name = "Aariv"; // Attached to window
-function greet() {
-  console.log(`Hello, ${window.name}!`); // Access via window
+Example 2: Type guard (instanceof)
+
+```typescript
+try {
+  throw new SyntaxError("Invalid syntax");
+} catch (error) {
+  if (error instanceof SyntaxError) {
+    console.log("Caught a syntax error:", error.message);
+  } else {
+    console.log("Some other error");
+  }
 }
-greet(); // Hello, Aariv!
-console.log(window.document); // Browser's DOM
 ```
 
-## Revisiting `this` and Context with `window`
+## Throwing Custom Errors
 
-**`this` in Global Scope**:
+🔹 Description:
+You can define your own error types by extending the Error class. This improves readability and control in large applications.
 
-- **Non-strict**: `this` is `window`.
-- **Strict**: `this` is `undefined`.
+ Example:
+
+```typescript
+class ValidationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "ValidationError";
+  }
+}
+
+function saveUser(data: any) {
+  if (!data.email) {
+    throw new ValidationError("Email is required");
+  }
+  // save logic
+}
+
+try {
+  saveUser({}); // No email
+} catch (error) {
+  if (error instanceof ValidationError) {
+    console.error("Validation failed:", error.message);
+  }
+}
+```
+
+## Handling Errors in Async/Await Functions
+
+🔹 Description:
+Async functions can also throw errors. Wrap them in try-catch for proper error handling.
+
+Example:
+
+```typescript
+async function getData() {
+  try {
+    const response = await fetch("https://invalid-url.com");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    const err = error as Error;
+    console.error("Fetch error:", err.message);
+  }
+}
+```
+
+## The Result Pattern (Functional Programming Style)
+
+🔹 Description:
+Instead of throwing exceptions, functions return success/error objects. This is useful in apps where you want to avoid try-catch in business logic.
+
+ Example:
+
+```typescript
+
+type Result<T> = 
+  | { success: true; data: T }
+  | { success: false; error: string };
+
+function divide(a: number, b: number): Result<number> {
+  if (b === 0) return { success: false, error: "Cannot divide by zero" };
+  return { success: true, data: a / b };
+}
+
+const result = divide(10, 0);
+
+if (result.success) {
+  console.log("Result:", result.data);
+} else {
+  console.error("Error:", result.error);
+}
+```
+
+## Optional: Logging or Reporting Errors
+
+In real-world apps, you may log errors to services like Sentry, LogRocket, or your backend.
+
+```typescript
+function logError(error: unknown) {
+  const err = error as Error;
+  // sendToLogger(err.message, err.stack);
+  console.error("Logged Error:", err.message);
+}
+```
