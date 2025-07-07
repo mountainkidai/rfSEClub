@@ -1,4 +1,4 @@
-# JavaScript Curriculum for RFSE Open-Source Project
+# JavaScript Curriculum for rfSE Open-Source
 
 ## Module 1: JavaScript Basics
 
