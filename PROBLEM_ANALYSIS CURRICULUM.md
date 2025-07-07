@@ -1,65 +1,113 @@
-# Problem Analysis Curriculum for rfSE Club | HP Initiative(First-Principles Approach)
+# Problem Analysis Curriculum (RFSE Open-Source Project)
 
-## Overview
+At MountainKid, we solve problems with a relentless focus on truth and impact. We dig deep to uncover root causes, break them down to undeniable first principles, eliminate waste, and build simple, scalable solutions with urgency and precision. Our approach transforms challenges into opportunities, using math and logic to create innovations that push boundaries—whether it’s health, technology, or beyond. This curriculum, designed for students from 7th grade onward, turns you into top 1% problem-solvers and engineers, ready to shape the future.
 
-Problem analysis, rooted in first-principles thinking, teaches students to break down complex problems into fundamental components, question assumptions, and build solutions from scratch. This curriculum, designed by Aariv, emphasizes on why problems exist, what the core issues are, and how to solve them innovatively. Tailored for Himachal Pradesh’s challenges, it includes case studies on landslides, tourism issues, and traffic management.
+---
 
-### Curriculum Structure
+## MountainKid Valley Product Dev Rules
 
-#### 1. Introduction to First-Principles Thinking
+### Define the Problem
 
-- **What is First-Principles Thinking?**: Break problems into fundamental truths, question assumptions, and rebuild solutions (e.g., Elon’s approach to SpaceX: rockets are expensive → why? → materials, labor → can we reduce costs?).
-- **Steps**:
-  - Identify the problem.
-  - Break it down to its core components.
-  - Question every assumption.
-  - Build a solution from first principles.
-- **Example**: Why are textbooks expensive? → Paper, printing, distribution → Can we use digital platforms instead?
+- **Dig down to the core:**
+  - **What's the problem?**
+  - **Why’s it here?**
+  - **What’s the real cost (cash, lives, time)?**
+  - **Solution: Fix the root, not the symptoms.**
+    - _Example_: Health is unaffordable because focus is on curing, not preventing—shift to proactive prevention.
 
-#### 2. Problem Analysis Framework
+### Work on the Solution:
 
-- **Define the Problem**: Clearly state the issue (e.g., landslides in Himachal).
-- **Gather Data**: Collect facts (e.g., rainfall patterns, soil types, deforestation rates).
-- **Identify Core Components**: What are the fundamental causes? (e.g., heavy rain, loose soil, lack of vegetation).
-- **Question Assumptions**: Are current solutions (e.g., retaining walls) effective? Why not?
-- **Propose Solutions**: Build from scratch (e.g., reforestation, early warning systems).
+- **Break down the known facts to First Principles**
+  - **Question every assumption:**
+    - _What is this?_
+    - _Why this?_
+  - **Boil down to undeniable truths**
+    - _e.g. cells need fuel, oxygen, waste out._
+  - **Now create the base with undeniable truths.**
+    - _Example: Physical health = 100% organ function; mental health = 100% life enjoyment._
+    - _Outcome: Now we have the first list of undeniable truths or the base._
 
-#### 3. Case Studies and Practice Questions
+### Eliminate the unwanted things:
 
-- **Case Study 1: Landslides in Himachal Pradesh**
+- **Refine the base/undeniable truths:**
+  - **Be ruthless and remove anything**
+    - _not tied to the core problem or_
+    - _not cost effective._
+  - **Add a truth back only if we need it desperately.**
+    - _Example: Ditch hospital dependency and generic advice; keep tailored fixes like “2L water for kidneys._
+    - _Outcome: Now we have the final list of things that we need to build the solution. and remember, Jump the curve, not slightly better product._
 
-  - **Problem**: Frequent landslides disrupt lives and infrastructure (e.g., Shimla-Kullu highway).
-  - **Data**: Annual rainfall 1,500 mm, 30% deforestation in 10 years, loose soil in hilly areas.
-  - **Core Components**: Heavy rain, deforestation, soil instability.
-  - **Assumption to Question**: Are concrete walls the only solution? (Costly, often fail).
-  - **Solution**: Reforestation to stabilize soil, AI-based early warning system using rainfall data.
-  - **Practice Question**: Design a low-cost early warning system for landslides using local weather data and sensors. What are the first principles involved?
+### Simplify, Optimize, Rebuild
 
-- **Case Study 2: Tourism Issues in Himachal Pradesh**
+- **Build the solution from the final list of truths:**
+  - **Add a truth back, only if**
+    - _we get stuck in development and_
+    - _we need it desperately._
+  - **Keep it simple, intuitive & scalable.**
+  - **Not satisfied? DELETE.**
+    - _Example: Sari scores organs, spots risks (e.g., “low vitamin D = weak bones”), prescribes fixes (e.g., “20-min walk in the sun b/w 10AM and 12PM” lighter skin - 10 to 15 min; darker skin - 30 to 45 min)._
+    - _Outcome: A perfect solution that focuses on the problem at micro level._
 
-  - **Problem**: Unsustainable tourism damages the environment (e.g., littering in Rohtang Pass).
-  - **Data**: 1.5 million tourists annually, 500 tons of waste generated, lack of regulation.
-  - **Core Components**: High tourist influx, lack of waste management, unregulated activities.
-  - **Assumption to Question**: Do we need to ban tourism? (Hurts local economy).
-  - **Solution**: Blockchain-based tourist tracking (public price ledger, as in Phunsuk), mandatory eco-fees, AI waste monitoring.
-  - **Practice Question**: How can we use technology to enforce sustainable tourism in Himachal? Break down the problem into first principles.
+### Act with sense of urgency:
 
-- **Case Study 3: Traffic Management in Shimla**
-  - **Problem**: Traffic congestion in Shimla during tourist season (e.g., Mall Road).
-  - **Data**: 10,000 vehicles daily in peak season, narrow roads, limited parking.
-  - **Core Components**: High vehicle volume, limited road capacity, poor parking management.
-  - **Assumption to Question**: Do we need wider roads? (Not feasible in hilly terrain).
-  - **Solution**: AI-based traffic prediction, smart parking apps, incentivize public transport.
-  - **Practice Question**: Design a traffic management system for Shimla using first-principles thinking. What are the core factors causing congestion?
+- **Imagine today is our last day to prove our product for a 100 crores investment. Now pull yourself together, your neurons, your sensory organs, your mad passion and improve the product. Remember, a perfect solution will always have issues since we do it in an unconventional way, so iterate quickly.**
+  - **One MountainKid AI engineer is equal to 4 engineers in terms of time:outcome.**
+  - **Build, test, iterate—in days, not months.**
+  - **Test with real people, track the issues, tweak fast and deploy.**
+  - **If the task can be done in 30minutes and has a high impact, just prioritize.**
+    - _Example: adding a share button on our products might get us more people._
+    - _Outcome: A scrappy product but with a real solution that can become top 1% product with iterations._
 
-#### 4. Practice Exercises
+### Automate, Innovate, Scale relentlessly
 
-- **Exercise 1**: A village in Himachal faces water scarcity. Break down the problem: Why is there a shortage? (Rainfall, storage, distribution). Propose a solution using first principles.
-- **Exercise 2**: Overcrowding at Jakhu Temple during festivals. Identify core issues (visitor volume, space, timing) and propose a solution (e.g., timed entry slots, virtual darshan).
-- **Exercise 3**: Deforestation in Kullu due to tourism infrastructure. Question assumptions (e.g., do we need more hotels?) and propose a sustainable alternative.
+- **Automate**
+  - **If code can replace human**
+- **Innovate:**
+  - **If we can jump a curve/innovate with**
+    - _fewer resources,_
+    - _fewer team,_
+    - _and can immediately start working,_
+    - _can release 30% of your idea in the next iteration_
+    - _burn through nights and JUST DO IT._
+  - _else:_
+    - _do it either way_
+    - _Add it to the futures features list._
+    - _work on it everyday with 10% of extra time_
+    - _Release in the next 5 iterations._
+- **Scale:**
+  - **Always build custom tech for**
+    - _low-latency,_
+    - _high-performance_
+    - _scalability_
+  - **Save resources:**
+    - _Money:_
+      - _Email and get free credits for servers/api plans,_
+      - _Use free tools_
+    - _Time & Manpower:_
+      - _Create modules for reusability._
+    - _Example: Sari automates diagnostics, scales to every home with less resources._
+    - _Outcome: A great product that works as better as any product at just 1/10th of what conventional people invest and saves money to both the company and the people._
 
-#### 5. Expected Outcomes
+### Build with Precision and Heart
 
-- Students will master first-principles thinking, applying it to real-world problems.
-- Develop innovative solutions for Himachal’s challenges, fostering a problem-solving mindset.
-- Prepare for case studies in tech and engineering, aligning with MountainKid’s mission to build future engineers.
+- **Every step must tie to truth—**
+  - **no guesses,**
+  - **no vague fixes.**
+- **Build like it’s for you:**
+  - _clear,_
+  - _purposeful,_
+  - _impactful._
+- _Example: Sari predicts disease, burnout with organ/lifestyle scores, not generic BS._
+- _Outcome: MountainKid Valley -- the next tech valley in the world._
+
+### Engineer is the best reward/position one could ever get in life, cuz we get to have a chance to push the human civilization forward. some at small scale and some at larger scale, but if you zoom out, every dot is equally important.
+
+### Engineer is not a designation someone gives you, its thought process like an artist. cuz artist is the only person who can see the things which are invisible to the ordinary.
+
+### Aariv,
+
+### MountainKid Valley 🌱🏔️.
+
+---
+
+###
