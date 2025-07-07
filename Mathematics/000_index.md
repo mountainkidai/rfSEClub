@@ -66,13 +66,13 @@
 
 ## Module 2: Intermediate Mathematics
 
-8. **Introduction to Algebra**
+1. **Introduction to Algebra**
 
    - 8.1 What is a Variable?: _Intro: Use letters for unknowns like a secret code!_ _Application: Guessing ages (e.g., x + 5)._
    - 8.2 Writing Expressions: _Intro: Build math sentences with variables!_ _Application: Total cost (e.g., 2x + 3)._
    - 8.3 Substituting Values: _Intro: Plug in numbers to solve!_ _Application: Checking pocket money (e.g., 2x at x = 3)._
 
-9. **Working with Negatives**
+2. **Working with Negatives**
 
    - 9.1 Number Line Basics: _Intro: A line to see negatives!_ _Application: Temperature drops (e.g., -2°C)._
    - 9.2 Adding Negatives: _Intro: Combine negatives like debts!_ _Application: Tracking losses (-2 + -3)._
@@ -80,7 +80,7 @@
    - 9.4 Multiplying Negatives: _Intro: Two negatives make positive!_ _Application: Repeated losses becoming gains._
    - 9.5 Dividing Negatives: _Intro: Division with negatives has rules!_ _Application: Sharing negative scores._
 
-10. **Ratios, Proportions, and Percentages**
+3. **Ratios, Proportions, and Percentages**
 
     - 10.1 What is a Ratio?: _Intro: Compare things like friends to toys!_ _Application: Mixing paint (3:2)._
     - 10.2 Solving Proportions: _Intro: Make two ratios equal!_ _Application: Scaling recipes (2/4 = x/8)._
@@ -88,7 +88,7 @@
     - 10.4 Percent to Fraction: _Intro: Turn percents into fractions!_ _Application: 25% = 1/4 of a pie._
     - 10.5 Fraction to Percent: _Intro: Convert fractions to percents!_ _Application: 1/2 = 50% chance._
 
-11. **Geometry for Kids**
+4. **Geometry for Kids**
 
     - 11.1 Lines and Angles: _Intro: Straight lines and turns!_ _Application: Drawing house plans._
     - 11.2 Shapes: _Intro: Learn triangles and squares!_ _Application: Building models._
@@ -96,38 +96,38 @@
     - 11.4 Area of Shapes: _Intro: Calculate the inside space!_ _Application: Carpet for a room (4 × 3)._
     - 11.5 Measuring Angles: _Intro: Use a protractor for turns!_ _Application: Setting up a stage._
 
-12. **Solving Simple Equations**
+5. **Solving Simple Equations**
 
     - 12.1 One-Step Equations: _Intro: Solve with one move!_ _Application: Finding lost marbles (x + 3 = 7)._
     - 12.2 Balancing Equations: _Intro: Keep both sides equal!_ _Application: Weighing items._
     - 12.3 Checking Solutions: _Intro: Test your answer!_ _Application: Verifying calculations._
 
-13. **Expressions with Variables**
+6. **Expressions with Variables**
 
     - 13.1 PEMDAS with x: _Intro: Use order with variables!_ _Application: Budget with unknowns._
     - 13.2 Simplifying: _Intro: Combine like terms!_ _Application: Totaling similar items._
     - 13.3 Evaluating: _Intro: Plug in values!_ _Application: Cost with variable prices._
 
-14. **Algebraic Expansion**
+7. **Algebraic Expansion**
 
     - 14.1 Distributive Property: _Intro: Spread out multiplication!_ _Application: Totaling group costs._
     - 14.2 Combining Terms: _Intro: Add similar terms!_ _Application: Summing scores._
     - 14.3 Expanding Binomials: _Intro: Multiply two expressions!_ _Application: Area of expanded rooms._
 
-15. **Linear Equations**
+8. **Linear Equations**
 
     - 15.1 One-Step: _Intro: Easy solving!_ _Application: Finding age (x + 5 = 10)._
     - 15.2 Two-Step: _Intro: Two moves to solve!_ _Application: Savings plan._
     - 15.3 Both Sides: _Intro: Balance both sides!_ _Application: Equal teams._
     - 15.4 Word Problems: _Intro: Story to math!_ _Application: “Twice x plus 3” (2x + 3)._
 
-16. **Inequalities for Beginners**
+9. **Inequalities for Beginners**
 
     - 16.1 Solving: _Intro: Find ranges!_ _Application: Time limits (x > 2)._
     - 16.2 Graphing: _Intro: Draw solutions!_ _Application: Age restrictions._
     - 16.3 Compound: _Intro: Two conditions!_ _Application: Speed ranges._
 
-17. **Functions Made Fun**
+10. **Functions Made Fun**
     - 17.1 What is a Function?: _Intro: A rule machine!_ _Application: Height growth (f(x) = x + 1)._
     - 17.2 Function Rules: _Intro: Follow the rule!_ _Application: Game scores._
     - 17.3 Domain: _Intro: Allowed inputs!_ _Application: Valid ages._
@@ -135,14 +135,14 @@
 
 ## Module 3: Advanced Mathematics
 
-18. **Systems of Equations**
+1. **Systems of Equations**
 
     - 18.1 Graphing Method: _Intro: Find where lines meet!_ _Application: Meeting points._
     - 18.2 Substitution: _Intro: Swap to solve!_ _Application: Mixing drinks._
     - 18.3 Elimination: _Intro: Add to cancel!_ _Application: Team balances._
     - 18.4 Real-Life: _Intro: Practical mixes!_ _Application: Blending paints._
 
-19. **Quadratic Adventures**
+2. **Quadratic Adventures**
 
     - 19.1 Quadratic Form: _Intro: Curved equations!_ _Application: Ball throws._
     - 19.2 Factoring: _Intro: Split to solve!_ _Application: Area splits._
@@ -150,7 +150,7 @@
     - 19.4 Graphing: _Intro: Draw the curve!_ _Application: Park designs._
     - 19.5 Word Problems: _Intro: Story curves!_ _Application: Jump distances._
 
-20. **Set Theory Basics**
+3. **Set Theory Basics**
 
     - 20.1 Sets: _Intro: Groups of items!_ _Application: Class lists._
     - 20.2 Subsets: _Intro: Smaller groups!_ _Application: Team selections._
@@ -158,40 +158,40 @@
     - 20.4 Intersection: _Intro: Shared items!_ _Application: Common likes._
     - 20.5 Cardinality: _Intro: Count the group!_ _Application: Attendance._
 
-21. **Logic Games**
+4. **Logic Games**
 
     - 21.1 Propositions: _Intro: True or false statements!_ _Application: Game rules._
     - 21.2 AND/OR/NOT: _Intro: Connect ideas!_ _Application: Decision trees._
     - 21.3 If-Then: _Intro: Cause and effect!_ _Application: Weather plans._
     - 21.4 Truth Tables: _Intro: Map outcomes!_ _Application: Puzzle solving._
 
-22. **Discrete Relations**
+5. **Discrete Relations**
 
     - 22.1 Equivalence: _Intro: Same value rules!_ _Application: Matching pairs._
     - 22.2 Partial Orders: _Intro: Order without all!_ _Application: Game rankings._
     - 22.3 Examples: _Intro: Real-life order!_ _Application: Family trees._
 
-23. **Counting Magic**
+6. **Counting Magic**
 
     - 23.1 Permutations: _Intro: Arrange everything!_ _Application: Lineups._
     - 23.2 Combinations: _Intro: Choose some!_ _Application: Team picks._
     - 23.3 Binomial Expansion: _Intro: Expand powers!_ _Application: Probability._
     - 23.4 Puzzles: _Intro: Fun challenges!_ _Application: Game strategies._
 
-24. **Graph Theory Fun**
+7. **Graph Theory Fun**
 
     - 24.1 Vertices and Edges: _Intro: Points and lines!_ _Application: Maps._
     - 24.2 Directed Graphs: _Intro: One-way paths!_ _Application: Traffic._
     - 24.3 Shortest Path: _Intro: Fastest route!_ _Application: Delivery._
     - 24.4 Games: _Intro: Play with graphs!_ _Application: Friendship networks._
 
-25. **Recurrence Patterns**
+8. **Recurrence Patterns**
 
     - 25.1 Simple Recurrence: _Intro: Patterns that repeat!_ _Application: Growth models._
     - 25.2 Tree Method: _Intro: Draw to solve!_ _Application: Decision trees._
     - 25.3 Master Theorem: _Intro: Big pattern rule!_ _Application: Algorithm speed._
 
-26. **Number Puzzles**
+9. **Number Puzzles**
 
     - 26.1 Prime Numbers: _Intro: Special numbers!_ _Application: Simple codes._
     - 26.2 Factorization: _Intro: Break it down!_ _Application: Fraction help._
@@ -199,7 +199,7 @@
     - 26.4 GCD: _Intro: Biggest shared number!_ _Application: Common dates._
     - 26.5 Extended GCD: _Intro: Solve with two!_ _Application: Cryptography basics._
 
-27. **Probability and Stats**
+10. **Probability and Stats**
     - 27.1 Coin Toss: _Intro: Chance games!_ _Application: Guessing games._
     - 27.2 Independent Events: _Intro: Separate chances!_ _Application: Dice rolls._
     - 27.3 Distributions: _Intro: Data shapes!_ _Application: Test scores._

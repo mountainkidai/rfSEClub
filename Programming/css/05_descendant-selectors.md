@@ -27,6 +27,7 @@ nav a {
     color: #333;
 }
 ```
+
 ## Multiple Levels
 
 Descendant selectors work at any nesting level, regardless of how deeply nested they are:

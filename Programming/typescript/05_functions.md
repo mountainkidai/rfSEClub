@@ -1,4 +1,4 @@
-# Functions (Super Concise, Koel Context)
+## **Functions (Super Concise, Koel Context)**
 
 **Explanation**: TypeScript functions use type annotations for parameters and return values to ensure type safety in Koel’s Aadhaar auth system. Key features:
 
@@ -41,7 +41,7 @@ console.log(processInput(123)); // 123
 
 **Function overloading** lets a function handle different input types with specific outputs, using multiple signatures to define valid input/output pairs. The implementation handles all cases. It’s like telling TypeScript, “This function works only for these specific types,” ensuring strict safety.
 
-# Compile Time vs. Runtime in TypeScript (Super Concise, Koel Context)
+## **Compile Time vs. Runtime in TypeScript (Super Concise, Koel Context)**
 
 - **Compile Time:** When TypeScript (tsc) checks types and converts .ts to .js. Catches type errors (e.g., wrong Aadhaar input) before code runs. Types (e.g., signatures) exist only here.
 - **Runtime:** When compiled JavaScript runs (e.g., in Node.js). Types are erased; only logic (e.g., if checks) matters. Errors not caught at compile time can crash here.

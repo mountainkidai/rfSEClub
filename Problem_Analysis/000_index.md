@@ -15,7 +15,7 @@ At MountainKid, we solve problems with a relentless focus on truth and impact. W
   - **Solution: Fix the root, not the symptoms.**
     - _Example_: Health is unaffordable because focus is on curing, not preventing—shift to proactive prevention.
 
-### Work on the Solution:
+### Work on the Solution
 
 - **Break down the known facts to First Principles**
   - **Question every assumption:**
@@ -27,7 +27,7 @@ At MountainKid, we solve problems with a relentless focus on truth and impact. W
     - _Example: Physical health = 100% organ function; mental health = 100% life enjoyment._
     - _Outcome: Now we have the first list of undeniable truths or the base._
 
-### Eliminate the unwanted things:
+### Eliminate the unwanted things
 
 - **Refine the base/undeniable truths:**
   - **Be ruthless and remove anything**
@@ -48,7 +48,7 @@ At MountainKid, we solve problems with a relentless focus on truth and impact. W
     - _Example: Sari scores organs, spots risks (e.g., “low vitamin D = weak bones”), prescribes fixes (e.g., “20-min walk in the sun b/w 10AM and 12PM” lighter skin - 10 to 15 min; darker skin - 30 to 45 min)._
     - _Outcome: A perfect solution that focuses on the problem at micro level._
 
-### Act with sense of urgency:
+### Act with sense of urgency
 
 - **Imagine today is our last day to prove our product for a 100 crores investment. Now pull yourself together, your neurons, your sensory organs, your mad passion and improve the product. Remember, a perfect solution will always have issues since we do it in an unconventional way, so iterate quickly.**
   - **One MountainKid AI engineer is equal to 4 engineers in terms of time:outcome.**
@@ -100,13 +100,13 @@ At MountainKid, we solve problems with a relentless focus on truth and impact. W
 - _Example: Sari predicts disease, burnout with organ/lifestyle scores, not generic BS._
 - _Outcome: MountainKid Valley -- the next tech valley in the world._
 
-### Engineer is the best reward/position one could ever get in life, cuz we get to have a chance to push the human civilization forward. some at small scale and some at larger scale, but if you zoom out, every dot is equally important.
+### Engineer is the best reward/position one could ever get in life, cuz we get to have a chance to push the human civilization forward. some at small scale and some at larger scale, but if you zoom out, every dot is equally important
 
-### Engineer is not a designation someone gives you, its thought process like an artist. cuz artist is the only person who can see the things which are invisible to the ordinary.
+### Engineer is not a designation someone gives you, its thought process like an artist. cuz artist is the only person who can see the things which are invisible to the ordinary
 
-### Aariv,
+### Aariv
 
-### MountainKid Valley 🌱🏔️.
+### MountainKid Valley 🌱🏔️
 
 ---
 
