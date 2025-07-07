@@ -233,11 +233,3 @@ The English curriculum for rfSE Club, designed by MountainKid AI, equips 10th-12
 - **Cultural and Emotional Intelligence**: Students will work effectively in diverse, global teams.
 
 ---
-
-## Why This Curriculum?
-
-- **First-Principles Approach**: Each skill is broken down to its core purpose (e.g., why speak? To convey ideas clearly).
-- **Engineering and Leadership Focus**: Tailored for 10th-12th graders to become engineers and leaders, with practical applications (e.g., pitching a tech solution).
-- **Lean and Efficient**: Reduced from 48 to 30 sessions, removing redundancy (e.g., merged repeated sessions on parts of speech).
-- **Real-World Applications**: Focus on Himachal’s challenges (e.g., traffic, tourism), ensuring relevance.
-- **Holistic Development**: Balances communication (writing, speaking) with leadership and interpersonal skills, preparing students for global engineering roles.
