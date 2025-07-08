@@ -12,7 +12,7 @@
 8. **Forms Basics**: `<form>`, `<input>` (text, submit), `action`, `method`.
 9. **Tables**: `<table>`, `<tr>`, `<th>`, `<td>`, basic structure.
 10. **Comments**: `<!-- -->` for documentation.
-11. **Entities and Special Characters**: `<`, `>`, ` `, Unicode usage.
+11. **Entities and Special Characters**: `<`, `>`, `&`, Unicode usage.
 
 ## Module 2: Intermediate HTML
 
