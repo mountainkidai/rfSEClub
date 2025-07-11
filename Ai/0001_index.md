@@ -18,10 +18,6 @@ The pacing guide is tailored for different age groups and skill levels to ensure
 
 ## Module 1: AI Mathematics Foundations
 
-**Goal**: Master the essential math building blocks for AI.
-
----
-
 ### 1. Linear Algebra Basics
 
 #### 1.1 Understanding Scalars

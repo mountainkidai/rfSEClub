@@ -177,9 +177,9 @@ _Goal_: Master the essential math building blocks for AI.
      - _AI Concept Connection_: Minimizes prediction errors.
      - _Math Prerequisites_: Matrices; regression techniques.
 
-#### Module 2: Intermediate AI Mathematics
+## Module 2: Intermediate AI Mathematics
 
-4. **Multivariable Calculus**
+1. **Multivariable Calculus**
 
    - **4.1 Defining Functions of Multiple Variables**
      - _Intro_: Equations with many inputs, like tuning a robot!
@@ -217,7 +217,7 @@ _Goal_: Master the essential math building blocks for AI.
      - _AI Concept Connection_: Refines optimization.
      - _Math Prerequisites_: Gradients; second derivatives.
 
-5. **Machine Learning Fundamentals**
+2. **Machine Learning Fundamentals**
 
    - **5.1 Designing Learning Algorithms**
      - _Intro_: Teach AI to learn from data step-by-step!
@@ -275,7 +275,7 @@ _Goal_: Master the essential math building blocks for AI.
      - _AI Concept Connection_: Inspires deeper architectures.
      - _Math Prerequisites_: Optimization; data handling.
 
-6. **Optimization for Training Deep Models**
+3. **Optimization for Training Deep Models**
 
    - **6.1 Understanding How Learning Differs from Pure Optimization**
      - _Intro_: Learning adapts, unlike static optimization!
@@ -313,9 +313,9 @@ _Goal_: Master the essential math building blocks for AI.
      - _AI Concept Connection_: Enhances training efficiency.
      - _Math Prerequisites_: Optimization; meta-techniques.
 
-#### Module 3: Advanced AI Mathematics
+## Module 3: Advanced AI Mathematics
 
-7.  **Deep Feedforward Networks**
+1. **Deep Feedforward Networks**
 
     - **7.1 Learning the XOR Example**
       - _Intro_: Solve a tricky logic puzzle with AI!
@@ -338,7 +338,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Shapes network performance.
       - _Math Prerequisites_: Network theory; design.
 
-8.  **Regularization for Deep Learning**
+2. **Regularization for Deep Learning**
 
     - **8.1 Applying Parameter Norm Penalties**
       - _Intro_: Limit weight sizes to stay in control!
@@ -411,7 +411,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Enhances feature robustness.
       - _Math Prerequisites_: Calculus; manifolds.
 
-9.  **Convolutional Networks**
+3. **Convolutional Networks**
 
     - **9.1 Performing the Convolution Operation**
       - _Intro_: Slide a filter over data, like scanning a picture!
@@ -469,7 +469,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Connects to deep learning roots.
       - _Math Prerequisites_: Convolution; historical context.
 
-10. **Sequence Modeling: Recurrent and Recursive Networks**
+4. **Sequence Modeling: Recurrent and Recursive Networks**
 
     - **10.1 Unfolding Computational Graphs**
       - _Intro_: Expand time steps into a clear picture!
@@ -532,7 +532,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Enhances memory precision.
       - _Math Prerequisites_: RNNs; memory design.
 
-11. **Practical Methodology**
+5. **Practical Methodology**
 
     - **11.1 Defining Performance Metrics**
       - _Intro_: Measure how well AI performs!
@@ -565,7 +565,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Demonstrates practical AI use.
       - _Math Prerequisites_: Neural networks; recognition.
 
-12. **Linear Factor Models**
+6. **Linear Factor Models**
 
     - **12.1 Implementing Probabilistic PCA and Factor Analysis**
       - _Intro_: Find hidden patterns with a probability twist!
@@ -593,7 +593,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Enhances dimensionality reduction.
       - _Math Prerequisites_: PCA; manifold theory.
 
-13. **Autoencoders**
+7. **Autoencoders**
 
     - **13.1 Building Undercomplete Autoencoders**
       - _Intro_: Compress data into a smaller form!
@@ -641,7 +641,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Solves real-world data tasks.
       - _Math Prerequisites_: Autoencoder basics.
 
-14. **Representation Learning**
+8. **Representation Learning**
 
     - **14.1 Performing Greedy Layer-Wise Unsupervised Pretraining**
       - _Intro_: Build layers step-by-step without labels!
@@ -674,7 +674,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Enhances interpretability.
       - _Math Prerequisites_: Representation learning.
 
-15. **Structured Probabilistic Models for Deep Learning**
+9. **Structured Probabilistic Models for Deep Learning**
 
     - **15.1 Addressing the Challenge of Unstructured Modeling**
       - _Intro_: Tackle messy data without structure!
@@ -712,7 +712,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Integrates methods.
       - _Math Prerequisites_: Deep learning; graphs.
 
-16. **Monte Carlo Methods**
+10. **Monte Carlo Methods**
 
     - **16.1 Mastering Sampling and Monte Carlo Methods**
       - _Intro_: Use random guesses to tackle big problems!
@@ -740,7 +740,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Addresses mode issues.
       - _Math Prerequisites_: Gibbs sampling; modes.
 
-17. **Confronting the Partition Function**
+11. **Confronting the Partition Function**
 
     - **17.1 Computing the Log-Likelihood Gradient**
       - _Intro_: Measure how likelihood shifts!
@@ -778,7 +778,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Normalizes probabilities.
       - _Math Prerequisites_: Probability; normalization.
 
-18. **Approximate Inference**
+12. **Approximate Inference**
 
     - **18.1 Framing Inference as Optimization**
       - _Intro_: Turn guessing into a math challenge!
@@ -806,7 +806,7 @@ _Goal_: Master the essential math building blocks for AI.
       - _AI Concept Connection_: Optimizes inference.
       - _Math Prerequisites_: Variational methods; learning.
 
-19. **Deep Generative Models**
+13. **Deep Generative Models**
 
     - **19.1 Constructing Boltzmann Machines**
       - _Intro_: Build a probability network!
