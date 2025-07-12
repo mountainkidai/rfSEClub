@@ -93,8 +93,8 @@ Made by MountainKid AI, Jakhu Hill,Shimla
 
 ## 14. Utility Types
 
-- **Partial`<T>`**: Makes all properties optional.
-- **Required`<T>`**: Makes all properties required.
+- **Partial&lt;T&gt;**: Makes all properties optional.
+- **Required&lt;T&gt;**: Makes all properties required.
 - **Pick<T, K>**: Selects specific properties.
 - **Omit<T, K>**: Excludes specific properties.
 - **Record<K, T>**: Creates an object type with keys `K` and values `T`.

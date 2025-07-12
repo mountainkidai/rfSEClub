@@ -18,10 +18,6 @@ The pacing guide is tailored for different age groups and skill levels to ensure
 
 ## Module 1: AI Mathematics Foundations
 
-**Goal**: Master the essential math building blocks for AI.
-
----
-
 ### 1. Linear Algebra Basics
 
 #### 1.1 Understanding Scalars
@@ -962,7 +958,7 @@ The pacing guide is tailored for different age groups and skill levels to ensure
 
 ---
 
-# Module 3: Advanced AI Mathematics
+## Module-3: Advanced AI Mathematics
 
 This module dives into the advanced mathematical foundations powering modern AI systems, with a focus on deep learning techniques. Below is the continuation from section 7 through to the end, covering critical topics for understanding and implementing advanced AI models.
 
@@ -2999,7 +2995,7 @@ _Note_: From here, topics become more advanced and are tailored for college-leve
 
 ---
 
-# Module 3: Advanced AI Mathematics - Sections 19.10 to 19.14
+## Module 3: Advanced AI Mathematics - Sections 19.10 to 19.14
 
 ## 19.10 Designing Directed Generative Nets
 

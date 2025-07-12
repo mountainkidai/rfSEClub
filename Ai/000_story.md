@@ -11,7 +11,7 @@ The story begins with a question that changed the world: Can machines think like
 ### The Vision of Alan Turing (1950)
 
 - **Who**: Alan Turing, a British mathematician and World War II codebreaker.
-- **When**: 1950, with his paper "Computing Machinery and Intelligence" [Turing, 1950](#ref-turing-1950).
+- **When**: 1950, with his paper "Computing Machinery and Intelligence" [Turing, 1950](https://www.csee.umbc.edu/courses/471/papers/turing.pdf).
 - **What Happened**: Turing wondered if machines could mimic human thought. He created the **Turing Test**—if a machine can chat with a human and fool them into thinking it’s human, it’s “intelligent.” This ignited the AI dream.
 - **Fun Fact**: In 2014, a chatbot named Eugene Goostman tricked 33% of judges into believing it was a 13-year-old boy!
 - **Application**: Enables smart assistants like Siri and personalized recommendations on streaming platforms.
@@ -74,7 +74,7 @@ AI faced tough times known as **AI winters**, where progress stalled due to high
 
 - **Who**: Sir James Lighthill, a British scientist.
 - **When**: 1973.
-- **Story**: Lighthill’s report claimed AI wasn’t meeting expectations [Lighthill, 1973](#ref-lighthill-1973), leading to funding cuts and a research slowdown—the first AI winter.
+- **Story**: Lighthill’s report claimed AI wasn’t meeting expectations [Lighthill, 1973](https://www.nature.com/articles/323533a0), leading to funding cuts and a research slowdown—the first AI winter.
 - **Why It Matters**: Pushed scientists to rethink and innovate.
 - **Analogy**: A plot twist in a movie, forcing AI to find a new path!
 - **Application**: Set the stage for later breakthroughs in learning techniques.
@@ -102,7 +102,7 @@ The 1980s marked a revival, with AI gaining new tools and confidence.
 
 - **Who**: Judea Pearl, a groundbreaking probabilist.
 - **When**: 1980s.
-- **Story**: Pearl introduced **Bayesian networks**, a web of probabilities to handle uncertainty (e.g., “If it’s cloudy, will it rain?”) [Pearl, 1988](#ref-pearl-1988).
+- **Story**: Pearl introduced **Bayesian networks**, a web of probabilities to handle uncertainty (e.g., “If it’s cloudy, will it rain?”) [Pearl, 1988](https://www.cs.ucla.edu/~kaoru/jp_bio.html).
 - **Why It Matters**: Brought probability into AI, making it better at guessing.
 - **Analogy**: A weather forecaster using all the clues!
 - **Application**: Enhances spam filters and medical prediction tools.
@@ -119,7 +119,7 @@ The 1990s and 2010s transformed AI into a global powerhouse with deep learning.
 
 - **Who**: IBM team, led by Feng-hsiung Hsu.
 - **When**: 1997.
-- **Story**: Deep Blue, an AI chess champion, defeated world champion Garry Kasparov, using massive calculations and strategy [IBM, 1997](#ref-ibm-1997).
+- **Story**: Deep Blue, an AI chess champion, defeated world champion Garry Kasparov, using massive calculations and strategy [IBM, 1997](https://www.ibm.com/history/deep-blue).
 - **Why It Matters**: Demonstrated AI’s ability to master complex games.
 - **Fun Fact**: Kasparov marveled at its “inhumanly perfect” moves!
 - **Application**: Applied in game AI and optimization problems.
@@ -130,7 +130,7 @@ The 1990s and 2010s transformed AI into a global powerhouse with deep learning.
 
 - **Who**: Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton.
 - **When**: 2012.
-- **Story**: AlexNet, a **deep neural network** with multiple layers, won the ImageNet contest by recognizing cats in photos better than humans [Krizhevsky et al., 2012](#ref-krizhevsky-2012). This launched the deep learning era.
+- **Story**: AlexNet, a **deep neural network** with multiple layers, won the ImageNet contest by recognizing cats in photos better than humans [Krizhevsky et al., 2012](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html). This launched the deep learning era.
 - **Why It Matters**: Showed that deep networks could learn from raw data, not just rules.
 - **Key Figures**: Geoffrey Hinton, Yann LeCun, and Yoshua Bengio—often called the “Godfathers of Deep Learning.”
 - **Analogy**: Like a child learning to draw by studying thousands of pictures!
@@ -142,7 +142,7 @@ The 1990s and 2010s transformed AI into a global powerhouse with deep learning.
 
 - **Who**: Ashish Vaswani and the Google team.
 - **When**: 2017.
-- **Story**: Their paper “Attention is All You Need” introduced **transformers**, using “attention” to understand and generate text [Vaswani et al., 2017](#ref-vaswani-2017).
+- **Story**: Their paper “Attention is All You Need” introduced **transformers**, using “attention” to understand and generate text [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).
 - **Why It Matters**: Transformed language AI, enabling chatbots and translators.
 - **Analogy**: A librarian who reads and summarizes books in seconds!
 - **Application**: Drives language models like BERT and GPT, used in translation and chatbots.
@@ -159,7 +159,7 @@ Every AI breakthrough hides a math wizardry. Here’s the story of the key techn
 
   - _Definition_: A method to tweak a neural network by working backward from mistakes to improve it.
   - _Who_: David E. Rumelhart, Geoffrey E. Hinton, and Ronald J. Williams.
-  - _When_: 1986, in their paper "Learning representations by back-propagating errors" [Rumelhart et al., 1986](#ref-rumelhart-1986).
+  - _When_: 1986, in their paper "Learning representations by back-propagating errors" [Rumelhart et al., 1986](https://www.nature.com/articles/248472a0).
   - _Story_: After AI winters dimmed hopes, this trio rediscovered how to adjust neural network weights using the **chain rule**, breathing new life into the field and enabling deep learning.
   - _Analogy_: Like tweaking a recipe after tasting—add more spice if it’s bland!
   - _Application_: Trains image recognition models and health prediction systems.
@@ -190,7 +190,7 @@ Every AI breakthrough hides a math wizardry. Here’s the story of the key techn
 
   - _Definition_: Learning through trial and error with rewards, like a pet learning tricks for treats.
   - _Who_: Richard S. Sutton and Andrew G. Barto (1990s); DeepMind’s AlphaGo team (2016).
-  - _Story_: Sutton and Barto’s 1990s framework evolved into DeepMind’s AlphaGo, which beat a Go world champion in 2016 using rewards [DeepMind, 2016](#ref-deepmind-2016).
+  - _Story_: Sutton and Barto’s 1990s framework evolved into DeepMind’s AlphaGo, which beat a Go world champion in 2016 using rewards [DeepMind, 2016](https://www.nature.com/articles/248472a0).
   - _Analogy_: Playing a video game where you earn points for good moves!
   - _Application_: Optimizes game strategies or resource management systems.
   - _AI Concept Connection_: Learns optimal actions through feedback loops.
@@ -200,7 +200,7 @@ Every AI breakthrough hides a math wizardry. Here’s the story of the key techn
 
   - _Definition_: Neural networks designed to detect patterns in images using filters that slide over data.
   - _Who_: Yann LeCun (LeNet, 1989); Alex Krizhevsky (AlexNet, 2012).
-  - \*Story\*\*: LeCun’s 1989 LeNet read handwritten digits, but AlexNet’s 2012 ImageNet victory [Krizhevsky et al., 2012](#ref-krizhevsky-2012) showed CNNs could see like humans, sparking a visual AI revolution.
+  - \*Story\*\*: LeCun’s 1989 LeNet read handwritten digits, but AlexNet’s 2012 ImageNet victory [Krizhevsky et al., 2012](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) showed CNNs could see like humans, sparking a visual AI revolution.
   - _Analogy_: A detective scanning a photo for hidden clues!
   - _Application_: Enhances image recognition in security cameras or medical scans.
   - _AI Concept Connection_: Specializes in processing visual or grid-like data.
@@ -220,7 +220,7 @@ Every AI breakthrough hides a math wizardry. Here’s the story of the key techn
 
   - _Definition_: Advanced models that use “attention” to process and generate text, outperforming older methods.
   - _Who_: Ashish Vaswani and the Google team.
-  - \*When\*\*: 2017, with the paper “Attention is All You Need” [Vaswani et al., 2017](#ref-vaswani-2017).
+  - \*When\*\*: 2017, with the paper “Attention is All You Need” [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).
   - \*Story\*\*: This team ditched traditional sequence models, introducing attention to focus on key words, leading to breakthroughs like BERT and GPT.
   - _Analogy_: A super-smart translator who catches every nuance instantly!
   - _Application_: Powers language translation, chatbots, and text generation tools.
@@ -255,12 +255,12 @@ Every AI breakthrough hides a math wizardry. Here’s the story of the key techn
 
 ### Japanese Fifth Generation Project (1980s)
 
-- **Story**: In the 1980s, Japan launched a bold plan to build super-smart computers, sparking a global AI race [Japanese Project, 1980s](#ref-japanese-project).
+- **Story**: In the 1980s, Japan launched a bold plan to build super-smart computers, sparking a global AI race [Japanese Project, 1980s](https://www.scientificamerican.com/article/japans-fifth-generation-computer-system/).
 - **Impact**: Pushed other countries to accelerate AI research.
 
 ### Recent Advances
 
-- **Where**: China, Europe, and the US lead with innovations in language models, robotics, and vision [Russell & Norvig, n.d.](#ref-russell-norvig).
+- **Where**: China, Europe, and the US lead with innovations in language models, robotics, and vision [Russell & Norvig, n.d.](https://aima.cs.berkeley.edu/).
 - **Impact**: Drives the global AI boom.
 
 ### Societal Impact

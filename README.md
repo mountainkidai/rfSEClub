@@ -12,6 +12,16 @@ MountainKid Innovations Private Limited / MountainKid AI, led by Aariv, is a Shi
 
 Build India’s next tech valley (MountainKid Valley) by 2030 in Himachal, making it one of the top 5 economies in the country. And to do that, we need real engineers but since the conventional education system isn't pacing up with the advancement around the world, we are building rfSE Club to empower students with first-principles thinking,mathematics,problem analysis and programming equipping them to innovate/invent to solve problems. At the moment, we are working actively in preparing the curriculum with quick iterations. Simultaneously we are connecting schools, colleges and individual free minded souls to Engineers at MountainKid bypassing the traditional education system. And hopefully by the end of this year, we will be releasing a virtual school software for everyone to improve the user experience.
 
+### Why rfSE Pro Club?
+
+- **Membership Based**: Affordable monthly/one-time fee, less than the cost of one meal a day.
+- **Small Group Learning**: Each room has a max of 15 students, prioritizing quality over quantity.
+- **Local Language**: We discuss in a language students are most comfortable with, ensuring high comprehension.
+- **Guidance & Support**: Unlike others, at rfSE Club we connect engineers to you directly.
+- **Occasional Guides**.
+- **Interactive Events**.
+- **18/7 Support**.
+
 ## What's next?
 
 our ultimate goal is to scale this model across Himachal Schools initially and expand it further across the country and the world by integrating MountainKid custom in-house language models along AR/VR-based learning, to create a sustainable, tech-driven education system that inspires the next generation of innovators.
