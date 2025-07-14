@@ -91,7 +91,7 @@ console.log(typeof aadhaarNumber); // "bigint"
 
 ---
 
-## Summary Table
+## Summary
 
 | Feature           | Number      | BigInt                          |
 | ----------------- | ----------- | ------------------------------- |
