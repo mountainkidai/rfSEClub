@@ -13,7 +13,7 @@
   - Today’s smartphones have more computing power than the 1969 Apollo 11 guidance computer.
   - A single modern chip can perform 3 trillion calculations per second—faster than the human brain on math!
 
-# 002 - Physics Foundations for Computing
+## 002 - Physics Foundations for Computing
 
 - **Intro**: Computers, including their PCBs, are built on physics—strip it to first principles: matter, energy, and forces drive every circuit, component, and signal. Understand electrons, voltage, and radio waves from the ground up to master hardware design and internet connectivity. No assumptions, just truths. This foundation enables you to analyze and design systems like a payment soundbox PCB with confidence.
 
