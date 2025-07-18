@@ -12,11 +12,15 @@ Unlike RAM, which is volatile and temporary, storage is **non-volatile**—it re
 
 ### 1. **HDD (Hard Disk Drive)**
 
+![1752832960008](image/017_storage_and_io_systems/1752832960008.png)
+
 * Uses spinning magnetic platters and a mechanical arm
 * Slower, but offers large capacities at lower cost
 * Good for archival and bulk storage
 
 ### 2. **SSD (Solid-State Drive)**
+
+![1752833038776](image/017_storage_and_io_systems/1752833038776.png)
 
 * No moving parts, stores data on flash memory chips
 * Much faster than HDDs (especially in read/write speeds)

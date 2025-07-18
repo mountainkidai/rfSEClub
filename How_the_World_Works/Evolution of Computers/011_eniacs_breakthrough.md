@@ -1,5 +1,7 @@
 # ENIAC’s Breakthrough
 
+![1752831589554](image/011_eniacs_breakthrough/1752831589554.png)
+
 The **Electronic Numerical Integrator and Computer (ENIAC)**, completed in 1945, was the first **general-purpose programmable electronic computer**. Unlike earlier machines designed for a single task, ENIAC could be reprogrammed to solve a wide range of problems.
 
 Built by **John Mauchly** and **J. Presper Eckert** at the University of Pennsylvania, ENIAC was a monumental achievement in speed and flexibility.
@@ -20,6 +22,8 @@ ENIAC used **decimal (not binary)** digits and **pulses** to represent data. It 
 ---
 
 ## Programming the ENIAC
+
+![1752831751834](image/011_eniacs_breakthrough/1752831751834.png)
 
 Initially, programming ENIAC was a manual task. It required physically rewiring plugboards and setting dials—a process that could take **days** to set up.
 
@@ -42,6 +46,8 @@ ENIAC was used for:
 * **Weather prediction**, **cosmic ray studies**, and **wind tunnel design**
 
 It could calculate artillery trajectories in 30 seconds that previously took 20 hours by hand.
+
+![1752831821791](image/011_eniacs_breakthrough/1752831821791.png)
 
 ---
 

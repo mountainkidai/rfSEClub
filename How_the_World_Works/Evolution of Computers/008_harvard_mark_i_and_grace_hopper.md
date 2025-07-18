@@ -4,6 +4,8 @@ The **Harvard Mark I**, completed in 1944, was one of the first electromechanica
 
 ## The Harvard Mark I
 
+![1752830686018](image/008_harvard_mark_i_and_grace_hopper/1752830686018.png)
+
 Also known as the **IBM Automatic Sequence Controlled Calculator (ASCC)**, this massive machine stretched over 50 feet and weighed 5 tons.
 
 Key features:
@@ -18,6 +20,8 @@ It was reliable and ideal for wartime calculations, especially for ballistic tra
 ---
 
 ## Grace Hopper’s Role
+
+![1752830809722](image/008_harvard_mark_i_and_grace_hopper/1752830809722.png)
 
 **Grace Hopper** joined the Navy WAVES and was assigned to work on the Mark I. Though it was designed by Howard Aiken and built by IBM, Hopper's influence on programming began here.
 
@@ -35,6 +39,8 @@ She later went on to:
 ---
 
 ## A Turning Point
+
+![1752830893710](image/008_harvard_mark_i_and_grace_hopper/1752830893710.png)
 
 The Mark I represented the transition from manually operated calculating devices to fully automated computing. It was a bridge from mechanical to electronic systems.
 

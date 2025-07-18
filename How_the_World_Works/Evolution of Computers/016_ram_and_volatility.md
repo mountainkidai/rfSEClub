@@ -6,6 +6,8 @@
 
 ## What is RAM?
 
+![1752832856916](image/016_ram_and_volatility/1752832856916.png)
+
 RAM is a type of high-speed, short-term memory. It's not meant for permanent storage but for **active processes**:
 
 * It holds the **currently running programs**

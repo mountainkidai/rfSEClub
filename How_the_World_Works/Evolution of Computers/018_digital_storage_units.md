@@ -9,6 +9,8 @@ All digital information is stored as **bits**—binary digits that represent eit
 * **Bit (b)**: The smallest unit of digital data; can be 0 or 1
 * **Byte (B)**: Group of 8 bits; represents a single character like ‘A’
 
+![1752833183368](image/018_digital_storage_units/1752833183368.png)
+
 ---
 
 ## Standard Storage Units (Base-10)
@@ -37,6 +39,8 @@ This difference is why a 500 GB drive may show as around 465 GiB in a computer�
 ---
 
 ## Why the Confusion?
+
+![1752833288736](image/018_digital_storage_units/1752833288736.png)
 
 Storage manufacturers use **base-10 (decimal)** because it shows higher numbers, making the drive seem larger.
 Operating systems use **base-2 (binary)** because it's how data is actually processed internally.

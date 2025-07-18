@@ -1,8 +1,12 @@
 # Konrad Zuse’s Z3 (1941)
 
+![1752830199841](image/007_konrad_zuses_z3_1941/1752830199841.png)
+
 The Z3, developed by **Konrad Zuse** in Nazi Germany during World War II, was the **world’s first programmable, fully automatic digital computer**. While lesser known than ENIAC or Colossus, the Z3 made a foundational contribution to computing history.
 
 ## What Made the Z3 Revolutionary?
+
+![1752830251400](image/007_konrad_zuses_z3_1941/1752830251400.png)
 
 Built in 1941, the Z3 used **electromechanical relays** to perform binary arithmetic and floating-point calculations.
 
@@ -26,6 +30,10 @@ Despite this, the Z3:
 * Was used for **aerodynamic calculations** for aircraft
 * Proved that binary logic and automation could handle real-world engineering problems
 * Influenced future computing pioneers, though his work remained **relatively unknown outside Germany** until later
+
+![1752830445225](image/007_konrad_zuses_z3_1941/1752830445225.png)
+
+![1752830472299](image/007_konrad_zuses_z3_1941/1752830472299.png)
 
 ---
 

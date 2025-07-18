@@ -8,6 +8,8 @@ The **abacus** is one of the earliest tools used for arithmetic. Invented over 2
 
 It was widely used in Asia and parts of Europe and is still taught today to help children understand number systems and mental calculation.
 
+![1752829017392](image/003_ancient_computational_tools/1752829017392.png)
+
 ---
 
 ## Antikythera Mechanism
@@ -16,6 +18,8 @@ Discovered in a shipwreck near the Greek island of Antikythera, this **mechanica
 
 The Antikythera mechanism showed not only the Greeks’ understanding of astronomy but also their mastery of gear mechanics.
 
+![1752829055143](image/003_ancient_computational_tools/1752829055143.png)
+
 ---
 
 ## Slide Rule
@@ -23,6 +27,8 @@ The Antikythera mechanism showed not only the Greeks’ understanding of astrono
 The **slide rule**, invented in the 17th century, was a mechanical calculator based on logarithmic scales. It allowed engineers and scientists to perform multiplication, division, roots, logarithms, and trigonometry quickly and accurately.
 
 Slide rules were used extensively until the 1970s when digital calculators replaced them. But during their prime, they were essential tools in major scientific projects—including the Apollo moon landing.
+
+![1752829111662](image/003_ancient_computational_tools/1752829111662.png)
 
 ---
 

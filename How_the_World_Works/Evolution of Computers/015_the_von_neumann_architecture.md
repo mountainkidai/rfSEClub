@@ -1,5 +1,7 @@
 # The Von Neumann Architecture
 
+![1752832789762](image/015_the_von_neumann_architecture/1752832789762.png)
+
 The **Von Neumann architecture** is the foundational design model for most modern computers. Proposed by John von Neumann in 1945, it introduced a revolutionary idea: a computer where both data and instructions are stored in the same memory.
 
 Before this model, computers were hardwired for specific tasks. Changing a task meant physically rewiring the system. Von Neumann’s design allowed machines to be reprogrammable—paving the way for modern software.
@@ -38,6 +40,8 @@ The architecture is composed of five key parts:
      * **Data bus** (carries data)
      * **Address bus** (specifies memory locations)
      * **Control bus** (transfers control signals)
+
+![1752832679996](image/015_the_von_neumann_architecture/1752832679996.png)
 
 ---
 

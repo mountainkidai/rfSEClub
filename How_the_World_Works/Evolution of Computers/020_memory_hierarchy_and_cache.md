@@ -15,6 +15,8 @@ The memory hierarchy arranges storage types from **fastest and most expensive** 
 5. **SSD/HDD** – Long-term storage, very large but slower
 6. **Cloud/Network Storage** – Slowest but practically unlimited
 
+![1752833389901](image/020_memory_hierarchy_and_cache/1752833389901.png)
+
 ---
 
 ## Why Hierarchy Exists
