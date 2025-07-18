@@ -15,6 +15,8 @@ For example:
 
 Each cycle in a CPU performs a fundamental part of instruction processing: it might fetch an instruction from memory, decode it to understand the operation, or execute it to perform calculations or logic. Therefore, higher clock speeds mean these steps happen faster.
 
+![1752832430135](image/014_clock_speed_and_frequency/1752832430135.png)
+
 The CPU has an internal quartz crystal oscillator that creates regular electronic pulses—this is the clock. Every tick of this clock synchronizes the activities inside the CPU, ensuring all parts work together.
 
 ---
@@ -30,6 +32,8 @@ However, there are **limits** to how high clock speeds can go:
 * **Diminishing returns**: At some point, increasing clock speed doesn’t lead to proportional performance gains due to bottlenecks in other parts of the system, like memory access or software limitations.
 
 Modern CPUs often use **dynamic frequency scaling** (like Intel's Turbo Boost or AMD’s Precision Boost) to increase clock speed only when needed. This helps balance performance and energy efficiency.
+
+![1752832504779](image/014_clock_speed_and_frequency/1752832504779.png)
 
 ---
 

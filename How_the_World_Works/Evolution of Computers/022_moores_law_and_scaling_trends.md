@@ -12,6 +12,8 @@ Coined by **Gordon Moore**, co-founder of Intel, in 1965:
 
 It was later revised to every **two years**, but the core idea remained—**exponential growth** in computing power.
 
+![1752834346800](image/022_moores_law_and_scaling_trends/1752834346800.png)
+
 ---
 
 ## Why It Mattered
@@ -28,6 +30,8 @@ It also guided the **semiconductor industry roadmap** for over 50 years.
 ---
 
 ## Transistor Shrinking and Node Sizes
+
+![1752834408667](image/022_moores_law_and_scaling_trends/1752834408667.png)
 
 Each new chip generation is measured in **nanometers (nm)**:
 

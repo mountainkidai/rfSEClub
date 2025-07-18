@@ -1,6 +1,10 @@
 # Atanasoff-Berry Computer (ABC)
 
+![1752830950959](image/009_atanasoff_berry_computer_abc/1752830950959.png)
+
 The **Atanasoff-Berry Computer (ABC)**, created in the late 1930s and early 1940s, was the **first electronic digital computer**. It introduced many innovations that would influence the design of future computers, including ENIAC.
+
+![1752831116824](image/009_atanasoff_berry_computer_abc/1752831116824.png)
 
 Designed by **John Atanasoff** and **Clifford Berry** at Iowa State College, the ABC solved simultaneous linear equations—a key problem in scientific computation.
 
@@ -40,5 +44,7 @@ While it lacked programmability and widespread recognition at the time, the ABC 
 * Use of **binary arithmetic**
 * **Separation of memory and processing**
 * Reliance on **electronic circuits** rather than mechanical ones
+
+![1752831272630](image/009_atanasoff_berry_computer_abc/1752831272630.png)
 
 These became cornerstones of modern computer architecture.

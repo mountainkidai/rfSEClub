@@ -10,6 +10,10 @@ Each punch card represented a set of instructions: where holes existed, the loom
 
 This concept of feeding instructions into a machine became the philosophical precursor to computer programs.
 
+![1752829181396](image/004_mechanization_of_logic/1752829181396.png)
+
+![1752829195153](image/004_mechanization_of_logic/1752829195153.png)
+
 ---
 
 ## Punch Cards: Early Data Storage and Control
@@ -23,6 +27,8 @@ Punch cards were used in:
 
 * The **1890 U.S. Census**, allowing data from 63 million Americans to be processed efficiently
 * **IBM tabulators**, forming the backbone of business and government computing through the mid-1900s
+
+![1752829244054](image/004_mechanization_of_logic/1752829244054.png)
 
 ---
 

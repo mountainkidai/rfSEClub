@@ -2,6 +2,8 @@
 
 The **Electronic Delay Storage Automatic Calculator (EDSAC)**, completed in 1949, was the first practical computer to implement the **stored-program concept**. This idea revolutionized computing by allowing a machine to hold both instructions and data in memory.
 
+![1752832140781](image/012_edsac_and_the_stored_program_concept/1752832140781.png)
+
 Designed by **Maurice Wilkes** at the University of Cambridge, EDSAC marked a key step from experimental machines to real-world usable systems.
 
 ---
@@ -16,9 +18,13 @@ Earlier computers like ENIAC required physical rewiring for each new task. The s
 
 This enabled software development as we know it today.
 
+![1752832044517](image/012_edsac_and_the_stored_program_concept/1752832044517.png)
+
 ---
 
 ## EDSAC Design and Innovations
+
+![1752832095542](image/012_edsac_and_the_stored_program_concept/1752832095542.png)
 
 EDSAC used:
 

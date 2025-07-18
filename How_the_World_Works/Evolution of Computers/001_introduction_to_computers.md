@@ -8,6 +8,10 @@ A computer is an electronic device that receives data (input), processes it acco
 
 ## Basic Components: Hardware and Software
 
+![1752826920683](image/001_introduction_to_computers/1752826920683.png)
+
+Basic Block Diagram of a Computer System
+
 ### Hardware
 
 * **CPU (Central Processing Unit):** The brain of the computer, it executes instructions.
@@ -27,9 +31,17 @@ A computer is an electronic device that receives data (input), processes it acco
 
 Early "computers" were human calculators. Over time, mechanical and then electronic computers replaced manual calculations.
 
+![1752827093397](image/001_introduction_to_computers/1752827093397.png)
+
+IBM 1401 Data Processing System
+
 ### Modern Applications
 
 Used in almost every field—healthcare, finance, education, communication, transportation, and entertainment.
+
+![1752827160840](image/001_introduction_to_computers/1752827160840.png)
+
+A modern desktop computer setup
 
 ## Applications
 
@@ -39,5 +51,9 @@ Understanding the computer's core principles is foundational for any future lear
 
 * The first "computer" was a human calculator in the 17th century!
 * The Apollo 11 guidance computer had less processing power than a modern smartphone.
+
+    ![1752827246321](image/001_introduction_to_computers/1752827246321.png)
+
+    Apollo Guidance Computer at the Smithsonian
 
 * Modern chips can execute over **3 trillion** operations per second!

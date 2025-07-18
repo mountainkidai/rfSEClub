@@ -1,8 +1,12 @@
 # Babbage’s Computing Machines
 
+![1752830041020](image/006_babbages_computing_machines/1752830041020.png)
+
 Long before modern computers existed, **Charles Babbage** envisioned mechanical devices that could perform complex calculations automatically. His ideas were so advanced that they wouldn't be fully realized for more than a century—but they laid the groundwork for everything we know about computing today.
 
 ## The Difference Engine
+
+![1752829778245](image/006_babbages_computing_machines/1752829778245.png)
 
 The **Difference Engine**, first proposed in the 1820s, was a mechanical calculator designed to compute polynomial functions and produce mathematical tables.
 
@@ -15,6 +19,8 @@ Though Babbage never completed it in his lifetime due to funding and engineering
 ---
 
 ## The Analytical Engine
+
+![1752829870439](image/006_babbages_computing_machines/1752829870439.png)
 
 If the Difference Engine was a calculator, the **Analytical Engine** was a full-blown programmable computer—conceived in the 1830s.
 
@@ -30,6 +36,8 @@ This was the first concept of a general-purpose computer—a machine not limited
 ---
 
 ## Ada Lovelace: The First Programmer
+
+![1752829948375](image/006_babbages_computing_machines/1752829948375.png)
 
 **Ada Lovelace**, a brilliant mathematician, studied Babbage’s work and wrote detailed notes on the Analytical Engine. In one note, she included what’s considered the **first computer program**—an algorithm for the machine to compute Bernoulli numbers.
 

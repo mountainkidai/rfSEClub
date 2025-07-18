@@ -6,6 +6,8 @@ Transistors and logic gates are the **foundation of all digital computing**. The
 
 ## What is a Transistor?
 
+![1752833486098](image/021_transistors_and_logic_gates/1752833486098.png)
+
 A **transistor** is a tiny switch that can either allow or block the flow of electricity. It has three parts:
 
 * **Base** (controls)
@@ -15,6 +17,8 @@ A **transistor** is a tiny switch that can either allow or block the flow of ele
 When voltage is applied to the base, the transistor allows current to flow between the other two ends. This "on/off" behavior represents **1s and 0s**, or binary data.
 
 ### Why Transistors Matter
+
+![1752833564506](image/021_transistors_and_logic_gates/1752833564506.png)
 
 * They act as **tiny switches** or **amplifiers**.
 * A modern CPU contains **billions of transistors**, enabling complex computations.
@@ -33,14 +37,7 @@ Logic gates are combinations of transistors arranged to perform basic logic oper
 * **NOT Gate**: Inverts the input (1 becomes 0, 0 becomes 1).
 * **NAND, NOR, XOR, XNOR**: Variants used to build complex logic.
 
-### Truth Table Example for AND Gate
-
-| Input A | Input B | Output |
-| ------- | ------- | ------ |
-| 0       | 0       | 0      |
-| 0       | 1       | 0      |
-| 1       | 0       | 0      |
-| 1       | 1       | 1      |
+![1752833615108](image/021_transistors_and_logic_gates/1752833615108.png)
 
 ---
 

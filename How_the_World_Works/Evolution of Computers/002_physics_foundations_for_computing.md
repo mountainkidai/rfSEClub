@@ -10,6 +10,10 @@ Atoms are the building blocks of matter. Each atom consists of a nucleus (contai
 
 In computers, the behavior of electrons is especially important. These tiny particles can move from one atom to another when pushed by an electric field. When this movement is controlled through wires or microcircuits, it creates **electricity**—the foundation of all computing processes.
 
+![1752827464114](image/002_physics_foundations_for_computing/1752827464114.png)
+
+Atom Structure
+
 ---
 
 ## Energy
@@ -33,6 +37,8 @@ This principle enables technologies such as:
 * Inductors in power supply circuits
 * Wireless technologies (radio, Wi-Fi, NFC)
 
+![1752827677256](image/002_physics_foundations_for_computing/1752827677256.png)
+
 ---
 
 ## Voltage
@@ -43,6 +49,8 @@ Imagine water in a pipe: higher pressure moves water faster. Similarly, higher v
 
 Too little voltage and a circuit won’t operate. Too much, and components can overheat or get damaged.
 
+![1752827765864](image/002_physics_foundations_for_computing/1752827765864.png)
+
 ---
 
 ## Current
@@ -50,6 +58,8 @@ Too little voltage and a circuit won’t operate. Too much, and components can o
 Electric current is the flow of electrons through a conductor. It’s measured in **amperes (A)** and depends on how many electrons pass a point per second.
 
 Stable current ensures reliable operation of electronic parts. In CPUs, for example, massive numbers of transistors switch on and off rapidly—all powered by controlled current.
+
+![1752827809395](image/002_physics_foundations_for_computing/1752827809395.png)
 
 ---
 
@@ -61,6 +71,8 @@ Using Ohm’s Law:
 **V = I × R**
 
 Engineers design circuits so the correct voltage and current flow to each component—preventing overloads and controlling signal behavior.
+
+![1752827894616](image/002_physics_foundations_for_computing/1752827894616.png)
 
 ---
 
@@ -83,6 +95,8 @@ A **capacitor** stores electrical energy in an electric field. It can charge and
 
 Capacitors act like shock absorbers for electricity.
 
+![1752828492520](image/002_physics_foundations_for_computing/1752828492520.png)
+
 ---
 
 ## Inductance
@@ -94,6 +108,8 @@ Inductors are used in:
 * Voltage regulators
 * Audio equipment
 * Power supply circuits
+
+![1752828533471](image/002_physics_foundations_for_computing/1752828533471.png)
 
 ---
 
@@ -109,6 +125,8 @@ Each gate takes binary inputs (0 or 1) and produces an output based on logical r
 
 Modern CPUs contain **billions of logic gates**, working together at light speed.
 
+![1752828648157](image/002_physics_foundations_for_computing/1752828648157.png)
+
 ---
 
 ## Binary Language
@@ -116,6 +134,8 @@ Modern CPUs contain **billions of logic gates**, working together at light speed
 All data in computers—text, images, sound—is ultimately stored as 0s and 1s. This is called **binary**.
 
 Each **bit** (binary digit) represents one state: on or off. By combining multiple bits (like 8 bits = 1 byte), computers can encode complex data.
+
+![1752828730468](image/002_physics_foundations_for_computing/1752828730468.png)
 
 ---
 
@@ -128,6 +148,8 @@ Electromagnetic waves carry data wirelessly. Different frequencies correspond to
 * Infrared and optical: Fiber internet
 
 These invisible waves are modulated to carry binary data across space—allowing the internet, phone calls, and GPS.
+
+![1752828777001](image/002_physics_foundations_for_computing/1752828777001.png)
 
 ---
 
@@ -146,5 +168,7 @@ A Printed Circuit Board (PCB) contains:
 * **Copper traces**: like roads for electrons
 * **Substrate**: structural base layer
 * **Multiple layers**: allow compact and complex connections
+
+![1752828919729](image/002_physics_foundations_for_computing/1752828919729.png)
 
 Modern PCBs are engineered to minimize interference, maximize speed, and pack entire systems in a small form factor—like your smartwatch or phone.

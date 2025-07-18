@@ -19,6 +19,8 @@ The CPU is a silicon chip mounted on the motherboard of a computer. It:
 
 This cycle repeats over and over in what's called the **fetch-decode-execute cycle**, and it happens extremely fast—millions to billions of times every second.
 
+![1752832219321](image/013_cpu_alu_and_control_flow/1752832219321.png)
+
 Modern CPUs are made of **billions of transistors** and include **multiple cores**, where each core can independently run processes. This enables multitasking and increases performance significantly.
 
 ---
@@ -38,6 +40,8 @@ Despite being small, the ALU is powerful—enabling the CPU to solve complex pro
 ---
 
 ## Control Unit (CU)
+
+![1752832303109](image/013_cpu_alu_and_control_flow/1752832303109.png)
 
 The **Control Unit** is the supervisor inside the CPU. It does not execute instructions itself but manages the other parts of the CPU to do so. It:
 
@@ -70,6 +74,8 @@ Registers enable **pipelined execution**, where multiple instruction stages (fet
 ---
 
 ## Control Flow
+
+![1752832343807](image/013_cpu_alu_and_control_flow/1752832343807.png)
 
 **Control flow** is the logic that determines how a program moves through its instructions. It’s not just linear; decisions are made based on conditions.
 

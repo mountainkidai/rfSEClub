@@ -4,6 +4,8 @@ The **Colossus** computer, developed during World War II, was the world’s **fi
 
 ## What Was Colossus?
 
+![1752831367840](image/010_colossus_and_wwii_cryptography/1752831367840.png)
+
 Designed by **Tommy Flowers**, Colossus was developed at **Bletchley Park**, Britain’s secret wartime codebreaking center.
 
 Key characteristics:
@@ -16,6 +18,8 @@ Key characteristics:
 ---
 
 ## Breaking the Lorenz Cipher
+
+![1752831440478](image/010_colossus_and_wwii_cryptography/1752831440478.png)
 
 While the Enigma machine is more famous, the **Lorenz cipher** was used for **high-level Nazi communications**—and far more difficult to crack.
 
