@@ -30,6 +30,22 @@ In artificial intelligence, scalars are used to represent single-value parameter
 
 These simple values control complex behaviors in AI models.
 
+## Intro to Neural Networks
+
+A **neural network** is made up of layers of interconnected units called **neurons**. Each neuron performs a calculation on the input data. A neuron computes:
+
+```txt
+output = (weights × inputs) + bias
+```
+
+Here, the **bias** is a scalar that shifts the output, allowing the neuron to better fit the data.
+
+## Cost Functions
+
+A **cost function** (or loss function) measures how far the network's predictions are from the actual results. The output of a cost function is a **scalar value** (like 0.25 or 1.7) that represents this error. Training a neural network means adjusting its parameters to minimize this scalar loss.
+
+These simple scalar values control complex behaviors in AI models.
+
 ## Operations You Can Do With Scalars
 
 * **Addition**: 3 + 5 = 8
