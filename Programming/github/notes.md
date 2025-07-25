@@ -1,5 +1,7 @@
 # Git Commands Reference - Notes
 
+![1753440872257](image/notes/1753440872257.mov)
+
 ## Phase 1: Basic Git Operations
 
 ### Configuration
@@ -114,6 +116,8 @@ To check the head position:
 git branch
 ```
 
+![1753442042778](image/notes/1753442042778.png)
+
 ### Creating Branches
 
 To create a branch:
@@ -127,6 +131,8 @@ Example:
 ```bash
 git branch coffee
 ```
+
+![1753442168561](image/notes/1753442168561.png)
 
 ### Switching Branches
 
@@ -143,6 +149,8 @@ git switch -c branch-name
 git checkout -b branch-name
 ```
 
+![1753442584285](image/notes/1753442584285.png)
+
 ### Branch Information
 
 To view information about each branch:
@@ -150,6 +158,10 @@ To view information about each branch:
 ```bash
 git branch -v
 ```
+
+![1753442306651](image/notes/1753442306651.png)
+
+![1753442346305](image/notes/1753442346305.png)
 
 ### Deleting Branches
 
