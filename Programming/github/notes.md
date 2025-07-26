@@ -185,9 +185,136 @@ git branch -D branch-name
 
 There are 3 kinds of merges:
 
-1. Fast forwarding
-2. Merge commit without conflict (with no forward commits in the other branch)
-3. Merge commit with conflict (with 1 or more forward commit in the other branch)
+1. **Fast forwarding**
+
+    ![1753530358438](image/notes/1753530358438.png)
+
+    ```git
+    git commit -m "Initial commit"
+    ```
+
+    ![1753530443453](image/notes/1753530443453.png)
+
+    ```git
+    git branch feature
+    ```
+
+    ![1753530502713](image/notes/1753530502713.png)
+
+    ```git
+    git switch feature
+    ```
+
+    ![1753530714962](image/notes/1753530714962.png)
+
+    ```git
+    git commit -m "Feature commit"
+    ```
+
+    ![1753530767624](image/notes/1753530767624.png)
+
+    ```git
+    git switch main
+    ```
+
+    ![1753530836616](image/notes/1753530836616.png)
+
+    ```git
+    git merge feature
+
+    ```
+
+    ![1753530879400](image/notes/1753530879400.png)
+
+2. **Merge commit without conflict (with no forward commits in the other branch)**
+
+    ![1753530879400](image/notes/1753530879400.png)
+
+    ```git
+    git branch feature2
+
+    ```
+
+    ![1753531291458](image/notes/1753531291458.png)
+
+    ```git
+    git switch feature2
+
+    ```
+
+    ![1753531334375](image/notes/1753531334375.png)
+
+    ```git
+    git commit -am "Feature 2 commit"
+
+    ```
+
+    ![1753531385257](image/notes/1753531385257.png)
+
+    ```git
+    git switch main
+
+    ```
+
+    ![1753531413079](image/notes/1753531413079.png)
+
+    ```git
+    git commit -am "Main commit"
+
+    ```
+
+    ![1753531449300](image/notes/1753531449300.png)
+
+    ```git
+    git merge feature2
+
+    ```
+
+    ![1753531483934](image/notes/1753531483934.png)
+
+3. **Merge commit with conflict (with 1 or more forward commit in the other branch)**
+
+    ![1753531483934](image/notes/1753531483934.png)
+
+    ```git
+    git checkout -b feature3
+    ```
+
+    ![1753531924721](image/notes/1753531924721.png)
+
+    ```git
+    git commit -am "Feature 3 commit"
+    ```
+
+    ![1753532123656](image/notes/1753532123656.png)
+
+    ```git
+    git switch main
+    ```
+
+    ![1753532251776](image/notes/1753532251776.png)
+
+    ```git
+    git commit -m "Main commit"
+    ```
+
+    ![1753532279927](image/notes/1753532279927.png)
+
+    ```git
+    git merge feature3
+
+    ```
+
+    ```txt
+    <<<<<<< HEAD
+    Main line C8
+    =======
+    Feature C line
+    >>>>>>> featureC
+
+    ```
+
+    ![1753532313558](image/notes/1753532313558.png)
 
 ### How to Merge
 
