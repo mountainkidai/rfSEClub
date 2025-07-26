@@ -1,7 +1,5 @@
 # Git Commands Reference - Notes
 
-![1753440872257](image/notes/1753440872257.mov)
-
 ## Phase 1: Basic Git Operations
 
 ### Configuration
