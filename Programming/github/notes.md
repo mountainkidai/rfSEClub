@@ -163,7 +163,7 @@ git branch -v
 
 ### Deleting Branches
 
-To delete branch:
+To delete branch after merging:
 
 > **Note:** You can't delete the branch that you're currently using
 
@@ -171,7 +171,7 @@ To delete branch:
 git branch -d branch-name
 ```
 
-To delete branch forcefully without merging:
+To delete branch forcefully without merge:
 
 > **Note:** You can't delete the branch that you're currently using
 
