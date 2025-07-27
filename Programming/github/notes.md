@@ -188,6 +188,7 @@ There are 3 kinds of merges:
 1. Fast forwarding
 2. Merge commit without conflict (with no forward commits in the other branch)
 3. Merge commit with conflict (with 1 or more forward commit in the other branch)
+git
 
 ### How to Merge
 
