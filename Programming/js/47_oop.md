@@ -87,6 +87,8 @@ cat.speak(); // Output: Cat makes a sound
 
 Inheritance allows one class to reuse properties and methods from another.
 
+In simple terms, extends makes one class a child of another, so it automatically gets all its properties and methods, and super is how the child class calls the parent class’s constructor or other methods.
+
 ```js
 class Vehicle {
   constructor(brand) {

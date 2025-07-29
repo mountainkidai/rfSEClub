@@ -2,6 +2,16 @@
 
 A **closure** is when a function “remembers” the variables from the place where it was created, even after that place is gone.
 
+Think of a toy box:
+
+The outer function is like a toy shop that fills a box with toys (variables).
+
+The inner function is like a child who takes the box home.
+
+Even if the toy shop closes, the child still has the box with all the toys inside.
+
+So, the inner function (child) always has access to the variables (toys) from the outer function (shop).
+
 ## Key Concepts and Syntax
 
 ### 1. Creating a Closure
@@ -24,6 +34,8 @@ counter(); // Count: 2
 ```
 
 The `inner` function keeps access to `count` even after `outer` has finished running.
+
+The inner function forms a closure around count. Even when outer() finishes, count isn't destroyed because inner is still using it.
 
 ### 2. Data Privacy with Closures
 

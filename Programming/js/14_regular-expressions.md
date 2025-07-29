@@ -84,6 +84,14 @@ let emailPattern = /^[\w.-]+@[\w.-]+\.\w+$/;
 console.log(emailPattern.test("user@example.com")); // true
 ```
 
+* `^` - Start of string (ensures we check the entire string)
+* `[\w.-]+` - Username part: letters, numbers, underscore, dot, or hyphen (one or more)
+* `@` - Required @ symbol
+* `[\w.-]+` - Domain name: letters, numbers, underscore, dot, or hyphen (one or more)
+* `\.` - Required dot (escaped because . has special meaning in regex)
+* `\w+` - Domain extension: letters, numbers, or underscore (one or more)
+* `$` - End of string
+
 ### Search and Highlight
 
 Find all words ending with "ing":

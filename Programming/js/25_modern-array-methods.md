@@ -14,9 +14,21 @@ names.forEach(function(name) {
 });
 ```
 
-* The function runs once for every item in the array.
-* `name` represents each item in the array one by one.
-* It simply prints a greeting with the name.
+**Explanation:**
+
+- `forEach` runs the given function for every element of the array.
+
+- Here, `name` will be "Asha", then "Ravi", then "Priya".
+
+- The output will be:
+
+    ```txt
+    Hello, Asha
+    Hello, Ravi
+    Hello, Priya
+    ```
+
+---
 
 ### 2. `map()` – Create a new array by transforming each item
 
@@ -29,9 +41,13 @@ const doubled = nums.map(function(n) {
 console.log(doubled); // [2, 4, 6]
 ```
 
-* `map` creates a new array.
-* For each number `n`, it multiplies by 2.
-* The original array stays the same.
+**Explanation:**
+
+- `map` applies the function to each item and returns a **new array**.
+- For `1` it returns `2`, for `2` it returns `4`, and so on.
+- The original `nums` array is unchanged.
+
+---
 
 ### 3. `filter()` – Create a new array with items that match a condition
 
@@ -44,8 +60,14 @@ const passed = marks.filter(function(score) {
 console.log(passed); // [65, 90]
 ```
 
-* `filter` returns only items that match a condition.
-* Here, we keep only the marks that are 50 or above.
+**Explanation:**
+
+- `filter` checks each item.
+- If `score >= 50`, the item is included.
+
+- Result: `[65, 90]`.
+
+---
 
 ### 4. `find()` – Return the first item that matches a condition
 
@@ -62,8 +84,12 @@ const user = users.find(function(u) {
 console.log(user); // { id: 2, name: "Neha" }
 ```
 
-* `find` looks for the first matching item.
-* It stops searching after the first match.
+**Explanation:**
+
+- `find` goes through each user until it finds one with `id === 2`.
+- It stops and returns that user object.
+
+---
 
 ### 5. `reduce()` – Turn array into a single value (like sum)
 
@@ -76,9 +102,19 @@ const total = numbers.reduce(function(acc, curr) {
 console.log(total); // 60
 ```
 
-* `reduce` combines items into one value.
-* `acc` is the running total (accumulator), `curr` is the current item.
-* It starts from 0 and adds each number to the total.
+**Explanation:**
+
+- `reduce` combines values step by step.
+
+- `acc` (accumulator) starts at `0`.
+
+- Steps:
+  - `0 + 10 = 10`
+  - `10 + 20 = 30`
+  - `30 + 30 = 60`
+- Final result: `60`.
+
+---
 
 ### 6. `some()` – Check if at least one item meets a condition
 
@@ -91,8 +127,13 @@ const hasAdult = ages.some(function(age) {
 console.log(hasAdult); // true
 ```
 
-* `some` returns true if any value passes the test.
-* In this case, it checks if there is at least one adult (18 or older).
+**Explanation:**
+
+- `some` returns `true` if **any** item passes the test.
+
+- Here, 20 and 30 are >= 18, so the result is `true`.
+
+---
 
 ### 7. `every()` – Check if all items meet a condition
 
@@ -105,8 +146,12 @@ const allPassed = scores.every(function(score) {
 console.log(allPassed); // true
 ```
 
-* `every` returns true only if all values pass the test.
-* Here, it checks that every score is at least 50.
+**Explanation:**
+
+- `every` returns `true` only if **all** items pass the test.
+- Since all scores are >= 50, it returns `true`.
+
+---
 
 ### 8. `flat()` – Flatten nested arrays (1 level deep)
 
@@ -117,8 +162,11 @@ const flatArray = nested.flat();
 console.log(flatArray); // [1, 2, 3, 4]
 ```
 
-* `flat` removes one level of nested arrays.
-* It joins sub-arrays into the main array.
+**Explanation:**
+
+- `flat` merges sub-arrays into a single array, removing one level of nesting.
+
+---
 
 ### 9. `flatMap()` – Map and flatten in one step
 
@@ -129,10 +177,25 @@ const flatMapped = arr.flatMap(x => [x, x * 2]);
 console.log(flatMapped); // [1, 2, 2, 4, 3, 6]
 ```
 
-* First, it maps: turns each number into two values (original and double).
-* Then, it flattens the result into a single array.
+**Explanation:**
 
-### 10. `at()` – Get item by index (supports negative index too)
+- For each number `x`, the arrow function returns `[x, x*2]`.
+
+- Then `flatMap` flattens all small arrays into one.
+
+**Example:**
+
+```js
+const phrases = ["hi world", "hello js"];
+const words = phrases.flatMap(p => p.split(" "));
+console.log(words); // ["hi", "world", "hello", "js"]
+```
+
+- Each phrase is split into words, and then all words are combined into one array.
+
+---
+
+### 10. `at()` – Get item by index (supports negative index)
 
 ```js
 const items = ["a", "b", "c"];
@@ -140,5 +203,7 @@ console.log(items.at(1));  // b
 console.log(items.at(-1)); // c
 ```
 
-* `at()` works like indexing, but supports negative numbers.
-* `-1` gives the last item, `-2` gives the second last, etc.
+**Explanation:**
+
+- `items.at(1)` gives the second item (`b`).
+- `items.at(-1)` gives the last item (`c`).
