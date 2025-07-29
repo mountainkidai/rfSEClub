@@ -26,11 +26,15 @@ git diff --staged
 git diff --cached
 ```
 
-To show the changes between staging area and last commit in a specific file:
+To show all staged and unstaged changes since last commit in a specific file:
 
 ```bash
 git diff HEAD filename
-# or
+```
+
+To show all staged changes since last commit in a specific file:
+
+```bash
 git diff --staged filename
 ```
 

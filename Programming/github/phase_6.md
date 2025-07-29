@@ -49,41 +49,16 @@ git switch -
 
 ### Undoing Changes
 
-To undo the unstaged or working stage changes:
-
-```bash
-git checkout -- filename
-# or
-git checkout HEAD filename
-# or
-git checkout HEAD~1 filename
-# or
-git checkout commit-id filename
-```
-
-To undo everything:
-
-```bash
-git checkout .
-```
-
 ### Using Git Restore
 
-To undo or discard the unstaged or working stage changes:
+To undo the unstaged changes in a specific file:
 
 ```bash
 git restore filename
+
 ```
 
-To undo or discard the unstaged or working stage changes to a specific commit file:
-
-```bash
-git restore --source commit-id filename
-# or
-git restore --source HEAD~1 filename
-```
-
-To undo everything:
+To undo everything in unstaged:
 
 ```bash
 git restore .
@@ -96,25 +71,3 @@ git restore --staged filename
 # or
 git restore --cached filename
 ```
-
-### Undoing Commits
-
-Undoing a commit or deleting a commit but not the file changes (e.g., by mistake you have committed in a wrong branch):
-
-```bash
-git reset commit-id
-```
-
-Permanently deleting a commit along with the file changes:
-
-```bash
-git reset --hard commit-id
-```
-
-Deleting a commit in a different way - revert. It will create a new commit and there it will delete the file changes:
-
-```bash
-git revert commit-id
-```
-
----
