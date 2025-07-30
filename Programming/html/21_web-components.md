@@ -1,5 +1,7 @@
 # Web Components in HTML
 
+Before diving into Web Components, it's important to understand the DOM (Document Object Model). The DOM is a tree-like structure that represents the content of a web page. Each element in your HTML becomes a node in this tree, and JavaScript can be used to access, modify, add, or remove these nodes. The DOM makes your HTML interactive and is the foundation for building dynamic web applications.
+
 Web Components are a set of technologies that let you create reusable and encapsulated custom HTML elements. They work just like built-in HTML tags, but with custom functionality.
 
 ---
