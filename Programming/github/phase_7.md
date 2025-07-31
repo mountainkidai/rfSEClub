@@ -6,6 +6,12 @@ Undoing a commit or deleting a commit but not the file changes (e.g., by mistake
 git reset commit-id
 ```
 
+Keep your changes but remove the commit from history:
+
+```bash
+git reset --soft commit-id
+```
+
 Permanently deleting a commit along with the file changes:
 
 ```bash
