@@ -1,3 +1,7 @@
+# Git Commands
+
+## Phase 7
+
 ### Deleting Commits
 
 Undoing a commit or deleting a commit but not the file changes (e.g., by mistake you have committed in a wrong branch):

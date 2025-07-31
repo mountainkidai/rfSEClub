@@ -4,7 +4,7 @@ Understanding how images and videos behave inside their containers is essential 
 
 ---
 
-## aspect-ratio
+## Aspect-ratio
 
 This property defines the width-to-height ratio of an element. It ensures that an element maintains its shape as it resizes.
 
@@ -14,10 +14,19 @@ This property defines the width-to-height ratio of an element. It ensures that a
 }
 ```
 
-* `16 / 9` means the width will always be 16 units for every 9 units of height.
-* Common ratios: `1 / 1` (square), `4 / 3`, `3 / 2`, `21 / 9`
+* `16 / 9` means that for every 9 units of height, the width will be 16 units. It's like saying the shape will always look like a widescreen video.
 
-If no height or width is set, the browser uses the ratio to calculate the missing value.
+* Common examples:
+
+  * `1 / 1` makes a square box (same width and height)
+
+  * `4 / 3` is a traditional photo shape
+
+  * `3 / 2` is used in some camera formats
+
+  * `21 / 9` is for ultra-wide screens
+
+If you don’t set the height or width, the browser will use this ratio to automatically figure out the missing side. This helps the box keep the same shape on any screen size — like phone, tablet, or desktop.
 
 ### Example
 
@@ -30,6 +39,21 @@ If no height or width is set, the browser uses the ratio to calculate the missin
 ```
 
 This container will maintain a 4:3 ratio no matter its width.
+
+### Real-World Use Case
+
+Imagine you're designing a photo gallery that needs to work on phones, tablets, and large desktops. Using `aspect-ratio` ensures that every image box maintains the same shape — for example, all landscape-oriented. This helps keep the layout neat and avoids stretching or squishing images on different screen sizes.
+
+```css
+.photo {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 3 / 2;
+  border: 2px solid #ccc;
+}
+```
+
+This way, no matter what device the user is on, each `.photo` box will always have the same visual space ratio, adapting fluidly to the available screen width.
 
 ---
 
