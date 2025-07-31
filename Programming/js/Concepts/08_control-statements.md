@@ -82,3 +82,7 @@ switch (day) {
 ```txt
 Start of the week
 ```
+
+**Problems:**
+findLargest.js
+evenOdd.js
