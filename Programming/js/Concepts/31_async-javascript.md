@@ -177,3 +177,5 @@ console.log(counter);
 **Output:** Counter prints **before** the timer starts — because the loop blocks everything
 
 ---
+
+## Problems

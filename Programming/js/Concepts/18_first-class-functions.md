@@ -53,3 +53,16 @@ function outerFunction() {
 const inner = outerFunction();
 inner(); // Output: Inner function called.
 ```
+
+## Problems
+
+1. Create a function and assign it to a variable
+2. Pass a function as an argument to another function
+3. Return a function from another function
+4. Create a function that takes a function as a parameter
+5. Create a function that returns different functions based on input
+6. Store multiple functions in an array
+7. Create a function that accepts a callback function
+8. Create a function that returns a function with specific behavior
+9. Pass a function as a property of an object
+10. Create a function that can be called immediately after definition

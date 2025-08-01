@@ -157,3 +157,5 @@ These are useful when passing functions as callbacks and needing to control the 
 | Event listener (function) | DOM element                                   |
 | Event listener (arrow)    | Lexical scope (often window)                  |
 | `call`, `apply`, `bind`   | Explicitly defined                            |
+
+## Problems

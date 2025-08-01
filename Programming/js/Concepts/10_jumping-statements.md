@@ -205,3 +205,16 @@ console.log(result2); // null
 - `continue` skips to the next iteration
 - `return` exits the entire function
 - Always be careful with loop counters and `continue` in while loops
+
+## Problems
+
+1. Print 1 to 10, using for loop but if your number is 5, stop the loop and print "TICKETS ARE OVER"
+2. Print 1 to 10 numbers using for loop but if number is 5 print "SKIPPING NUMBER 5"
+3. Print all numbers from 1 to 20, but skip multiples of 3
+4. Print all numbers from 1 to 20, but stop when you reach 15
+5. Print all even numbers from 1 to 20, but skip 10
+6. Print all numbers from 1 to 10, but return early if you find 7
+7. Print all numbers from 1 to 15, but break when you find a number divisible by 7
+8. Print all numbers from 1 to 20, but continue if the number is odd
+9. Print all numbers from 1 to 25, but break if you find a perfect square
+10. Print all numbers from 1 to 30, but skip numbers that are multiples of both 3 and 5

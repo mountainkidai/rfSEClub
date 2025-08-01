@@ -59,3 +59,5 @@ try {
 * `err.name` tells you what kind of error it is (e.g., ReferenceError).
 * `err.message` gives the error’s message.
 * `err.stack` shows where in the code the error came from.
+
+## Problems

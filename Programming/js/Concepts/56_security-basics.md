@@ -109,3 +109,5 @@ app.post('/process', csrfProtection, (req, res) => {
 * XSS = attacker injects JavaScript into a page.
 * CSRF = attacker makes authenticated user trigger requests.
 * Use secure patterns for APIs: token auth, input validation, and rate limits.
+
+## Problems

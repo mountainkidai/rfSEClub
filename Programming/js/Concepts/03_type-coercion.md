@@ -290,3 +290,21 @@ console.log(validateInput(null));     // false
 
 - **Falsy values (become false):** `0`, `""`, `null`, `undefined`, `false`, `NaN`
 - **Truthy values (become true):** Everything else!
+
+## Problems
+
+1. Print the result of adding a string and a number
+2. Print the result of subtracting a string from a number
+3. Check the type of the result when adding a boolean and a number
+4. Convert a string to a number using Number()
+5. Convert a number to a string using String()
+6. Convert a string to a boolean using Boolean()
+7. Use parseInt() to convert a string with decimal to integer
+8. Use parseFloat() to convert a string to decimal number
+9. Use the unary + operator to convert a string to number
+10. Use the double NOT operator (!!) to convert a value to boolean
+11. Check if a value is NaN using isNaN()
+12. Compare values using == and === to see the difference
+13. Convert an empty string to different types
+14. Convert null and undefined to different types
+15. Use template literals to convert a number to string

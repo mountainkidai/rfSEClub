@@ -105,3 +105,5 @@ self.addEventListener("push", event => {
   * `caches`: Web API for storing resources
   * `event.waitUntil()`: Extends lifecycle event until async operations finish
   * `event.respondWith()`: Provides a custom response to network requests
+
+## Problems

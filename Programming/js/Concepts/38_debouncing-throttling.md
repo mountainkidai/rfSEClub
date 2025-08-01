@@ -75,3 +75,5 @@ onScroll(); // Only one will trigger every 200ms
 * Next calls are ignored until the `interval` has passed
 
 ---
+
+## Problems

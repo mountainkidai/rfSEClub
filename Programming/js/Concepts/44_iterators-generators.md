@@ -97,3 +97,5 @@ for (const num of numbers) {
 | --------- | ------------------------ | ------------------------------ |
 | Iterator  | Step-by-step data access | `.next()`, `[Symbol.iterator]` |
 | Generator | Pausable function        | `function*`, `yield`           |
+
+## Problems

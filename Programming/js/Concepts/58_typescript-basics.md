@@ -125,3 +125,5 @@ You can gradually adopt TypeScript:
 | Function Types   | Define input/output clearly     |
 | Inference        | Reduces repetitive typing       |
 | Gradual Adoption | Start using in existing JS code |
+
+## Problems

@@ -146,3 +146,5 @@ console.log(MathHelper.add(2, 3)); // Output: 5
 * When you need to create **multiple objects** with shared structure
 * When modeling real-world entities like `User`, `Account`, `Car`, etc.
 * When organizing code into **modular, reusable components**
+
+## Problems

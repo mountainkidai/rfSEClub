@@ -109,3 +109,5 @@ console.log(proxy.name); // Logs: Accessing name -> Output: Kiran
 * A **Proxy** wraps an object and lets you intercept and customize operations
 * **Reflect** helps perform the default operations in a clean and consistent way
 * Together, they let you build smarter, safer, or more controlled objects
+
+## Problems

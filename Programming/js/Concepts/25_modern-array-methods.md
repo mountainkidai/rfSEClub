@@ -207,3 +207,26 @@ console.log(items.at(-1)); // c
 
 - `items.at(1)` gives the second item (`b`).
 - `items.at(-1)` gives the last item (`c`).
+
+## Problems
+
+1. Use forEach to print each element of an array
+2. Use map to double each number in an array
+3. Use map to convert an array of strings to uppercase
+4. Use filter to find all even numbers in an array
+5. Use filter to find all numbers greater than 10
+6. Use find to find the first number greater than 5
+7. Use find to find the first person with age over 18
+8. Use reduce to find the sum of all numbers in an array
+9. Use reduce to find the maximum number in an array
+10. Use reduce to find the minimum number in an array
+11. Use map and filter together to find squares of even numbers
+12. Use reduce to count the frequency of each element in an array
+13. Use map to create an array of objects with transformed data
+14. Use filter to remove all falsy values from an array
+15. Use reduce to flatten a nested array
+16. Use map to create a new array with only specific properties
+17. Use filter to find all prime numbers in an array
+18. Use reduce to group objects by a specific property
+19. Use map to create a new array with calculated values
+20. Use filter to find all strings longer than 5 characters

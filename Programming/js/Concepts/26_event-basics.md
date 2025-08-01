@@ -86,3 +86,5 @@ element.addEventListener("click", handler, true); // true = capturing
 ```
 
 Default is `false`, which means bubbling.
+
+## Problems

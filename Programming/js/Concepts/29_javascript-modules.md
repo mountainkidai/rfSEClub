@@ -67,3 +67,5 @@ console.log(math.cube(2));   // 8
 
 * `* as math` imports everything and groups them under one object called `math`.
 * Access the functions using `math.functionName()`.
+
+## Problems

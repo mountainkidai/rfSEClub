@@ -88,3 +88,16 @@ console.log(true === true);   // true
 |`"" == 0`|`true`|`false`|`==` converts empty string to 0, `===` sees string vs number|
 |`null == undefined`|`true`|`false`|`==` treats them as similar, `===` sees different types|
 |`5 == 5`|`true`|`true`|Both see same value and type|
+
+## Problems
+
+1. Check if two variables with the same value but different types are equal using ==
+2. Check if two variables with the same value but different types are equal using ===
+3. Compare null and undefined using == and ===
+4. Compare true and 1 using == and ===
+5. Compare false and 0 using == and ===
+6. Compare an empty string and 0 using == and ===
+7. Compare two arrays with the same values using == and ===
+8. Compare two objects with the same properties using == and ===
+9. Compare a string and a number with the same value using == and ===
+10. Compare NaN with NaN using == and ===

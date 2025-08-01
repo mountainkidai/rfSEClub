@@ -72,3 +72,21 @@ getUser(showUser); // Output: User: Deepak
 * Helps handle asynchronous operations (things that take time)
 * Keeps your code modular and organized
 * Common in handling events, timers, file reading, API calls, etc.
+
+## Problems
+
+1. Create a function that takes a callback and calls it with a number
+2. Create a function that takes a callback and calls it with a string
+3. Create a function that takes a callback and calls it with an array
+4. Create a function that takes a callback and calls it with an object
+5. Use setTimeout with a callback function
+6. Use setInterval with a callback function
+7. Create a function that takes a callback and calls it after a delay
+8. Use forEach with a callback function
+9. Use map with a callback function
+10. Use filter with a callback function
+11. Create a function that takes a callback and calls it conditionally
+12. Create a function that takes multiple callbacks
+13. Create a function that returns a callback function
+14. Use a callback to handle errors
+15. Create a function that takes a callback and calls it with different data types

@@ -123,3 +123,21 @@ let word = "hello";
 let pattern = new RegExp(word, "i");
 console.log(pattern.test("Hello world!")); // true
 ```
+
+## Problems
+
+1. Check if a string contains only digits using regex
+2. Check if a string contains only letters using regex
+3. Check if a string is a valid email address using regex
+4. Check if a string starts with a specific letter using regex
+5. Check if a string ends with a specific letter using regex
+6. Find all numbers in a string using regex
+7. Replace all spaces with underscores using regex
+8. Check if a string contains at least one uppercase letter using regex
+9. Check if a string contains at least one lowercase letter using regex
+10. Check if a string contains at least one number using regex
+11. Check if a string contains at least one special character using regex
+12. Validate a phone number format using regex
+13. Validate a date format (DD/MM/YYYY) using regex
+14. Extract all words from a string using regex
+15. Check if a string is a valid URL using regex

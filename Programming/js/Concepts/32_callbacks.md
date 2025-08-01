@@ -134,3 +134,5 @@ Modern JavaScript uses better tools for async tasks:
 * Uses `try...catch` for cleaner error handling
 
 ---
+
+## Problems

@@ -99,3 +99,5 @@ console.log(typeof aadhaarNumber); // "bigint"
 | Supports Decimals | Yes         | No                              |
 | Type              | "number"    | "bigint"                        |
 | Use Case          | Normal math | Very large integers (IDs, etc.) |
+
+## Problems

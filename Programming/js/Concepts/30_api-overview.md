@@ -99,3 +99,5 @@ console.log(savedUser.name); // Output: Neha
 * `getItem(key)` retrieves the saved data.
 * `removeItem(key)` deletes the stored item.
 * `clear()` deletes everything in localStorage.
+
+## Problems

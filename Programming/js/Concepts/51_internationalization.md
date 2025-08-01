@@ -93,3 +93,5 @@ console.log(pr.select(2)); // "other"
 * `Intl.PluralRules` for singular/plural logic
 
 This helps make your applications **user-friendly globally** with very little effort!
+
+## Problems

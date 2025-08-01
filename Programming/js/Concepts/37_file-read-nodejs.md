@@ -84,3 +84,5 @@ File not found or another error: ENOENT: no such file or directory, open 'notfou
 * Asynchronous (non-blocking) — program doesn't freeze
 * Good for simple tasks
 * Can become complex if you nest too many callbacks (callback hell)
+
+## Problems

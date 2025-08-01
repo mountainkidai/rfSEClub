@@ -143,3 +143,5 @@ const { instance } = await WebAssembly.instantiate(bytes, importObj);
 * You can load `.wasm` modules using `WebAssembly.instantiate()` or tools like `wasm-pack`.
 * Rust is a popular language to compile to WASM due to its tooling.
 * WASM is great for CPU-intensive tasks, not UI-heavy work.
+
+## Problems

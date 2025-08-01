@@ -72,3 +72,21 @@ console.log(Math.sqrt(25)); // 5
 ***
 
 🔗 **More on MDN:** [JavaScript Math Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+## Problems
+
+1. Find the square root of a number using Math.sqrt()
+2. Find the absolute value of a number using Math.abs()
+3. Round a number to the nearest integer using Math.round()
+4. Find the ceiling of a number using Math.ceil()
+5. Find the floor of a number using Math.floor()
+6. Generate a random number between 1 and 10 using Math.random()
+7. Find the maximum of two numbers using Math.max()
+8. Find the minimum of two numbers using Math.min()
+9. Calculate the power of a number using Math.pow()
+10. Find the natural logarithm of a number using Math.log()
+11. Calculate the sine of an angle using Math.sin()
+12. Calculate the cosine of an angle using Math.cos()
+13. Calculate the tangent of an angle using Math.tan()
+14. Convert degrees to radians using Math.PI
+15. Generate a random integer between two given numbers

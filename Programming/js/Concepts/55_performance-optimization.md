@@ -119,3 +119,5 @@ import('./bigModule.js').then(module => {
 | Memoization      | Cache expensive function results     |
 | Minimize Reflows | Reduce layout recalculations         |
 | Code Splitting   | Serve only needed JS per interaction |
+
+## Problems

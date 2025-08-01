@@ -88,3 +88,5 @@ console.log(count ?? 10); // 0 (correct — only uses 10 if null/undefined)
 | ------------------ | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | Optional Chaining  | Access deep properties safely                  | Returns `undefined` if something in the chain is `null` or `undefined` |
 | Nullish Coalescing | Provide fallback values for `null`/`undefined` | Returns right side only if left is `null` or `undefined`               |
+
+## Problems

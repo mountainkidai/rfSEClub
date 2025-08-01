@@ -251,3 +251,40 @@ console.log(result); // Output: 8
 |**Anonymous Function**|`function() {}`|Callbacks, one-time use|No name, used as argument|
 |**Arrow Function**|`const name = () => {}`|Modern, concise syntax|Shorter syntax, no `this` binding|
 |**IIFE**|`(function() {})()`|Immediate execution, private scope|Runs once, creates isolation|
+
+## Problems
+
+1. Write a function to add two numbers
+2. Write a function to find the maximum of two numbers
+3. Write a function to check if a number is even or odd
+4. Write a function to calculate the factorial of a number
+5. Write a function to find the sum of digits of a number
+6. Write a function to check if a number is prime
+7. Write a function to find the GCD of two numbers
+8. Write a function to find the LCM of two numbers
+9. Write a function to reverse a number
+10. Write a function to check if a number is palindrome
+11. Write a function to find the Fibonacci series up to N numbers
+12. Write a function to find the N-th Fibonacci number
+13. Write a function to find the prime factorization of a number
+14. Write a function to find the product of digits of a number
+15. Write a function to calculate the nth triangular number
+16. Write a function to find the number of digits in a number
+17. Write a function to find the average of N numbers
+18. Write a function to check if a string is palindrome
+19. Write a function to count vowels in a string
+20. Write a function to count consonants in a string
+21. Write a function to find the longest word in a string
+22. Write a function to count frequency of each digit in a number
+23. Write a function to check if a string contains only digits
+24. Write a function to check if a string contains only letters
+25. Write a function to check if a string is a valid email address
+26. Write a function to find all factors of a number
+27. Write a function to check if a number is a perfect cube
+28. Write a function to check if a given year is a leap year
+29. Write a function to convert binary to decimal
+30. Write a function to convert decimal to binary
+31. Write a function to count prime numbers between two numbers
+32. Write a function to find the largest prime factor of a number
+33. Write a function to find the second largest number in an array
+34. Write a function to calculate the sum of all divisors of a number
