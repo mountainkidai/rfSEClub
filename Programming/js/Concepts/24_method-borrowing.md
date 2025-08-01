@@ -40,3 +40,5 @@ const person3 = {
 const greetKabir = person1.greet.bind(person3, "Chennai");
 greetKabir(); // Output: Hi, I am Kabir from Chennai
 ```
+
+## Problems

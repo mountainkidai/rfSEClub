@@ -90,3 +90,5 @@ console.log(item.name); // Tablet
 * The setter uses the `newName` parameter as input.
 * You can perform checks before updating the property.
 * We usually use a private backing field like `_name` to store the actual value.
+
+## Problems

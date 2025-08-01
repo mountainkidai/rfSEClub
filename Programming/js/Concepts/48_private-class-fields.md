@@ -119,3 +119,5 @@ console.log(sensor.getTemperatureF()); // 77
 Even though the user sets Celsius, they can only get Fahrenheit — and they never directly access `#celsius`.
 
 ---
+
+## Problems

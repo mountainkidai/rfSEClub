@@ -83,6 +83,15 @@ switch (day) {
 Start of the week
 ```
 
-**Problems:**
-findLargest.js
-evenOdd.js
+## Problems
+
+1. Find the largest of three numbers (a, b, c)
+2. Find out whether a number is even or odd
+3. Find the smallest of three numbers (a, b, c)
+4. Check if a number is divisible by 2
+5. Check if a number is divisible by 3
+6. Check if a number is divisible by 5
+7. Find the greatest of four numbers
+8. Find the smallest of four numbers
+9. Check if a number is a power of 2
+10. Check if a number is a perfect square

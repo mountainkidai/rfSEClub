@@ -144,3 +144,19 @@ numbers[1] = 25;      // [20, 25, 40]
 
 console.log(numbers);  // Output: [20, 25, 40]
 ```
+
+## Problems
+
+1. Print an array element by element
+2. Find the size of the array elements
+3. Remove duplicates from a list of numbers
+4. Find the second largest number in an array
+5. Find the Maximum Number in an Array
+6. Find All Even Numbers in an Array
+7. Find Common Elements in Two Arrays
+8. Calculate the Sum of an Array
+9. Filter Out Odd Numbers
+10. Find Squares of All Elements in an Array
+11. Convert Array of Strings to Uppercase
+12. Flatten a Nested Array
+13. Remove Duplicate Elements from an Array

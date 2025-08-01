@@ -85,3 +85,16 @@ console.log(username, age, isStudent, city, note, id1 === id2, empty);
 ```txt
 Nina 20 true undefined null false  
 ```
+
+## Problems
+
+1. Create variables of each primitive type (number, string, boolean, undefined, null)
+2. Check the type of a variable using typeof operator
+3. Convert a string to a number using Number()
+4. Convert a number to a string using String()
+5. Convert a string to a boolean using Boolean()
+6. Check if a variable is undefined
+7. Check if a variable is null
+8. Create a string with different quote types (single, double, backticks)
+9. Create a number with decimal places
+10. Create a boolean variable and use it in a condition

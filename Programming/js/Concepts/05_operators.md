@@ -129,3 +129,17 @@ let result = --x; // Subtract 1 first, then use new value
 console.log(result); // 7 (new value)
 console.log(x);      // 7 (decremented before use)
 ```
+
+## Problems
+
+1. Write a calculator app that does operations (+, -, ×, /, %)
+2. Calculate the sum of n natural numbers using formulae
+3. Calculate the sum of n natural numbers without formulae
+4. Find the sum of the first N - 5 odd numbers
+5. Find the sum of the first N even numbers
+6. Find the sum of squares of first N natural numbers
+7. Find the sum of cubes of first N natural numbers
+8. Calculate the nth triangular number
+9. Calculate the sum of all divisors of a number
+10. Calculate the area of a triangle
+11. Calculate the area of a circle

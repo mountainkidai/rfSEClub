@@ -161,3 +161,21 @@ const newWay = `Line 1
 Line 2
 Line 3`;
 ```
+
+## Problems
+
+1. Use destructuring to extract values from an array
+2. Use destructuring to extract properties from an object
+3. Use spread operator to combine two arrays
+4. Use spread operator to copy an object
+5. Use rest operator in a function to collect remaining arguments
+6. Use destructuring with default values
+7. Use destructuring to swap two variables
+8. Use spread operator to create a new array with additional elements
+9. Use destructuring to extract nested object properties
+10. Use rest operator to collect array elements
+11. Use spread operator to merge objects
+12. Use destructuring to extract function parameters
+13. Use spread operator to pass array elements as function arguments
+14. Use destructuring to extract values from a function return
+15. Use rest operator to create a function that accepts variable arguments

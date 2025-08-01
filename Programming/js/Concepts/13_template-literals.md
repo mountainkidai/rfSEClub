@@ -57,4 +57,15 @@ console.log(highlight`Learn ${lang} at a ${level} level.`);
 Learn <b>JavaScript</b> at a <b>beginner</b> level.
 ```
 
----
+## Problems
+
+1. Create a template literal that displays a person's name and age
+2. Create a template literal that shows a product name and its price
+3. Create a multi-line template literal for a simple poem
+4. Create a template literal that displays current date and time
+5. Create a template literal that shows a student's grades in different subjects
+6. Create a template literal for a simple HTML structure
+7. Create a template literal that displays weather information
+8. Create a template literal for a simple email template
+9. Create a template literal that shows a book's details
+10. Create a template literal for a simple address format

@@ -115,3 +115,5 @@ console.log(phoneBook.get("Pooja")); // "9876543222"
 | Value Type | Any                       | Any                               |
 | Order      | Maintains insertion order | Maintains insertion order         |
 | Use Case   | Filtering duplicates      | Dictionary-like structure         |
+
+## Problems

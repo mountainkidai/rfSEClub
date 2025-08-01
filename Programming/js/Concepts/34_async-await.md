@@ -124,3 +124,5 @@ async function loadInParallel() {
 * `Promise.all([...])` starts both requests at the same time.
 * `await` pauses until **both** are complete.
 * Much **faster** when tasks don’t depend on each other.
+
+## Problems

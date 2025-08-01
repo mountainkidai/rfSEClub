@@ -115,3 +115,5 @@ user = null; // user object is garbage collected
 | Memory Leak        | Memory that should be released but isn’t        |
 | WeakMap            | Allows garbage collection of unused object keys |
 | WeakSet            | Similar to WeakMap but for sets of objects      |
+
+## Problems

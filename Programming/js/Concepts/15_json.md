@@ -88,3 +88,21 @@ fetch('https://api.example.com/user')
   // If an error occurs (e.g. network issue or invalid JSON), log it
   .catch(error => console.error('API error:', error));
 ```
+
+## Problems
+
+1. Convert a JavaScript object to JSON string
+2. Parse a JSON string back to a JavaScript object
+3. Create a JSON object with nested properties
+4. Access specific properties from a parsed JSON object
+5. Convert an array of objects to JSON string
+6. Parse JSON data from an API response
+7. Create a JSON object with different data types
+8. Validate if a string is valid JSON
+9. Convert JSON data to a formatted string
+10. Extract specific values from a complex JSON structure
+11. Create a JSON object with arrays and objects
+12. Convert JSON data to a table format
+13. Filter JSON data based on specific criteria
+14. Sort JSON data by a specific property
+15. Create a JSON object with boolean and null values

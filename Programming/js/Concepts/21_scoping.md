@@ -86,3 +86,16 @@ myFunc();
 ```
 
 The `inner` function still has access to `outerVar`, because it remembers the scope in which it was created.
+
+## Problems
+
+1. Create a function with a local variable and try to access it outside
+2. Create a block with let/const variables and try to access them outside
+3. Create nested functions and access variables from outer scope
+4. Create a function that returns another function with access to outer variables
+5. Demonstrate the difference between var and let/const scoping
+6. Create a function with parameters and access them inside the function
+7. Create a global variable and access it from inside a function
+8. Create a function that declares a variable with the same name as a global variable
+9. Create nested blocks and demonstrate block scoping
+10. Create a function that uses variables from multiple scopes

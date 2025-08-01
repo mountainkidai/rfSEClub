@@ -94,3 +94,11 @@ console.log(firstName + " is " + age + " years old.");
 ```txt
 Sara is 22 years old.
 ```
+
+## Problems
+
+1. Create a variable called `name` and assign your name to it, then print it
+2. Create a variable called `age` and assign your age to it, then print it
+3. Create two variables `firstName` and `lastName`, assign values, then print them together
+4. Create a variable `temperature` and assign a number to it, then print "The temperature is [value] degrees"
+5. Create a variable `isStudent` and assign true or false to it, then print it

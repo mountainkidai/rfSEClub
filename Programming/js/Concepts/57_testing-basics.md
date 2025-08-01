@@ -235,3 +235,5 @@ npx jest --coverage
 * **Mocking** allows you to fake external parts and focus on the logic.
 * **TDD** helps build robust and well-designed code.
 * **Code coverage** tells you how thoroughly your code is tested.
+
+## Problems

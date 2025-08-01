@@ -104,3 +104,5 @@ Visit: [https://caniuse.com/fetch](https://caniuse.com/fetch) to see which brows
 | **Browser Compatibility Data** | Know which browsers support what        |
 
 Using these tools and techniques ensures your JavaScript runs reliably across all major browsers and devices.
+
+## Problems

@@ -144,3 +144,21 @@ Promise.race([
 ```txt
 First ready: Snacks
 ```
+
+## Problems
+
+1. Create a simple promise that resolves after 2 seconds
+2. Create a promise that rejects if a number is negative
+3. Create a promise that resolves with a random number between 1-10
+4. Chain multiple promises together
+5. Handle promise rejection with .catch()
+6. Use Promise.all() to wait for multiple promises
+7. Use Promise.race() to get the first resolved promise
+8. Create a promise that simulates API call
+9. Create a promise that simulates file reading
+10. Handle promise errors and show fallback values
+11. Create a promise that resolves after user input
+12. Use Promise.resolve() to create an immediately resolved promise
+13. Use Promise.reject() to create an immediately rejected promise
+14. Create a promise that resolves with different data types
+15. Handle multiple promise rejections

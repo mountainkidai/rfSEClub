@@ -60,3 +60,16 @@ var greet = function() {
 ```
 
 This is because `greet` is hoisted and set to `undefined`, so calling it before assignment results in an error.
+
+## Problems
+
+1. Demonstrate variable hoisting with var
+2. Demonstrate that let and const are hoisted but not accessible before declaration
+3. Demonstrate function declaration hoisting
+4. Demonstrate that function expressions are not hoisted the same way
+5. Create a variable with var and try to access it before declaration
+6. Create a variable with let and try to access it before declaration
+7. Create a function declaration and call it before its definition
+8. Create a function expression and try to call it before assignment
+9. Demonstrate the difference between var and let hoisting
+10. Create nested functions and demonstrate hoisting behavior

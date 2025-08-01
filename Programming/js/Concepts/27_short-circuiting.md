@@ -61,3 +61,5 @@ isOnline && alert("You are online!");
 
 * Falsy values in JavaScript: `false`, `0`, `""`, `null`, `undefined`, `NaN`
 * Truthy: Anything that is not falsy
+
+## Problems

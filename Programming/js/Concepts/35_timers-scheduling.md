@@ -94,3 +94,5 @@ const timer = setInterval(() => {
 
 * Prints time every second
 * Stops when it reaches 0
+
+## Problems

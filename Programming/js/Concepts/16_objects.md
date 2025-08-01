@@ -191,3 +191,16 @@ const location = {
 
 console.log(location.city); // Delhi
 ```
+
+## Problems
+
+1. Create an object representing a person with name, age, and city properties
+2. Create an object representing a book with title, author, and year properties
+3. Create an object representing a car with brand, model, and year properties
+4. Access and print specific properties of an object
+5. Add a new property to an existing object
+6. Create an object with a method that returns a formatted string
+7. Create nested objects (object within object)
+8. Create an object with an array property
+9. Write a function that takes an object and returns all its keys
+10. Write a function that takes an object and returns all its values

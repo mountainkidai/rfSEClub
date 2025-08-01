@@ -119,3 +119,5 @@ console.log("4");
 7. Then runs `setTimeout` callback → prints `console.log("2")`
 
 This shows how JavaScript decides **what runs when**, based on queues.
+
+## Problems

@@ -88,3 +88,5 @@ This pattern helps prevent unnecessary work and outdated results.
 * `AbortController` helps cancel fetch requests
 * Prevents outdated network requests from interfering
 * Useful for search inputs, form changes, or canceling fetches on navigation
+
+## Problems

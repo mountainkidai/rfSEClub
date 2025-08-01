@@ -154,3 +154,5 @@ navigator.clipboard.writeText("Copied to clipboard!").then(() => {
 | `Web Workers`          | Background thread              | Heavy computation               |
 | `IntersectionObserver` | Detect visibility              | Lazy loading, effects on scroll |
 | `Clipboard API`        | Copy/paste via clipboard       | Copy buttons, paste utilities   |
+
+## Problems

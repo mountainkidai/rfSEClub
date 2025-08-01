@@ -48,3 +48,18 @@ if ("hello") {
 ```txt
 This is truthy
 ```
+
+## Problems
+
+1. Write an if statement that checks if a variable is truthy
+2. Write an if statement that checks if a variable is falsy
+3. List all falsy values in JavaScript
+4. List three examples of truthy values in JavaScript
+5. Check if an empty array is truthy or falsy
+6. Check if an empty object is truthy or falsy
+7. Check if the string '0' is truthy or falsy
+8. Check if the number 0 is truthy or falsy
+9. Check if null is truthy or falsy
+10. Check if undefined is truthy or falsy
+11. Use a variable in an if statement and print whether it is truthy or falsy
+12. Use the double NOT operator (!!) to convert a value to boolean and print the result

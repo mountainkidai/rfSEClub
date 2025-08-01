@@ -32,3 +32,16 @@ You can also pass arguments to an IIFE:
   console.log("Hello, " + name);
 })("Suman");
 ```
+
+## Problems
+
+1. Create an IIFE that prints "Hello World"
+2. Create an IIFE that takes a parameter and prints it
+3. Create an IIFE that returns a value
+4. Create an IIFE that creates a private variable
+5. Create an IIFE that returns a function
+6. Create an IIFE with arrow function syntax
+7. Create an IIFE that takes multiple parameters
+8. Create an IIFE that performs a calculation
+9. Create an IIFE that creates an object
+10. Create an IIFE that creates an array
