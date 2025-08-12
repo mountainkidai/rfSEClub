@@ -2,15 +2,15 @@
 
 **Subtopics (One per Day)**:
 
-1.  **Introduction to Rust**: Install Rust, Cargo; write Hello World. Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
-2.  **Variables and Mutability**: Declare variables, mut keyword, constants. Exercise: Swap two variables. Mini-Project: Calculate simple interest with user inputs.
-3.  **Data Types - Scalars**: Integers, floats, booleans, characters. Exercise: Convert temperature F to C. Mini-Project: Basic calculator for addition/subtraction.
-4.  **Data Types - Compounds**: Tuples, arrays. Exercise: Access tuple elements. Mini-Project: Store and print student scores array.
-5.  **Functions**: Define functions, parameters, returns. Exercise: Write max function. Mini-Project: Factorial calculator.
-6.  **Control Flow - If/Else**: Conditional statements. Exercise: Check even/odd. Mini-Project: Grade classifier.
-7.  **Control Flow - Loops**: Loop, while, for. Exercise: Sum 1 to n. Mini-Project: Print multiplication table.
-8.  **Ownership and Borrowing**: Ownership rules, borrowing, references. Exercise: Function to modify string via borrow. Mini-Project: Inventory manager with ownership transfers.
-9.  **Lifetimes**: Lifetime annotations for references. Exercise: Function returning longer string slice. Mini-Project: Text analyzer with lifetime params.
+1. **Introduction to Rust**: Install Rust, Cargo; write Hello World. Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
+2. **Variables and Mutability**: Declare variables, mut keyword, constants. Exercise: Swap two variables. Mini-Project: Calculate simple interest with user inputs.
+3. **Data Types - Scalars**: Integers, floats, booleans, characters. Exercise: Convert temperature F to C. Mini-Project: Basic calculator for addition/subtraction.
+4. **Data Types - Compounds**: Tuples, arrays. Exercise: Access tuple elements. Mini-Project: Store and print student scores array.
+5. **Functions**: Define functions, parameters, returns. Exercise: Write max function. Mini-Project: Factorial calculator.
+6. **Control Flow - If/Else**: Conditional statements. Exercise: Check even/odd. Mini-Project: Grade classifier.
+7. **Control Flow - Loops**: Loop, while, for. Exercise: Sum 1 to n. Mini-Project: Print multiplication table.
+8. **Ownership and Borrowing**: Ownership rules, borrowing, references. Exercise: Function to modify string via borrow. Mini-Project: Inventory manager with ownership transfers.
+9. **Lifetimes**: Lifetime annotations for references. Exercise: Function returning longer string slice. Mini-Project: Text analyzer with lifetime params.
 10. **Structs**: Define structs, methods. Exercise: Rectangle area. Mini-Project: Point distance calculator.
 11. **Enums and Pattern Matching**: Enums, match. Exercise: Handle optional values. Mini-Project: Simple state machine.
 12. **Traits and Generics**: Traits, generic types/functions. Exercise: Generic stack. Mini-Project: Polymorphic shape area.
@@ -60,8 +60,8 @@
 
 **Resources**:
 
-- Rust Book: https://doc.rust-lang.org/book/
-- Rust by Example: https://doc.rust-lang.org/rust-by-example/
-- Axum Docs: https://docs.rs/axum/
-- Tokio Docs: https://tokio.rs/
+- [Rust Book](https://doc.rust-lang.org/book/)
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
+- [Axum Docs](https://docs.rs/axum/)
+- [Tokio Docs](https://tokio.rs/)
 - Exercises: LeetCode Rust, custom repos.
