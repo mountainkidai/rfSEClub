@@ -16,9 +16,37 @@ Displays items with bullet points.
 
 **Output:**
 
-* Item One
-* Item Two
-* Item Three
+- Item One
+- Item Two
+- Item Three
+
+### Nested Unordered List
+
+```html
+<ul>
+  <li>Fruits
+    <ul>
+      <li>Apple</li>
+      <li>Banana</li>
+    </ul>
+  </li>
+  <li>Vegetables
+    <ul>
+      <li>Carrot</li>
+      <li>Broccoli</li>
+    </ul>
+  </li>
+</ul>
+```
+
+**Output:**
+
+- Fruits
+  - Apple
+  - Banana
+- Vegetables
+  - Carrot
+  - Broccoli
 
 ## 2. Ordered List (`<ol>`)
 
@@ -38,6 +66,55 @@ Displays items with numbers.
 2. Second Step
 3. Third Step
 
+### Ordered List with Type Attribute
+
+```html
+<ol type="A">
+  <li>Step A</li>
+  <li>Step B</li>
+  <li>Step C</li>
+</ol>
+```
+
+**Output:**
+A. Step A
+B. Step B
+C. Step C
+
+### Ordered List with Start Attribute
+
+```html
+<ol start="5">
+  <li>Step Five</li>
+  <li>Step Six</li>
+</ol>
+```
+
+**Output:**
+5. Step Five
+6. Step Six
+
+### Nested Ordered List
+
+```html
+<ol>
+  <li>Setup
+    <ol>
+      <li>Install</li>
+      <li>Configure</li>
+    </ol>
+  </li>
+  <li>Launch</li>
+</ol>
+```
+
+**Output:**
+
+1. Setup
+   1. Install
+   2. Configure
+2. Launch
+
 ## 3. Definition List (`<dl>`, `<dt>`, `<dd>`)
 
 Used for displaying terms and their descriptions. `<dt>` defines the term and `<dd>` provides the definition.
@@ -56,14 +133,27 @@ Used for displaying terms and their descriptions. `<dt>` defines the term and `<
 ```
 
 **Output:**
-HTML
-: A markup language for creating web pages.
+HTML: A markup language for creating web pages.  
+CSS: A style sheet language used for describing presentation.  
+JavaScript: A scripting language that enables interactive web features.
 
-CSS
-: A style sheet language used for describing presentation.
+### Definition List with Multiple Descriptions
 
-JavaScript
-: A scripting language that enables interactive web features.
+```html
+<dl>
+  <dt>Python</dt>
+  <dd>A general-purpose programming language.</dd>
+  <dd>Popular for web and data science.</dd>
+
+  <dt>API</dt>
+  <dd>Application Programming Interface</dd>
+</dl>
+```
+
+**Output:**
+Python: A general-purpose programming language.  
+Python: Popular for web and data science.  
+API: Application Programming Interface
 
 ## Example
 
@@ -103,3 +193,22 @@ JavaScript
   </body>
 </html>
 ```
+
+**Output:**
+
+Unordered List
+
+- Apple
+- Banana
+- Cherry
+
+Ordered List
+
+1. Wash
+2. Cut
+3. Serve
+
+Definition List:
+HTML: HyperText Markup Language  
+URL: Uniform Resource Locator  
+HTTP: HyperText Transfer Protocol

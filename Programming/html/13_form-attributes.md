@@ -43,7 +43,7 @@ username=JohnDoe
 <label for="email">Email</label>
 ```
 
-This connects the label to the input, so clicking on the label focuses the input field.
+**Behavior:** Clicking on the label focuses the associated input field.
 
 ---
 
@@ -62,7 +62,9 @@ This connects the label to the input, so clicking on the label focuses the input
 <input type="text" name="city" value="Delhi">
 ```
 
-**Output:** The text field will show “Delhi” when the page loads.
+**Output:**
+
+The text field will show “Delhi” when the page loads.
 
 ---
 
@@ -82,7 +84,7 @@ This connects the label to the input, so clicking on the label focuses the input
 <input type="email" name="userEmail" autocomplete="email">
 ```
 
-Browsers will attempt to fill in the user’s email based on stored form history.
+**Behavior:** Browsers will attempt to fill in the user’s email based on stored form history.
 
 ---
 
@@ -126,6 +128,73 @@ This ensures users provide a 6-digit number.
 
 ---
 
+## 7. `method` Attribute
+
+**Definition:** Specifies how to send form data to the server.
+
+**Common Values:**
+
+* `GET` — Appends form data to URL. Ideal for search queries.
+* `POST` — Sends data in request body. Ideal for sensitive or large data.
+
+**Example:**
+
+```html
+<form method="post">
+  <input type="text" name="username">
+  <button type="submit">Submit</button>
+</form>
+```
+
+**Behavior:** Sends the `username` value securely to the server.
+
+---
+
+## 8. `action` Attribute
+
+**Definition:** Specifies where to send the form data when submitted.
+
+**Example:**
+
+```html
+<form action="/submit-form" method="post">
+  <input type="text" name="name">
+  <button type="submit">Send</button>
+</form>
+```
+
+**Behavior:** The form submits data to the `/submit-form` URL.
+
+---
+
+## 9. `required` Attribute
+
+**Definition:** Indicates that an input field must be filled before submitting the form.
+
+**Example:**
+
+```html
+<input type="email" name="userEmail" required>
+```
+
+**Behavior:** Form cannot be submitted if the field is empty.
+
+---
+
+## 10. `readonly` Attribute
+
+**Definition:** Makes an input field non-editable but still submits its value.
+
+**Example:**
+
+```html
+<input type="text" name="userID" value="12345" readonly>
+```
+
+**Behavior:** User sees the value but cannot change it.
+
+---
+
 ## Summary Table
 
 | Attribute      | Description                              | Commonly Used With            |
@@ -136,3 +205,7 @@ This ensures users provide a 6-digit number.
 | `autocomplete` | Helps browser autofill common fields     | Login/signup forms            |
 | `autofocus`    | Focuses the field on page load           | First user interaction field  |
 | `pattern`      | Regex pattern for client-side validation | Input fields with constraints |
+| `method`       | Defines how data is sent                 | `<form>`                      |
+| `action`       | Defines where data is sent               | `<form>`                      |
+| `required`     | Ensures the field must be filled         | `<input>`, `<textarea>`       |
+| `readonly`     | Makes field non-editable                 | `<input>`                     |
