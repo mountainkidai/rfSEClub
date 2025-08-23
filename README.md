@@ -1,31 +1,28 @@
-# rfSE Club - Round Table for Students & Engineers 🌏
+# rfSE Club - Radical Future Scientists and Engineers Club 🌏
 
 ## What We Are
 
-rfSE Club (Round Table for Students & Engineers) is an innovative education initiative by MountainKid Innovations Private Limited based in Jakhu Hill, Shimla, Himachal Pradesh.
+rfSE Club is an innovative education initiative by MountainKid AI with a motive to create real engineers who can invent and innovate things..
 
-## Who We Are
+## The Problem
 
-MountainKid Innovations Private Limited / MountainKid AI, led by Aariv, is a Shimla-based tech company dedicated to solving Food, Health, Tourism, and Agriculture problems using AI, Rust, and Blockchain technologies. And we want to do all these things in our dream place -- MountainKid Valley.
+The current education system isn’t keeping up with advancements around the world. And it has become more of job-oriented / grade-oriented instead of focussing on innovation / inventions.
 
-## Our Dream
+## The Solution
 
-Build India’s next tech valley (MountainKid Valley) by 2030 in Himachal, making it one of the top 5 economies in the country. And to do that, we need real engineers but since the conventional education system isn't pacing up with the advancement around the world, we are building rfSE Club to empower students with first-principles thinking,mathematics,problem analysis and programming equipping them to innovate/invent to solve problems. At the moment, we are working actively in preparing the curriculum with quick iterations. Simultaneously we are connecting schools, colleges and individual free minded souls to Engineers at MountainKid bypassing the traditional education system. And hopefully by the end of this year, we will be releasing a virtual school software for everyone to improve the user experience.
+We are building rfSE Club to empower students with first-principles thinking, mathematics, problem analysis, and programming, equipping them to innovate/invent and solve problems.
 
-### Why rfSE Pro Club?
+## Current Status
 
-- **Membership Based**: Affordable monthly/one-time fee, less than the cost of one meal a day.
-- **Small Group Learning**: Each room has a max of 15 students, prioritizing quality over quantity.
-- **Local Language**: We discuss in a language students are most comfortable with, ensuring high comprehension.
-- **Guidance & Support**: Unlike others, at rfSE Club we connect engineers to you directly.
-- **Occasional Guides**.
-- **Interactive Events**.
-- **18/7 Support**.
+At the moment, we are working actively in preparing the curriculum with quick iterations. Simultaneously we are connecting schools, colleges and individual free minded souls to Engineers at MountainKid bypassing the traditional education system. And hopefully by the end of this year, we will be releasing a virtual school software for everyone to improve the user experience.
 
 ## What's next?
 
-our ultimate goal is to scale this model across Himachal Schools initially and expand it further across the country and the world by integrating MountainKid custom in-house language models along AR/VR-based learning, to create a sustainable, tech-driven education system that inspires the next generation of innovators.
+our ultimate goal is to scale this model across Himachal Schools initially and expand it further across the country and the world by integrating MountainKid custom in-house language models along with AR/VR-based learning, to create a innovative, tech-driven education system that inspires the next generation of innovators.
 
 ---
 
 **Join us in building the future of education!**
+Contact: [hello@rfse.club](mailto:hello@rfse.club)
+
+Visit: [rfse.club](https://www.rfse.club/)
