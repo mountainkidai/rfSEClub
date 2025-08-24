@@ -20,8 +20,8 @@ Atom Structure
 
 Energy is the ability to do work, and in computers, it powers everything—from calculations to screen displays.
 
-* **Kinetic energy** in computing refers to the motion of electrons moving through wires.
-* **Potential energy** is stored in batteries or capacitors, waiting to be released when needed.
+- **Kinetic energy** in computing refers to the motion of electrons moving through wires.
+- **Potential energy** is stored in batteries or capacitors, waiting to be released when needed.
 
 This stored energy allows devices to function even for brief moments without continuous input, like maintaining your phone’s clock when powered off.
 
@@ -33,9 +33,9 @@ Electricity and magnetism are two sides of the same coin. When current flows thr
 
 This principle enables technologies such as:
 
-* Transformers
-* Inductors in power supply circuits
-* Wireless technologies (radio, Wi-Fi, NFC)
+- Transformers
+- Inductors in power supply circuits
+- Wireless technologies (radio, Wi-Fi, NFC)
 
 ![1752827677256](image/002_physics_foundations_for_computing/1752827677256.png)
 
@@ -78,8 +78,8 @@ Engineers design circuits so the correct voltage and current flow to each compon
 
 ## Conductors and Insulators
 
-* **Conductors** (e.g., copper, aluminum): allow easy flow of electric current.
-* **Insulators** (e.g., rubber, plastic): resist current flow.
+- **Conductors** (e.g., copper, aluminum): allow easy flow of electric current.
+- **Insulators** (e.g., rubber, plastic): resist current flow.
 
 Circuit boards use conductors for electrical paths and insulators to keep signals separated and prevent short circuits.
 
@@ -89,9 +89,9 @@ Circuit boards use conductors for electrical paths and insulators to keep signal
 
 A **capacitor** stores electrical energy in an electric field. It can charge and discharge rapidly, making it perfect for:
 
-* Stabilizing voltage
-* Smoothing power supply fluctuations
-* Filtering noise from signals
+- Stabilizing voltage
+- Smoothing power supply fluctuations
+- Filtering noise from signals
 
 Capacitors act like shock absorbers for electricity.
 
@@ -105,9 +105,9 @@ An **inductor** stores energy in a magnetic field when current passes through a 
 
 Inductors are used in:
 
-* Voltage regulators
-* Audio equipment
-* Power supply circuits
+- Voltage regulators
+- Audio equipment
+- Power supply circuits
 
 ![1752828533471](image/002_physics_foundations_for_computing/1752828533471.png)
 
@@ -119,9 +119,9 @@ Logic gates are simple circuits that follow Boolean logic. They are the **fundam
 
 Each gate takes binary inputs (0 or 1) and produces an output based on logical rules:
 
-* AND: Output is 1 only if both inputs are 1
-* OR: Output is 1 if at least one input is 1
-* NOT: Inverts the input
+- AND: Output is 1 only if both inputs are 1
+- OR: Output is 1 if at least one input is 1
+- NOT: Inverts the input
 
 Modern CPUs contain **billions of logic gates**, working together at light speed.
 
@@ -143,9 +143,9 @@ Each **bit** (binary digit) represents one state: on or off. By combining multip
 
 Electromagnetic waves carry data wirelessly. Different frequencies correspond to different technologies:
 
-* 2.4 GHz: Wi-Fi, Bluetooth
-* ~850–1900 MHz: GSM mobile signals
-* Infrared and optical: Fiber internet
+- 2.4 GHz: Wi-Fi, Bluetooth
+- ~850–1900 MHz: GSM mobile signals
+- Infrared and optical: Fiber internet
 
 These invisible waves are modulated to carry binary data across space—allowing the internet, phone calls, and GPS.
 
@@ -165,9 +165,9 @@ Sound in devices like phones and alarms is crafted from tiny electric pulses tra
 
 A Printed Circuit Board (PCB) contains:
 
-* **Copper traces**: like roads for electrons
-* **Substrate**: structural base layer
-* **Multiple layers**: allow compact and complex connections
+- **Copper traces**: like roads for electrons
+- **Substrate**: structural base layer
+- **Multiple layers**: allow compact and complex connections
 
 ![1752828919729](image/002_physics_foundations_for_computing/1752828919729.png)
 
