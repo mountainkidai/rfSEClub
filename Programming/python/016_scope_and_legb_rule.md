@@ -1,6 +1,6 @@
 # 016 Scope and LEGB Rule
 
-Scope in Python determines where a variable is accessible within a program. The LEGB rule defines the order in which Python searches for a variable's name. For young scientists in the rfSE Club, understanding scope and the LEGB rule is critical for managing variables in scientific programs, ensuring proper data handling in experiments or simulations.
+Scope in Python determines where a variable is accessible within a program. The LEGB rule defines the order in which Python searches for a variable's name. For students in the rfSE Club, understanding scope and the LEGB rule is critical for managing variables in scientific programs, ensuring proper data handling in experiments or simulations.
 
 ## Variable Scope
 

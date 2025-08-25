@@ -1,6 +1,6 @@
 # 017 Global Keyword Usage
 
-The `global` keyword in Python allows a function to modify a global variable, overriding the default behavior of creating a local variable with the same name. For young scientists in the rfSE Club, understanding the `global` keyword is key to managing shared data across functions in scientific programs, such as tracking experiment counts or shared resources.
+The `global` keyword in Python allows a function to modify a global variable, overriding the default behavior of creating a local variable with the same name. For students in the rfSE Club, understanding the `global` keyword is key to managing shared data across functions in scientific programs, such as tracking experiment counts or shared resources.
 
 ## Global Variables
 

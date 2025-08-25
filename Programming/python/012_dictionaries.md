@@ -1,6 +1,6 @@
 # 012 Dictionaries
 
-Dictionaries in Python are mutable, unordered collections of key-value pairs, ideal for storing and retrieving data efficiently. For young scientists in the rfSE Club, dictionaries are crucial for organizing complex datasets, such as experiment results or user profiles, in scientific programming.
+Dictionaries in Python are mutable, unordered collections of key-value pairs, ideal for storing and retrieving data efficiently. For students in the rfSE Club, dictionaries are crucial for organizing complex datasets, such as experiment results or user profiles, in scientific programming.
 
 ## Creating Dictionaries
 

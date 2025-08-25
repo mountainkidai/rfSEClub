@@ -1,6 +1,6 @@
 # 013 Basic Operations
 
-Basic operations on data structures like lists, tuples, and dictionaries involve accessing, modifying, adding, and removing elements. For young scientists in the rfSE Club, mastering these operations is essential for manipulating datasets in scientific applications, such as organizing experiment results or managing simulation data.
+Basic operations on data structures like lists, tuples, and dictionaries involve accessing, modifying, adding, and removing elements. For students in the rfSE Club, mastering these operations is essential for manipulating datasets in scientific applications, such as organizing experiment results or managing simulation data.
 
 ## Operations on Lists
 

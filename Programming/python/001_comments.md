@@ -1,6 +1,6 @@
 # 001 Comments
 
-Comments in Python are used to add explanatory notes to code, making it easier to understand and maintain. They are ignored by the Python interpreter and do not affect program execution. Comments are essential for documenting code, especially in open-source projects like the rfSE Club, to help young scientists understand the purpose and logic of code segments.
+Comments in Python are used to add explanatory notes to code, making it easier to understand and maintain. They are ignored by the Python interpreter and do not affect program execution. Comments are essential for documenting code, especially in open-source projects like the rfSE Club, to help students understand the purpose and logic of code segments.
 
 ## Single-Line Comments
 

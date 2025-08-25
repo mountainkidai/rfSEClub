@@ -1,6 +1,6 @@
 # 003 Input and Output
 
-Input and output operations in Python allow programs to interact with users by receiving data and displaying results. For young scientists in the rfSE Club, mastering these operations is crucial for creating interactive programs and handling data in scientific applications.
+Input and output operations in Python allow programs to interact with users by receiving data and displaying results. For students in the rfSE Club, mastering these operations is crucial for creating interactive programs and handling data in scientific applications.
 
 ## Input
 

@@ -1,6 +1,6 @@
 # 014 Defining Functions
 
-Functions in Python are reusable blocks of code that perform specific tasks, promoting the DRY (Don't Repeat Yourself) principle. For young scientists in the rfSE Club, functions are essential for organizing scientific computations, such as calculating experiment results or automating repetitive tasks.
+Functions in Python are reusable blocks of code that perform specific tasks, promoting the DRY (Don't Repeat Yourself) principle. For students in the rfSE Club, functions are essential for organizing scientific computations, such as calculating experiment results or automating repetitive tasks.
 
 ## Defining Functions
 

@@ -1,6 +1,6 @@
 # 009 String Slicing and Manipulation
 
-String slicing and manipulation in Python allow you to extract, modify, and analyze parts of strings. For young scientists in the rfSE Club, these skills are vital for processing text data in scientific applications, such as parsing experimental data or formatting outputs.
+String slicing and manipulation in Python allow you to extract, modify, and analyze parts of strings. For students in the rfSE Club, these skills are vital for processing text data in scientific applications, such as parsing experimental data or formatting outputs.
 
 ## String Slicing
 

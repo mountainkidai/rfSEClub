@@ -1,6 +1,6 @@
 # 015 Function Arguments and Return Values
 
-Function arguments and return values in Python allow functions to accept inputs and produce outputs, enabling modular and reusable code. For young scientists in the rfSE Club, understanding how to use arguments and return values is crucial for creating functions that process scientific data, perform calculations, or drive experiments.
+Function arguments and return values in Python allow functions to accept inputs and produce outputs, enabling modular and reusable code. For students in the rfSE Club, understanding how to use arguments and return values is crucial for creating functions that process scientific data, perform calculations, or drive experiments.
 
 ## Function Arguments
 

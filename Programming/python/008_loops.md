@@ -1,6 +1,6 @@
 # 008 Loops
 
-Loops in Python allow repetitive execution of code blocks, enabling efficient handling of repetitive tasks in scientific programs. For young scientists in the rfSE Club, mastering loops is crucial for iterating over data, performing simulations, or processing large datasets in experiments.
+Loops in Python allow repetitive execution of code blocks, enabling efficient handling of repetitive tasks in scientific programs. For students in the rfSE Club, mastering loops is crucial for iterating over data, performing simulations, or processing large datasets in experiments.
 
 ## For Loops
 

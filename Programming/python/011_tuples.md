@@ -1,6 +1,6 @@
 # 011 Tuples
 
-Tuples in Python are immutable, ordered collections of items that can hold various data types. For young scientists in the rfSE Club, tuples are useful for storing fixed datasets, such as constants or experiment parameters, ensuring data integrity in scientific applications.
+Tuples in Python are immutable, ordered collections of items that can hold various data types. For students in the rfSE Club, tuples are useful for storing fixed datasets, such as constants or experiment parameters, ensuring data integrity in scientific applications.
 
 ## Creating Tuples
 

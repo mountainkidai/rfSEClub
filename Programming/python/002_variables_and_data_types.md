@@ -1,6 +1,6 @@
 # 002 Variables and Data Types
 
-Variables in Python are used to store data values, acting as named containers for information that can be manipulated throughout a program. Data types define the kind of data a variable can hold, such as numbers, text, or boolean values. Understanding variables and data types is fundamental for young scientists in the rfSE Club to build robust Python programs for scientific applications.
+Variables in Python are used to store data values, acting as named containers for information that can be manipulated throughout a program. Data types define the kind of data a variable can hold, such as numbers, text, or boolean values. Understanding variables and data types is fundamental for students in the rfSE Club to build robust Python programs for scientific applications.
 
 ## Variables
 

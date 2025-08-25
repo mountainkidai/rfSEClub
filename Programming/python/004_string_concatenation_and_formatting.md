@@ -1,6 +1,6 @@
 # 004 String Concatenation and Formatting
 
-String concatenation and formatting in Python allow you to combine strings and present data in a readable way. For young scientists in the rfSE Club, mastering these techniques is essential for creating clear output in scientific programs, such as displaying experiment results or user interactions.
+String concatenation and formatting in Python allow you to combine strings and present data in a readable way. For students in the rfSE Club, mastering these techniques is essential for creating clear output in scientific programs, such as displaying experiment results or user interactions.
 
 ## String Concatenation
 

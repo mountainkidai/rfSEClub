@@ -1,6 +1,6 @@
 # 006 Operators
 
-Operators in Python are symbols or keywords used to perform operations on variables and values. For young scientists in the rfSE Club, understanding operators is critical for manipulating data, performing calculations, and implementing logic in scientific programs, such as simulations or data analysis.
+Operators in Python are symbols or keywords used to perform operations on variables and values. For students in the rfSE Club, understanding operators is critical for manipulating data, performing calculations, and implementing logic in scientific programs, such as simulations or data analysis.
 
 ## Types of Operators
 

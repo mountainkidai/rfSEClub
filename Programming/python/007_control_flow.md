@@ -1,6 +1,6 @@
 # 007 Control Flow
 
-Control flow in Python determines the order in which code is executed based on conditions and decisions. For young scientists in the rfSE Club, mastering control flow is essential for implementing logic in scientific programs, such as simulations, data analysis, or decision-making algorithms.
+Control flow in Python determines the order in which code is executed based on conditions and decisions. For students in the rfSE Club, mastering control flow is essential for implementing logic in scientific programs, such as simulations, data analysis, or decision-making algorithms.
 
 ## If-Else Statements
 
