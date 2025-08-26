@@ -50,7 +50,7 @@ except ZeroDivisionError:
 # Output: Error: Division by zero is not allowed.
 ```
 
-2. **ValueError**:
+2.**ValueError**:
 
 ```python
 try:
@@ -60,7 +60,7 @@ except ValueError:
 # Output: Error: Cannot convert text to a number.
 ```
 
-3. **FileNotFoundError**:
+3.**FileNotFoundError**:
 
 ```python
 try:
@@ -71,7 +71,7 @@ except FileNotFoundError:
 # Output: Error: File not found!
 ```
 
-4. **TypeError**:
+4.**TypeError**:
 
 ```python
 try:
@@ -81,7 +81,7 @@ except TypeError:
 # Output: Error: Cannot concatenate string with integer!
 ```
 
-5. **IndexError**:
+5.**IndexError**:
 
 ```python
 try:
@@ -92,7 +92,7 @@ except IndexError:
 # Output: Error: Index out of range!
 ```
 
-6. **KeyError**:
+6.**KeyError**:
 
 ```python
 try:
