@@ -10,4 +10,4 @@
 
    Meaning:someething which is very expensive
 
-   Example:It cost me an arm and a leg to get that land k
+   Example:"It cost me an arm and a leg to get that land k"
