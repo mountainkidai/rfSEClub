@@ -22,12 +22,12 @@ An operating system (OS) is complete software that manages hardware and software
 - **FAT32 (File Allocation Table)**: Widely compatible (Windows, macOS, Linux) for USB drives, SD cards. Limited to 4GB file size.
 - **exFAT**: FAT32 successor, supports large files.
 - **ext4 (Fourth Extended File System)**: Linux standard. Fast, reliable, supports large volumes and journaling. Not natively supported on Windows/macOS.
-  ![process](images/process.png)
+  ![process](image/process.png)
 
 ## How a Program Runs on Your Laptop
 
 Consider the following C program:
-![function](images/function.png)
+![function](image/function.png)
 
 ```c
 #include <stdio.h>
