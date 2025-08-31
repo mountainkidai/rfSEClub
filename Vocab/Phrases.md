@@ -5,3 +5,10 @@
    Meaning: Acting in a way that harms your own interests.
 
    Example: “Skipping the rfSE session to binge-watch TV is just shooting yourself in the foot.
+
+
+2. Hit the sack  
+   
+   Meaning:	Go to sleep  
+
+   Example: " After having a stressful day he hit the sack"
