@@ -8,6 +8,6 @@
 
 2.Zetsy
 
-Meaning :Full of energy 
+   Meaning :Full of energy 
 
-Example : "The crowd was a strom.The rivals teams made for a zesty matchup."
+   Example : "The crowd was a strom.The rivals teams made for a zesty matchup."
