@@ -13,7 +13,7 @@
 
    Example: " After having a stressful day he hit the sack"
 
-4. Barking up the wrong tree
+3. Barking up the wrong tree
    
    Meaning: To be mistaken, to be looking for solutions in the wrong place
 
