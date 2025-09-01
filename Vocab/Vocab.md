@@ -6,7 +6,7 @@
 
    Example: "Launching three startups simultaneously is unprecedented in our region."
 
-2.Zetsy
+2. Zetsy
 
     Meaning :Full of energy 
 
