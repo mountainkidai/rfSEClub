@@ -6,7 +6,7 @@
 
    Example: "Launching three startups simultaneously is unprecedented in our region."
 
-2.Zesty
+3.Zesty
 
   Meaning:Full of Energy 
 
