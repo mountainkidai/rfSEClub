@@ -3,19 +3,19 @@
 1. Unprecedented
 
    Meaning: Never done or known before.
-
    Example: "Launching three startups simultaneously is unprecedented in our region."
 
-2. Resilient 
+2. Goblin mode
 
-   Meaning: Able to recover quickly from difficulties. 
+   Meaning: A type of behavior that is unapologetically self-indulgent, lazy, or messy.
+   Example: "After a long week, I’m staying in my pajamas all day—total goblin mode."
 
-   Example: "The resilient team quickly bounced back from their loss to win the championship." 
+3. Resilient
 
-3  Lethargic
-   
+   Meaning: Able to recover quickly from difficulties.
+   Example: "The resilient team quickly bounced back from their loss to win the championship."
+
+4. Lethargic
+
    Meaning: Sluggish and inactive
-
    Example:"He is lethargic in school"
-
-
