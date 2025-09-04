@@ -11,3 +11,11 @@
    Meaning: Able to recover quickly from difficulties. 
 
    Example: "The resilient team quickly bounced back from their loss to win the championship." 
+
+3  Lethargic
+   
+   Meaning: Sluggish and inactive
+
+   Example:"He is lethargic in school"
+
+
