@@ -19,3 +19,8 @@
 
    Meaning: Sluggish and inactive
    Example:"He is lethargic in school"
+
+5. Debacle 
+
+   Meaning:A complete disaster or failure.
+   Example:The launch of the new product was a debacle.
