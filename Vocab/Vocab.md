@@ -19,3 +19,8 @@
 
    Meaning: Sluggish and inactive
    Example:"He is lethargic in school"
+
+ 5. Abstruse
+
+    Meaning: Difficult to understand
+    Example: "The subject is too abstruse to enlarge further upon here"  
