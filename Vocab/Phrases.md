@@ -24,3 +24,8 @@
 
    Meaning: To be mistaken, to be looking for solutions in the wrong place
    Example: "Whole time he was barking up the wrong tree"
+
+6. A dime a dozen
+
+   Meaning: Something common.
+   Example: "Those old phones are a dime a dozen these days."
