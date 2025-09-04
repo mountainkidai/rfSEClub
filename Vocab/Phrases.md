@@ -26,7 +26,6 @@
    Example: "Whole time he was barking up the wrong tree."
 
 6. To kill two birds with one stone
-   
    Meaning: to solve two problems at once.
-   
-   Example: Cycling to work is a great way to kill two birds with one stone, as it provides both exercise and transportation. 
+   Example: Who doesn’t like products that kill two birds with one stone?
+  
