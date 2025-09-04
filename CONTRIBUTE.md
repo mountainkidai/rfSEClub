@@ -50,12 +50,12 @@ Kindly read this before you proceed for contribution.
 
 4. **Submit a Pull Request (PR)**
    - Push your branch: `git push origin feature/your-feature`.
-   - Open a PR to the `main` branch of `mountainkidai/rfSEClub`.
+   - Open a PR to the `dev` branch of `mountainkidai/rfSEClub`.
    - Include in the PR description:
      - Purpose of changes (e.g., “Added Python list comprehension to Programming.md”).
      - How it aligns with rfSE Club’s goals.
      - Confirmation that code examples are tested.
-   - PRs require approval from `@aariv-mountainkid`. Expect feedback within 48 hours.
+   - PRs require approval from `@aarivtmk`. Expect feedback within 48 hours.
 
 5. **Quality Standards**
    - Content must align with the first-principles approach (break down concepts to their core).
