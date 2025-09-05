@@ -17,10 +17,15 @@
 
 4. Hit the sack
 
-   Meaning: Go to sleep  
-   Example: " After having a stressful day he hit the sack"
+   Meaning: Go to sleep.
+   Example: " After having a stressful day he hit the sack."
 
 5. Barking up the wrong tree
 
-   Meaning: To be mistaken, to be looking for solutions in the wrong place
-   Example: "Whole time he was barking up the wrong tree"
+   Meaning: To be mistaken, to be looking for solutions in the wrong place.
+   Example: "Whole time he was barking up the wrong tree."
+
+6. To kill two birds with one stone
+   Meaning: to solve two problems at once.
+   Example: Who doesn’t like products that kill two birds with one stone?
+  

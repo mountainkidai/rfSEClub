@@ -18,4 +18,10 @@
 4. Lethargic
 
    Meaning: Sluggish and inactive
-   Example:"He is lethargic in school"
+   Example:"He is lethargic in school."
+
+5. Obsolete
+
+   Meaning: Outdated, no longer in use.
+
+   Example: "Those gadgets are now obsolete."
