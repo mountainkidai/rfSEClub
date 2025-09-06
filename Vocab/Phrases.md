@@ -24,3 +24,8 @@
 
    Meaning: To be mistaken, to be looking for solutions in the wrong place
    Example: "Whole time he was barking up the wrong tree"
+
+6. On cloud nice    
+
+   Meaning: Extremely happy.
+   Example: "She was on cloud nine after receiving the job offer for her dream position".
