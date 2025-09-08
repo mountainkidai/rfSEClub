@@ -28,5 +28,10 @@
 6. To kill two birds with one stone
 
    Meaning: to solve two problems at once.
-   Example: Who doesn’t like products that kill two birds with one stone?
+   Example: "Who doesn’t like products that kill two birds with one stone?"
   
+7. When pigs fly
+
+   Meaning: never or that something is highly unlikely to ever happen
+
+   Example:  "You'll get your allowance on time? I'll believe that when pigs fly!"
