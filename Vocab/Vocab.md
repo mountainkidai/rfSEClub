@@ -23,5 +23,10 @@
 5. Obsolete
 
    Meaning: Outdated, no longer in use.
-
    Example: "Those gadgets are now obsolete."
+   Example:"He is lethargic in school"
+
+6. Debacle
+
+   Meaning:A complete disaster or failure.
+   Example:The launch of the new product was a debacle.
