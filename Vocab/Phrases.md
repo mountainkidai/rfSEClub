@@ -29,3 +29,13 @@
 
    Meaning: Something common.
    Example: "Those old phones are a dime a dozen these days."
+
+7. Bite the bullet
+
+   Meaning: To get something over with because it’s inevitable.
+   Example: "I finally bit the bullet and went to the dentist after waiting for months."
+
+8. Cut corners
+
+   Meaning: To do something in the easiest or cheapest way, often badly.
+   Example: "The company cut corners on safety to save money, which caused problems."
