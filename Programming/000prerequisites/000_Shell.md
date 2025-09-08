@@ -83,7 +83,7 @@ It’s the root of the file system tree, not your personal space.
 What it is: A folder for system-wide applications (e.g., Chrome in /Applications/Google Chrome.app).
 Purpose: Stores apps accessible to all users, installed via the Mac App Store or manually.
 
-2.bin:
+2. bin:
 
 What it is: Short for "binaries," contains core system commands like sh, ls, cp.
 Purpose: Essential tools for the OS to function, used by scripts like rustup’s #!/bin/sh.
@@ -91,6 +91,89 @@ Purpose: Essential tools for the OS to function, used by scripts like rustup’s
 
 ```sh
 ls /bin
+```
+
+3. cores:
+
+What it is: A folder for crash report data (e.g., core dumps from crashed programs).
+Purpose: Used by the OS for debugging, not something you interact with directly.
+
+4. dev:
+
+What it is: Contains device files (e.g., tty, disk) representing hardware like keyboards or disks.
+Purpose: Allows the OS to communicate with hardware.
+
+5. etc:
+
+What it is: Stores configuration files for the OS (e.g., hosts, passwd).
+Purpose: Defines system settings, not user data.
+
+6. Library:
+
+What it is: Contains system and user libraries, caches, and preferences.
+Purpose: Stores shared code and app data (e.g., /Library/Fonts, ~/Library for user-specific data).
+
+7. opt:
+
+What it is: For optional software installed by admins (e.g., third-party tools).
+Purpose: Keeps additional software separate from core system files.
+
+8. private:
+
+What it is: Holds private system files (e.g., var, tmp) with restricted access.
+Purpose: Secures OS internals.
+
+9. sbin:
+
+What it is: Contains system administration binaries (e.g., reboot, shutdown).
+Purpose: Tools for managing the OS, requiring root access.
+
+10. System:
+
+What it is: Core macOS system files and folders.
+Purpose: Houses OS components (e.g., kernel, frameworks).
+
+11. tmp:
+
+What it is: A folder for temporary files (e.g., during installs or crashes).
+Purpose: Stores data deleted on reboot.
+
+12. Users:
+
+What it is: Contains all user home directories (e.g., /Users/aariv is your ~).
+Purpose: Central hub for personal folders like Desktop, Documents.
+
+13. usr:
+
+What it is: Holds user-related binaries and libraries (e.g., /usr/bin for python3, gcc).
+Purpose: Extends /bin with more tools.
+
+```sh
+ls /usr/bin
+Output: gcc  python3  vim  ... (if installed).
+```
+
+14. Volumes:
+
+What it is: Lists mounted storage devices (e.g., external drives, partitions).
+Purpose: Manages additional storage.
+
+```
+/
+├── Applications (apps for everyone, e.g., Chrome, Xcode)
+├── bin (basic commands: ls, cp, sh)
+├── cores (crash dumps)
+├── dev (devices: disks, terminals)
+├── etc (system configs: hosts, passwd)
+├── Library (shared fonts, caches, preferences)
+├── opt (optional software, e.g., Homebrew)
+├── private (system internals: var, tmp)
+├── sbin (admin commands: reboot, shutdown)
+├── System (macOS itself: kernel, frameworks)
+├── tmp (temporary files, cleared on reboot)
+├── Users (home folders: /Users/aariv, /Users/guest)
+├── usr (extra tools: python3, gcc, vim)
+└── Volumes (mounted drives: USBs, external disks)
 ```
 
 ### **Types of Shells:**
@@ -131,3 +214,15 @@ zsh Z Shell:
 ### Which is most used?
 
 - **Globally**: Bash is the most used due to its default status on Linux (80%+ server market share) and legacy in scripting. Stack Overflow’s 2023 survey shows Bash as the top shell for developers (used by \~50% of respondents).
+
+**Path building rule:**
+
+A slash / means “go inside this folder”.
+
+```sh
+~/.cargo
+~ = /Users/aariv (your home).
+/.cargo after it = “the .cargo folder inside it.”
+So:
+~/.cargo → /Users/aariv/.cargo
+```
