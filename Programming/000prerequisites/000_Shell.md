@@ -78,6 +78,21 @@ Running ls lists the contents of your current directory, which is ~.
 It’s the root of the file system tree, not your personal space.
 ![lshome](image/cli/lsroot.png)
 
+1. Applications:
+
+What it is: A folder for system-wide applications (e.g., Chrome in /Applications/Google Chrome.app).
+Purpose: Stores apps accessible to all users, installed via the Mac App Store or manually.
+
+2.bin:
+
+What it is: Short for "binaries," contains core system commands like sh, ls, cp.
+Purpose: Essential tools for the OS to function, used by scripts like rustup’s #!/bin/sh.
+![lshome](image/cli/bin.png)
+
+```sh
+ls /bin
+```
+
 ### **Types of Shells:**
 
 Bourne Shell (sh):
