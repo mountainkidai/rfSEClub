@@ -1,5 +1,7 @@
 # Rust Curriculum: Building Low-Latency, High-Throughput Systems with Axum
 
+[Resource - Aariv GoodNotes](https://share.goodnotes.com/s/vOs2Bu7N8UUY93eAfF4miX)
+
 **Subtopics (One per Day)**:
 
 1. **Introduction to Rust**: Install Rust, Cargo; write Hello World. Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
