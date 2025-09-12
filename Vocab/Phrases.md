@@ -32,7 +32,7 @@
    Meaning: To be mistaken, to be looking for solutions in the wrong place
    Example: "Whole time he was barking up the wrong tree"
 
-6. On cloud nice    
+6.On cloud nice
 
    Meaning: Extremely happy.
    Example: "She was on cloud nine after receiving the job offer for her dream position".
@@ -40,3 +40,9 @@
 
    Meaning: Something common.
    Example: "Those old phones are a dime a dozen these days."
+
+8. At the drop of a hat
+
+    Meaning: Something common and easily available.
+
+    Example: "He's always ready to help his friends at the drop of a hat."

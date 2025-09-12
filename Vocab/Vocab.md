@@ -33,3 +33,10 @@
 7. Debacle
    Meaning:A complete disaster or failure.
    Example:The launch of the new product was a debacle.
+
+8. Acrimonious
+
+    Meaning:Angry and bitter in tone or
+    manner.
+
+    Example: "The political debate became acrimonious, with candidates exchanging harsh words. "
