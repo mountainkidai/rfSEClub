@@ -18,18 +18,38 @@
 4. Lethargic
 
    Meaning: Sluggish and inactive
-   Example:"He is lethargic in school."
+   Example: "He is lethargic in school."
 
 5. Obsolete
 
    Meaning: Outdated, no longer in use.
    Example: "Those gadgets are now obsolete."
-   Example:"He is lethargic in school"
 
 6. Abstruse
 
     Meaning: Difficult to understand
-    Example: "The subject is too abstruse to enlarge further upon here"  
+    Example: "The subject is too abstruse to enlarge further upon here" 
+
 7. Debacle
+<<<<<<< HEAD
+   Meaning:  A complete disaster or failure.
+   Example:  "The launch of the new product was a debacle."
+
+8. Under the weather
+
+    Meaning: Feeling slightly ill.
+    Example: "I’m feeling a bit under the weather today; I might stay home and rest."
+=======
    Meaning:A complete disaster or failure.
    Example:The launch of the new product was a debacle.
+
+6. Candid
+
+    Meaning:Truthful and straightforward.
+    Example:"She gave a candid response to the interviewer's question".
+
+7.  Gregarious
+
+    Meaning:Fond of company,sociable.
+    Example:"Her gregarious nature made her the life of the party".
+>>>>>>> 4850fc5ed806b658d207042d824c3893c3ef9ad0
