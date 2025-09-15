@@ -29,20 +29,39 @@
    Meaning: to solve two problems at once.
    Example: Who doesn’t like products that kill two birds with one stone?
 
-   Meaning: To be mistaken, to be looking for solutions in the wrong place
-   Example: "Whole time he was barking up the wrong tree"
-
-6.On cloud nice
+7. On cloud nice    
 
    Meaning: Extremely happy.
    Example: "She was on cloud nine after receiving the job offer for her dream position".
-7. A dime a dozen
+
+8. A dime a dozen
 
    Meaning: Something common.
    Example: "Those old phones are a dime a dozen these days."
 
-8. At the drop of a hat
+9. At the drop of a hat
 
     Meaning: Something common and easily available.
 
     Example: "He's always ready to help his friends at the drop of a hat."
+
+10. Dilemma   
+
+   Meaning: A situation requiring a difficult choice.
+   Example: "She faced a dilemma: accept the job abroad or stay close to family".
+
+11. Bite the bullet
+
+   Meaning: To get something over with because it’s inevitable.
+   Example: "I finally bit the bullet and went to the dentist after waiting for months."
+
+12. Cut corners
+
+   Meaning: To do something in the easiest or cheapest way, often badly.
+   Example: "The company cut corners on safety to save money, which caused proud."
+
+13. Barking up the wrong tree
+   Meaning: To be mistaken, to be looking for solutions in the wrong place
+   Example: "Whole time he was barking up the wrong tree"
+
+
