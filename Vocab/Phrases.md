@@ -39,12 +39,11 @@
    Meaning: Something common.
    Example: "Those old phones are a dime a dozen these days."
 
-<<<<<<< HEAD
 9. Dilemma   
 
    Meaning: A situation requiring a difficult choice.
    Example: "She faced a dilemma: accept the job abroad or stay close to family".
-=======
+
 7. Bite the bullet
 
    Meaning: To get something over with because it’s inevitable.
@@ -54,4 +53,10 @@
 
    Meaning: To do something in the easiest or cheapest way, often badly.
    Example: "The company cut corners on safety to save money, which caused proud."
->>>>>>> 4850fc5ed806b658d207042d824c3893c3ef9ad0
+
+9. under the weather
+
+    Meaning: means feeling slightly ill.
+    Example: "I’m feeling a bit under the weather today; I might stay home and rest."
+
+
