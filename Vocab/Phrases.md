@@ -64,4 +64,8 @@
    Meaning: To be mistaken, to be looking for solutions in the wrong place
    Example: "Whole time he was barking up the wrong tree"
 
+14. Spill the beans
 
+  Meaning:To reveal a secret.
+
+   Example: Come on, spill the beans! I know you heard the news, but you're not telling me".

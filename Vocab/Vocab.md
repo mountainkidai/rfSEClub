@@ -58,3 +58,9 @@
 12.Debacle
    Meaning:A complete disaster or failure.
    Example:The launch of the new product was a debacle.
+
+13.Pensive 
+
+  Meaning:Engaged in deep or serious thought. 
+
+  Example: He sat in a pensive mood, reflecting on his life choices.
