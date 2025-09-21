@@ -27,4 +27,4 @@ Freedom from Control: Satoshi saw that governments could easily shut down centra
 When Satoshi created the very first block of Bitcoin's digital ledger (the blockchain), he included a special message.
 He inscribed: "The Times 03/Jan/2009 Chancellor on brink of second bailout of banks."
 This was a headline from a newspaper article about the British government likely having to rescue more banks.
-By putting this message on the blockchain, Satoshi made it permanent and unchangeable. It was a clear statement to the world about why Bitcoin was needed: to be a transparent and secure alternative to a financial system that required huge government bailouts to stay afloat. It was his way of saying, "Let's not forget what happened and let's not let it happen again."
+By putting this message on the blockchain, Satoshi made it permanent and unchangeable. It was a clear statement to the world about why Bitcoin was needed: to be a transparent and secure alternative to a financial system that required huge government bailouts to stay afloat. It was his way of saying, "Let's not forget what happened and let's not let it happen again."  
