@@ -45,9 +45,38 @@ int main() {
 - **Task**:
   - Task 1: Compute 2 + 2 (`sum = a + b`).
   - Task 2: Print the result.
-- **Thread**: Acts like a delivery worker or conveyor belt, delivering tasks (instructions) to the core. It holds the program counter (PC), pointing to the next task/instruction in the binary. The thread points to the binary’s instructions for the core to execute: load `a`, `b`, compute `sum` (Task 1), print (Task 2).
+- **Thread**:
+
+A **thread** is a software unit created and managed by the operating system to execute code. Thread acts like a delivery worker or conveyor belt, delivering tasks (instructions) to the core. It holds the program counter (PC), pointing to the next task/instruction in the binary. The thread points to the binary’s instructions for the core to execute: load `a`, `b`, compute `sum` (Task 1), print (Task 2).
+
+Note:
+
+Threads are **not unlimited**; the OS limits how many can exist based on system resources. Creating too many threads can cause overhead and reduce performance.
+
 - **Core**: Core 1 executes Thread 1’s instructions in hardware, performing the addition in the ALU (Arithmetic Logic Unit) and accessing memory via the MMU (Memory Management Unit).
 - **CPU**: An M2 Pro CPU schedules Thread 1 to Core 1, managing execution across processes.
+
+### What is Shared Data?
+
+**Shared data** refers to variables or memory locations that can be accessed by multiple threads at the same time. When threads share data, there's a risk that two or more threads might try to read or write this data simultaneously, which can lead to inconsistent or incorrect results. This problem is called a **data race**.
+
+---
+
+### What is a Mutex?
+
+A **mutex** (short for mutual exclusion) is a tool used to prevent data races by making sure only one thread can access a piece of shared data at any given time. When a thread wants to read or write shared data, it must first **lock** the mutex. Other threads trying to lock the mutex have to wait until the mutex is **unlocked** by the current thread.
+
+Think of a mutex like a bathroom key: only one person (thread) can have the key and use the bathroom (shared data) at a time.
+
+---
+
+### What is Pthreads?
+
+**Pthreads** stands for POSIX threads, a widely-used threading library available on many operating systems like Linux and macOS. It provides functions for creating and managing threads, synchronizing them (using mutexes and other tools), and coordinating their work.
+
+In C programming, pthreads allow you to write programs that execute multiple threads concurrently, giving you more control over how tasks run in parallel or interleaved.
+
+---
 
 ## Opening Chrome App on Your Laptop
 
@@ -79,18 +108,3 @@ Threads transition through states during execution, managed by the OS kernel:
 - **Running**: Executing on a core (Thread 1 computes 2 + 2 on Core 1).
 - **Blocked (Waiting)**: Waiting for I/O or resources (Thread 1 waits for `printf` to finish).
 - **Terminated**: Finished or killed (Thread 1 exits after printing).
-
-## JavaScript: Single-Threaded Explained
-
-- **Single-Threaded**: JavaScript runs on a single thread (conveyor belt) in its execution environment (e.g., browser like Chrome, or Node.js). At any given time, this thread can execute only one task, using only one core.
-- **How It Works**: JS has an event loop that manages tasks in a queue. The single thread picks one task at a time from the queue, delivers it to the core, and the core executes it. Tasks (e.g., run a function, handle a click event) are executed sequentially—no parallel task execution within the JS engine.
-- **Example**:
-
-  ```javascript
-  let a = 2,
-    b = 2;
-  let sum = a + b; // Task 1
-  console.log(sum); // Task 2
-  ```
-
-- **Async in JS**: JS can seem to multitask (e.g., `setTimeout`, `fetch`) using async, but it’s not parallel—it offloads tasks (e.g., network requests) to the browser/Node.js runtime, and the event loop handles callbacks later on the same thread.

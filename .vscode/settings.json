@@ -1,4 +1,4 @@
 {
   "deepscan.ignoreConfirmWarning": true,
-  "cSpell.words": ["println", "rfse", "rustup"]
+  "cSpell.words": ["println", "pthread", "rfse", "rustup"]
 }
