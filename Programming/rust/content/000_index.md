@@ -4,9 +4,18 @@
 
 **Subtopics (One per Day):**
 
-1. **Introduction to Rust**: Install Rust, Cargo; write Hello World. Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
-2. **Variables and Mutability**: Declare variables, mut keyword, constants. Exercise: Swap two variables. Mini-Project: Calculate simple interest with user inputs.
-3. **Data Types - Scalars**: Integers, floats, booleans, characters. Exercise: Convert temperature F to C. Mini-Project: Basic calculator for addition/subtraction.
+1. **Introduction to Rust**: Install Rust, Cargo; write Hello World.
+
+   Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
+
+2. **Variables and Mutability**: Declare variables, mut keyword, constants.
+
+   Exercise: Swap two variables. Mini-Project: Calculate simple interest with user inputs.
+
+3. **Data Types - Scalars**: Integers, floats, booleans, characters.
+
+   Exercise: Convert temperature F to C. Mini-Project: Basic calculator for addition/subtraction.
+
 4. **Data Types - Compounds**: Tuples, arrays. Exercise: Access tuple elements. Mini-Project: Store and print student scores array.
 5. **Functions**: Define functions, parameters, returns. Exercise: Write max function. Mini-Project: Factorial calculator.
 6. **Control Flow - If/Else**: Conditional statements. Exercise: Check even/odd. Mini-Project: Grade classifier.
