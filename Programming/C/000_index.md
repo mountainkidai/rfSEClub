@@ -1,4 +1,4 @@
-# C Programming Curriculum for Top 1% Programmers
+# C Programming Curriculum
 
 ## Module 1: Foundations
 
