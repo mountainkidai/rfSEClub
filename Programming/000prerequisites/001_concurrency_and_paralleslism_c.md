@@ -1,50 +1,72 @@
-## Understanding Concurrency, and Parallelism: Key Concepts
+# Concurrency, Parallelism, and Async Programming: Complete Overview
 
-Understanding concurrency and parallelism is crucial for writing efficient programs that make the best use of modern hardware. This article explains these concepts from the ground up, clarifies the role of threads and OS scheduling, and then explains how popular programming languages implement and support concurrency and parallelism.
-
-## Concurrency vs. Parallelism
-
-- **Concurrency** means multiple tasks making progress intermixed over time, but not necessarily running at the same exact moment.
-
-### First Principles: Tasks, Threads, and OS
-
-- A **task** is a piece of work or instruction your program wants to perform (e.g., compute a sum, query a database).
-- A **thread** is like a delivery worker (or conveyor belt) that picks tasks and executes them **one at a time** on a CPU core.
-- The **OS scheduler** rapidly switches threads on the CPU core in small time slices. This switching tricks us into thinking multiple tasks are progressing simultaneously even if only one executes at a time.
-- This allows **concurrency** on a single-core CPU, where tasks make progress by interleaving executions.
-
-### OS Mechanism in Concurrency
-
-When your program asks the OS to run multiple threads:
-
-- The OS manages thread states (New, Runnable, Running, Blocked, Terminated).
-- The OS assigns threads to CPU cores, switching when a thread must wait (e.g., for I/O).
-- Multiple threads can be active, but on a single-core CPU only one runs at a time; the rest wait their turn.
+Understanding how multiple tasks are managed and executed by your programs is key to writing efficient, scalable software. This article explains **concurrency**, **parallelism**, and **async programming** from first principles, clarifies the role of threads and the OS, and compares how popular programming languages implement these concepts.
 
 ---
 
-- **Parallelism** means multiple tasks are literally running at the same instant on multiple CPU cores or processors.
+## What is a Thread?
+
+- A **thread** is a software unit created and managed by the operating system to execute code.
+- It acts like a delivery worker or conveyor belt, executing tasks one by one on the CPU core.
+- Each thread holds a **program counter (PC)**, which points to the next instruction in the program’s machine code.
+- The thread delivers instructions such as "load `a` and `b`," "compute `sum`," and "print the result" for the CPU core to execute.
+
+---
+
+## Concurrency vs. Parallelism
+
+- **Concurrency** means multiple tasks make progress by switching back and forth over time, but not necessarily at the exact same moment.
+
+### First Principles: Tasks, Threads, and the OS
+
+- A **task** is a unit of work your program wants to perform (e.g., calculate a sum, fetch data).
+- A **thread** is like a delivery worker that executes these tasks one at a time on a CPU core.
+- The **OS scheduler** rapidly switches threads on the CPU in small intervals (time slices), making it appear that tasks run simultaneously even on a single-core CPU.
+- This switching enables **concurrency** by interleaving task execution.
+
+### OS Role in Concurrency
+
+When your program requests multiple threads:
+
+- The OS manages thread **states**: New, Runnable, Running, Blocked, Terminated.
+- It assigns threads to CPU cores, switching them when some threads wait (e.g., for I/O).
+- Multiple threads are active, but on a single-core CPU only one runs at a time; others wait their turn.
+
+---
+
+- **Parallelism** means multiple tasks run actually at the **same time**, on multiple CPU cores or processors.
 
 ### How Parallelism Works
 
-- Modern CPUs have multiple cores — independent execution units that can run threads simultaneously.
-- The OS scheduler assigns different threads to different cores so multiple threads truly run at once.
-- Parallelism reduces overall execution time by exploiting hardware concurrency.
+- Modern CPUs have multiple **cores**—independent execution units running threads simultaneously.
+- The OS scheduler assigns different threads to different cores, enabling true parallel execution.
+- Parallelism greatly reduces execution time by leveraging hardware concurrency.
 
 ---
 
 ## Concurrency vs. Parallelism Summary
 
-| Concept     | What It Means                                    | What the OS Does                                | What the CPU Does                                                                                     |
-| ----------- | ------------------------------------------------ | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Concurrency | Many tasks seem to be happening at the same time | OS switches between one or more threads         | CPU works on tasks one by one, switching quickly if single core or running many at once if multi-core |
-| Parallelism | Many tasks actually run exactly at the same time | OS runs multiple threads on different CPU cores | CPU cores work on different tasks at the same moment                                                  |
+| Concept     | What It Means                                    | What the OS Does                                 | What the CPU Does                                                                                                              |
+| ----------- | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Concurrency | Many tasks seem to be happening at the same time | OS rapidly switches threads on one or more cores | CPU works on one task at a time per core, switching quickly if single-core or running multiple tasks in parallel on multi-core |
+| Parallelism | Many tasks literally run at the same time        | OS runs multiple threads on different CPU cores  | CPU cores work on different tasks simultaneously                                                                               |
 
 ---
 
 ## Programming Languages: Concurrency and Parallelism Support
 
-Now that we understand concurrency and parallelism at the OS and CPU level, let’s see what this means for different language runtimes.
+With this foundation in place, we will next explore how different languages implement concurrency and parallelism and what features they provide.
+
+---
+
+## How Threads and the OS Work Together
+
+- Programs create **threads** to perform multiple tasks “at once.”
+- The **OS scheduler** manages which thread runs on which CPU core and for how long.
+- On **single-core CPUs**, threads take turns running rapidly (time-slicing).
+- On **multi-core CPUs**, threads can execute simultaneously (parallelism).
+- Threads often need to **share data**, which can cause problems if not handled carefully.
+- To avoid bugs from unsafe sharing, **synchronization tools** like **mutexes** (locks) ensure only one thread accesses shared data at a time.
 
 ---
 
