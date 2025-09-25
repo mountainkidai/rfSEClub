@@ -54,7 +54,7 @@ Goal: Understand compilation pipeline and data types for robust code.
    - Exercise: Print sizes for all types.
    - Mini-Project: Program to display machine-specific type sizes.
 
-8. **Type Qualifiers and Constants**
+8. **Type Qualifiers and Constants & Format Specifiers**
    - Qualifiers: `short`, `long`, `signed`, `unsigned`.
    - Constants: Literals (`1234`, `12.34`, `"string"`), `const`, `#define`.
    - Exercise: Print min/max for `signed`/`unsigned`, test overflow.
