@@ -205,7 +205,7 @@ Bash (Bourne Again Shell)
 for i in 1 2 3; do echo "Count: $i"; done
 ```
 
-zsh Z Shell:
+zsh Z Shell
 
 - **Description**: Extends bash with advanced interactivity (better completion, plugins like Oh My Zsh). Default on macOS since 2019, likely your shell.
 - **Path**: /bin/zsh.
