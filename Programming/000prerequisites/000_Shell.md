@@ -7,7 +7,7 @@
 To read rust script
 
 ```sh
-curl --proto '=https' -sSf https://sh.rustup.rs -o rustup.sh
+curl --proto '=https' -sSf <https://sh.rustup.rs> -o rustup.sh
 cat rustup.sh
 
 ```
@@ -15,10 +15,10 @@ cat rustup.sh
 To install rust:
 
 ```sh
-curl --proto '=https' -sSf https://sh.rustup.rs | sh
+curl --proto '=https' -sSf <https://sh.rustup.rs> | sh
 ```
 
-The | (pipe) in the command curl --proto '=https' -sSf https://sh.rustup.rs | sh is a Unix pipe operator. It takes the output of the command on its left (curl ...) and feeds it as input to the command on its right (sh).
+The | (pipe) in the command curl --proto '=https' -sSf <https://sh.rustup.rs> | sh is a Unix pipe operator. It takes the output of the command on its left (curl ...) and feeds it as input to the command on its right (sh).
 
 Explaining **sh**
 
@@ -83,7 +83,7 @@ It’s the root of the file system tree, not your personal space.
 What it is: A folder for system-wide applications (e.g., Chrome in /Applications/Google Chrome.app).
 Purpose: Stores apps accessible to all users, installed via the Mac App Store or manually.
 
-2. bin:
+2.bin:
 
 What it is: Short for "binaries," contains core system commands like sh, ls, cp.
 Purpose: Essential tools for the OS to function, used by scripts like rustup’s #!/bin/sh.
@@ -93,57 +93,57 @@ Purpose: Essential tools for the OS to function, used by scripts like rustup’s
 ls /bin
 ```
 
-3. cores:
+3.cores:
 
 What it is: A folder for crash report data (e.g., core dumps from crashed programs).
 Purpose: Used by the OS for debugging, not something you interact with directly.
 
-4. dev:
+4.dev:
 
 What it is: Contains device files (e.g., tty, disk) representing hardware like keyboards or disks.
 Purpose: Allows the OS to communicate with hardware.
 
-5. etc:
+5.etc:
 
 What it is: Stores configuration files for the OS (e.g., hosts, passwd).
 Purpose: Defines system settings, not user data.
 
-6. Library:
+6.Library:
 
 What it is: Contains system and user libraries, caches, and preferences.
 Purpose: Stores shared code and app data (e.g., /Library/Fonts, ~/Library for user-specific data).
 
-7. opt:
+7.opt:
 
 What it is: For optional software installed by admins (e.g., third-party tools).
 Purpose: Keeps additional software separate from core system files.
 
-8. private:
+8.private:
 
 What it is: Holds private system files (e.g., var, tmp) with restricted access.
 Purpose: Secures OS internals.
 
-9. sbin:
+9.sbin:
 
 What it is: Contains system administration binaries (e.g., reboot, shutdown).
 Purpose: Tools for managing the OS, requiring root access.
 
-10. System:
+10.System:
 
 What it is: Core macOS system files and folders.
 Purpose: Houses OS components (e.g., kernel, frameworks).
 
-11. tmp:
+11.tmp:
 
 What it is: A folder for temporary files (e.g., during installs or crashes).
 Purpose: Stores data deleted on reboot.
 
-12. Users:
+12.Users:
 
 What it is: Contains all user home directories (e.g., /Users/aariv is your ~).
 Purpose: Central hub for personal folders like Desktop, Documents.
 
-13. usr:
+13.usr:
 
 What it is: Holds user-related binaries and libraries (e.g., /usr/bin for python3, gcc).
 Purpose: Extends /bin with more tools.
@@ -153,12 +153,12 @@ ls /usr/bin
 Output: gcc  python3  vim  ... (if installed).
 ```
 
-14. Volumes:
+14.Volumes:
 
 What it is: Lists mounted storage devices (e.g., external drives, partitions).
 Purpose: Manages additional storage.
 
-```
+```txt
 /
 ├── Applications (apps for everyone, e.g., Chrome, Xcode)
 ├── bin (basic commands: ls, cp, sh)
@@ -219,7 +219,7 @@ zsh Z Shell:
 
 A slash / means “go inside this folder”.
 
-```sh
+```bash
 ~/.cargo
 ~ = /Users/aariv (your home).
 /.cargo after it = “the .cargo folder inside it.”

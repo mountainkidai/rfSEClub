@@ -3,12 +3,12 @@
 1. You’re shooting yourself in the foot
 
    Meaning: Acting in a way that harms your own interests.
-   Example: “Skipping the rfSE session to binge-watch TV is just shooting yourself in the foot.
+   Example: "Skipping the rfSE session to binge-watch TV is just shooting yourself in the foot."
 
 2. Cost an arm and a leg
 
    Meaning: something which is very expensive
-   Example:"It cost me an arm and a leg to get that land k."
+   Example: "It cost me an arm and a leg to get that land."
 
 3. Barking up the wrong tree
 
@@ -29,29 +29,27 @@
    Meaning: to solve two problems at once.
    Example: Who doesn’t like products that kill two birds with one stone?
 
-7. On cloud nice    
+7. On cloud nine
 
    Meaning: Extremely happy.
-   Example: "She was on cloud nine after receiving the job offer for her dream position".
+   Example: "She was on cloud nine after receiving the job offer for her dream position."
 
 8. A dime a dozen
 
    Meaning: Something common.
    Example: "Those old phones are a dime a dozen these days."
 
-<<<<<<< HEAD
-9. Dilemma   
+9. Dilemma
 
    Meaning: A situation requiring a difficult choice.
-   Example: "She faced a dilemma: accept the job abroad or stay close to family".
-=======
-7. Bite the bullet
+   Example: "She faced a dilemma: accept the job abroad or stay close to family."
 
-   Meaning: To get something over with because it’s inevitable.
-   Example: "I finally bit the bullet and went to the dentist after waiting for months."
+10. Bite the bullet
 
-8. Cut corners
+    Meaning: To get something over with because it's inevitable.
+    Example: "I finally bit the bullet and went to the dentist after waiting for months."
 
-   Meaning: To do something in the easiest or cheapest way, often badly.
-   Example: "The company cut corners on safety to save money, which caused proud."
->>>>>>> 4850fc5ed806b658d207042d824c3893c3ef9ad0
+11. Cut corners
+
+    Meaning: To do something in the easiest or cheapest way, often badly.
+    Example: "The company cut corners on safety to save money, which caused problems."
