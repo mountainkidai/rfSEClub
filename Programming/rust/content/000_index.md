@@ -2,11 +2,20 @@
 
 [Resource - Aariv GoodNotes](https://share.goodnotes.com/s/vOs2Bu7N8UUY93eAfF4miX)
 
-**Subtopics (One per Day)**:
+**Subtopics (One per Day):**
 
-1. **Introduction to Rust**: Install Rust, Cargo; write Hello World. Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
-2. **Variables and Mutability**: Declare variables, mut keyword, constants. Exercise: Swap two variables. Mini-Project: Calculate simple interest with user inputs.
-3. **Data Types - Scalars**: Integers, floats, booleans, characters. Exercise: Convert temperature F to C. Mini-Project: Basic calculator for addition/subtraction.
+1. **Introduction to Rust**: Install Rust, Cargo; write Hello World.
+
+   Exercise: Compile and run a basic program. Mini-Project: Print personalized greeting.
+
+2. **Variables and Mutability**: Declare variables, mut keyword, constants.
+
+   Exercise: Swap two variables. Mini-Project: Calculate simple interest with user inputs.
+
+3. **Data Types - Scalars**: Integers, floats, booleans, characters.
+
+   Exercise: Convert temperature F to C. Mini-Project: Basic calculator for addition/subtraction.
+
 4. **Data Types - Compounds**: Tuples, arrays. Exercise: Access tuple elements. Mini-Project: Store and print student scores array.
 5. **Functions**: Define functions, parameters, returns. Exercise: Write max function. Mini-Project: Factorial calculator.
 6. **Control Flow - If/Else**: Conditional statements. Exercise: Check even/odd. Mini-Project: Grade classifier.
@@ -48,22 +57,25 @@
 42. **Secure Hashing**: Argon2 passwords. Exercise: Hash user pass. Mini-Project: Registration system.
 43. **TLS**: Secure servers. Exercise: HTTPS setup. Mini-Project: Encrypted API.
 44. **Input Validation**: Validate data. Exercise: Schema checks. Mini-Project: Form validator.
-45. **ML Crates**: Ndarray, tch basics. Exercise: Vector ops. Mini-Project: Simple linear model.
-46. **Embedding Models**: Load AI models. Exercise: Inference call. Mini-Project: Text classifier.
-47. **Async Inference**: Pipelines for AI. Exercise: Async predict. Mini-Project: AI query handler.
-48. **Unit/Integration Tests**: Testing crates. Exercise: Test functions. Mini-Project: Tested API.
-49. **Mocks**: Mock dependencies. Exercise: Mock DB. Mini-Project: Isolated tests.
-50. **Docker and CI/CD**: Containerize, GitHub Actions. Exercise: Docker build. Mini-Project: CI pipeline.
-51. **Monitoring**: Prometheus, tracing. Exercise: Metrics export. Mini-Project: Monitored service.
-52. **Macros**: Procedural macros. Exercise: Simple derive. Mini-Project: Custom logger macro.
-53. **Unsafe Rust**: When to use unsafe. Exercise: Raw pointers. Mini-Project: Performance hack.
-54. **FFI**: Bind external libs. Exercise: C call. Mini-Project: Integrated C lib.
-55. **Capstone Refactoring**: Optimize full system. Mini-Project: Low-latency auth + AI service.
+45. **Logging and Tracing**: Structured logging with `tracing` crate. Exercise: Add logging to API. Mini-Project: Request tracking logs.
+46. **Security Auditing**: Dependency audits, vulnerability scanners. Exercise: Run cargo-audit. Mini-Project: Security report.
+47. **Database Migrations**: Manage schema evolution with `sqlx` or `diesel` migrations. Exercise: Create migration scripts. Mini-Project: Versioned DB schema.
+48. **Distributed Systems Concepts**: Messaging queues basics, idempotency, retries. Exercise: Message queue usage. Mini-Project: Reliable event processor.
+49. **Design Patterns**: Rust idiomatic patterns and architecture principles. Exercise: Implement Builder pattern. Mini-Project: Modular service architecture.
+50. **Machine Learning Crates (Optional)**: Ndarray, tch basics. Exercise: Vector ops. Mini-Project: Simple linear model.
+51. **Embedding Models and Async Inference**: Load AI models, async predict. Mini-Project: AI query handler.
+52. **Unit/Integration Tests**: Testing crates. Exercise: Test functions. Mini-Project: Tested API.
+53. **Mocks**: Mock dependencies. Exercise: Mock DB. Mini-Project: Isolated tests.
+54. **Docker and CI/CD**: Containerize, GitHub Actions workflows. Exercise: Docker build. Mini-Project: CI pipeline.
+55. **Monitoring**: Prometheus metrics, distributed tracing. Exercise: Metrics export. Mini-Project: Monitored service.
+56. **Macros**: Procedural macros, custom derives. Exercise: Simple derive. Mini-Project: Custom logger macro.
+57. **Unsafe Rust**: When and how to use unsafe. Exercise: Raw pointers. Mini-Project: Performance hack.
+58. **FFI**: Bind external libraries (e.g., C). Exercise: C call. Mini-Project: Integrated C lib.
+59. **Capstone Refactoring**: Optimize full system. Mini-Project: Low-latency auth + AI service.
 
-**Resources**:
+**Resources:**
 
 - [Rust Book](https://doc.rust-lang.org/book/)
 - [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
 - [Axum Docs](https://docs.rs/axum/)
 - [Tokio Docs](https://tokio.rs/)
-- Exercises: LeetCode Rust, custom repos.
