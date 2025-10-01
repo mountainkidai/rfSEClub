@@ -100,3 +100,50 @@ printf("b >> 1 = %d\n", b >> 1); // 1001 >> 1 = 00000100 = 4
 return 0;
 }
 ```
+
+**BITWISE ~**
+
+```c
+#include <stdio.h>
+
+#include <stdio.h>
+
+int main() {
+    // Signed integer with value -6
+    signed char signed_num = -6;        // Binary: 11111010 (two's complement)
+    // Unsigned integer with value 250 (same bits as -6)
+    unsigned char unsigned_num = 250;   // Binary: 11111010
+
+    // Print signed and unsigned values
+    printf("Signed number: %d\n", signed_num);
+    printf("Unsigned number: %u\n", unsigned_num);
+
+    // Bitwise NOT operation results
+    printf("~signed_num = %d\n", ~signed_num);
+    printf("~unsigned_num = %u\n", (unsigned char)~unsigned_num);
+
+    return 0;
+}
+
+
+```
+
+```text
+Signed number: -6
+Unsigned number: 250
+~signed_num = 5
+~unsigned_num = 5
+```
+
+```text
+The key difference between:
+Arithmetic negation (-): This gives the negative (opposite) of a number as you know it in math.
+Example:
+
+− 256 = − 256
+
+Bitwise NOT (~): This flips all the bits of a number in binary. Because of how negative numbers are stored in two's complement, the result corresponds to:
+
+∼x = −(x+1)
+
+```
