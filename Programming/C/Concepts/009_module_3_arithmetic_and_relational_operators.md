@@ -4,7 +4,7 @@ Operators in C are special symbols that perform operations on variables and valu
 
 ---
 
-### Arithmetic Operators
+## Arithmetic Operators
 
 Arithmetic operators are used to perform basic mathematical operations:
 
