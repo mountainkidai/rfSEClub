@@ -74,7 +74,6 @@ Goal: Build logic and control for problem-solving.
 
     - Logical: `&&`, `||`, `!`. Bitwise: `&`, `|`, `^`, `~`, `<<`, `>>`.
     - Exercise: Test short-circuit logic, manipulate bits.
-    - Mini-Project: Bit flag setter/clearer.
 
 11. **Control Structures**
 
