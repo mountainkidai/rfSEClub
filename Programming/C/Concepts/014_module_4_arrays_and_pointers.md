@@ -274,3 +274,81 @@ printf("Sum: %d\n", sum);
 return 0;
 }
 ```
+
+# Function Pointers as Callbacks in C — Example
+
+---
+
+## What is a Callback?
+
+A **callback** is a function passed as an argument to another function so that the receiving function can call it when needed.
+
+---
+
+## Example: Using Function Pointers as Callbacks
+
+```c
+#include <stdio.h>
+
+// Function that adds two numbers
+int add(int a, int b) {
+return a + b;
+}
+
+// Function that multiplies two numbers
+int multiply(int a, int b) {
+return a * b;
+}
+
+// Function that takes a callback (function pointer) and two integers
+void compute(int (*operation)(int, int), int x, int y) {
+int result = operation(x, y); // Call the function pointed by operation
+printf("Result: %d\n", result);
+}
+
+int main() {
+// Pass 'add' function as callback
+compute(add, 5, 3); // Output: Result: 8
+
+// Pass 'multiply' function as callback
+compute(multiply, 5, 3);   // Output: Result: 15
+
+return 0;
+}
+```
+
+---
+
+## Explanation:
+
+- `compute` takes a pointer to a function `operation` which accepts two `int` and returns an `int`.
+- Inside `compute`, the callback is called using `operation(x, y)`.
+- In `main`, different functions `add` and `multiply` are passed as callbacks to `compute`.
+
+---
+
+# Function Pointer Array Example — Simple Calculator
+
+```c
+#include <stdio.h>
+
+int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+int multiply(int a, int b) { return a * b; }
+int divide(int a, int b) { return b != 0 ? a / b : 0; }
+
+int main() {
+// Array of function pointers
+int (*operations)(int, int) = {add, subtract, multiply, divide};
+
+text
+int x = 20, y = 10;
+
+printf("Add: %d\n", operations(x, y));        // 30
+printf("Subtract: %d\n", operations(x, y));   // 10
+printf("Multiply: %d\n", operations(x, y));   // 200
+printf("Divide: %d\n", operations(x, y));     // 2
+
+return 0;
+}
+```
