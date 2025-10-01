@@ -96,8 +96,9 @@ Goal: Modularize code and manage memory effectively.
     - Exercise: Write add/multiply functions.
     - Mini-Project: Power function with recursion.
 
-14. **Pointers**
+14. **Arrays & Pointers**
 
+    - Arrays in detail
     - Basics: `&`, `*`, pointer arithmetic.
     - Exercise: Print addresses, traverse array via pointers.
     - Mini-Project: Pointer-based string copy.
