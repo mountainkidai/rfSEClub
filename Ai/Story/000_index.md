@@ -1,4 +1,4 @@
-# Article Index: Chronological Journey from First Principles to AI Evolution
+# Chronological Journey from First Principles to AI Evolution
 
 1. **Introduction: Connecting “Stuff” to Smart Systems**
 
