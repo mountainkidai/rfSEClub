@@ -6,7 +6,6 @@
 
    - 2.1 Defining Matter: Mass and Volume
    - 2.2 States of Matter: Solids, Liquids, Gases, Plasma
-   - 2.3 _Mathematical Note:_ Density (\(\rho = \tfrac{m}{V}\))
 
 3. **Atoms, Molecules & Compounds (1803 Dalton’s Atomic Theory)**
 
@@ -19,7 +18,8 @@
    - 4.1 Macronutrients: Carbohydrates, Proteins, Fats, Water
    - 4.2 Micronutrients: Vitamins and Minerals
    - 4.3 From Amino Acids to Proteins
-   - 4.4 _Mathematical Note:_ Caloric Energy (\(E = 4\,\mathrm{kcal/g}\) protein/carbs, \(9\,\mathrm{kcal/g}\) fat)
+   - 4.4 _Mathematical Note:_ Caloric Energy
+     ($E = 4\,\mathrm{kcal/g}$ protein/carbs, $9\,\mathrm{kcal/g}$ fat)
 
 5. **Cells: The Units of Life (1838–1840 Cell Theory)**
 
