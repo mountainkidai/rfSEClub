@@ -25,7 +25,6 @@
 
    - 5.1 Cell Structure and Function
    - 5.2 Membrane as a “Gatekeeper”
-   - 5.3 _Mathematical Note:_ Surface Area–to–Volume Ratio
 
 6. **Neurons: Biology’s Signal Units (1891 Golgi & Cajal)**
 
