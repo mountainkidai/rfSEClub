@@ -341,7 +341,6 @@ int main() {
 // Array of function pointers
 int (*operations)(int, int) = {add, subtract, multiply, divide};
 
-text
 int x = 20, y = 10;
 
 printf("Add: %d\n", operations(x, y));        // 30

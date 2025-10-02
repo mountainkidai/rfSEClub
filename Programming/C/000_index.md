@@ -81,8 +81,8 @@ Goal: Build logic and control for problem-solving.
     - Exercise: Write even/odd checker, menu with `switch`.
     - Mini-Project: Leap year validator, multiplication table generator.
 
-12. **Advanced Control**
-    - `break`, `continue`, avoid `goto`.
+12. **Advanced Control / Jumping statements **
+    - `break`, `continue`.
     - Exercise: Early loop exit with `break`.
     - Mini-Project: Prime number checker with optimized loops.
 
