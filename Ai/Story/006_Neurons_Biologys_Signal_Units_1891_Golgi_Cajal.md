@@ -1,5 +1,31 @@
 ## 6. Neurons: Biology’s Signal Units (1891 Golgi & Cajal)
 
+### Overview of Brain
+
+- This guide zooms in from the largest scale (the brain) to the smallest functional unit (the neuron), then connects biology to the mathematics and technology of artificial intelligence.
+
+## The Brain: The Command Center
+
+- The brain is the main organ in your head that controls thoughts, senses, actions, and emotions.
+
+  - **Example:** When you decide to speak, your brain plans the words, sends the signal to your mouth, and you start talking.
+
+- It is made up of billions of cells, mainly **neurons** (for signaling) and **glia** (for support/protection).
+
+  - **Example:** When you learn something new, your neurons form new connections, and glia cells keep those connections healthy.
+
+- The brain's parts include:
+
+  - **Cerebrum:** Handles higher thinking, memory, and voluntary movement.
+    - _Example:_ Remembering an answer during an exam, solving a problem, or moving your arm to catch a ball.
+  - **Cerebellum:** Coordinates balance and movement.
+    - _Example:_ Riding a bicycle smoothly or balancing on one foot uses your cerebellum.
+  - **Brainstem:** Regulates vital life functions like breathing and heartbeat.
+    - _Example:_ Even while sleeping, your brainstem keeps your heart beating and lungs breathing automatically.
+
+- Within the brain, trillions of connections called **synapses** link neurons together into networks.
+  - **Example:** Every time you practice coding or math, the repeated activity strengthens certain synapses, making it easier and faster each time.
+
 ### 6.1 Neuron Anatomy: Dendrites, Soma, Axon, Myelin
 
 ![Neuron Structure](images/neuron.png)
