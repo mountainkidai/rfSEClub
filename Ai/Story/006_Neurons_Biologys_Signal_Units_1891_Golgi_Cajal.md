@@ -18,16 +18,31 @@
 
 Steve is hiking around Mountainkid Valley. Suddenly, he sees a friendly robot walking across the road. Here's how Steve's brain works in **functional execution order** to handle this moment:
 
-| Brain Part                             | Location                                    | Main Functions & Steve's Example                                                                                                                     |
-| -------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cerebral Cortex                        | Outer layer of the cerebrum                 | Processes sensory information and conscious thought. Steve sees the robot, recognizes it's friendly, and understands the situation.                  |
-| Cerebrum                               | Largest brain part, topmost region          | Handles high-level thinking, planning, reasoning, and memory. Steve plans how to safely approach or greet the robot.                                 |
-| Dorsolateral Prefrontal Cortex (DLPFC) | Front part of the frontal lobe              | Executive functions and decision making. Steve decides to wave hello at the robot or continue hiking.                                                |
-| Premotor Cortex                        | Just in front of the primary motor cortex   | Plans and prepares movements. Steve prepares to lift his hand in greeting.                                                                           |
-| Basal Ganglia                          | Deep inside the cerebrum                    | Initiates and regulates movement. Ensures Steve's walking remains smooth and controlled over rocky terrain as he approaches the robot.               |
-| Primary Motor Cortex (M1)              | Located in the frontal lobe                 | Sends signals to muscles for voluntary movement. Steve moves his arm to wave and adjusts his steps to walk forward.                                  |
-| Cerebellum                             | Back and bottom of the brain                | Coordinates balance and precise motor control. Steve balances on uneven ground and smoothly performs the waving motion.                              |
-| Brainstem                              | Base of the brain connecting to spinal cord | Controls automatic functions like heartbeat and breathing. Steve’s heart beats steadily, and breathing remains calm during the interaction and hike. |
+# Brain Parts and Functions: Aligned to First Principles Execution Order
+
+The brain processes information hierarchically in a flow from raw sensory input to motor output, with regulatory feedback loops modulating activity.
+
+| Brain Part                         | Location                                          | Main Functions & Steve's Example                                                                                                                     | Neural Network (NN) Analogy                          | Language Model (LM) Tip                                      |
+| ---------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
+| Brainstem                          | Base of brain connecting to spinal cord           | Base signal propagation. Controls heartbeat, breathing, and supports all neural signaling. Steve’s heartbeat and breathing stabilize the hike.       | Underlying system operations                         | Gradient updates, loss monitoring                            |
+| Thalamus                           | Deep brain relay hub                              | Filters and routes raw sensory inputs to the cortex. Steve’s brain filters visual and auditory data.                                                 | Input preprocessing layer                            | Token filtering/attention preprocessing for noise reduction  |
+| Cerebral Cortex                    | Outer layer of the cerebrum                       | Initial feature extraction from sensory data. Steve recognizes shapes and movement patterns of the robot.                                            | Embedding/convolutional layers                       | Word embeddings                                              |
+| Limbic System                      | Deep brain structures (amygdala, hippocampus)     | Emotional tagging and memory context. Steve feels curiosity and recalls past encounters.                                                             | Memory modules                                       | Context window in transformers                               |
+| Cerebrum (Prefrontal Cortex)       | Largest brain part, frontal lobe (decision areas) | Reasoning, decision making, and planning. Steve decides whether to approach or wave at the robot.                                                    | Deep layers with attention mechanisms                | Self-attention for next-token prediction                     |
+| Premotor Cortex                    | Just in front of primary motor cortex             | Action planning and movement preparation. Steve prepares to raise hand to wave.                                                                      | Policy network layers                                | Beam search for token candidates                             |
+| Basal Ganglia                      | Deep inside cerebrum                              | Selects and regulates appropriate movements, suppressing unwanted ones. Steve walks smoothly on rocky terrain.                                       | Action selection/filtering mechanism                 | Beam pruning or filtering in decoding                        |
+| Primary Motor Cortex               | Located in frontal lobe                           | Executes final motor commands sending signals to muscles. Steve moves arm to wave and walks forward.                                                 | Output layer                                         | Softmax probabilities for output tokens                      |
+| Cerebellum                         | Back and bottom of brain                          | Fine-tunes movements via error correction and timing adjustment. Steve balances on uneven ground and waves smoothly.                                 | Residual connections and correction layers           | Post-processing for coherence and correctness                |
+| Hypothalamus                       | Below thalamus, near brainstem                    | Regulates autonomic functions, stress, hormones, and body temperature to maintain system stability.                                                  | Optimization and system regulation                   | Gradient clipping, learning rate scheduling                  |
+| Reticular Formation                | Throughout brainstem and midbrain                 | Modulates arousal and attention, enabling selective focus. Steve stays alert to the robot.                                                           | Gating mechanisms (like LSTM gates)                  | Attention weighting to prioritize context                    |
+| Corpus Callosum                    | Connects left and right brain hemispheres         | Integrates information across hemispheres for unified processing. Allows coordination of bilateral functions in Steve’s body.                        | Cross-layer connections                              | Skip connections enabling long-range dependencies            |
+| Neurotransmitters (e.g., Dopamine) | Distributed chemical signals                      | Modulate learning, reward processing, and motivation in brain function. Steve learns from positive experiences during hiking and social interaction. | Adaptive learning rate control                       | Dynamic learning rate adjustments based on training feedback |
+| Plasticity Mechanisms              | Throughout brain (synaptic connections)           | Synaptic pruning and long-term potentiation enable learning and memory by altering connection strength.                                              | Regularization techniques like dropout, weight decay | Regularize to prevent overfitting, enhance generalization    |
+
+---
+
+This table aligns brain regions and functions with the first principles of signal flow and regulation, connecting each to comparable concepts in neural networks and language models.  
+Steve’s examples ground abstract functions into real-world experiences during his Mountainkid Valley hike.
 
 This table follows the **brain’s functional workflow**, from sensing and planning to movement execution and vital function regulation during Steve's encounter with the robot on the hiking trail.
 
@@ -145,6 +160,33 @@ Understanding these signal types is fundamental to grasping how neurons transmit
 ---
 
 This foundational knowledge helps recognize the collaboration required for brain function, preparing for deeper study of neuron physiology.
+
+# High-Level Brain Functions: Emergent from Neuronal Interaction
+
+## Sensory Processing
+
+- The brain receives information from the senses (sight, sound, touch, taste, smell).
+- Specialized neurons process this sensory input, allowing perception of the world.
+- This processing occurs primarily in sensory areas of the **cerebral cortex**.
+
+## Motor Control
+
+- Brain regions plan, initiate, and execute voluntary movements.
+- Motor commands are refined and coordinated to perform smooth, purposeful actions.
+- Control involves areas like the **primary motor cortex**, **premotor cortex**, **basal ganglia**, and **cerebellum**.
+
+## Cognition
+
+- Includes thinking, reasoning, problem-solving, and planning.
+- Emerges from complex interactions in the **prefrontal cortex** and other cortical regions.
+- Enables decision-making, attention, and working memory.
+
+## Emotions
+
+- Brain structures like the **limbic system** generate and regulate emotions.
+- Neuronal networks integrate sensory input and internal states to produce feelings and responses.
+
+## Autonomic Regulation
 
 ### 6.1 Neuron Anatomy: Dendrites, Soma, Axon, Myelin
 
