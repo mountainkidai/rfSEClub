@@ -79,8 +79,41 @@ This table follows the **brain’s functional workflow**, from sensing and plann
 
 This understanding of the brain as a highly interconnected, parallel-processing neural network sets the stage for diving deeper into individual neuron function and how they generate electrical signals.
 
-- Within the brain, trillions of connections called **synapses** link neurons together into networks.
-  - **Example:** Every time you practice coding or math, the repeated activity strengthens certain synapses, making it easier and faster each time.
+# Signal Types in the Brain: Electrical and Chemical Communication
+
+## Electrical Signals Within Neurons
+
+- Neurons communicate internally using **electrical signals** called **action potentials**.
+- An action potential is a rapid change in the electrical charge inside the neuron, traveling along its length (axon).
+- This electrical impulse enables fast transmission of information within the neuron itself.
+- Think of it like a spark traveling down a wire, carrying a message quickly from one end of the neuron to the other.
+
+## Chemical Signals Between Neurons
+
+- Neurons communicate with each other at **synapses**, where the axon terminal of one neuron meets the dendrite or cell body of another.
+- At the synapse, the electrical signal triggers the release of **chemical messengers** called **neurotransmitters**.
+- These neurotransmitters cross the small gap (synaptic cleft) and bind to receptors on the next neuron.
+- This binding can either excite or inhibit the next neuron, influencing whether it fires its own action potential.
+- This chemical communication allows neurons to pass complex information and regulate brain functions dynamically.
+
+## Combined Electrical-Chemical Signaling
+
+- The brain’s communication system is a dynamic combination of rapid electrical signals inside neurons and slower, modulatory chemical signals between neurons.
+- This dual signaling mechanism enables precise, flexible, and adaptable information processing.
+
+---
+
+Understanding these signal types is fundamental to grasping how neurons transmit information and interact, laying the groundwork for exploring neuron anatomy, physiology, and computational models.
+
+### Summary: How Information Travels Across Neurons
+
+- Information travels inside a neuron as **electrical signals** called **action potentials**.
+- When the electrical signal reaches the axon terminal, it triggers the release of **chemical messengers** called **neurotransmitters**.
+- Neurotransmitters cross the **synaptic gap (synapse)** between neurons.
+- These chemicals bind to receptors on the receiving neuron, converting the chemical message back into an electrical signal.
+- This process repeats across neuron networks, enabling complex brain functions like perception, movement, and learning.
+- The brain’s network structure is flexible due to **plasticity**, which strengthens or weakens connections based on experience.
+- Overall, neuron communication combines **fast electrical signaling inside neurons** and **chemical signaling between neurons** for precise, adaptable information processing.
 
 ### 6.1 Neuron Anatomy: Dendrites, Soma, Axon, Myelin
 
