@@ -115,6 +115,37 @@ Understanding these signal types is fundamental to grasping how neurons transmit
 - The brain’s network structure is flexible due to **plasticity**, which strengthens or weakens connections based on experience.
 - Overall, neuron communication combines **fast electrical signaling inside neurons** and **chemical signaling between neurons** for precise, adaptable information processing.
 
+# Cell Types in the Brain: Neurons vs. Glia
+
+## Neurons: The Brain's Information Messengers
+
+- Neurons are specialized cells responsible for **receiving, processing, and transmitting information**.
+- They communicate via **electrical impulses** (action potentials) and **chemical signals** (neurotransmitters).
+- Neurons have unique structures:
+  - **Dendrites:** Receive signals from other neurons.
+  - **Soma (cell body):** Integrates incoming signals.
+  - **Axon:** Sends electrical signals to other neurons or muscles.
+- Neurons form the core of brain function: sensation, movement, cognition, and emotions.
+
+## Glia: The Brain's Supporting Staff
+
+- Glial cells, or **glia**, are supporting cells that **maintain and protect neurons**.
+- Types of glia include:
+  - **Astrocytes:** Provide nutrients, maintain the chemical environment, and support the blood-brain barrier.
+  - **Oligodendrocytes:** Form myelin sheaths around axons, speeding up electrical signals in the brain.
+  - **Microglia:** Act as immune cells, removing waste and protecting against infection.
+- Glia do not transmit electrical signals but are essential for healthy brain functioning.
+
+## Why Differentiating Them Matters
+
+- **Neurons** perform the brain’s information processing and communication.
+- **Glia** provide critical support, ensuring neurons work efficiently and stay healthy.
+- Understanding this division is fundamental before diving into neuron structure and signal mechanisms.
+
+---
+
+This foundational knowledge helps recognize the collaboration required for brain function, preparing for deeper study of neuron physiology.
+
 ### 6.1 Neuron Anatomy: Dendrites, Soma, Axon, Myelin
 
 ![Neuron Structure](images/neuron.png)
