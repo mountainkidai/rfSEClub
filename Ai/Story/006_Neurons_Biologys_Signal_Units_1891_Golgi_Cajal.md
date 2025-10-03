@@ -14,14 +14,70 @@
 
   - **Example:** When you learn something new, your neurons form new connections, and glia cells keep those connections healthy.
 
-- The brain's parts include:
+## The brain's parts include
 
-  - **Cerebrum:** Handles higher thinking, memory, and voluntary movement.
-    - _Example:_ Remembering an answer during an exam, solving a problem, or moving your arm to catch a ball.
-  - **Cerebellum:** Coordinates balance and movement.
-    - _Example:_ Riding a bicycle smoothly or balancing on one foot uses your cerebellum.
-  - **Brainstem:** Regulates vital life functions like breathing and heartbeat.
-    - _Example:_ Even while sleeping, your brainstem keeps your heart beating and lungs breathing automatically.
+Steve is hiking around Mountainkid Valley. Suddenly, he sees a friendly robot walking across the road. Here's how Steve's brain works in **functional execution order** to handle this moment:
+
+| Brain Part                             | Location                                    | Main Functions & Steve's Example                                                                                                                     |
+| -------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cerebral Cortex                        | Outer layer of the cerebrum                 | Processes sensory information and conscious thought. Steve sees the robot, recognizes it's friendly, and understands the situation.                  |
+| Cerebrum                               | Largest brain part, topmost region          | Handles high-level thinking, planning, reasoning, and memory. Steve plans how to safely approach or greet the robot.                                 |
+| Dorsolateral Prefrontal Cortex (DLPFC) | Front part of the frontal lobe              | Executive functions and decision making. Steve decides to wave hello at the robot or continue hiking.                                                |
+| Premotor Cortex                        | Just in front of the primary motor cortex   | Plans and prepares movements. Steve prepares to lift his hand in greeting.                                                                           |
+| Basal Ganglia                          | Deep inside the cerebrum                    | Initiates and regulates movement. Ensures Steve's walking remains smooth and controlled over rocky terrain as he approaches the robot.               |
+| Primary Motor Cortex (M1)              | Located in the frontal lobe                 | Sends signals to muscles for voluntary movement. Steve moves his arm to wave and adjusts his steps to walk forward.                                  |
+| Cerebellum                             | Back and bottom of the brain                | Coordinates balance and precise motor control. Steve balances on uneven ground and smoothly performs the waving motion.                              |
+| Brainstem                              | Base of the brain connecting to spinal cord | Controls automatic functions like heartbeat and breathing. Steve’s heart beats steadily, and breathing remains calm during the interaction and hike. |
+
+This table follows the **brain’s functional workflow**, from sensing and planning to movement execution and vital function regulation during Steve's encounter with the robot on the hiking trail.
+
+# Neural Networks Overview: From First Principles
+
+## The Brain as a Network of Neurons
+
+- The brain is composed of **billions of neurons**, the specialized cells that transmit information.
+- These neurons are **massively interconnected** through complex networks.
+- Each neuron can connect to thousands of others via junctions called **synapses**.
+
+## Parallel Working of Neurons
+
+- Neurons operate **in parallel**, meaning many signals are processed simultaneously.
+- This parallelism enables the brain to:
+  - Process sensory inputs from multiple sources at once.
+  - Perform complex computations rapidly.
+  - Coordinate numerous body functions simultaneously.
+
+## How Neurons Connect and Communicate
+
+![Neuron Structure](images/neuron.png)
+
+- A neuron receives input signals from its connected neurons.
+- It integrates these inputs and decides whether to pass on the signal.
+- Signals are sent electrically within the neuron and chemically across synapses.
+
+  - The synapse is the small junction or gap where one neuron's axon terminal is very close to another neuron's dendrite or cell body.
+
+  - It is not a direct physical connection, but a narrow space (about 20-40 nanometers wide) where chemical signals (neurotransmitters) travel across.
+
+  - When an electrical signal (action potential) arrives at the axon terminal of the sending neuron, it triggers the release of neurotransmitters into the synaptic gap.
+
+  - These neurotransmitters diffuse across the synapse and bind to receptors on the receiving neuron, transmitting the signal chemically.
+
+  - This process converts the electrical signal in the first neuron into a chemical signal crossing the synapse, then back to an electrical signal in the next neuron.
+
+  - So the synapse acts as a controlled communication bridge, managing how neurons pass messages at the microscopic scale.
+
+- The network formed by these connections is the foundation of all brain functions: perception, movement, thought, and learning.
+
+## Why Network Structure Matters
+
+- The brain’s ability to learn and adapt comes from **plasticity**—the ability to strengthen or weaken synaptic connections.
+- This plasticity allows networks to change structure based on experience, enabling learning and memory.
+- Complex behaviors emerge from simple network interactions.
+
+---
+
+This understanding of the brain as a highly interconnected, parallel-processing neural network sets the stage for diving deeper into individual neuron function and how they generate electrical signals.
 
 - Within the brain, trillions of connections called **synapses** link neurons together into networks.
   - **Example:** Every time you practice coding or math, the repeated activity strengthens certain synapses, making it easier and faster each time.
