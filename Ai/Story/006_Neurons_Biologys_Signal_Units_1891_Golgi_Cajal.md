@@ -186,7 +186,66 @@ This foundational knowledge helps recognize the collaboration required for brain
 - Brain structures like the **limbic system** generate and regulate emotions.
 - Neuronal networks integrate sensory input and internal states to produce feelings and responses.
 
-## Autonomic Regulation
+# Major Neurotransmitters in the Brain: From First Principles with Deficiency Effects
+
+Neurotransmitters are chemical messengers neurons use to communicate at synapses, crucial for brain function and behavior. Deficiencies often cause distinct problems.
+
+## Dopamine
+
+- **Function:** Modulates motivation, reward, pleasure, and movement.
+- **Deficiency:** Can cause Parkinson’s disease (motor issues), depression, and lack of motivation.
+- **Example:** Without enough dopamine, Steve might struggle with smooth movements and lose interest in hiking.
+
+## Serotonin
+
+- **Function:** Regulates mood, appetite, sleep, and emotions.
+- **Deficiency:** Linked to depression, anxiety, sleep disorders, and mood instability.
+- **Example:** Low serotonin could make Steve feel anxious or depressed during his hike.
+
+## Norepinephrine (Noradrenaline)
+
+- **Function:** Controls alertness, arousal, and the fight-or-flight response.
+- **Deficiency:** Causes fatigue, poor focus, and low stress response.
+- **Example:** Steve may feel drowsy or unable to focus on the trail.
+
+## Acetylcholine
+
+- **Function:** Crucial for muscle activation, attention, learning, and memory.
+- **Deficiency:** Leads to memory problems (seen in Alzheimer’s), muscle weakness, and attention deficits.
+- **Example:** Steve might forget the route or find walking difficult.
+
+## GABA (Gamma-Aminobutyric Acid)
+
+- **Function:** Primary inhibitory neurotransmitter, calming neural activity.
+- **Deficiency:** Causes anxiety, seizures, and overstimulation.
+- **Example:** Without enough GABA, Steve could experience nervousness or muscle spasms.
+
+## Glutamate
+
+- **Function:** Primary excitatory neurotransmitter, drives learning and memory.
+- **Deficiency:** Can impair cognition, learning, and cause neurological issues.
+- **Example:** Steve’s ability to learn or remember the trail could be impaired.
+
+## Endorphins
+
+- **Function:** Natural painkillers, induce pleasure and stress relief.
+- **Deficiency:** Heightens pain sensitivity and lowers mood.
+- **Example:** Steve would feel more pain from hiking discomfort and less enjoyment.
+
+## Histamine
+
+- **Function:** Modulates arousal, attention, inflammation.
+- **Deficiency:** Leads to sleep disturbances, attention problems, and impaired immune responses.
+- **Example:** Steve may feel tired or inattentive on the trail.
+
+---
+
+Neurotransmitters are stored in vesicles at the axon terminals (the far ends of the axon), not the axon hillock.
+
+When the electrical signal travels down the axon and reaches the axon terminals, it triggers the release of neurotransmitters from vesicles into the synapse.
+
+So, the sequence is: Signal starts at the axon hillock → travels down the axon → reaches axon terminals → causes neurotransmitter release.
+Together, neurotransmitters form a chemical language critical for brain communication. Their balance underpins normal cognition, emotion, and motor function, and imbalances cause specific deficits.okay
 
 ### 6.1 Neuron Anatomy: Dendrites, Soma, Axon, Myelin
 
