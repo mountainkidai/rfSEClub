@@ -379,6 +379,21 @@ The **resting membrane potential** is the electrical voltage difference across t
 
 ---
 
+### Summary of Neuron Structure and Electrical Signaling: First Principles
+
+- **Neurons** are specialized cells designed to send information rapidly through electrical and chemical signals.
+- The **neuron membrane** is a **lipid bilayer** that acts as an insulating barrier, separating inside and outside environments.
+- **Ion channels** embedded in the membrane control the selective flow of ions (sodium, potassium, calcium, chloride), enabling electrical currents.
+- Neurons maintain **unequal ion concentrations** inside and outside, with potassium higher inside and sodium higher outside.
+- **Negatively charged proteins** inside the neuron contribute to negative charge but cannot cross the membrane.
+- The **resting membrane potential** (~-70 mV) arises from charge separation created by these ion distributions and membrane permeability, storing electrical energy like a battery.
+- The **sodium-potassium pump**, an enzyme using **ATP** energy, actively transports 3 sodium ions out and 2 potassium ions in, maintaining ion gradients.
+- A small number of ions leak across passively; the pump compensates to preserve gradients essential for signaling.
+- To transmit information, the neuron’s membrane potential must depolarize by about 15 mV, reaching a **threshold of ~ -55 mV**, triggering an **action potential**.
+- An **action potential** is a rapid, all-or-none voltage change that propagates down the axon, enabling fast, precise neural communication.
+
+This foundational understanding connects biological structures, physics of ions, and energetic processes underlying neural excitability and signaling.
+
 ### 6.4 Threshold and Firing (\(-55\) mV Trigger)
 
 - Neurons have a resting membrane potential of about **−70 mV**, meaning the inside of the cell is negative compared to the outside.
