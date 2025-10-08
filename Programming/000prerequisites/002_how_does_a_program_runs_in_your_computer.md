@@ -178,6 +178,15 @@ Virtual Address → MMU → Physical Address
 
 **Stack Operations:**
 
+## Stack Operations – First Principles
+
+- The **stack** is a fast, organized memory area used to store:
+  - Function call information
+  - Local variables
+  - Return addresses
+- When a function is called, the CPU **creates a stack frame** to hold its locals.
+- Example:
+
 ```rust
 fn calculate(x: i32) -> i32 {  // ← Stack frame created
     let temp = x * 2;          // ← Local variable on stack
@@ -185,7 +194,52 @@ fn calculate(x: i32) -> i32 {  // ← Stack frame created
 }                              // ← Stack frame destroyed
 ```
 
-**Heap Operations:**
+```text
+Memory Layout
++-----------------------------------------------+
+| High Memory                                   |
+|                                               |
+|    ...                                        |
+|    |   Stack (grows downward)                |
+|    |                                         |
+|    +-------------------+                      |
+|    |   Stack Frame    |                      |
+|    |   (Function Call) |                      |
+|    +-------------------+                      |
+|    |   Stack Frame    |                      |
+|    |   (Function Call) |                      |
+|    +-------------------+                      |
+|    ...                                        |
+|                                               |
+|    --- Memory Gap ---                         |
+|                                               |
+|    ...                                        |
+|    +-------------------+                      |
+|    |      Heap        |                      |
+|    | (Dynamic Memory)  |                      |
+|    +-------------------+                      |
+|    |      Heap        |                      |
+|    | (Dynamic Memory)  |                      |
+|    +-------------------+                      |
+|    |                                         |
+|    |   Heap (grows upward)                   |
+|    ...                                        |
+|                                               |
+| Low Memory                                    |
++-----------------------------------------------+
+
+```
+
+- Stack memory is managed automatically by CPU instructions; it grows and shrinks in a LIFO (last-in, first-out) manner.
+
+---
+
+## Heap Operations – First Principles
+
+- The **heap** is a large, less organized memory area used for **dynamic allocation** when sizes are not known at compile time.
+- Heap memory is managed at runtime.
+- Example in Rust:
+  **Heap Operations:**
 
 ```rust
 let numbers = vec![1, 2, 3];   // ← Heap allocation
@@ -215,23 +269,45 @@ fn main() {
 }   // File closed here via close() syscall
 ```
 
-**System Call Process:**
+### How It Works Beneath the Surface
 
-1. Program requests OS service (file I/O, network, etc.)
-2. CPU switches from **user mode** to **kernel mode**
-3. OS validates request and performs operation
-4. Control returns to program with result
+1. **User Program Calls a Library Function**:
 
-### Multi-tasking and Scheduling
+   - Your `println!` and file functions call Rust’s standard library code.
 
-Modern systems run hundreds of programs simultaneously through **time-sharing**:
+2. **Library Triggers a System Call**:
 
-1. **Timer Interrupts**: Hardware timer triggers every few milliseconds
-2. **Context Switch**: OS saves current program state and loads another
-3. **Scheduler**: Decides which program runs next based on priority, fairness
-4. **Return**: Eventually, your program gets CPU time again
+   - This is a special CPU instruction that switches from **user mode** (restricted) to **kernel mode** (privileged).
+   - For example, `write()` is a system call invoked inside that `println!`.
+
+3. **CPU Switches to Kernel Mode**:
+
+   - The CPU pauses your program’s execution and jumps to the OS kernel’s system call handler.
+
+4. **Kernel Performs Requested Operation**:
+
+   - The OS executes the requested operation: writing text to the screen, creating/opening files, writing data.
+
+5. **Kernel Returns Control to Program**:
+   - After completing the task, the OS switches back to user mode and resumes your program’s execution.
 
 ---
+
+### Why System Calls Are Needed
+
+- User programs **cannot access hardware directly** for security and stability reasons.
+- System calls provide a **controlled gateway** for programs to request OS services safely.
+- They act like a receptionist or gatekeeper that checks and performs sensitive operations on behalf of user code.
+
+---
+
+### Key Points
+
+- Many Rust standard library functions wrap system calls to provide easy APIs.
+- Each system call corresponds to a unique operation identified by a number and parameters.
+- System calls use CPU instructions that trap to kernel mode (e.g., `ecall` on RISC-V, `syscall` on x86-64).
+
+This mechanism allows your programs to interact securely with hardware and operating system resources.
 
 ## Phase 5: Program Termination - Cleanup
 
