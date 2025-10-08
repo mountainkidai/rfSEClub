@@ -48,21 +48,19 @@ At the core, every program goes through these fundamental steps:
 
 **Result:** You end up with a standalone binary (`./my_program`) that the OS can load and the CPU can execute directly.
 
-## Phase 2: Program Loading - OS Takes Control
+## Phase 2: Program Loading – First Principles
 
-When you run `./my_program`, the OS is responsible for preparing everything:
+When you run `./my_program`, the OS prepares a clean, isolated environment so your code can run safely and efficiently.
 
-### OS Loading Process
+### Step 1: Find and Inspect the Binary
 
-#### **Step 1: Executable Discovery**
+- The OS locates the executable file on disk.
+- It reads the file’s header to learn its format (e.g., ELF or PE) and segment layout.
 
-- OS locates the binary file on disk
-- Reads file headers to understand program structure (ELF on Linux, PE on Windows)
+### Step 2: Create Virtual Memory Space
 
-#### **Step 2: Virtual Memory Setup**
-
-- Creates a **virtual address space** for the program (typically 4GB on 32-bit, 256TB on 64-bit)
-- Maps virtual addresses to physical RAM through page tables
+- The OS gives the process its own address space—a private map of memory addresses.
+- Virtual addresses are placeholders that the Memory Management Unit (MMU) will translate to real RAM locations via page tables.
 
 #### **Step 3: Memory Layout Creation**
 
@@ -73,7 +71,7 @@ High Memory (0xFFFFFFFF)
 | Environment Variables     | ← PATH, HOME, etc.
 +---------------------------+
 | Stack                     | ← Grows downward ↓
-| (Function calls, locals)  |   8MB default on Linux
+| (Function calls, locals)  |   8MB default on Linux/Mac
 +---------------------------+
 |                           |
 | ↕ Unused Virtual Space ↕  | ← Stack ↔ Heap collision protection
@@ -94,19 +92,38 @@ High Memory (0xFFFFFFFF)
 Low Memory (0x00000000)
 ```
 
-#### **Step 4: Process Creation**
+### Command-Line Arguments and Environment Variables
 
-- Assigns Process ID (PID)
-- Sets up process control block (PCB) with execution state
-- Initializes CPU registers, including Program Counter (PC)
+- **Command-Line Arguments**
 
-#### **Step 5: Dynamic Linking (if needed)**
+  - The array `argv[]` passed into `main(argc, argv)` contains each word you type after `./my_program` in your shell.
+  - First-principles: They let your code receive input parameters without user prompts.
 
-- Loads shared libraries into memory
-- Resolves external function addresses
-- Updates Global Offset Table (GOT) and Procedure Linkage Table (PLT)
+- **Environment Variables**
+  - already discussed.
+  - Reference: [001_Env_variables](./001_Env_Variables_and_Path.md)
 
 ---
+
+### Step 4: Initialize the Process
+
+- The OS assigns a Process ID (PID) and builds a Process Control Block (PCB) to track its state.
+
+## Step 5: Dynamic Linking – When It Happens
+
+- **Compile-Time Linking**
+
+  - Happens **before** your program runs.
+  - The linker:
+    - Combines your code with any **static libraries** you included (embedding their code directly).
+    - Records where **dynamic libraries** (shared code) will be needed, without loading them yet.
+
+- **Load-Time (Dynamic) Linking**
+  - Happens **when** you run `./my_program`.
+  - The OS loader:
+    1. Reads the recorded dynamic library references.
+    2. Loads each shared library (e.g., `libc.so`) into RAM.
+    3. Updates pointers in your program’s memory (GOT/PLT) so calls like `printf()` jump to the correct code.
 
 ## Phase 3: Program Execution - CPU in Action
 
@@ -158,8 +175,6 @@ Virtual Address → MMU → Physical Address
 ```
 
 - Memory Management Unit (MMU) translates virtual to physical addresses
-- Page faults trigger OS to load data from disk if not in RAM
-- Copy-on-Write: Multiple processes can share read-only pages
 
 **Stack Operations:**
 
