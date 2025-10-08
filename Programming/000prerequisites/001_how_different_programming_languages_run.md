@@ -524,15 +524,23 @@ This mechanism enables your programs to safely and effectively interact with the
 
 [Visit rfSE Club Docs](https://www.rfse.club/)
 
-## Summary: Chronological Flow
+## Summary: Chronological Flow with Rust Example
 
-| Step                      | Responsible Component    | Description                                       |
-| ------------------------- | ------------------------ | ------------------------------------------------- |
-| 1. Write source code      | Programmer               | Code in C, Rust, etc.                             |
-| 2. Compile code           | Compiler                 | Converts source to machine code for CPU ISA       |
-| 3. Load program           | OS Kernel, File System   | Creates process, allocates memory, loads binary   |
-| 4. Execute instructions   | CPU (Core, ALU, MMU)     | Runs machine code with fetch-decode-execute cycle |
-| 5. Manage threads & cores | OS Kernel, CPU           | Schedules threads to CPU cores                    |
-| 6. Perform I/O            | OS Kernel (System Calls) | Handles interaction with hardware                 |
+```rust
+fn main()
+{
+  let a = 5;
+  let b = 10;
+  let sum = a + b;
+  println!("Sum: {}", sum);
+}
+```
 
----
+| Step                      | Responsible Component    | Description                                                                                              |
+| ------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------- |
+| 1. Write source code      | Programmer               | Write Rust code, e.g., `fn main() { let a = 5; let b = 10; let sum = a + b; println!("Sum: {}", sum); }` |
+| 2. Compile code           | Compiler                 | Convert Rust source to machine code for the CPU's ISA                                                    |
+| 3. Load program           | OS Kernel, File System   | Create a process, allocate virtual memory, and load the compiled binary into memory                      |
+| 4. Execute instructions   | CPU (Core, ALU, MMU)     | Fetch, decode, and execute machine code instructions step-by-step                                        |
+| 5. Manage threads & cores | OS Kernel, CPU           | Schedule and assign program threads to available CPU cores for parallel execution                        |
+| 6. Perform I/O            | OS Kernel (System Calls) | Handle input/output operations like displaying output via system calls (e.g., `println!` calls)          |
