@@ -1,6 +1,11 @@
 # From Code to Execution: How Programs Run on Your Computer with OS and CPU Basics
 
-Understanding how your code runs involves several layers: the Operating System (OS), the CPU hardware, and the instruction set architecture. We will walk through this process chronologically using a simple programming example.
+Understanding how your code runs involves several layers:
+
+- the Operating System (OS),
+- the CPU hardware,
+- and the instruction set architecture.
+  We will walk through this process chronologically using a simple programming example.
 
 ---
 
@@ -22,16 +27,93 @@ printf("Sum: %d\n", sum); // Task 2:
 
 ## Step 2: Compilation and Machine Code Generation
 
-- The **compiler** (e.g., `gcc` for C, `rustc` for Rust) translates your human-readable source code into **machine code**, which is a set of binary instructions your CPU understands.
+- The **compiler** (language translator) (e.g., `gcc` for C, `rustc` for Rust) translates your human-readable source code into **machine code**, which is a set of binary instructions your CPU understands.
+- C/rust --> COMPILER --> binary / machine code
 - This machine code is specific to your CPU's **Instruction Set Architecture (ISA)**.
 
-**Common ISAs (Instruction Set Architectures):**
+# Common Instruction Set Architectures (ISAs)
 
-- **x86 / x86-64 (CISC architecture):** Most Intel and AMD processors.
-- **ARM (RISC architecture):** Common in mobile devices and increasingly in laptops/desktops.
-- **RISC-V (open-source architecture):** Emerging ISA designed for simplicity and efficiency.
+**Instruction Set Architecture (ISA)** defines how a processor executes instructions and communicates with software.
 
 ---
+
+## x86 / x86-64 (CISC Architecture)
+
+- **Developed by:** Intel (1978), later adopted by AMD
+- **Type:** CISC (Complex Instruction Set Computer)
+- **Key features:**
+  - Complex instructions that can perform multiple operations
+  - Backwards compatibility with older software
+- **Mostly found in:**
+  - Desktop PCs
+  - Laptops
+  - Servers
+- **Examples:**
+  - Intel Core series processors
+  - AMD Ryzen processors
+
+---
+
+## ARM (RISC Architecture)
+
+- **Developed by:** ARM Holdings (1983)
+- **Type:** RISC (Reduced Instruction Set Computer)
+- **Key features:**
+  - Simple and fast instructions
+  - Focus on energy efficiency and low power consumption
+- **Common uses:**
+  - Mobile devices (smartphones, tablets)
+  - Embedded systems
+  - Increasingly in laptops and desktops
+- **Examples:**
+  - Apple M1 and M2 chips
+  - Qualcomm Snapdragon processors
+  - Raspberry Pi (some versions)
+
+---
+
+## RISC-V (Open-source RISC Architecture)
+
+- **Developed by:** University of California, Berkeley (2010)
+- **Type:** RISC and open-source (free to use and modify)
+- **Key features:**
+  - Modular and simple design
+  - Allows customization and extension by users
+  - Supports academic and commercial innovation
+- **Growing use in:**
+  - Research projects
+  - IoT and embedded devices
+  - Emerging commercial processors
+- **Examples:**
+  - experimental chips
+
+---
+
+## Is RISC-V Fixing ARM's Issues?
+
+- RISC-V is inspired by the same **RISC (Reduced Instruction Set Computer)** principles as ARM but designed to be **open-source and highly modular**.
+- Unlike ARM, whose architecture and cores are **proprietary and license-based**, RISC-V is **free to use, extend, and customize without licensing fees**.
+- This open and modular design allows chip makers to:
+  - Build custom processors tailored exactly for their needs.
+  - Avoid vendor lock-in and high licensing costs.
+  - Encourage innovation with custom extensions.
+- RISC-V is growing especially in fields like IoT, embedded systems, AI accelerators, and academic research where flexibility and cost are major factors.
+
+## Why is it called RISC-V?
+
+- The **"V"** in RISC-V means **"5"**, representing the **fifth generation** of RISC ISA developed at the University of California, Berkeley in 2010.
+- It continues the lineage of earlier RISC research and projects, marking a new, modern, and open iteration.
+- The name distinguishes it from previous internal RISC projects and emphasizes its modern, clean-slate design.
+
+## Key Differences Between RISC-V and ARM
+
+| Feature         | RISC-V                               | ARM                                |
+| --------------- | ------------------------------------ | ---------------------------------- |
+| Licensing Model | Open-source, free to use             | Proprietary, paid licenses         |
+| Customizability | Highly modular and extensible        | Less customizable, fixed cores     |
+| Ecosystem       | Growing ecosystem, new adoption      | Mature, vast ecosystem             |
+| Performance     | Flexible, varies with implementation | Highly optimized, consistent       |
+| Use Cases       | IoT, embedded, research, customized  | Mobile, embedded, servers, laptops |
 
 ## Step 3: Loading the Program - The Operating System's Role
 
