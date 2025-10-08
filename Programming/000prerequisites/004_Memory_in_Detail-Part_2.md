@@ -1,4 +1,4 @@
-# Memory in Detail  - Part 2- Variables
+# Memory in Detail - Part 2- Variables
 
 ```rust
 fn main() {
@@ -8,21 +8,9 @@ fn main() {
 
 **🚀 What Happens to Variable a in the Stack?**
 
-syntax - rules of programming language
-
-English -
-
-&#x20;let's eat,Grandpa.
-
-let's eat Grandpa.
-
-✅ **Yes, a is NOT stored as a: 2, but as 0x7ffeeff320: 2 in the stack.**
-
-✅ **Variable names (a) are just labels used in Rust, but they don’t exist in memory.**
-
-✅ **The CPU only sees memory addresses (pointers) to locate values.**
-
-![1756184201804](image/004_Memory_in_Detail-Part_2/1756184201804.png)
+- ✅ **Yes, a is NOT stored as a: 2, but as 0x7ffeeff320: 2 in the stack.**
+- ✅ **Variable names (a) are just labels used in code, but they don’t exist in memory.**
+- ✅ **The CPU only sees memory addresses (pointers) to locate values.**
 
 **📌 What Happens in Memory?**
 
@@ -48,16 +36,18 @@ Stack Memory
 ---------------------
 ```
 
+![1756184201804](image/004_Memory_in_Detail-Part_2/1756184201804.png)
+
 ✅ **The CPU doesn’t see a, it only accesses 0x7ffeeff320.**
 
-***✅ Rust’s compiler replaces variable names with actual memory addresses.***
+**_✅ Rust’s compiler replaces variable names with actual memory addresses._**
 
-| **Question**                             | **Answer**                                        |
-| ---------------------------------------- | ------------------------------------------------- |
-| Is a stored in memory?                   | ❌ No, only its value (2) is stored at an address. |
-| Does the CPU see a?                      | ❌ No, it only sees 0x7ffeeff320: 2.               |
-| How does Rust access a?                  | ✅ Rust uses the memory address \&a.               |
-| What happens when  a  goes out of scope? | ✅ Stack memory is freed automatically.            |
+| **Question**                           | **Answer**                                         |
+| -------------------------------------- | -------------------------------------------------- |
+| Is a stored in memory?                 | ❌ No, only its value (2) is stored at an address. |
+| Does the CPU see a?                    | ❌ No, it only sees 0x7ffeeff320: 2.               |
+| How does Rust access a?                | ✅ Rust uses the memory address \&a.               |
+| What happens when a goes out of scope? | ✅ Stack memory is freed automatically.            |
 
 ## **Integer Array in Rust**
 
@@ -135,9 +125,9 @@ Stack Memory                     Heap Memory
 
 | **Scenario**                     | **Where is a Stored?** | **What is a?**            | **Where is the Array?** |
 | -------------------------------- | ---------------------- | ------------------------- | ----------------------- |
-| let a = 2;                       | ✅ Stack                | **Value (2) itself**      | ✅ Stack                 |
-| let a = \[10, 20, 30];           | ✅ Stack                | **Base address of a\[0]** | ✅ Stack (Contiguous)    |
-| let a = Box::new(\[10, 20, 30]); | ✅ Stack                | **Pointer to Heap**       | 🐢 Heap                 |
+| let a = 2;                       | ✅ Stack               | **Value (2) itself**      | ✅ Stack                |
+| let a = \[10, 20, 30];           | ✅ Stack               | **Base address of a\[0]** | ✅ Stack (Contiguous)   |
+| let a = Box::new(\[10, 20, 30]); | ✅ Stack               | **Pointer to Heap**       | 🐢 Heap                 |
 
 **🚀 Why Does the Stack Store Heap Addresses?**
 
@@ -170,7 +160,7 @@ Stack Memory                           Heap Memory
 ---------------------------       ---------------------------
 | Address  | Pointer Value  |       | Address  | Value     |
 ---------------------------       ---------------------------
-| 0x7ffeeff320 | 0x555555758000 |  | 0x555555758000 | 42 
+| 0x7ffeeff320 | 0x555555758000 |  | 0x555555758000 | 42
                                      0x555555758004  | 23
 | 0x7ffeeff324 | 0x555555759000 |  | 0x555555759000 | 84   |
 ---------------------------       ---------------------------
@@ -198,7 +188,7 @@ Stack Memory                           Heap Memory
 
 ✅ **Stack pointers make heap memory manageable and accessible.**
 
-***
+---
 
 **3️⃣ How Does the CPU Use Stack to Access Heap?**
 
@@ -217,8 +207,8 @@ Stack Memory                           Heap Memory
 
 ✅ **This makes heap memory manageable and prevents unnecessary memory scanning.**
 
-| **Feature**         | **Stack (Fixed)**       | **Heap (Dynamic)**           |
-| ------------------- | ----------------------- | ---------------------------- |
+| **Feature**         | **Stack (Fixed)**        | **Heap (Dynamic)**            |
+| ------------------- | ------------------------ | ----------------------------- |
 | **Speed**           | ✅ Very Fast (LIFO)      | ❌ Slower (Random Allocation) |
 | **Access Method**   | ✅ Direct (CPU Register) | ❌ Indirect (Pointer Lookup)  |
 | **Memory Order**    | ✅ Sequential            | ❌ Scattered                  |
