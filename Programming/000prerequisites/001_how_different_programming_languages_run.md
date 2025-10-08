@@ -31,11 +31,59 @@ printf("Sum: %d\n", sum); // Task 2:
 - C/rust --> COMPILER --> binary / machine code
 - This machine code is specific to your CPU's **Instruction Set Architecture (ISA)**.
 
-# Common Instruction Set Architectures (ISAs)
+## Common Instruction Set Architectures (ISAs)
 
-**Instruction Set Architecture (ISA)** defines how a processor executes instructions and communicates with software.
+## Instruction Set Architecture (ISA) is the **language** that a CPU understands. It defines the set of binary commands (called instructions) that a CPU can execute to perform operations.
+
+## Simple Example of ISA Instructions
+
+Imagine a simple CPU that understands only a few instructions like:
+
+| Instruction   | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| ADD R1, R2    | Add the value in register R2 to R1                       |
+| LOAD R1, 100  | Load the value from memory address 100 into register R1  |
+| STORE R1, 200 | Store the value from register R1 into memory address 200 |
+| JMP 300       | Jump to instruction at address 300                       |
+| CMP R1, R2    | Compare values in R1 and R2                              |
+
+Each of these instructions is represented as a **binary pattern** in actual machine code, for example:
+
+- ADD R1, R2 might be encoded as: `0001 0001 0010`
+- LOAD R1, 100 might be encoded as: `0010 0001 01100100`
 
 ---
+
+## Breakdown
+
+- These instructions tell the CPU **what to do** in simple steps.
+- The CPU can recognize and execute these commands because it is designed (wired) to understand these binary patterns.
+- Different CPUs have different ISAs (sets of instructions and encodings) like ARM, x86, and RISC-V.
+
+---
+
+## Why ISA Matters
+
+- It provides a consistent way for software (compilers, operating systems) to communicate with hardware.
+- Without ISAs, software would have no common language to tell different CPUs what to do.
+- ISAs help hardware and software evolve separately but stay compatible.
+
+---
+
+ARM provides a blueprint (the ISA) that defines how a CPU should process instructions.
+CPU manufacturers use this blueprint to design and build the CPU hardware — essentially wiring and connecting circuits so the chip understands and executes those instructions.
+
+- This blueprint covers things like:
+
+- The exact binary instruction formats,
+
+- What each instruction does,
+
+- How data moves around inside the CPU,
+
+- How the CPU handles branching and arithmetic, etc.
+
+- ARM’s ISA is a guide to create compatible CPUs (like Apple’s A17 Pro chip) that understand ARM instructions and carry them out efficiently.
 
 ## x86 / x86-64 (CISC Architecture)
 
