@@ -1,4 +1,4 @@
-# Memory in Detail - Part 2- Variables
+# Memory in Detail - Part 2- Variables, Array in Stack & Heap
 
 ```rust
 fn main() {
@@ -75,11 +75,11 @@ fn main() {
 // program exit here -> a is flushed out
 ```
 
-**2️⃣ How Is the Array Stored in Stack?**
+## How Is the Array Stored in Stack?\*\*
 
-✅ **The array is stored in contiguous memory.**
+- ✅ **The array is stored in contiguous memory.**
 
-✅ **a (variable name) is actually the address of a\[0] (first element).**
+- ✅ **a (variable name) is actually the address of a\[0] (first element).**
 
 ## **📌 Stack Memory Layout**
 
@@ -98,11 +98,11 @@ address arithmetic:
 0x7ffeeff320 + 4 * 1 = 0x7ffeeff324
 ```
 
-✅ **Each element is stored 4 bytes apart (i32 = 4 bytes).**
+- ✅ **Each element is stored 4 bytes apart (i32 = 4 bytes).**
 
-✅ **a holds the address of a\[0] (0x7ffeeff320).**
+- ✅ **a holds the address of a\[0] (0x7ffeeff320).**
 
-**5️⃣ What If the Array Was in the Heap?**
+## What If the Array Was in the Heap?
 
 📌 **If we use Box<\[i32]>, the array moves to the heap, and a becomes a pointer stored in the stack.**
 
@@ -121,6 +121,28 @@ Stack Memory                     Heap Memory
 |                          | 20  (a[1])         |
 |                          | 30  (a[2])         |
 ----------------------        ----------------------
+
+
+Stack Memory
+-------------------------------------------------
+| Address        | Value                         |
+-------------------------------------------------
+| 0x7ffeeff320  | ptr ──► 0x1000 (a: Box)       |
+-------------------------------------------------
+
+Heap Memory
+-------------------------------------------------
+| Address        | Value                         |
+-------------------------------------------------
+| 0x1000         | 10  (a[0])                    |
+| 0x1004         | 20  (a[1])                    |
+| 0x1008         | 30  (a[2])                    |
+-------------------------------------------------
+
+Access - a[1]
+Address arithmetic:
+ Starting address of the heap array + size of the datatype * index
+ 0x1000 + 4 * 1 = 0x1004
 ```
 
 | **Scenario**                     | **Where is a Stored?** | **What is a?**            | **Where is the Array?** |
@@ -154,16 +176,30 @@ fn main() {
 ## **📌 Stack & Heap Layout**
 
 ```txt
-let a = [42,23]
+Stack Memory
+-------------------------------------------------
+| Address        | Value                         |
+-------------------------------------------------
+| 0x7ffeeff320  | ptr ──► 0x1000 (x: Box)       |
+| 0x7ffeeff328  | ptr ──► 0x1008 (y: Box)       |
+-------------------------------------------------
 
-Stack Memory                           Heap Memory
----------------------------       ---------------------------
-| Address  | Pointer Value  |       | Address  | Value     |
----------------------------       ---------------------------
-| 0x7ffeeff320 | 0x555555758000 |  | 0x555555758000 | 42
-                                     0x555555758004  | 23
-| 0x7ffeeff324 | 0x555555759000 |  | 0x555555759000 | 84   |
----------------------------       ---------------------------
+Heap Memory
+-------------------------------------------------
+| Address        | Value                         |
+-------------------------------------------------
+| 0x1000         | 42  (x's value)               |
+| 0x1008         | 84  (y's value)               |
+-------------------------------------------------
+
+Stack Memory                    Heap Memory
+┌─────────────────────┐         ┌─────────────────────┐
+│ 0x7ffeeff320: x    │──ptr──►│ 0x1000: 42          │
+│ (Box<i32>)         │         │                     │
+├─────────────────────┤         ├─────────────────────┤
+│ 0x7ffeeff328: y    │──ptr──►│ 0x1008: 84          │
+│ (Box<i32>)         │         │                     │
+└─────────────────────┘         └─────────────────────┘
 ```
 
 ✅ **The CPU accesses the stack quickly.**
@@ -205,11 +241,21 @@ Stack Memory                           Heap Memory
 4️⃣ CPU retrieves value `42`.
 ```
 
-✅ **This makes heap memory manageable and prevents unnecessary memory scanning.**
+## Heap and Stack Memory
 
-| **Feature**         | **Stack (Fixed)**        | **Heap (Dynamic)**            |
-| ------------------- | ------------------------ | ----------------------------- |
-| **Speed**           | ✅ Very Fast (LIFO)      | ❌ Slower (Random Allocation) |
-| **Access Method**   | ✅ Direct (CPU Register) | ❌ Indirect (Pointer Lookup)  |
-| **Memory Order**    | ✅ Sequential            | ❌ Scattered                  |
-| **Pointer Needed?** | ❌ No                    | ✅ Yes (Stored in Stack)      |
+Managing heap and stack memory efficiently makes your program faster and safer by avoiding unnecessary memory scanning and fragmentation.
+
+| **Feature**         | **Stack (Fixed)**                                                                                  | **Heap (Dynamic)**                                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Speed**           | ✅ Very Fast due to Last-In-First-Out (LIFO) pattern. Simple push/pop operations happen instantly. | ❌ Slower because memory is allocated and freed in random order, requiring complex management.  |
+| **Access Method**   | ✅ Direct access.                                                                                  | ❌ Indirect access via pointers stored on the stack, requiring an extra step to reach data.     |
+| **Memory Order**    | ✅ Sequentially laid out in memory, reducing fragmentation and improving cache.                    | ❌ Scattered throughout memory, potentially causing fragmentation and cache misses.             |
+| **Pointer Needed?** | ❌ No extra pointer needed; variables reside directly on stack frames.                             | ✅ Pointers are required to locate heap data from fixed stack variables (like `String` fields). |
+
+---
+
+### First Principles Summary
+
+- The **stack** is simple and fast because it follows a strict order, making allocation/deallocation predictable.
+- The **heap** offers flexibility for dynamically sized data but requires pointers and careful management to avoid fragmentation.
+- Efficient use of stack and heap balances speed and flexibility in memory usage.

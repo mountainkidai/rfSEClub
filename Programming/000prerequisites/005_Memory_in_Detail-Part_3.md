@@ -1,4 +1,4 @@
-# Memory in Detail  - Part 3- Pointers
+# Memory in Detail - Part 3- Pointers
 
 ## **🚀 Understanding Pointers in Rust (From First Principles)**
 
@@ -16,27 +16,27 @@ To fully understand **pointers**, let's explore:
 
 ### **🔹 Example (Real-Life Analogy)**
 
-* You live in a **house** (data in memory).
-* Your house has an **address** (pointer).
-* Instead of telling someone "I live inside this box," you give them the **address** so they can find it.
+- You live in a **house** (data in memory).
+- Your house has an **address** (pointer).
+- Instead of telling someone "I live inside this box," you give them the **address** so they can find it.
 
 | **Type of Data** | **Stored in Stack?** | **Stored in Heap?** |
 | ---------------- | -------------------- | ------------------- |
 
-| **Fixed-size primitives (****`i32`****,&#x20;****`bool`****,&#x20;****`char`****,&#x20;****`f64`****)** | ✅ Yes | ❌ No |
-| ------------------------------------------------------------------------------------------------------- | ----- | ---- |
+| **Fixed-size primitives (\*\***`i32`\***\*,&#x20;\*\***`bool`\***\*,&#x20;\*\***`char`\***\*,&#x20;\*\***`f64`\***\*)** | ✅ Yes | ❌ No |
+| ----------------------------------------------------------------------------------------------------------------------- | ------ | ----- |
 
-| **References (****`&T`****,&#x20;****`&mut T`****)** | ✅ Yes | ❌ No (But may point to heap data) |
-| ---------------------------------------------------- | ----- | --------------------------------- |
+| **References (\*\***`&T`\***\*,&#x20;\*\***`&mut T`\***\*)** | ✅ Yes | ❌ No (But may point to heap data) |
+| ------------------------------------------------------------ | ------ | ---------------------------------- |
 
-| **Small structs (****`struct Point { x: i32, y: i32 }`****)** | ✅ Yes | ❌ No |
-| ------------------------------------------------------------- | ----- | ---- |
+| **Small structs (\*\***`struct Point { x: i32, y: i32 }`\***\*)** | ✅ Yes | ❌ No |
+| ----------------------------------------------------------------- | ------ | ----- |
 
-| **Large or growing data (****`String`****,&#x20;****`Vec<T>`****,&#x20;****`HashMap<K, V>`****)** | ❌ No | ✅ Yes |
-| ------------------------------------------------------------------------------------------------- | ---- | ----- |
+| **Large or growing data (\*\***`String`\***\*,&#x20;\*\***`Vec<T>`\***\*,&#x20;\*\***`HashMap<K, V>`\***\*)** | ❌ No | ✅ Yes |
+| ------------------------------------------------------------------------------------------------------------- | ----- | ------ |
 
-| **Heap allocations (****`Box<T>`****,&#x20;****`Rc<T>`****,&#x20;****`Arc<T>`****)** | ❌ No | ✅ Yes |
-| ------------------------------------------------------------------------------------ | ---- | ----- |
+| **Heap allocations (\*\***`Box<T>`\***\*,&#x20;\*\***`Rc<T>`\***\*,&#x20;\*\***`Arc<T>`\***\*)** | ❌ No | ✅ Yes |
+| ------------------------------------------------------------------------------------------------ | ----- | ------ |
 
 ## **1️⃣ What Happens When You Write let a = 2;?/**
 
@@ -100,7 +100,7 @@ Stack Memory                     Heap Memory
 
 📌 **Even if 500 only needs 9 bits in theory, it will take 32 bits (4 bytes) in memory.**
 
-***
+---
 
 | **Type**                     | **Size in Memory** |
 | ---------------------------- | ------------------ |
@@ -111,8 +111,8 @@ Stack Memory                     Heap Memory
 
 ✅ **Even though 500 fits in 9 bits, it uses 4 bytes (32 bits) if stored as i32.**
 
-|                        | **Where is Value Stored?** | **Where is Pointer Stored?**         |
-| ---------------------- | -------------------------- | ------------------------------------ |
+|                        | **Where is Value Stored?**  | **Where is Pointer Stored?**          |
+| ---------------------- | --------------------------- | ------------------------------------- |
 | let a = 2;             | ✅ Stack                    | ❌ No Pointer (Value stored directly) |
 | let b = Box::new(500); | ✅ Heap (500stored in heap) | ✅ Stack (Pointer to heap location)   |
 
@@ -138,14 +138,14 @@ fn main() {
 
 ```
 
-✅ **`stack_value`****&#x20;is stored directly in the stack.**
-✅ **`heap_value`****&#x20;variable value 20****&#x20;is stored in the heap, but its pointer is in the stack.**
-✅ **Rust automatically frees&#x20;****`Box::new(20)`****&#x20;when it goes out of scope.**
+✅ **`stack_value`\*\***&#x20;is stored directly in the stack.**
+✅ **`heap_value`\***\*&#x20;variable value 20\*\***&#x20;is stored in the heap, but its pointer is in the stack.**
+✅ **Rust automatically frees&#x20;\***\*`Box::new(20)`\*\***&#x20;when it goes out of scope.\*\*
 
 ```txt
 Stack Memory                 Heap Memory
 ----------------------       ------------------
-| stack_value: 10       |       
+| stack_value: 10       |
 | heap_value: PTR ----->| [20] (Box::new)  |
 ----------------------       ------------------
 
@@ -153,9 +153,9 @@ Stack Memory                 Heap Memory
 
 1. **`stack_value = 10`** → Stored **directly** in the **stack**.
 2. **`heap_value = Box::new(20)`** →
-   * The **pointer (****`heap_value`****) is stored in the stack**.
-   * The **actual value (****`20`****) is stored in the heap**.
-3. **Arrow (****`PTR --->`****)** represents that `heap_value` points to the heap where the actual data `20` is allocated.
+   - The **pointer (\*\***`heap_value`\***\*) is stored in the stack**.
+   - The **actual value (\*\***`20`\***\*) is stored in the heap**.
+3. **Arrow (\*\***`PTR --->`\***\*)** represents that `heap_value` points to the heap where the actual data `20` is allocated.
 
 ✅ **Rust ensures safe memory management** → When `heap_value` goes out of scope, **Rust automatically frees the heap memory.**
 
@@ -163,17 +163,17 @@ Stack Memory                 Heap Memory
 
 Rust **doesn't have raw pointers like C by default**, but provides safe alternatives:
 
-### **📌 1. References (****`&T`****,&#x20;****`&mut T`****) → Borrowed Pointers**
+### **📌 1. References (\*\***`&T`\***\*,&#x20;\*\***`&mut T`\***\*) → Borrowed Pointers**
 
 References allow **borrowing data without taking ownership**.
 
-#### **🔹 Example (Borrowing with&#x20;****`&T`****&#x20;and&#x20;****`&mut T`****)**
+#### **🔹 Example (Borrowing with&#x20;\*\***`&T`\***\*&#x20;and&#x20;\*\***`&mut T`\***\*)**
 
 ```rust
 fn main() {
     let num = 100; // ✅ num stored in Stack
     let ref_num = &num; // ✅ Immutable reference (borrowed pointer)
-    
+
     println!("Value via reference: {}", ref_num);
 }
 
@@ -188,18 +188,18 @@ Stack Memory
 ```
 
 ✅ **No ownership transfer.**
-✅ **Multiple immutable references (****`&T`****) are allowed.**
+✅ **Multiple immutable references (\*\***`&T`\***\*) are allowed.**
 
 ✅ **Safe, no ownership transfer.**
-❌ **Cannot modify through&#x20;****`&T`****&#x20;(Immutable Reference).**
+❌ **Cannot modify through&#x20;\*\***`&T`\***\*&#x20;(Immutable Reference).**
 
-#### **🔹 Mutable Reference (****`&mut T`****)**
+#### **🔹 Mutable Reference (\*\***`&mut T`\***\*)**
 
 ```rust
 fn main() {
     let mut num = 100;
     let ref_mut = &mut num; // ✅ Mutable reference (borrowed pointer)
-    
+
     *ref_mut += 50; // ✅ Modify value through pointer
     println!("Updated Value: {}", num);
 }
@@ -214,11 +214,11 @@ fn main() {
 📌 **Smart pointers manage heap memory automatically and prevent memory leaks.**
 📌 **Rust provides three common smart pointers:**
 
-* **`Box<T>`** → Single ownership, stores data in heap.
-* **`Rc<T>`** → Multiple ownership, **not thread-safe**.
-* **`Arc<T>`** → Multiple ownership, **thread-safe**.
+- **`Box<T>`** → Single ownership, stores data in heap.
+- **`Rc<T>`** → Multiple ownership, **not thread-safe**.
+- **`Arc<T>`** → Multiple ownership, **thread-safe**.
 
-### **🔹&#x20;****`Box<T>`****&#x20;– Heap Allocation with Single Ownership**
+### **🔹&#x20;\*\***`Box<T>`\***\*&#x20;– Heap Allocation with Single Ownership**
 
 ✅ **Moves data to the heap while keeping ownership.**
 ✅ **Best for large data structures that should not be copied.**
@@ -230,7 +230,7 @@ fn main() {
     let heap_value = Box::new(500); // ✅ Stored in Heap
     println!("Heap Value: {}", heap_value);
 } // ✅ Freed automatically when `heap_value` goes out of scope
-    
+
 println!("Out of Scope!");
 
 ```
@@ -264,7 +264,7 @@ fn main() {
 | **Step**       | **What Happens?**                          |
 | -------------- | ------------------------------------------ |
 | Box::new(500)  | **Allocates 500 in the heap**              |
-| heap\_value    | **Pointer to heap stored in the stack**    |
+| heap_value     | **Pointer to heap stored in the stack**    |
 | Function exits | **Rust automatically calls drop()**        |
 | Memory freed   | **Heap memory is deallocated (no leaks!)** |
 
