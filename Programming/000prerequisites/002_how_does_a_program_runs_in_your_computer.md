@@ -21,44 +21,36 @@ fn main() {
 
 **Compilation Steps:**
 
-1. **Lexical Analysis (Tokenization)**
-   - Breaks source code into tokens: `fn`, `main`, `(`, `)`, `let`, `vec!`, etc.
+## Choosing the Right Phase Model – First Principles
 
-2. **Syntax Analysis (Parsing)**
-   - Builds Abstract Syntax Tree (AST) and checks grammar rules
-   - Ensures brackets match, semicolons are placed correctly, etc.
+At the core, every program goes through these fundamental steps:
 
-3. **Semantic Analysis**
-   - Type checking: ensures `i32` variables only hold integers
-   - Borrow checking (in Rust): prevents memory safety issues
-   - Scope resolution: verifies variables are used within their lifetime
+1. **High-Level Code → Compiler IR**
 
-4. **Intermediate Representation (IR)**
-   - Converts high-level constructs into compiler-internal format
-   - Language-agnostic representation for optimization
+   - Transforms human-readable syntax into a uniform, analyzable form (IR).
+   - Enables semantic checks (types, borrow rules) and early optimizations.
 
-5. **Optimization**
-   - **Dead code elimination**: Removes unused functions/variables
-   - **Constant folding**: Computes `2 + 3` at compile time instead of runtime
-   - **Inlining**: Replaces small function calls with function body
-   - **Loop unrolling**: Reduces loop overhead for better performance
+2. **IR → Assembly / Machine Code**
 
-6. **Code Generation**
-   - Translates optimized IR into target machine code (x86-64, ARM, etc.)
-   - Our `vec![1,2,3,4,5]` becomes memory allocation and initialization instructions
+   - Low-level translation: IR maps to CPU-specific instructions (assembly), then to binary object code.
+   - This is where constant expressions get folded (e.g., `2+3` → `5`) by the compiler itself, before the CPU ever runs your program.
 
-7. **Linking**
-   - **Static linking**: Embeds library code directly into executable
-   - **Dynamic linking**: Creates references to shared libraries (.dll, .so)
-   - Resolves function calls to external libraries (like `println!` macro)
+3. **Assembly/Object Code → Linked Executable**
 
-**Result:** Binary executable file (`./my_program`) containing machine code
+   - The linker resolves external symbols (like `printf`) by embedding or referencing library code.
+   - Produces a self-contained binary ready for loading.
+
+4. **Loader → Runtime Execution**
+   - The OS loader maps the executable into memory (text, data, heap, stack), sets up the process, and jumps to `main`.
+   - Finally, the CPU executes each machine instruction via fetch-decode-execute, invoking system calls when I/O is needed.
 
 ---
 
+**Result:** You end up with a standalone binary (`./my_program`) that the OS can load and the CPU can execute directly.
+
 ## Phase 2: Program Loading - OS Takes Control
 
-When you run `./my_program`, the operating system becomes the orchestrator.
+When you run `./my_program`, the OS is responsible for preparing everything:
 
 ### OS Loading Process
 
@@ -136,20 +128,23 @@ The **CPU executes your program** using the fetch-decode-execute cycle, but mode
 **Modern CPU Enhancements:**
 
 1. **Instruction Pipeline**
+
    - Multiple instructions processed simultaneously at different stages
    - While one instruction executes, the next is being decoded, and another is being fetched
 
 2. **Branch Prediction**
+
    - CPU predicts which way `if` statements will go
    - Speculatively executes likely path to avoid pipeline stalls
 
 3. **Out-of-Order Execution**
+
    - Instructions can execute in different order if no dependencies exist
    - Maximizes CPU resource utilization
 
 4. **Cache Hierarchy**
    - **L1 Cache**: Fastest, smallest (32KB), per-core
-   - **L2 Cache**: Medium speed/size (256KB), per-core  
+   - **L2 Cache**: Medium speed/size (256KB), per-core
    - **L3 Cache**: Slower, larger (8MB+), shared across cores
    - Frequently accessed data stays close to CPU for speed
 
@@ -198,7 +193,7 @@ use std::io::prelude::*;
 fn main() {
     // This println! eventually becomes a write() system call
     println!("Hello, World!");
-    
+
     // File operations require multiple system calls
     let mut file = File::create("output.txt").unwrap(); // open() syscall
     file.write_all(b"Hello file").unwrap();             // write() syscall
@@ -242,13 +237,13 @@ When your program ends (reaches end of `main()` or calls `exit()`):
 
 ## Summary
 
-| **Phase** | **Responsible Component** | **Key Activities** |
-|-----------|--------------------------|-------------------|
-| **Compilation** | Compiler (rustc, gcc, clang) | Source code → Optimized machine code |
-| **Loading** | Operating System | Binary → Virtual memory layout |
-| **Execution** | CPU + MMU | Machine code → Computations |
-| **System Interaction** | OS Kernel | System calls, I/O operations |
-| **Termination** | Operating System | Resource cleanup, process removal |
+| **Phase**              | **Responsible Component**    | **Key Activities**                   |
+| ---------------------- | ---------------------------- | ------------------------------------ |
+| **Compilation**        | Compiler (rustc, gcc, clang) | Source code → Optimized machine code |
+| **Loading**            | Operating System             | Binary → Virtual memory layout       |
+| **Execution**          | CPU + MMU                    | Machine code → Computations          |
+| **System Interaction** | OS Kernel                    | System calls, I/O operations         |
+| **Termination**        | Operating System             | Resource cleanup, process removal    |
 
 ### Real-World Example Flow
 
