@@ -92,6 +92,54 @@ High Memory (0xFFFFFFFF)
 Low Memory (0x00000000)
 ```
 
+Note:
+
+## Readonly Data Segment
+
+```text
+String literals like "NIFTY" in Rust or "Hello" in C.
+
+Constant variables declared with const or qualified to be immutable.
+
+Lookup tables or constant arrays that the program uses.
+```
+
+```rust
+let greeting: &str = "Hello, world!"; // stored in read-only data segment
+const MAX_VALUE: i32 = 100;           // stored in read-only data segment
+const DAYS_IN_MONTH: [u8; 12] = [
+    31, // January
+    28, // February
+    31, // March
+    30, // April
+    31, // May
+    30, // June
+    31, // July
+    31, // August
+    30, // September
+    31, // October
+    30, // November
+    31, // December
+];
+
+fn get_days(month: usize) -> Option<u8> {
+    DAYS_IN_MONTH.get(month - 1).copied()
+}
+
+fn main() {
+    println!("Days in February: {:?}", get_days(2)); // Prints 28
+}
+DAYS_IN_MONTH is a constant array that acts as a lookup table.
+
+It is stored in the program's read-only data segment (part of program memory).
+
+This table provides quick read-only access to month lengths without recomputing them.
+
+Such constant arrays or lookup tables are common when you need fast access to fixed data.
+
+This pattern leverages the read-only data segment to safely store immutable data accessed throughout program execution.
+```
+
 ### Command-Line Arguments and Environment Variables
 
 - **Command-Line Arguments**
