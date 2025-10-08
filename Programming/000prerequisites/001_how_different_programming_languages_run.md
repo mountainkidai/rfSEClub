@@ -242,21 +242,238 @@ When you run your compiled program (`./program`), the **OS kernel** performs sev
 
 This sequence ensures your program is loaded into memory correctly, provided with its execution environment, and scheduled efficiently by the operating system.
 
-## Step 4: Execution on the CPU
+### Step 4: Execution on the CPU – How ISA and Memory Work Together (From First Principles)
 
-- Once loaded into memory, the **CPU** executes your program’s machine code.
-- The CPU uses the **fetch-decode-execute cycle**:
-  1. **Fetch:** Retrieve the next instruction pointed to by the Program Counter.
-  2. **Decode:** Interpret the instruction to understand what operation to perform.
-  3. **Execute:** Perform the operation using CPU components like:
-     - **ALU (Arithmetic Logic Unit):** For calculations like addition.
-     - **Registers:** Small, fast storage for current values.
-     - **MMU (Memory Management Unit):** Translates virtual addresses to physical RAM locations.
-- Your program’s tasks (like computing `sum` and printing) are transformed into low-level CPU instructions handled in this cycle.
+To understand how a CPU runs a program, start with the most basic idea:
+
+- The **CPU understands a language** called the Instruction Set Architecture (ISA).
+- ISA defines the **binary instructions** (series of 0s and 1s) the CPU knows and what each instruction does.
+- The CPU reads, decodes, and executes these instructions step-by-step using a process called the **fetch-decode-execute cycle**.
 
 ---
 
-## Step 5: Multi-Core and Threading
+## What is the ISA?
+
+- Think of the ISA as the **rulebook or language** the CPU speaks.
+- The program you write gets translated into this language (machine code) so the CPU can run it.
+- Each instruction has a precise meaning, like "add these two numbers" or "store this value in memory."
+
+---
+
+## How Does Memory Support ISA Execution?
+
+The CPU can’t work without memory to store instructions and data. Memory works in a hierarchy based on speed and size:
+
+### 1. Registers: The CPU’s Working Desk
+
+- Registers are the CPU's **smallest and fastest memory**.
+- They hold the data the CPU is currently working on.
+- Imagine a small desk where you keep only the papers you are actively using.
+- **Example:** When adding 2 + 3, CPU places 2 and 3 in registers, adds them, and stores the result back in a register.
+
+### 2. Cache Memory: The Nearby Drawer
+
+- Cache is a small, fast storage area right next to the CPU.
+- Think of it as a drawer where you keep frequently used papers to avoid searching the whole room repeatedly.
+- Cache reduces delays accessing data and instructions.
+- **Example:** The instruction "load value" or recently used numbers might be in cache for quick access.
+
+### 3. Main Memory (RAM): The Filing Cabinet
+
+- RAM is larger but slower than cache.
+- It keeps the full program and data while your computer is on.
+- Think of RAM as a filing cabinet where you store all the documents needed for your current work.
+- **Example:** The whole Rust program you're running, including `let a = 2; let b = 3; let sum = a + b;` is stored in RAM.
+
+### 4. Secondary Storage (Hard Drive / SSD): The Storage Room
+
+- This is the slowest but largest memory.
+- It keeps files and programs **permanently**, even when power is off.
+- Imagine a storage room where you keep all your archived records and only bring what you need to the office.
+- When you run a program, the OS copies it from this storage into RAM.
+
+---
+
+## Putting It All Together: Execution Flow
+
+1. The program binary is loaded from secondary storage into RAM by the operating system.
+2. The CPU fetches instructions from RAM or cache, reading binary patterns defined by ISA.
+3. Values being operated on (like numbers 2 and 3) go into registers.
+4. The CPU performs operations (like addition) via its Arithmetic Logic Unit (ALU), following ISA instructions.
+5. Intermediate results stay in registers until stored back in RAM or used further.
+6. This cycle repeats for every instruction until the program completes.
+
+---
+
+## Summary (From First Principles)
+
+- The **ISA** defines how instructions are encoded and what the CPU must do.
+- The CPU hardware is physically designed to interpret and execute this instruction set.
+- Memory hierarchy (registers, cache, RAM, storage) exists to balance speed and size constraints.
+- Together, ISA and memory enable the CPU to execute programs efficiently and correctly, from the simplest calculation to complex applications.
+
+This foundational understanding demystifies how your Rust program or any software actually _runs_ on a processor at the hardware level.
+
+## Memory Hierarchy Sizes and Quantities
+
+Understanding memory sizes and quantities helps clarify how computers balance speed, cost, and capacity to efficiently run programs.
+
+---
+
+## 1. Registers: Tiny but Lightning Fast
+
+- Registers are the **smallest and fastest memory units inside the CPU**.
+- Typical Quantity: Between **16 to 128 registers**, depending on the CPU architecture.
+- Typical Size: Each register is usually **32-bit or 64-bit** wide (matching the CPU’s word size).
+- Size Example: Total register file size is roughly a few kilobytes (KB) or less.
+- Registers store immediate values and computation results for the CPU’s current instruction.
+
+---
+
+## 2. Cache Memory: Small, Fast Layers Near CPU
+
+- Cache memory sits between registers and main memory to speed access to frequently used data.
+- Organized in **levels:** L1, L2, L3.
+
+| Cache Level | Typical Size                    | Purpose                                                           |
+| ----------- | ------------------------------- | ----------------------------------------------------------------- |
+| L1 Cache    | ~16KB to 128KB per core         | Fastest cache, split into instruction and data caches             |
+| L2 Cache    | ~256KB to 2MB per core          | Slower but larger; holds more data                                |
+| L3 Cache    | ~2MB to 64MB shared among cores | Slowest and largest cache, shared for communication between cores |
+
+- Cache sizes are small compared to RAM but improve performance significantly by reducing memory access times.
+
+---
+
+## 3. Main Memory (RAM): Larger but Slower
+
+- RAM stores all actively used programs and data.
+- Typical Size: Most modern computers have between **4GB to 64GB or more** of RAM.
+- Type and Speed:
+  - **DRAM:** Large capacity, slower speed; requires refreshing every few milliseconds.
+  - **SRAM:** Used inside caches; faster, doesn’t require refreshing, but expensive and less dense.
+- RAM is significantly larger than cache but slower, forming the main working memory space.
+
+---
+
+## 4. Secondary Storage (Hard Disk / SSD): Largest and Slowest
+
+- Secondary storage devices keep all data and programs persistently.
+- Typical Sizes:
+  - Hard Disk Drives (HDDs): **500GB to multiple terabytes (TB)**
+  - Solid State Drives (SSDs): Typically **256GB to 4TB or more**
+- Access speeds are orders of magnitude slower than RAM.
+- Used for storing operating systems, applications, files, and databases permanently.
+
+---
+
+## Summary of Memory Sizes and Quantities
+
+| Memory Type        | Approximate Size                | Speed Rank (Fastest to Slowest)        | Typical Quantity                    |
+| ------------------ | ------------------------------- | -------------------------------------- | ----------------------------------- |
+| Registers          | Few kilobytes (e.g., 128 bytes) | Fastest (cycles per instruction)       | 16 to 128 registers per CPU         |
+| Cache (L1, L2, L3) | Tens of KB to tens of MB        | Very fast, close to CPU                | Multiple levels per CPU core        |
+| Main Memory (RAM)  | Several GBs (4GB to 64GB+)      | Slower than cache but faster than disk | 1 or more RAM modules (DIMMs)       |
+| Secondary Storage  | Hundreds of GBs to multiple TB  | Slowest, persistent storage            | Single or multiple drives in system |
+
+---
+
+By structuring memory this way, CPUs can execute complex programs efficiently despite the vast differences in size and speed between these memory types.
+![Memory Hierarchy Diagram](./image/memory.png)
+
+# Explaining Your Memory Usage Image – Simple Definitions
+
+This image shows a summary of your computer’s memory usage. Here’s what each part means:
+
+---
+
+**Physical Memory (16.00 GB):**
+
+- The total amount of RAM (Random Access Memory) installed in your computer.
+- RAM is very fast, temporary memory used to keep active programs and data.
+
+**Memory Used (13.68 GB):**
+
+- The amount of RAM currently being used by all running programs and system processes.
+- Eg: Brave Browser, VS Code...
+- When programs run, they use up RAM to store data and instructions they need immediately.
+
+**Cached Files (2.26 GB):**
+
+- Cached files are a part of RAM.
+- Recently accessed data kept in RAM for quick reuse.
+- Cached files help speed up repeated tasks because they avoid reloading from slower storage.
+
+## What Does Cached Files Store When Browsing Websites Like rfse.club or YouTube?
+
+When you browse websites, cached files in your RAM store temporary copies of parts of those websites to speed up future visits. This helps the website load faster and reduces data usage.
+
+---
+
+Browsers like Chrome use **two types of caches** to speed up web browsing:
+
+## 1. Memory Cache (RAM Cache)
+
+- Stores recently accessed website resources **temporarily in RAM**.
+- Very fast access but **non-persistent** — cleared when browser is closed or system is restarted.
+- Holds small pieces of data or frequently used resources while the browser is open.
+- Example: using 3d models on rfse club site.
+
+---
+
+## 2. Disk Cache (Storage Cache)
+
+- Stores website files like images, scripts, and pages **persistently on your disk (SSD or HDD)**.
+- Larger but much slower than RAM.
+- Survives browser restarts and system reboots.
+- Used when browser is reopened to avoid redownloading the same files.
+- Example: Images from a YouTube video or rfse.club thumbnail files saved on disk remain cached even after browser closes.
+
+---
+
+## Examples of What Is Cached
+
+- **Images:** Logos, profile pictures, thumbnails, background images.
+- **Videos:** Small previews or portions of videos you have recently watched.
+- **HTML Files:** The basic structure of the webpage.
+- **CSS Files:** Stylesheets that control how the webpage looks (fonts, colors, layout).
+- **JavaScript Files:** Scripts that add interactive features like buttons, forms, video players.
+- **API Responses:** Data fetched from servers, like your YouTube recommendations or latest posts on rfse.club.
+- **Cookies and Session Data:** Small pieces of information to remember your login or preferences.
+
+---
+
+**In simple terms:**  
+The cache stores "copies" of website pieces (pictures, code, data) in fast memory, so websites load quickly without repeated downloading every time you visit.
+
+**Swap Used (3.58 GB):**
+
+- Amount of data temporarily stored on your disk because RAM is nearly full.
+- The operating system moves less-used data from RAM to swap space (on SSD/HDD) to free up RAM for active tasks.
+- Swap is much slower than RAM.
+
+**App Memory (4.12 GB):**
+
+- The RAM being used by application programs (e.g., browsers, editors, etc.).
+
+**Wired Memory (1.97 GB):**
+
+- RAM reserved for critical system tasks and cannot be moved to swap.
+- Needed for the operating system’s core operations.
+
+**Compressed (6.99 GB):**
+
+- RAM that stores data in a compressed format to fit more into limited physical memory.
+- Helps use memory more efficiently before moving to swap.
+
+---
+
+**Summary:**  
+Your system has 16 GB of RAM. Most of it is used by apps and system functions, some data is cached for speed, and when RAM isn’t enough, extra or less-used data is moved to swap space on your disk. Wired memory is locked for essential system use, while compressed memory squeezes more data into RAM.
+
+Each value in the image shows how different types of memory help balance speed and capacity for your computer’s smooth operation.
+
+## Step 5: Multi-Core and Threading (We have already discussed this)
 
 - Modern CPUs have multiple **cores**—each can run threads independently.
 - Your program runs as one or more **threads**, each with a Program Counter and registers.
@@ -301,4 +518,10 @@ This understanding clarifies how your high-level code transforms into running pr
   console.log(sum); // Task 2
   ```
 
+````
+
+```
+
 - **Async in JS**: JS can seem to multitask (e.g., `setTimeout`, `fetch`) using async, but it’s not parallel—it offloads tasks (e.g., network requests) to the browser/Node.js runtime, and the event loop handles callbacks later on the same thread.
+```
+````
