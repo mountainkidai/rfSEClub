@@ -481,14 +481,48 @@ Each value in the image shows how different types of memory help balance speed a
 
 ---
 
-## Step 6: System Calls and Interaction with OS
-
-- When your program prints the result (`printf`), it performs a **system call**:
-  - The CPU switches from _user mode_ (running your program) to _kernel mode_ (OS trusted code).
-  - The OS handles I/O tasks like interacting with the display hardware or writing to files.
-  - Control returns to your program after the OS completes the operation.
+## Step 6: System Calls and Interaction with the Operating System – From First Principles
 
 ---
+
+## What is a System Call?
+
+- A **system call** is a way for your program to ask the operating system (OS) to perform tasks it cannot do directly.
+- These tasks include interacting with hardware (like the display), reading or writing files, managing memory, or communicating with other devices.
+- Programs run in **user mode** with limited privileges, while the OS runs in a **privileged kernel mode** with full access to hardware.
+- System calls provide a **safe controlled gateway** between user programs and the OS kernel.
+
+---
+
+## How System Calls Work
+
+1. When your program calls a function like `printf` (to print output), it triggers a system call.
+2. The CPU switches from **user mode to kernel mode**, handing control to the OS.
+3. The OS executes the requested service. For `printf`, this means sending text to the display hardware.
+4. After completing the task, control switches back to your program in user mode.
+5. Your program continues running as if the operation happened directly, but with the OS securely managing access and resources.
+
+---
+
+## Why System Calls are Important
+
+- **Security:** Prevents programs from directly accessing or damaging hardware and critical resources.
+- **Abstraction:** Simplifies programming by letting the OS handle complex hardware interactions.
+- **Resource Management:** Ensures orderly access to CPU, memory, storage, and devices.
+- **Portability:** Makes programs work across different hardware because system calls provide a consistent interface.
+
+---
+
+## Analogy
+
+- Think of system calls as calling a specialized service desk (the OS kernel) that has permission and tools to do things regular users (programs) cannot.
+- Your program asks the desk to handle complex or sensitive tasks on its behalf, then keeps working while the desk does the job securely.
+
+---
+
+This mechanism enables your programs to safely and effectively interact with the OS and hardware, making modern computing possible.
+
+[Visit rfSE Club Docs](https://www.rfse.club/)
 
 ## Summary: Chronological Flow
 
@@ -502,26 +536,3 @@ Each value in the image shows how different types of memory help balance speed a
 | 6. Perform I/O            | OS Kernel (System Calls) | Handles interaction with hardware                 |
 
 ---
-
-This understanding clarifies how your high-level code transforms into running programs tightly coordinated by the OS and executed efficiently on hardware with specific instruction sets.
-
-## JavaScript: Single-Threaded Explained
-
-- **Single-Threaded**: JavaScript runs on a single thread (conveyor belt) in its execution environment (e.g., browser like Chrome, or Node.js). At any given time, this thread can execute only one task, using only one core.
-- **How It Works**: JS has an event loop that manages tasks in a queue. The single thread picks one task at a time from the queue, delivers it to the core, and the core executes it. Tasks (e.g., run a function, handle a click event) are executed sequentially—no parallel task execution within the JS engine.
-- **Example**:
-
-  ```javascript
-  let a = 2,
-    b = 2;
-  let sum = a + b; // Task 1
-  console.log(sum); // Task 2
-  ```
-
-````
-
-```
-
-- **Async in JS**: JS can seem to multitask (e.g., `setTimeout`, `fetch`) using async, but it’s not parallel—it offloads tasks (e.g., network requests) to the browser/Node.js runtime, and the event loop handles callbacks later on the same thread.
-```
-````
