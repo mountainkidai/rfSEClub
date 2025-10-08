@@ -165,18 +165,82 @@ CPU manufacturers use this blueprint to design and build the CPU hardware — es
 
 ## Step 3: Loading the Program - The Operating System's Role
 
-When you run your compiled program (`./program`), the **OS kernel** performs:
+When you run your compiled program (`./program`), the **OS kernel** performs several critical tasks to prepare and execute your program:
 
-1. **Process Creation:** The kernel creates a _process_ — a sandboxed environment with its own memory and resources.
-2. **Memory Allocation:** Sets up _virtual memory_ space for your program, organizing it into:
-   - **Text segment:** Your program’s instructions (machine code).
-   - **Data segments:** Static/global variables.
-   - **Heap:** Dynamic memory (e.g., allocated with `malloc` or Rust’s `Box`).
-   - **Stack:** For function call frames and local variables.
-3. **File System Access:** Prepares to load the executable from disk (managed by the kernel and file system drivers).
-4. **Scheduling:** The kernel schedules your process on CPU cores.
+1. **Process Creation:**  
+   The kernel creates a _process_ — a sandboxed environment with its own memory space and system resources dedicated to your program.
+
+2. **Memory Allocation:**  
+   The kernel sets up _virtual memory_ for the process, dividing it into segments:
+   (WE WILL LEARN THIS IN FURTHER DISCUSSIONS)
+
+   - **Text segment:** Contains your program’s machine code instructions loaded into RAM.
+   - **Data segments:** Holds static or global variables.
+   - **Heap:** Manages dynamic memory for allocations (e.g., `malloc` in C or `Box` in Rust).
+   - **Stack:** Stores function call frames, local variables, and manages control flow.
+
+3. **File System Access:**  
+   The kernel reads the executable file from disk, using file system drivers, and loads the necessary contents (code and data) into memory.
+
+4. **Scheduling:**  
+   The kernel schedules your process on the CPU cores, deciding when and for how long your program runs.
 
 ---
+
+### Background Context: Boot Process and Firmware
+
+- Before the OS kernel takes control, the computer’s **firmware (BIOS or UEFI)** runs when the system powers on.
+
+## What is Firmware?
+
+- Firmware is a small, low-level program embedded on a chip on your computer’s motherboard.
+- It initializes hardware and provides an interface between the operating system and the hardware.
+- Firmware runs **right after you power on** your computer.
+
+---
+
+### What is BIOS?
+
+- BIOS stands for **Basic Input/Output System**.
+- It is a type of firmware stored on a chip (EPROM) on your motherboard.
+- BIOS initializes hardware components (CPU, memory, devices) and starts the boot process.
+- It runs in a basic, text-only interface.
+- BIOS loads the bootloader (like GRUB) to start the operating system.
+
+---
+
+## What is GRUB?
+
+- **GRUB** stands for **GNU GRand Unified Bootloader**.
+- It is a small program that runs **right after your computer is powered on**.
+- GRUB’s job is to **load the operating system kernel into memory** and then hand over control to it.
+- Think of GRUB as a **gatekeeper** between your computer’s hardware and the OS.
+- It can also provide a menu if multiple operating systems are installed, letting you choose which one to boot.
+- GRUB supports many file systems and hardware setups, making it very versatile for Linux and Unix-based systems.
+
+### What is UEFI?
+
+- UEFI stands for **Unified Extensible Firmware Interface**.
+- It is a modern replacement for BIOS with more features:
+  - Supports large hard drives (>2 TB).
+  - Faster boot times.
+  - Graphical user interface with mouse support.
+  - Enhanced security (Secure Boot).
+- Like BIOS, UEFI initializes hardware and loads the bootloader to start the OS.
+
+---
+
+### Summary
+
+- **Booting** is the process of starting a computer and loading the operating system.
+- When the computer powers up, firmware (like BIOS or UEFI) runs first.
+- The firmware then loads the **bootloader** (like GRUB).
+- The bootloader loads the operating system kernel into the main memory.
+- Once loaded, the kernel takes control and starts running program
+
+---
+
+This sequence ensures your program is loaded into memory correctly, provided with its execution environment, and scheduled efficiently by the operating system.
 
 ## Step 4: Execution on the CPU
 
