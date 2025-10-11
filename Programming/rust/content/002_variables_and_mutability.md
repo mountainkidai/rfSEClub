@@ -132,8 +132,15 @@ This concludes your introduction to variables and mutability. Next, you will exp
 
 1. String Literal (&'static str) — Immutable, stored in read-only data segment
 
+- What is 'static?
+- Rust references have lifetimes, specifying how long data is valid.
+- 'static lifetime means "lives for the entire program duration."
+
 ```rust
+let name: &'static str = "AlpKid";
+// same as
 let name = "AlpKid";
+
 name is an immutable binding to a string slice referring to data in read-only data segment.
 
 ```
@@ -148,8 +155,47 @@ Diagram:
 
 stack:    | name pointer |
           --------------
+name
+stack:
+| pointer -----> read-only data segment: "AlpKid"
+| length
+| capacity
+```
 
-read-only data segment: "AlpKid"
+## Note How stack holds the pointer name
+
+Stack holds the pointer, length, and capacity of the String.
+
+Memory visualization:
+
+```text
+
+
+text
+stack:    | name struct (pointer, len, capacity) |
+          ------------------------------------
+
+heap:     | "AlpKid"                      |
+Diagram:
+
+text
+stack:
+| pointer -----> readonly data segment data: "AlpKid"
+| length
+| capacity
+```
+
+## Note:
+
+The variable name of type String is a struct stored on the stack containing these fields:
+
+```rust
+struct String {
+    ptr: *const u8,  // pointer to heap data
+    len: usize,      // current length of string
+    capacity: usize, // allocated space in heap
+}
+So name's stack frame holds this 3-field struct (pointer, length, capacity). The actual string data ("AlpKid Rocks") lives on the heap.
 ```
 
 2. Mutable Binding to String Literal Slice
@@ -261,4 +307,37 @@ Useful when you want ownership and heap allocation but don't need the extra feat
 
 ```rust
 let b: Box<i32> = Box::new(10);
+```
+
+## note
+
+- ASCII — Simple Character Encoding
+  ASCII encodes 128 characters (letters, digits, symbols) using 7 bits.
+- Each character mapped to one byte (8 bits, with most significant bit unused).
+
+Example: Letter 'A' is represented as 65 in decimal or 01000001 in binary.
+
+```text
+Char  |  Decimal  |  Binary
+------+-----------+----------
+A     |  65       |  01000001
+B     |  66       |  01000010
+```
+
+Limit: ASCII cannot represent symbols or letters beyond English.
+
+2. UTF-8 — Modern Universal Encoding
+   UTF-8 encodes all Unicode characters (think: every language and symbol).
+
+Uses 1 to 4 bytes per character:
+
+ASCII characters use 1 byte (compatible with ASCII).
+
+More complex characters use multiple bytes.
+
+```text
+Example:
+'A' = 1 byte: same as ASCII
+
+'€' (Euro sign) = 3 bytes: 11100010 10000010 10101100
 ```
