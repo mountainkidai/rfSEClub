@@ -130,6 +130,19 @@ This concludes your introduction to variables and mutability. Next, you will exp
 
 ## String in rust
 
+For numbers, the default type for an integer literal like 1 is i32 (signed 32-bit integer).
+
+For string literals like "AlpKid", the default type is &'static str — a string slice with static lifetime because the string data is baked into the binary and lives for the entire program duration.
+
+```text
+Literal   |  Default Rust Type
+----------+-------------------
+1         |  i32
+"AlpKid"  |  &'static str
+```
+
+So:
+
 1. String Literal (&'static str) — Immutable, stored in read-only data segment
 
 - What is 'static?
@@ -140,8 +153,12 @@ This concludes your introduction to variables and mutability. Next, you will exp
 let name: &'static str = "AlpKid";
 // same as
 let name = "AlpKid";
+//same as
+let name: &str = "AlpKid"; // type is &'static str (inferred)
 
-name is an immutable binding to a string slice referring to data in read-only data segment.
+// So, even though you write &str explicitly, the actual type here is still &'static str because the data is a string literal with a static lifetime.
+
+// name is an immutable binding to a string slice referring to data in read-only data segment.
 
 ```
 
@@ -224,34 +241,7 @@ read-only data segment:
 
 - string literals like "AlpKid" and "OtherName" both live permanently in the read-only data segment. Changing name to point elsewhere doesn't remove or move those literals—they remain in memory as static data.
 
-3. Explicit Type Annotation for String Slice
-
-```rust
-let name: &str = "AlpKid";
-Same as above but with explicit &str type annotation.
-
-Data stored immutably in read-only segment.
-
-```
-
-```text
-Memory layout is identical to example 1.
-
-
-name (stack)  -->  "AlpKid" (read-only data segment)
-Diagram:
-
-stack:    | name pointer |
-          --------------
-
-read-only data segment: "AlpKid"
-```
-
-## Note:
-
-- the above all three involve immutable string slices (&'static str) referring to data embedded in the binary. They differ only in mutability of the variable binding.
-
-4. Owned, Mutable String (Heap allocated)
+3. Owned, Mutable String (Heap allocated)
 
 ```rust
 let mut name = String::from("AlpKid");
@@ -297,16 +287,101 @@ struct String {
 So name's stack frame holds this 3-field struct (pointer, length, capacity). The actual string data ("AlpKid Rocks") lives on the heap.
 ```
 
-5. Box<T>
+4. ## changing static lifetime
 
-Box<T> is a smart pointer for heap allocation of any value T.
-
-Like String, a Box stores a pointer on the stack to heap memory.
-
-Useful when you want ownership and heap allocation but don't need the extra features of String.
+- To have a &str with a shorter or different lifetime than 'static, the data you borrow from must itself not live for the whole program, but only a part of it.
 
 ```rust
-let b: Box<i32> = Box::new(10);
+// Incorrect example: will NOT compile due to dangling reference
+fn get_slice() -> &str {
+    let s = String::from("Hello world");  // s is created locally
+    &s[0..5]                               // returning reference to local s
+}  // s is dropped here, reference would be invalid
+
+fn main() {
+    let slice = get_slice();  // ERROR: cannot return reference to local data
+    println!("{}", slice);
+}
+
+```
+
+```text
+get_slice stack frame:
+| s: String struct (ptr, len, cap) |
+------------------------------------
+      |
+      V
+heap: "Hello world"
+
+Function returns:
+&str pointing to heap data owned by s
+
+BUT after function ends:
+
+stack frame removed, s dropped
+heap memory freed
+
+Returned &str points to freed memory (dangling pointer)
+
+```
+
+## Problem: Dangling Reference
+
+- Here, s is created inside the function get_slice and owned by it.
+
+- When the function ends, s is dropped (freed).
+
+- Returning &s[0..5] tries to return a reference to data that no longer exists — a dangling reference.
+
+- Rust prevents this by refusing to compile such code.
+
+## The Fix
+
+## Understanding Lifetimes in Rust
+
+- Lifetimes in Rust describe how long references are valid during program execution.
+
+- Every reference has a lifetime specifying the scope in which the data it points to is guaranteed to be valid.
+
+- Rust enforces lifetimes to prevent dangling references, which occur if a reference outlives the data it points to as have just seen in the above example
+
+```rust
+fn get_slice<'a>(s: &'a String) -> &'a str {
+    &s[0..5]
+}
+
+fn main() {
+    let my_string = String::from("Hello world");
+    let slice = get_slice(&my_string);
+    println!("{}", slice);  // prints "Hello"
+}
+
+```
+
+```text
+main stack:
+| my_string: String struct (ptr, len, cap) |
+---------------------------------------------
+        |
+        V
+heap: "Hello world"
+
+get_slice stack frame:
+| s: &my_string (reference with lifetime 'a) |
+----------------------------------------------
+
+Returns &str slice with same lifetime 'a:
+points into my_string's heap data
+
+Back in main stack:
+| my_string | slice (&str) |
+--------------------------------
+      |          |
+      V          V
+   heap: "Hello world"
+
+slice valid so long as my_string is alive → safe
+
 ```
 
 ## note
