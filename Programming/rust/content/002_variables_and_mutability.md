@@ -358,6 +358,14 @@ fn main() {
 
 ```
 
+## Explanation
+
+- We declare a generic lifetime parameter 'a that:
+  - Ties the input reference s to the same lifetime 'a.
+  - Ensures the returned &str slice lives at least as long as 'a.
+
+This guarantees safety because the slice cannot outlive the data it references.
+
 ```text
 main stack:
 | my_string: String struct (ptr, len, cap) |
