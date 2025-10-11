@@ -24,3 +24,20 @@ println!("{}", s2); // this works fine
 ![Ownership and Borrowing](../images/008_ownership/image.png)
 
 ## References
+
+- A reference lets code read or modify data without moving ownership.
+
+- An immutable reference:
+
+```rust
+let s = &text;
+allows read-only access.
+```
+
+- A mutable reference:
+
+```rust
+let s = &mut text;
+ allows changing the value (only if the variable is declared mutable).
+
+```

@@ -1,7 +1,9 @@
-fn main() {
-    let s1 = String::from("hello"); // s1 comes into scope
-    let s2 = s1; // s1's value moves into s2
-    println!("{}", s1); // this line would cause a compile-time error because s1 is no longer valid
-    println!("{}", s2); // this works fine
-} // s2 goes out of scope and is dropped here
+// reference in rust
 
+fn main() {
+   let mut name = "AlpKid";
+name = "OtherName"; // Okay, rebinds to new string slice
+// But you cannot mutate the text "AlpKid" in-place
+println!("name is: {}", name);
+
+}

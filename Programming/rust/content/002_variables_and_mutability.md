@@ -127,3 +127,138 @@ println!("The simple interest is: {}", simple_interest);
 - Explicit type annotations help control data size and behavior.
 
 This concludes your introduction to variables and mutability. Next, you will explore Rust’s scalar data types in detail.
+
+## String in rust
+
+1. String Literal (&'static str) — Immutable, stored in read-only data segment
+
+```rust
+let name = "AlpKid";
+name is an immutable binding to a string slice referring to data in read-only data segment.
+
+```
+
+Diagram:
+
+```text
+Memory:
+
+name (stack)  -->  "AlpKid" (read-only data segment)
+Diagram:
+
+stack:    | name pointer |
+          --------------
+
+read-only data segment: "AlpKid"
+```
+
+2. Mutable Binding to String Literal Slice
+
+```rust
+let mut name = "AlpKid";
+name = "OtherName";  // rebind allowed
+name is a mutable variable on the stack.
+
+Each string literal referenced is immutable and lives in read-only data segment.
+
+mut allows you to point name to a different string slice, but cannot modify the string content.
+```
+
+```text
+stack:    | name pointer |
+          --------------
+
+read-only data segment:
+          "AlpKid"
+          "OtherName"
+
+```
+
+## Note:
+
+- string literals like "AlpKid" and "OtherName" both live permanently in the read-only data segment. Changing name to point elsewhere doesn't remove or move those literals—they remain in memory as static data.
+
+3. Explicit Type Annotation for String Slice
+
+```rust
+let name: &str = "AlpKid";
+Same as above but with explicit &str type annotation.
+
+Data stored immutably in read-only segment.
+
+```
+
+```text
+Memory layout is identical to example 1.
+
+
+name (stack)  -->  "AlpKid" (read-only data segment)
+Diagram:
+
+stack:    | name pointer |
+          --------------
+
+read-only data segment: "AlpKid"
+```
+
+## Note:
+
+- the above all three involve immutable string slices (&'static str) referring to data embedded in the binary. They differ only in mutability of the variable binding.
+
+4. Owned, Mutable String (Heap allocated)
+
+```rust
+let mut name = String::from("AlpKid");
+name.push_str(" Rocks");
+
+```
+
+name owns its data.
+
+String data stored on the heap (because it can grow/modify).
+
+Stack holds the pointer, length, and capacity of the String.
+
+Memory visualization:
+
+```text
+
+
+text
+stack:    | name struct (pointer, len, capacity) |
+          ------------------------------------
+
+heap:     | "AlpKid Rocks"                      |
+Diagram:
+
+text
+stack:
+| pointer -----> heap data: "AlpKid Rocks"
+| length
+| capacity
+```
+
+## Note:
+
+The variable name of type String is a struct stored on the stack containing these fields:
+
+```rust
+struct String {
+    ptr: *const u8,  // pointer to heap data
+    len: usize,      // current length of string
+    capacity: usize, // allocated space in heap
+}
+So name's stack frame holds this 3-field struct (pointer, length, capacity). The actual string data ("AlpKid Rocks") lives on the heap.
+```
+
+5. Box<T>
+
+Box<T> is a smart pointer for heap allocation of any value T.
+
+Like String, a Box stores a pointer on the stack to heap memory.
+
+Useful when you want ownership and heap allocation but don't need the extra features of String.
+
+```rust
+let b: Box<i32> = Box::new(10);
+```
