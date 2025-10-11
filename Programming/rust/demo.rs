@@ -6,3 +6,11 @@ fn main(){
     // range would be 0 to 4,294,967,295
     println!("value of x is: {}", x);
 }
+
+//ownership example
+fn main1() {
+    let s1 = String::from("hello"); // s1 comes into scope
+    let s2 = s1; // s1's value moves into s2
+    // println!("{}", s1); // this line would cause a compile-time error because s1 is no longer valid
+    println!("{}", s2); // this works fine
+} // s2 goes out of scope and is dropped here
