@@ -678,6 +678,179 @@ Methods have &self or &mut self as first parameter (reference to instance).
 Can mutate fields with &mut self, read-only with &self.
 ```
 
+## Memory Layout
+
+```rust
+struct Person {
+    name: String,  // 24 bytes (on stack)
+    age: u32,     // 4 bytes (on stack)
+    // padding:    // 4 bytes (for alignment)
+}
+
+```
+
+```text
+A Person struct will require 32 bytes on the stack:
+
+name: String is 24 bytes (pointer, length, capacity).
+
+age: u32 is 4 bytes.
+
+4 bytes of padding for alignment.
+```
+
+## 2. Implementation Block (impl Person { ... })
+
+This does not allocate memory itself—a method is just code logic stored in the binary.
+
+```text
+             Methods for Person
+┌────────────────────────────────────────┐
+│ Person::new(name, age)     // code only│
+│ Person::greet(&self)       // code only│
+│ Person::have_birthday(&mut self)// code│
+└────────────────────────────────────────┘
+
+```
+
+## The methods exist as compiled code
+
+- When called, they create their own tiny stack frames for arguments.
+- They operate on a Person instance in memory (see below).
+
+## Memory layout for new Function Call Frame with Return Space and Heap String
+
+```rust
+  fn new(name: String, age: u32) -> Person {
+        Person { name, age }
+    }
+   // when you call let mut p = Person::new(String::from("Koel"), 29);
+
+```
+
+```text
+Stack Memory (new() call frame)                              Heap Memory (String data "Koel")
+┌─────────────────────────────┐                            ┌─────────────────────────┐
+│ 0x7ffe_abd000: new() frame  │                            │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐ │                            │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abd000 + 0 B: name │───────────────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ ┌──────┬──────┬────────┐│ │                            │ 0x6000_5303: 'l' (0x6C) │
+│ │ │ ptr  │ len  │capacity││ │                            │ (no null terminator)    │
+│ │ │(8 B) │(8 B) │ (8 B)  ││ │
+│ │ │0x6000_5300           ││ │
+│ │ └──────┴──────┴────────┘│ │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abd000 + 24 B: age (4bytes) │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abd028 +4B:padding (4bytes) │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abd032 +32 B:return│
+│ │  (space for Person struct)│
+│ └─────────────────────────┘ │
+└─────────────────────────────┘
+
+
+
+```
+
+```rust
+fn main() {
+    let mut p = Person::new(String::from("Koel"), 29);
+    p.greet();
+    p.have_birthday();
+    p.greet();
+}
+```
+
+## After creating p object
+
+```text
+Stack Memory (Person variable "p")                  Heap Memory (String data "Koel")
+┌─────────────────────────────┐                    ┌─────────────────────────┐
+│ 0x7ffe_abc300: p (32 B)     │                    │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐ │                    │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abc300 + 0 B: name │───────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ ┌──────┬──────┬────────┐│ │                    │ 0x6000_5303: 'l' (0x6C) │
+│ │ │ ptr  │ len  │capacity││ │                    │ (no null terminator)    │
+│ │ │(8 B) │(8 B) │ (8 B)  ││ │
+│ │ │0x6000_5300           ││ │
+│ │ └──────┴──────┴────────┘│ │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abc300 + 24B:age (4bytes) │ │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abc328 +4B:padding (4bytes) │
+│ ├─────────────────────────┤ │
+│ └─────────────────────────┘ │
+└─────────────────────────────┘
+
+
+```
+
+## During p.greet() call
+
+```rust
+   // A method that borrows self immutably
+    fn greet(&self) {
+        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
+    }
+```
+
+```text
+Stack Memory (greet() call frame)                   Heap Memory (String data "Koel")
+┌───────────────────────────────┐                   ┌─────────────────────────┐
+│ 0x7ffe_abd100: greet frame    │                   │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐   │                   │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abd100 + 0 B: self   │──────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ &Person (8 bytes)           │                   │ 0x6000_5303: 'l' (0x6C) │
+│ │ points to 0x7ffe_abc300     │                   │ (no null terminator)    │
+│ └─────────────────────────┘   │
+└───────────────────────────────┘
+
+(And the `p` struct on stack, as before.)
+
+```
+
+## NOTE:
+
+- The variable p is the full Person struct occupying 32 bytes on the stack.
+- The method greet takes &self, a reference to Person.
+- This reference is a pointer (address) to the stack location of p.
+- Hence, self in the method stack frame is 8 bytes (size of a pointer), not the entire 32 bytes.
+- So, when you see in the method call stack frame:
+
+  ```text
+  0x7ffe_abd100 + 0 B: self &Person (8 bytes)
+  ```
+
+## During p.have_birthday() Call
+
+```text
+Stack Memory (have_birthday() call frame)           Heap Memory (String data "Koel")
+┌───────────────────────────────┐                  ┌─────────────────────────┐
+│ 0x7ffe_abd120: have_birthday  │                  │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐   │                  │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abd120 + 0 B: self  │──────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ &mut Person (8 bytes)        │                  │ 0x6000_5303: 'l' (0x6C) │
+│ │ points to 0x7ffe_abc300     │                  │ (no null terminator)    │
+│ └─────────────────────────┘   │
+└───────────────────────────────┘
+
+Stack Memory (`p`) before and after age increment:
+
+Before:
+┌───────────────────────────────┐
+│ 0x7ffe_abc300 + 24 B: age (4 bytes)      29 (0x0000001D) │
+└───────────────────────────────┘
+
+After:
+┌───────────────────────────────┐
+│ 0x7ffe_abc300 + 24 B: age (4 bytes)      30 (0x0000001E) │
+└───────────────────────────────┘
+
+```
+
+## Traits
+
 - A trait is a way to define shared behavior or functionality that multiple types can implement.
 
 - It’s like an interface in other languages which lists methods a type must provide.
