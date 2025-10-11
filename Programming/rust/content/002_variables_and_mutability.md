@@ -916,6 +916,69 @@ fn main() {
 
 ```
 
+## What is a type?
+
+- A type defines what kind of data a value represents and what operations can be performed on it.
+
+- Types give structure and meaning to data, helping the compiler catch errors and organize memory.
+
+### Examples of Types
+
+- Primitive types:
+
+  - Integers (i32, u64)
+  - Floating-point numbers (f32, f64)
+  - Boolean (bool)
+  - Character (char)
+
+- Compound types:
+  - Structs (custom data types grouping multiple values)
+  - Enums (types with variants)
+  - Arrays and tuples (fixed collections of values)
+
+## Generics
+
+- lets see a program first.
+
+```rust
+fn print_number(x: i32) {
+    println!("Number: {}", x);
+}
+
+fn print_text(text: &str) {
+    println!("Text: {}", text);
+}
+
+fn main() {
+    print_number(42);
+    print_text("hello");
+}
+```
+
+- The problem with the above program is that you have to write same function twice just to satisfy the type.
+
+## Solution - Generics
+
+- A generic lets you write one function that works for any type.
+- Instead of separate functions for numbers and text, write one generic function.
+- Generics allow you to write code with placeholder types like `<T>`.
+- They enable code reuse without losing type safety.
+
+Example:
+
+```rust
+fn print_anything<T>(value:T){
+    // We won't print here because T can be anything
+}
+fn main() {
+    print_anything(42);          // T is i32
+    print_anything("hello");     // T is &str
+}
+//T is a type parameter—a placeholder for the real type.
+//When you call the function, the compiler replaces T with the actual type (i32, &str).
+//This way, print_anything works with any data type.
+```
+
 ## Understanding Display Trait with Examples
 
 What is the Display Trait?
@@ -924,9 +987,21 @@ What is the Display Trait?
 
 - It is used by Rust's {} formatting marker in println! and string-related macros.
 
-- Many standard types like integers, strings, and floats implement Display so they can print nicely.
+- Many standard types like integers, strings, and floats implement Display behind so they can print nicely.
 
-Either make your generics to implement Display:
+```rust
+use std::fmt::Display;
+
+fn print_anything<T: Display>(value: T) {
+    println!("Value: {}", value);
+}
+
+fn main() {
+    print_anything(10);
+    print_anything("world");
+}
+
+```
 
 ```rust
 // generics in rust
