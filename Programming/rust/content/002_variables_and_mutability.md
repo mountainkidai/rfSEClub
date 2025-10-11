@@ -424,6 +424,216 @@ Rust suggests implementing
 
 ## lets understand Trait for this
 
+- For this, lets understand struct
+
+  - A struct is a custom data type that groups related values together under a single name.
+  - It lets you organize complex data by bundling into one type.
+
+## Example
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+//Person has two fields: name (a string) and age (an unsigned 32-bit integer).
+
+```
+
+## Creating and Using Instances
+
+```rust
+fn main() {
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+    println!("{} is {} years old.", person.name, person.age);
+}
+
+```
+
+## Final code:
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Sony"),
+        age: 30,
+    };
+}
+
+```
+
+## How does it store in the memory?
+
+```rust
+int a = 10;
+
+// a is stored on the stack.
+// The address of a points to a memory location holding the value 10.
+// The value is stored directly at that address.
+
+```
+
+```text
+a is like a label to Address (e.g., 0x7ffe_fffc20): holds value 10
+
+
+Stack Memory
+
+a (int) - > 0x7ffe_fffc20:
++--------------+
+| 10           |
++--------------+
+
+```
+
+When you write in Rust:
+
+```rust
+let name = String::from("Koel");
+
+```
+
+- String is a struct with three components:
+
+  - A pointer (ptr) to the heap where actual string bytes live.
+
+  - A length (len) describing how many bytes of string are currently used.
+
+  - A capacity (capacity) describing how much space is allocated on the heap for the string.
+
+- These three fields together determine the size of the String struct on the stack.
+
+- Typically, on a 64-bit system, each pointer or integer is 8 bytes, so:
+
+  - Pointer: 8 bytes
+  - Length: 8 bytes (usize)
+  - Capacity: 8 bytes (usize)
+  - Total size on stack: about 8 + 8 + 8 = 24 bytes
+
+- This is independent of string length; the heap holds the actual characters, but String struct size on the stack stays fixed.
+
+```text
+Stack Memory                        Heap Memory
+┌────────────────────────┐       ┌─────────────────────────┐
+│ 0x7ffe_abc130: name    │       │ 0x6000_4000: 'K' 0x4B  │
+│ ┌────────────────────┐ │       │ 0x6000_4001: 'o' 0x6F  │
+│ │ ptr: 0x60004000    │ ├──────▶│ 0x6000_4002: 'e' 0x65  │
+│ │ len: 4             │ │       │ 0x6000_4003: 'l' 0x6C  │
+│ │ capacity: 8        │ │       │ (no null terminator)    │
+│ └────────────────────┘ │       └─────────────────────────┘
+└────────────────────────┘
+
+```
+
+```text
+Stack Memory (24 bytes total)                   Heap Memory (4 bytes for "Koel")
+┌────────────────────────────┐                 ┌────────────────────────────┐
+│ 0x7ffe_abc130: name String  │                 │ 0x6000_4000: 'K' (0x4B)     │
+│ ┌────────┬────────┬───────┐│                 │ 0x6000_4001: 'o' (0x6F)     │
+│ │ ptr    │ len    │ cap   ││                 │ 0x6000_4002: 'e' (0x65)     │
+│ │ (8 B)  │ (8 B)  │ (8 B) ││                 │ 0x6000_4003: 'l' (0x6C)     │
+│ └────────┴────────┴───────┘│                 │ (no null terminator)         │
+│ 0x7ffe_abc130             0x7ffe_abc137      └────────────────────────────┘
+└────────────────────────────┘
+
+```
+
+- On the heap, the characters "Koel" occupy 4 bytes.
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+```
+
+- name occupies 24 bytes on stack.
+- age is 4 bytes.
+- To align the whole struct to an 8-byte boundary (max of fields), Rust inserts 4 bytes padding after age.
+  Why Is Padding Needed?
+  CPUs like aligned memory because:
+
+  - Misaligned accesses require multiple reads/writes.
+  - Aligned data accesses are faster and safer.
+    What is a Trait?
+
+```text
+Memory Layout (Stack)
+
++----------------------------+  0x7ffe_abc130
+| name: String (24 bytes)    |
+|   - ptr (8 B)              |
+|   - len (8 B)              |
+|   - capacity (8 B)         |
++----------------------------+
+| age: u32 (4 bytes)         |  0x7ffe_abc148
++----------------------------+
+| padding (4 bytes)          |  0x7ffe_abc14c
++----------------------------+
+Total size: 32 bytes
+
+```
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Sony"),
+        age: 30,
+    };
+}
+
+
+```
+
+```text
+Stack Memory (Person struct)               Heap Memory (String data "Sony")
+┌───────────────────────────────┐         ┌─────────────────────────┐
+│ 0x7ffe_abc200: person (32 B)  │         │ 0x6000_5000: 'S' (0x53) │
+│ ┌─────────────────────────┐   │         │ 0x6000_5001: 'o' (0x6F) │
+│ │ 0x7ffe_abc200: name     │   │────────▶│ 0x6000_5002: 'n' (0x6E) │
+│ │ ┌──────┬──────┬────────┐│   │         │ 0x6000_5003: 'y' (0x79) │
+│ │ │ ptr  │ len  │capacity││   │         │ (no null terminator)    │
+│ │ │(8 B) │(8 B) │ (8 B)  ││   │         └─────────────────────────┘
+│ │ │0x6000_5000           ││   │
+│ │ └──────┴──────┴────────┘│   │
+│ ├─────────────────────────┤   │
+│ │ 0x7ffe_abc218: age (4 B)│   │
+│ ├─────────────────────────┤   │
+│ │ 0x7ffe_abc21c: padding  │   │
+│ │ (4 B)                   │   │
+│ └─────────────────────────┘   │
+└───────────────────────────────┘
+
+
+
+```
+
+- person starts at 0x7ffe_abc200 on stack, size 32 bytes total.
+- name occupies bytes 0x7ffe_abc200 to 0x7ffe_abc217 (24 bytes for the String struct).
+- Inside name, ptr holds address 0x6000_5000 pointing to heap.
+- age stored at 0x7ffe_abc218 (4 bytes).
+- Padding (4 bytes) follows at 0x7ffe_abc21c to keep alignment.
+- The next free stack address after person is 0x7ffe_abc220 (32 bytes after start).
+
+- A trait is a way to define shared behavior or functionality that multiple types can implement.
+- It’s like an interface in other languages which lists methods a type must provide.
+- Traits enable polymorphism—writing code that works with different types offering the same behavior.
+
 ## Understanding Display Trait with Examples
 
 What is the Display Trait?
