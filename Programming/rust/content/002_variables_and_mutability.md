@@ -360,11 +360,105 @@ fn main() {
 
 ## Explanation
 
+### What is <'a>
+
 - We declare a generic lifetime parameter 'a that:
   - Ties the input reference s to the same lifetime 'a.
   - Ensures the returned &str slice lives at least as long as 'a.
 
 This guarantees safety because the slice cannot outlive the data it references.
+
+## What is a generic?
+
+```rust
+// generics in rust
+
+// lets your write a function or a struct that can work with different data types
+// print pair function with generics
+fn print_pair<T, U>(a: T, b: U) {
+    println!("Pair: ({}, {})", a, b);
+}
+
+fn main() {
+    // calling print_pair with different types
+    print_pair(1, "hello");
+    print_pair(3.14, true);
+    print_pair("rust", 'R');
+}
+// output:
+// Error
+```
+
+if you run this program, you see the following output:
+![Ownership and Borrowing](../images/012_generics/image.png)
+
+## Explantion
+
+- The error happens because you use {} in println!, which requires the types T and U to implement the Display trait, but your generic parameters T and U have no such trait bound.
+
+## How to fix it
+
+Either restrict your generics to implement Display:
+
+```rust
+// generics in rust
+
+// generics allow you to write flexible and reusable code
+// that can work with different data types
+use std::fmt::Display;
+// lets your write a function or a struct that can work with different data types
+// print pair function with generics
+fn print_pair<T:Display, U:Display>(a: T, b: U) {
+    // Display trait is used to format the output
+    println!("Pair: ({}, {})", a, b);
+}
+
+fn main() {
+    // calling print_pair with different types
+    print_pair(1, "hello");
+    print_pair(3.14, true);
+    print_pair("rust", 'R');
+}
+// output:
+// Pair: (1, hello)
+// Pair: (3.14, true)
+// Pair: (rust, R)
+// here T and U are type parameters that can be any type
+// this makes the function flexible and reusable with different data types
+
+```
+
+Or, if you want to print any type, use Debug:
+
+```rust
+use std::fmt::Debug;
+// lets your write a function or a struct that can work with different data types
+// print pair function with generics
+fn print_pair<T: Debug, U: Debug>(a: T, b: U) {
+    //Debug trait bound to ensure that the types can be printed using {:?}
+    println!("Pair: ({:?}, {:?})", a, b);
+}
+
+fn main() {
+    // calling print_pair with different types
+    print_pair(1, "hello");
+    print_pair(3.14, true);
+    print_pair("rust", 'R');
+}
+// output:
+// Pair: (1, hello)
+// Pair: (3.14, true)
+// Pair: (rust, R)
+// here T and U are type parameters that can be any type
+// this makes the function flexible and reusable with different data types
+```
+
+```text
+Formatter  |  Required Trait  |  Usage
+-----------+------------------+------------------------------
+{}         |  Display         |  Pretty, user-facing output
+{:?}       |  Debug           |  Debugging, programmer output
+```
 
 ```text
 main stack:
