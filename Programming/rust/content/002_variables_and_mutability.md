@@ -851,11 +851,70 @@ After:
 
 ## Traits
 
-- A trait is a way to define shared behavior or functionality that multiple types can implement.
+- Traits in Rust define shared behavior: they specify a set of method signatures that types can implement.
 
-- It’s like an interface in other languages which lists methods a type must provide.
+```rust
+trait TraitName {
+    fn method_name(&self);  // method signature
+}
 
-- Traits enable polymorphism—writing code that works with different types offering the same behavior.
+struct MyStruct;
+
+impl TraitName for MyStruct {
+    fn method_name(&self) {
+        // implementation
+    }
+}
+
+```
+
+Example
+
+```rust
+//traits example
+
+
+struct Person {
+    name:String,
+    age:u8,
+}
+
+struct Dog {
+    name:String,
+}
+
+trait Greet {
+    fn greet(&self);
+}
+
+impl Greet for Person {
+    fn greet(&self) {
+        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
+    }
+}
+
+impl Greet for Dog {
+    fn greet(&self) {
+        println!("Woof! My name is {}.", self.name);
+    }
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Steve"),
+        age: 12,
+    };
+    let dog = Dog {
+        name: String::from("Buddy"),
+    };
+    person.greet();
+    dog.greet();
+}
+//Output:
+// Hello, my name is Steve and I am 12 years old.
+// Woof! My name is Buddy.
+
+```
 
 ## Understanding Display Trait with Examples
 
