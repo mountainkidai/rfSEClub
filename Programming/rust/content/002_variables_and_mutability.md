@@ -396,9 +396,45 @@ if you run this program, you see the following output:
 
 - The error happens because you use {} in println!, which requires the types T and U to implement the Display trait, but your generic parameters T and U have no such trait bound.
 
-## How to fix it
+  - Either you implement Display trait
+  - or add Debug trait
 
-Either restrict your generics to implement Display:
+- The Display trait defines how to present a type to end-users as readable text.
+
+- It is used by Rust's {} formatting marker in println! and string-related macros.
+
+- Many standard types like integers, strings, and floats implement Display so they can print nicely.
+
+```rust
+fn main() {
+    let num = 42;        // integer implements Display
+    let text = "hello"; // string slice implements Display
+    println!("Number: {}", num);     // works
+    println!("Text: {}", text);      // works
+}
+
+```
+
+So
+Compiling with {} on a type without Display implementation triggers a compiler error.
+Rust suggests implementing
+
+- Display or
+- using {:?} and implementing Debug.
+
+## lets understand Trait for this
+
+## Understanding Display Trait with Examples
+
+What is the Display Trait?
+
+- The Display trait defines how to present a type to end-users as readable text.
+
+- It is used by Rust's {} formatting marker in println! and string-related macros.
+
+- Many standard types like integers, strings, and floats implement Display so they can print nicely.
+
+Either make your generics to implement Display:
 
 ```rust
 // generics in rust
@@ -458,6 +494,37 @@ Formatter  |  Required Trait  |  Usage
 -----------+------------------+------------------------------
 {}         |  Display         |  Pretty, user-facing output
 {:?}       |  Debug           |  Debugging, programmer output
+```
+
+## What Does the use std::fmt::Display; Mean?
+
+- std is the Rust Standard Library root.
+- fmt is a module inside std that handles formatting.
+- Display is a trait defined inside std::fmt.
+- The :: notation accesses items inside modules or paths.
+- use std::fmt::Display; brings the Display trait into scope so you can use it directly.
+
+Example
+
+```rust
+//FILE 1:  print hello from a library - rfselib.rs
+
+pub fn print_hello() {
+    println!("Hello from rfselib!");
+}
+```
+
+```rust
+//FILE 2:  print hello from a library rfselib.rs
+
+mod rfselib; // include the library
+use rfselib::print_hello; // use the function from the library
+fn main() {
+    print_hello();
+}
+
+//output:
+// Hello from rfselib!
 ```
 
 ```text
