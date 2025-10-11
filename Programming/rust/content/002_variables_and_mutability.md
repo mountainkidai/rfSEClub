@@ -630,8 +630,58 @@ Stack Memory (Person struct)               Heap Memory (String data "Sony")
 - Padding (4 bytes) follows at 0x7ffe_abc21c to keep alignment.
 - The next free stack address after person is 0x7ffe_abc220 (32 bytes after start).
 
+## Methods on Structs
+
+What is a Method?
+
+- A method is a function associated with a struct (or enum).
+- Defines behavior or operations specific to that type.
+- Methods have an implicit self parameter representing the instance.
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+impl Person {
+    // Associated function (like a constructor)
+    fn new(name: String, age: u32) -> Person {
+        Person { name, age }
+    }
+
+    // A method that borrows self immutably
+    fn greet(&self) {
+        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
+    }
+
+    // A method that borrows self mutably to update state
+    fn have_birthday(&mut self) {
+        self.age += 1;
+        println!("Happy birthday! Now I am {} years old.", self.age);
+    }
+}
+
+fn main() {
+    let mut p = Person::new(String::from("Koel"), 29);
+    p.greet();
+    p.have_birthday();
+    p.greet();
+}
+
+```
+
+```text
+impl Person { ... } defines method implementations for Person.
+new is an associated function (no self), used like a constructor.
+Methods have &self or &mut self as first parameter (reference to instance).
+Can mutate fields with &mut self, read-only with &self.
+```
+
 - A trait is a way to define shared behavior or functionality that multiple types can implement.
+
 - It’s like an interface in other languages which lists methods a type must provide.
+
 - Traits enable polymorphism—writing code that works with different types offering the same behavior.
 
 ## Understanding Display Trait with Examples
