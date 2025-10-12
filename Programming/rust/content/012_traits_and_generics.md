@@ -1,3 +1,122 @@
+## Traits
+
+- They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
+
+```rust
+trait Printable {
+    fn print(&self);
+}
+
+```
+
+- This trait says: any type that implements Printable must have a print() method.
+- and type can be a struct, enum, or even a primitive type such as i32 or f64.
+
+## 2. Implementing Traits
+
+- Once a trait is defined, you implement it for specific types using the impl keyword.
+
+```rust
+trait Printable {
+    fn print(&self);
+}
+
+struct Person {
+    name: String,
+}
+// here we are implementing Printable for Person Struct type
+impl Printable for Person {
+    fn print(&self) {
+        println!("Person: {}", self.name);
+    }
+}
+
+```
+
+- Here, Person now has a print() method as per the Printable trait.
+
+## Using Traits with functions
+
+- You can write functions that accept any type that implements a certain trait, making your code flexible:
+
+```rust
+trait Printable {
+    fn print(&self);
+}
+// This trait says: any type that implements Printable must have a print() method.
+// and type can be a struct, enum, or even a primitive type such as i32 or f64.
+
+struct Person {
+    name: String,
+    age: u32,
+}
+impl Printable for Person {
+    fn print(&self) {
+        println!("Person: {}, Age: {}", self.name, self.age);
+    }
+}
+
+// using traits with function display- its saying any type must implement Printable
+fn display<T: Printable>(item: T) {
+    item.print();
+}
+
+fn main() {
+    let person = Person {
+        name: "Alice".to_string(),
+        age: 30,
+    };
+    person.print(); // Output: Person: Alice, Age: 30
+    let person2 = Person {
+        name: "Bob".to_string(),
+        age: 25,
+    };
+    display(person2); // Output: Person: Bob, Age: 25
+}
+```
+
+## Why both can produce the same output but serve different roles:
+
+- Trait implementations (impl) provide abilities to types:
+  - They attach behavior to a type.
+  - Once you impl Printable for Person, any Person value can be printed anywhere.
+- Generic functions using trait bounds describe what kinds of types they accept:
+  - They allow writing code once that works for any printable type.
+  - You can reuse display with Person, String, or any other type that implements Printable.
+
+## 4. Generic Traits
+
+- When you declare a trait with a generic type parameter <T>, you create a trait family parameterized by T.
+- The trait functions might depend on that generic type.
+- You usually use the generic type inside the trait methods, like:
+
+```rust
+trait Printable<T> {
+    fn print(&self, value: T);
+}
+// When implementing this trait, you specify the concrete type for T:
+impl Printable<String> for Person {
+    fn print(&self, value: String) {
+        println!("Person: {}, Value: {}", self.name, value);
+    }
+}
+
+```
+
+## 4. Traits with Default Implementations and Inheritance
+
+```rust
+// Traits can provide default method implementations:
+
+rust
+trait Greet {
+    fn greet(&self) {
+        println!("Hello!");
+    }
+}
+
+```
+
 ## Generics
 
 - What is a generic function?

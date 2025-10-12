@@ -1,26 +1,21 @@
-trait Greet <T>  {
-    fn greet(&self) -> String;
+trait Printable<T> {
+    fn print(&self);
 }
+
 struct Person {
     name: String,
+    age: u8,
 }
 
-// impl Greet<String> for Person {
-//     fn greet(&self) -> String {
-//         format!("Hello, {}!", self.name)
-//     }
-// }
-// Greet<String> means the Greet trait is implemented for the type String
-
-impl <T> Greet<T> for Person {
-    fn greet(&self) -> String {
-        format!("Hello, {}!", self.name)
+impl<T> Printable<T> for Person {
+    fn print(&self) {
+        println!("Person: {}, Age: {}", self.name, self.age);
     }
 }
-
-// Greet<T:String> means the Greet trait is implemented for any type T that is a String
 fn main() {
-    let person = Person { name: "Alice".to_string() };
-    println!("{}", person.greet());
-    // Output: Hello, Alice!
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+    person.print(); // Output: Person: Alice, Age: 30
 }

@@ -113,3 +113,54 @@ fn main() {
     // Square with side: 4
     // Description: A square with side length 4
 }
+
+trait Printable {
+    fn print(&self);
+}
+// This trait says: any type that implements Printable must have a print() method.
+// and type can be a struct, enum, or even a primitive type such as i32 or f64.
+
+struct Person {
+    name: String,
+    age: u32,
+}
+impl Printable for Person {
+    fn print(&self) {
+        println!("Person: {}, Age: {}", self.name, self.age);
+    }
+}
+
+struct Animal {
+    species: String,
+}
+
+impl Barkable for Animal {
+    fn bark(&self) {
+        println!("{} says Woof!", self.species);
+    }
+}
+
+fn display<T: Printable>(item: T) {
+    item.print();
+}
+
+fn main() {
+    let person = Person {
+        name: "Alice".to_string(),
+        age: 30,
+    };
+    person.print(); // Output: Person: Alice, Age: 30
+    let person2 = Person {
+        name: "Bob".to_string(),
+        age: 25,
+    };
+    display(person2); // Output: Person: Bob, Age: 25
+
+    let animal = Animal {
+        species: "Dog".to_string(),
+    };
+    animal.bark(); // Output: Dog says Woof!
+    // display(animal); // This will cause a compile-time error
+    animal.Printable(); // This will cause a compile-time error
+    
+}
