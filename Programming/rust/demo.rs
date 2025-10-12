@@ -46,3 +46,70 @@ fn main() {
     print_value("hello");
     println!("Generic function called s {}.", print_value(3.14));
 }
+
+trait Printable {
+    fn print(&self);
+}
+
+struct Circle {
+    radius: f64,
+}
+impl Printable for Circle {
+    fn print(&self){
+        println!("Circle with radius: {}", self.radius);
+    }
+}
+
+fn print_item<T:Printable>(item:T){
+    item.print();
+}
+
+// the type T must implement the Printable trait
+
+struct Square {
+    side: f64,
+}
+
+fn main() {
+    let circle = Circle { radius: 5.0 };
+    print_item(circle);
+    // Output: Circle with radius: 5.0
+    let square = Square { side: 3.0 };
+    // print_item(square); // This will cause a compile-time error
+}
+
+trait Printable {
+    fn print(&self);
+}
+
+trait Describable {
+    fn describe(&self) -> String;
+}
+
+struct Square {
+    side: f64,
+}
+
+impl Printable for Square {
+    fn print(&self) {
+        println!("Square with side: {}", self.side);
+    }
+}
+impl Describable for Square {
+    fn describe(&self) -> String {
+        format!("A square with side length {}", self.side)
+    }
+}
+
+fn show_item<T: Printable + Describable>(item: T) {
+    item.print();
+    println!("Description: {}", item.describe());
+}
+
+fn main() {
+    let square = Square { side: 4.0 };
+    show_item(square);
+    // Output:
+    // Square with side: 4
+    // Description: A square with side length 4
+}
