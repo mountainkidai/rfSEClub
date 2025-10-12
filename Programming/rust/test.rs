@@ -1,39 +1,9 @@
-//traits example
-
-
-struct Person {
-    name:String,
-    age:u8,
+struct Pair<T>{
+    first:T,
+    second:T,
 }
-
-struct Dog {
-    name:String,
-}
-
-trait Greet {
-    fn greet(&self);
-}
-
-impl Greet for Person {
-    fn greet(&self) {
-        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
-    }
-}
-
-impl Greet for Dog {
-    fn greet(&self) {
-        println!("Woof! My name is {}.", self.name);
-    }
-}
-
-fn main() {
-    let person = Person {
-        name: String::from("Steve"),
-        age: 12,
-    };
-    let dog = Dog {
-        name: String::from("Buddy"),
-    };
-    person.greet();
-    dog.greet();
+fn main(){
+    let p1 = Pair{first:1,second:2}; // T is i32
+    let p2 = Pair{first:'a',second:'b'}; // T is &str
+    println!("p1:({},{}), p2:({}, {})",p1.first,p1.second,p2.first,p2.second);
 }

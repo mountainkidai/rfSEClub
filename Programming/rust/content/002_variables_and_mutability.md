@@ -964,78 +964,87 @@ fn main() {
 ## Types of Generics:
 
 1. Generic Functions
+
    - A generic function lets you write one function that works for any type.
    - Instead of separate functions for numbers and text, write one generic function.
    - Generics allow you to write code with placeholder types like `<T>`.
    - They enable code reuse without losing type safety.
 
-```rust
-You specify generics with
+   ```rust
+   You specify generics with
 
-fn print_anything<T> (variable:T){}
-fn print_anything<A> (variable:T){}
+   fn print_anything<T> (variable:T){}
+   fn print_anything<A> (variable:T){}
+   ```
+
+   ## `<T>` after the function name
+
+   - This declares T as a generic type parameter for the function.
+   - It tells Rust: "This function is generic and uses the placeholder type T."
+
+   ## value: T inside the parentheses
+
+   - This means the function takes an argument named value whose type is T (the generic type parameter declared earlier).
+   - It connects the parameter value to the generic type placeholder T.
+
+   ```rust
+   fn print_anything<T: Display> (variable:T){
+       println!("{}",variable);
+   }
+   ```
+
+   - What does T: Display mean?
+
+   - It means "type T must implement the trait Display".
+   - So when you use T in your function, Rust knows it can call methods defined in the Display trait on values of that type.
+   - This is necessary for code safety and correctness so that you don't use a type in a way that it doesn't support.
+
+   ## Understanding Display Trait with Examples
+
+   What is the Display Trait?
+
+   - The Display trait defines how to present a type to end-users as readable text.
+
+   - It is used by Rust's {} formatting marker in println! and string-related macros.
+
+   - Many standard types like integers, strings, and floats implement Display behind so they can print nicely.
+
+   ```rust
+   use std::fmt::Display;
+
+   fn print_anything<T: Display>(value: T) {
+       println!("Value: {}", value);
+   }
+
+   fn main() {
+       print_anything(10);
+       print_anything("world");
+   }
+
+   ```
+
+2. Generic Structs
+
+- Define structs with generic types to hold any type of data.
+- Example
+
+```rust
+struct Pair<T>{
+    first:T,
+    second:T,
+}
+fn main(){
+    let p1 = Pair{first:1,second:2}; // T is i32
+    let p2 = Pair{first:'a',second:'b'}; // T is &str
+    println!("p1:({},{}), p2:({}, {})",p1.first,p1.second,p2.first,p2.second);
+}
+//Output: p1:(1,2), p2:(a, b)
 ```
 
-## `<T>` after the function name
+3. Trait Bounds on Generics
 
-- This declares T as a generic type parameter for the function.
-- It tells Rust: "This function is generic and uses the placeholder type T."
-
-## value: T inside the parentheses
-
-- This means the function takes an argument named value whose type is T (the generic type parameter declared earlier).
-- It connects the parameter value to the generic type placeholder T.
-
-```rust
-fn print_anything<T: Display> (variable:T){
-    println!("{}",variable);
-}
-```
-
-- What does T: Display mean?
-
-  - It means "type T must implement the trait Display".
-  - So when you use T in your function, Rust knows it can call methods defined in the Display trait on values of that type.
-  - This is necessary for code safety and correctness so that you don't use a type in a way that it doesn't support.
-
-Example:
-
-```rust
-fn print_anything<T>(value:T){
-    // We won't print here because T can be anything
-}
-fn main() {
-    print_anything(42);          // T is i32
-    print_anything("hello");     // T is &str
-}
-//T is a type parameter—a placeholder for the real type.
-//When you call the function, the compiler replaces T with the actual type (i32, &str).
-//This way, print_anything works with any data type.
-```
-
-## Understanding Display Trait with Examples
-
-What is the Display Trait?
-
-- The Display trait defines how to present a type to end-users as readable text.
-
-- It is used by Rust's {} formatting marker in println! and string-related macros.
-
-- Many standard types like integers, strings, and floats implement Display behind so they can print nicely.
-
-```rust
-use std::fmt::Display;
-
-fn print_anything<T: Display>(value: T) {
-    println!("Value: {}", value);
-}
-
-fn main() {
-    print_anything(10);
-    print_anything("world");
-}
-
-```
+   - Traits constrain what operations can be done on generic types.
+   - Example:
 
 ```rust
 // generics in rust
