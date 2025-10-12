@@ -36,3 +36,13 @@ fn main1() {
 
 
 */
+
+fn print_value<T>(value: T) -> T{
+    value
+}
+
+fn main() {
+    print_value(42);
+    print_value("hello");
+    println!("Generic function called s {}.", print_value(3.14));
+}

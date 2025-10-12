@@ -987,41 +987,67 @@ fn main() {
    - This means the function takes an argument named value whose type is T (the generic type parameter declared earlier).
    - It connects the parameter value to the generic type placeholder T.
 
-   ```rust
-   fn print_anything<T: Display> (variable:T){
-       println!("{}",variable);
-   }
-   ```
+## 1. Generic Functions That Return a Value (No Display Needed)
 
-   - What does T: Display mean?
+```rust
+    fn identity<T>(value: T) -> T {
+        value
+    }
 
-   - It means "type T must implement the trait Display".
-   - So when you use T in your function, Rust knows it can call methods defined in the Display trait on values of that type.
-   - This is necessary for code safety and correctness so that you don't use a type in a way that it doesn't support.
+    fn main() {
+        let x = identity(42);        // Works, T = i32
+        let y = identity("hello"); // Works, T = &str
+    }
 
-   ## Understanding Display Trait with Examples
+```
 
-   What is the Display Trait?
+## 2. Generic Functions Using println! or Formatting Inside (Require Traits like Display)
 
-   - The Display trait defines how to present a type to end-users as readable text.
+```rust
+    fn print_anything<T: Display> (variable:T){
+        println!("{}",variable);
+    }
+```
 
-   - It is used by Rust's {} formatting marker in println! and string-related macros.
+## Why Rust Requires Display Trait to Print Generic Values
 
-   - Many standard types like integers, strings, and floats implement Display behind so they can print nicely.
+- When you write a generic function in Rust that prints or formats a generic parameter value, Rust must be sure that the type of value supports printing.
 
-   ```rust
-   use std::fmt::Display;
+- What does T: Display mean?
 
-   fn print_anything<T: Display>(value: T) {
-       println!("Value: {}", value);
-   }
+- It means "type T must implement the trait Display".
+- So when you use T in your function, Rust knows it can call methods defined in the Display trait on values of that type.
 
-   fn main() {
-       print_anything(10);
-       print_anything("world");
-   }
+## Understanding Display Trait with Examples
 
-   ```
+What is the Display Trait?
+
+- The Display trait defines how to present a type to end-users as readable text.
+
+- It is used by Rust's {} formatting marker in println! and string-related macros.
+
+- Many standard types like integers, strings, and floats implement Display behind so they can print nicely.
+
+```rust
+use std::fmt::Display;
+
+fn print_anything<T: Display>(value: T) {
+    println!("Value: {}", value);
+}
+
+fn main() {
+    print_anything(10);
+    print_anything("world");
+}
+
+```
+
+## 3. Using Custom Traits with Generic Functions
+
+- You can define your own traits that describe behaviors you want generic types to have.
+- Define the trait with required methods.
+- Implement the trait for custom or existing types.
+- Use trait bounds to restrict generic parameters to those types.
 
 2. Generic Structs
 
