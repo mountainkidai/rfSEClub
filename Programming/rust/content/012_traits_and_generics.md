@@ -84,6 +84,16 @@ let age = person.1;     // 25
 let active = person.2;  // true
 ```
 
+## Destructuring Tuples
+
+- You can unpack a tuple into individual variables
+
+```rust
+let (name, age, active) = person;
+println!("{} is {} years old", name, age);
+
+```
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
