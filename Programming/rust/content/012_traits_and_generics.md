@@ -1,3 +1,89 @@
+## Types
+
+- A type tells Rust what kind of data a value holds.
+- It defines:
+
+  - How the data is stored (memory layout)
+  - What operations you can perform (math, comparison, etc.)
+
+- Why Types?
+
+  - Why Are Types Important?
+    - Safety: Rust uses types to prevent errors like mixing numbers and text.
+    - Performance: Knowing types at compile time lets Rust generate efficient code.
+    - Clarity: Types make your code self-explanatory and easier to maintain.
+
+## Scalar Types
+
+- Scalar types represent a single value.
+- Imagine your data as items in boxes. Each box has a label:
+- "Integer
+  - Whole numbers without decimals.
+- Floating-Point Numbers
+  - Numbers with decimals.
+- Booleans
+  - Represent true or false.
+- Characters
+  - Represent a single Unicode scalar value.
+
+```rust
+fn main() {
+    let x: i32 = 42;  // 32-bit signed integer
+    let y: u8 = 255;  // 8-bit unsigned integer
+    let pi: f64 = 3.1415;     // pi is a 64-bit floating point
+    let is_rust_fun: bool = true; // is_rust_fun is a boolean
+    let greeting: &str = "hello";    // greeting is a string slice
+
+    println!("x = {}, pi = {}, fun = {}, greeting = {}", x, pi, is_rust_fun, greeting);
+}
+// Output: x = 10, pi = 3.1415, fun = true, greeting = hello
+```
+
+```text
+Type    |  Description                      |  Example Values
+--------+-----------------------------------+--------------------
+i32     |  32-bit signed integer            |  -100, 0, 42
+u8      |  8-bit unsigned integer           |  0, 255
+f64     |  64-bit floating point (decimal)  |  3.14, -2.71
+bool    |  Boolean value true or false      |  true,false
+char    |  Single Unicode character         |  'a','Ω'
+&str    |  String slice (immutable text)    |  "hello", "Rust"
+String  |  Growable, heap-allocated string  |  String::from("hi")
+```
+
+## 2. Compound Types: Grouping Data
+
+- Compound types hold multiple values together.
+- Tuples
+
+  - A tuple is a collection of items stored together in a specific order. Think of it like a container holding several things in a row—you can look at each thing by its position.
+  - They are ordered, so the position of each item matters and doesn't change.
+  - Tuples are fixed in size: once created, you can’t add or remove items.
+  - Tuples are immutable by default: you can’t change their values unless declared mutable.
+  - Tuples are heterogeneous: they can hold values of different types together.
+  - Items inside a tuple can be of different types like numbers, words, or even true/false values.
+
+```rust
+fruit_tuple = ("apple", "banana", "cherry")
+print(fruit_tuple)  # outputs: ('apple', 'banana', 'cherry')
+
+```
+
+## Types in Tuples
+
+- Tuples can hold multiple types of data together. The items don’t all need to be the same type.
+
+```rust
+let person = ("Alice", 25, true);
+let coordinates: (f64, f64) = (3.5, 7.2);
+let info: (&str, u8, bool) = ("Bob", 30, false);
+
+// Accessing Values
+let name = person.0; // "Alice"
+let age = person.1;     // 25
+let active = person.2;  // true
+```
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
