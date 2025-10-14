@@ -94,6 +94,20 @@ println!("{} is {} years old", name, age);
 
 ```
 
+## Returning Multiple Values from Functions
+
+- Tuples shine when returning more than one value:
+
+```rust
+fn divide_remainder(a: i32, b: i32) -> (i32, i32) {
+    (a / b, a % b)
+}
+
+let result = divide_remainder(10, 3);
+println!("Quotient: {}, Remainder: {}", result.0, result.1);
+
+```
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
