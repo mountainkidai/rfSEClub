@@ -164,9 +164,22 @@ alice.name
 
 ## 2. Enums
 
-An enum lets you define a type that can be one of several named variants, optionally containing data.
+An enum in Rust is like a list of choices where a value can be exactly one of those choices, called variants (Quit,Move,Write). Each variant can also hold its own data if needed (Move {x:i32,y:i32}). This helps you represent things that can be different types or states but are still grouped as one overall concept.
 
-Example:
+Imagine you have a type called Shape that can be a Circle, Square, or Triangle. An enum lets you say "a shape is one of these kinds, but not more than one at the same time."
+
+### Example
+
+```rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+}
+
+let msg1 = Message::Quit;
+let msg = Message::Move { x: 10, y: 20 };
+```
 
 ## Traits
 
