@@ -132,6 +132,42 @@ let mut mut_tup = (1, "hello", true);
 mut_tup.0 = 2;  // This works because mut_tup is mutable
 ```
 
+## User-defined Types in Rust
+
+- User-defined Types — structs, enums, and unions. These let you create your own complex types by combining simpler ones.
+
+## 1. Structs
+
+- A struct is like a custom record or data container with named fields. It bundles related data into one type, making it easier to organize
+  your program.
+
+### Example
+
+```rust
+struct Person {
+    name: String,
+    age: u8,
+}
+
+let alice = Person {
+    name: String::from("Alice"),
+    age: 30,
+};
+
+```
+
+You access fields with dot notation
+
+```rust
+alice.name
+```
+
+## 2. Enums
+
+An enum lets you define a type that can be one of several named variants, optionally containing data.
+
+Example:
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
