@@ -181,6 +181,69 @@ let msg1 = Message::Quit;
 let msg = Message::Move { x: 10, y: 20 };
 ```
 
+### Match
+
+- The match statement in Rust is a powerful way to compare a value against a series of patterns and execute different code depending on which pattern matches. It works a bit like a switch in other languages but much more powerful and safe.
+
+```rust
+let number = 3;
+match number {
+    1 => println!("One"),
+    2 => println!("Two"),
+    3 => println!("Three"),
+    _ => println!("Something else"),
+}
+
+```
+
+### Important Features
+
+- Exhaustiveness: You must cover all possible cases, so the compiler checks you've handled every scenario. The wildcard \_ pattern catches everything else.
+
+- Multiple Values in One Arm: You can use | to combine patterns that run the same code.
+
+```rust
+match number {
+    1 | 2 | 3 => println!("One, two, or three"),
+    _ => println!("Other"),
+}
+```
+
+### Ranging patterns
+
+```rust
+match number {
+    1..=5 => println!("Between one and five"),
+    _ => println!("Other"),
+}
+```
+
+## Two Key Enums
+
+### The Option enum represents a value that can either be
+
+- Some(T) — contains a value of type T.
+- None — means no value.
+- This is Rust's way of handling values that might be missing (like "null" in other languages, but safer).
+
+```rust
+fn double(num: Option<i32>) -> Option<i32> {
+    match num {
+        Some(n) => Some(n * 2),  // If a value exists, double it
+        None => None,            // Otherwise, keep None
+    }
+}
+
+fn main() {
+    let five = Some(5);
+    let none: Option<i32> = None;
+
+    println!("Double of 5 is: {:?}", double(five)); // Prints: Some(10)
+    println!("Double of None is: {:?}", double(none)); // Prints: None
+}
+
+```
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
