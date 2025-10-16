@@ -253,6 +253,39 @@ fn main() {
 
 ```
 
+### Match with Result
+
+#### Result<T, E> represents either a successful outcome:
+
+- Ok(value) — contains a successful value
+- Err(error) — contains an error
+
+```rust
+fn divide(a: f64, b: f64) -> Result<f64, String> {
+    if b == 0.0 {
+        Err(String::from("Cannot divide by zero"))
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    let result1 = divide(10.0, 2.0);
+    let result2 = divide(5.0, 0.0);
+
+    match result1 {
+        Ok(value) => println!("Success: {}", value),
+        Err(e) => println!("Error: {}", e),
+    }
+
+    match result2 {
+        Ok(value) => println!("Success: {}", value),
+        Err(e) => println!("Error: {}", e),
+    }
+}
+
+```
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
