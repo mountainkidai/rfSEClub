@@ -220,17 +220,19 @@ match number {
 
 ## Two Key Enums
 
-### The Option enum represents a value that can either be
+### Math with Option enum
+
+#### The Option enum represents a value that can either be
 
 - Some(T) — contains a value of type T.
 - None — means no value.
 - This is Rust's way of handling values that might be missing (like "null" in other languages, but safer).
 
 ```rust
-fn double(num: Option<i32>) -> Option<i32> {
-    match num {
-        Some(n) => Some(n * 2),  // If a value exists, double it
-        None => None,            // Otherwise, keep None
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,          // No value: return None
+        Some(i) => Some(i + 1), // Value `i`: add 1 and wrap in Some
     }
 }
 
@@ -238,9 +240,16 @@ fn main() {
     let five = Some(5);
     let none: Option<i32> = None;
 
-    println!("Double of 5 is: {:?}", double(five)); // Prints: Some(10)
-    println!("Double of None is: {:?}", double(none)); // Prints: None
+    let six = plus_one(five);
+    let still_none = plus_one(none);
+
+    println!("six = {:?}", six);         // Outputs: six = Some(6)
+    println!("still_none = {:?}", still_none); // Outputs: still_none = None
 }
+
+// When you write let five = 6;, the variable five directly holds the integer 6. Its type is i32 (by default).
+// When you write let five: Option<i32> = Some(6);, the variable five holds an Option wrapping the integer 6. It’s not just an i32; it’s an Option<i32>, which means it may or may not have an i32 inside.
+
 
 ```
 
