@@ -108,6 +108,30 @@ println!("Quotient: {}, Remainder: {}", result.0, result.1);
 
 ```
 
+## You can also have nested tuples or collections inside a tuple:
+
+```rust
+nested = (42, (1, 2), [3, 4])  # contains an int, a tuple, and a list
+
+```
+
+## Creating a Tuple with One Item
+
+- To create a tuple with a single value, add a comma after the item:
+
+```rust
+single = ("apple",)  # This is a tuple
+not_tuple = ("apple")  # This is just a string in parentheses
+
+```
+
+```rust
+let tup = (1, "hello", true);
+// tup.0 = 2;  // Error: cannot assign to immutable tuple
+let mut mut_tup = (1, "hello", true);
+mut_tup.0 = 2;  // This works because mut_tup is mutable
+```
+
 ## Traits
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
