@@ -288,3 +288,24 @@ unsafe {
 ```
 
 ### Pointer & Reference Types
+
+#### References (&T and &mut T)
+
+- References are borrowed pointers. They let you refer to some data without owning it.
+- You can have immutable references (&T) or mutable references (&mut T).
+- They live on the stack and don't directly own data.
+- Rust ensures references are always safe with rules enforced by the borrow checker.
+
+Example:
+
+```rust
+rust
+let x = 5;
+let y = &x; // Immutable reference to x
+println!("y: {}", y);
+
+let mut a = 10;
+let b = &mut a; // Mutable reference to a
+\*b += 5;
+println!("a after mutation: {}", a);
+```
