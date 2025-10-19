@@ -55,18 +55,22 @@ trait Printable {
 - Once a trait is defined, you implement it for specific types using the impl keyword.
 
 ```rust
-trait Printable {
+trait Printable{
     fn print(&self);
 }
 
-struct Person {
-    name: String,
+struct Person{
+    name:String,
 }
-// here we are implementing Printable for Person Struct type
+
 impl Printable for Person {
-    fn print(&self) {
-        println!("Person: {}", self.name);
+    fn print(&self){
+        println!("person:{}",self.name);
     }
+}
+
+fn main(){
+    Person{name:"koel".to_string(),}.print();
 }
 
 ```
@@ -91,10 +95,23 @@ fn main() {
     print_value(3.14);
 }
 
-//Output:
-// Got a value!
-// Got a value!
-// Got a value!
+// but to add print feature , we need add Display trait and we will discuss this in detail later.
+
+
+fn print_value<T: std::fmt::Debug>(value: T) {
+    println!("Got a value! {:?}",value);
+}
+
+fn main() {
+    print_value(42);
+    print_value("hello");
+    print_value(3.14);
+}
+//OUTPUT:
+// Got a value! 42
+// Got a value! "hello"
+// Got a value! 3.14
+
 
 ```
 
@@ -114,7 +131,7 @@ fn main() {
 use std::fmt::Display;
 
 fn print_value<T: Display>(value: T) {
-    println!("{}", value);
+    println!("{:?}", value);
 }
 
 fn main() {
