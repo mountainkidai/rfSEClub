@@ -83,3 +83,23 @@ fn main() {
 }
 
 ```
+
+## Crates
+
+A crate is a compilation unit and package in Rust.
+
+Can be a binary crate (executable) or library crate (reusable code).
+
+cargo manages crates and dependencies.
+
+Each crate has a root file (main.rs for binary, lib.rs for library).
+
+## Why use modules & crates?
+
+Keep code organized and manageable in large codebases.
+
+Enable code reuse (libraries).
+
+Control visibility (private/public).
+
+Crates allow publishing packages for reuse.
