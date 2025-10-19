@@ -50,7 +50,7 @@ Simple: Like a direct phone line that stays open for both sides to talk any time
 
 Use: Real-time apps like chat, live data feeds.
 
-### Summary Chronology:
+### Summary Chronology
 
 TCP: Reliable network communication foundation.
 
