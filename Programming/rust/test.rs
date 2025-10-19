@@ -20,12 +20,25 @@
 //     Person{name:"koeld".to_string(),}.display();
 // }
 
-fn print_value<T: std::fmt::Debug>(value: T) {
-    println!("Got a value! {:?}",value);
+trait Greet {
+    fn print(self);
+}
+
+struct Person {
+    name: String,
+}
+
+impl Greet for Person {
+    fn print(self) {
+        println!("Hello, my name is {}", self.name);
+    }
 }
 
 fn main() {
-    print_value(42);
-    print_value("hello");
-    print_value(3.14);
+    let person = Person {
+        name: String::from("Alice"),
+    };
+    println!("person name is: {}", person.name);
+    person.print();
+    println!("eop person name is: {}", person.name); 
 }

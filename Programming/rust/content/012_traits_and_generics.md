@@ -173,6 +173,32 @@ fn main() {
 
 ```rust
 trait Greet {
+    fn print(self);
+}
+
+struct Person {
+    name: String,
+}
+
+impl Greet for Person {
+    fn print(self) {
+        println!("Hello, my name is {}", self.name);
+    }
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Alice"),
+    };
+    println!("person name is: {}", person.name);
+    person.print();
+    println!("eop person name is: {}", person.name); // This will cause a compile-time error
+}
+
+```
+
+```rust
+trait Greet {
     fn print(&self);
 }
 
@@ -192,12 +218,12 @@ fn main() {
     };
     println!("person name is: {}", person.name);
     person.print();
-    println!("eop person name is: {}", person.name); // This will cause a compile-time error
+    println!("eop person name is: {}", person.name);
 }
-//output:
+
+// OUTPUT:
 // person name is: Alice
 // Hello, my name is Alice
-// eop person name is: Alice
 ```
 
 ```rust
