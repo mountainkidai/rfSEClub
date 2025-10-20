@@ -582,6 +582,42 @@ fn main(){
 
 - It uses static dispatch, meaning the compiler knows the exact types (Cat and Dog) at compile time, and it generates specific, optimized code for each call to talk() depending on the concrete type. The cat.talk() directly calls Cat's implementation, and similarly for dog.talk().
 
+### What is a Concrete Type?
+
+- The concrete type is the actual, exact type of a value in your program, known at compile time. For example:
+
+```rust
+struct Dog;
+struct Cat;
+
+let dog = Dog; // Dog is a concrete type
+let cat = Cat; // Cat is a concrete type
+```
+
+Here, Dog and Cat are concrete types — you know exactly what they are.
+
+### What is a Trait Object (dyn Trait)?
+
+- A trait object like &dyn Animal is a pointer to some value that implements the Animal trait, but you don't know exactly which concrete type it is at compile time. It could be a Dog, Cat, or anything else that implements Animal.
+
+### For example:
+
+```rust
+let animal: &dyn Animal = &dog; // type erased to trait object
+```
+
+- The concrete type is still Dog, but this info is hidden behind dyn Animal.
+
+- animal is a trait object pointer to something implementing Animal, but Rust treats it uniformly without needing to know it’s a Dog.
+
+- Rust stores internally a pointer to the data (dog) and a vtable with method addresses for Dog.
+
+### Why Does This Matter?
+
+- When you call animal.talk(), Rust uses the vtable to look up and call the correct method dynamically based on the concrete type (Dog here).
+- This is dynamic dispatch: method selection at runtime.
+- You lose compile-time knowledge of the type but gain flexibility to write code that works with any type implementing the trait.
+
 ### Dyn Trait
 
 ```rust
