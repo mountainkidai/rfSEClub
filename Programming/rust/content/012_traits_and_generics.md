@@ -546,6 +546,42 @@ fn main() {
   - They allow writing code once that works for any printable type.
   - You can reuse display with Person, String, or any other type that implements Printable.
 
+### dyn Trait - Trait Objects
+
+#### Without Trait Objects (No dyn Trait)
+
+- Suppose you want to write a function to make animals talk. Without trait objects, you must write separate functions for each animal type:
+
+```rust
+struct Dog;
+struct Cat;
+
+trait Animal{
+    fn talk(&self);
+}
+
+impl Animal for Dog{
+    fn talk(&self){
+        println!("dog says bow bow");
+    }
+}
+
+impl Animal for Cat{
+    fn talk(&self){
+        println!("Cat says meow meow");
+    }
+}
+
+fn main(){
+    let cat = Cat;
+    let dog = Dog;
+    cat.talk();
+    dog.talk();
+}
+```
+
+- It uses static dispatch, meaning the compiler knows the exact types (Cat and Dog) at compile time, and it generates specific, optimized code for each call to talk() depending on the concrete type. The cat.talk() directly calls Cat's implementation, and similarly for dog.talk().
+
 ### Traits with Default Implementations and Inheritance
 
 ```rust

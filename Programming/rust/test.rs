@@ -1,31 +1,25 @@
-// trait Printable{
-//     fn print(&self);
-// }
+struct Dog;
+struct Cat;
 
-// struct Person{
-//     name:String,
-// }
+trait Animal{
+    fn talk(&self);
+}
 
-// impl Printable for Person {
-//     fn print(&self){
-//         println!("person:{}",self.name);
-//     }
-// }
-
-// fn display<T:Printable>(item:T){
-//     item.print();
-// }
-
-// fn main(){
-//     Person{name:"koeld".to_string(),}.display();
-// }
-
-  fn identity<T>(value: T) -> T {
-        value
+impl Animal for Dog{
+    fn talk(&self){
+        println!("dog says bow bow");
     }
+}
 
-    fn main() {
-        let x = identity(42);        // Works, T = i32
-        let y = identity("hello"); // Works, T = &str
-        println!("x and y are {} and {}",x,y);
+impl Animal for Cat{
+    fn talk(&self){
+        println!("Cat says meow meow");
     }
+}
+
+fn main(){
+    let cat = Cat;
+    let dog = Dog;
+    cat.talk();
+    dog.talk();
+}
