@@ -20,25 +20,12 @@
 //     Person{name:"koeld".to_string(),}.display();
 // }
 
-trait Greet {
-    fn print(self);
-}
-
-struct Person {
-    name: String,
-}
-
-impl Greet for Person {
-    fn print(self) {
-        println!("Hello, my name is {}", self.name);
+  fn identity<T>(value: T) -> T {
+        value
     }
-}
 
-fn main() {
-    let person = Person {
-        name: String::from("Alice"),
-    };
-    println!("person name is: {}", person.name);
-    person.print();
-    println!("eop person name is: {}", person.name); 
-}
+    fn main() {
+        let x = identity(42);        // Works, T = i32
+        let y = identity("hello"); // Works, T = &str
+        println!("x and y are {} and {}",x,y);
+    }

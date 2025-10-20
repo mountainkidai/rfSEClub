@@ -263,31 +263,31 @@ fn main() {
 
 ## Types of Generics
 
-1. Generic Functions
+### Generic Functions
 
-   - A generic function lets you write one function that works for any type.
-   - Instead of separate functions for numbers and text, write one generic function.
-   - Generics allow you to write code with placeholder types like `<T>`.
-   - They enable code reuse without losing type safety.
+- A generic function lets you write one function that works for any type.
+- Instead of separate functions for numbers and text, write one generic function.
+- Generics allow you to write code with placeholder types like `<T>`.
+- They enable code reuse without losing type safety.
 
-   ```rust
-   You specify generics with
+```rust
+You specify generics with
 
-   fn print_anything<T> (variable:T){}
-   fn print_anything<A> (variable:T){}
-   ```
+fn print_anything<T> (variable:T){}
+fn print_anything<A> (variable:T){}
+```
 
-   ## `<T>` after the function name
+## `<T>` after the function name
 
-   - This declares T as a generic type parameter for the function.
-   - It tells Rust: "This function is generic and uses the placeholder type T."
+- This declares T as a generic type parameter for the function.
+- It tells Rust: "This function is generic and uses the placeholder type T."
 
-   ## value: T inside the parentheses
+## value: T inside the parentheses
 
-   - This means the function takes an argument named value whose type is T (the generic type parameter declared earlier).
-   - It connects the parameter value to the generic type placeholder T.
+- This means the function takes an argument named value whose type is T (the generic type parameter declared earlier).
+- It connects the parameter value to the generic type placeholder T.
 
-## 1. Generic Functions That Return a Value (No Display Needed)
+### Generic Functions That Return a Value (No Display Needed)
 
 ```rust
     fn identity<T>(value: T) -> T {
@@ -297,11 +297,13 @@ fn main() {
     fn main() {
         let x = identity(42);        // Works, T = i32
         let y = identity("hello"); // Works, T = &str
+        println!("x and y are {} and {}",x,y);
     }
+// x and y are 42 and hello
 
 ```
 
-## 2. Generic Functions Using println! or Formatting Inside (Require Traits like Display)
+### Generic Functions Using println! or Formatting Inside (Require Traits like Display)
 
 ```rust
     fn print_anything<T: Display> (variable:T){
