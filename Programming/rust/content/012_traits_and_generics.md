@@ -497,7 +497,7 @@ fn main() {
 }
 ```
 
-## Using Traits with functions
+## REVISION: Using Traits with functions
 
 - You can write functions that accept any type that implements a certain trait, making your code flexible:
 
@@ -546,28 +546,7 @@ fn main() {
   - They allow writing code once that works for any printable type.
   - You can reuse display with Person, String, or any other type that implements Printable.
 
-## Trait Bounds
-
-## Generic Traits
-
-- When you declare a trait with a generic type parameter <T>, you create a trait family parameterized by T.
-- The trait functions might depend on that generic type.
-- You usually use the generic type inside the trait methods, like:
-
-```rust
-trait Printable<T> {
-    fn print(&self, value: T);
-}
-// When implementing this trait, you specify the concrete type for T:
-impl Printable<String> for Person {
-    fn print(&self, value: String) {
-        println!("Person: {}, Value: {}", self.name, value);
-    }
-}
-
-```
-
-## 4. Traits with Default Implementations and Inheritance
+### Traits with Default Implementations and Inheritance
 
 ```rust
 // Traits can provide default method implementations:
