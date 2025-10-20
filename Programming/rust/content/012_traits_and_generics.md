@@ -666,15 +666,56 @@ fn main() {
 
 ### Traits with Default Implementations and Inheritance
 
+- You define methods with bodies inside the trait. Any type implementing the trait automatically gets that default method unless it provides its own.
+
 ```rust
 // Traits can provide default method implementations:
-trait Greet {
-    fn greet(&self) {
-        println!("Hello!");
+trait Animal {
+    fn talk(&self) {
+        println!("Some generic animal noise");
+    }
+}
+```
+
+### Overriding defaults in implementations
+
+- When you implement the trait for a particular type, you can override the default method with a specific version.
+
+```rust
+trait Animal {
+    fn talk(&self) {
+        println!("Some generic animal noise");  // Default implementation
     }
 }
 
+struct Dog;
+struct Cat;
+
+impl Animal for Dog {
+    fn talk(&self) {
+        println!("Dog says bow bow");   // Overrides default
+    }
+}
+
+impl Animal for Cat {
+    // Uses default talk()
+}
+
+fn main() {
+    let dog = Dog;
+    let cat = Cat;
+
+    dog.talk();  // Dog says bow bow
+    cat.talk();  // Some generic animal noise (default)
+}
+
 ```
+
+### Why use default implementations?
+
+- Reduce boilerplate by writing shared logic in one place (the trait).
+- Allow implementors to override behavior when needed.
+- Makes traits more powerful and flexible.
 
 ## 5.Associated Types in Traits
 
