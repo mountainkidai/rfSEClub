@@ -290,20 +290,30 @@ async fn main() {
 
 ```
 
-### Explanation for your example
+### Using async-trait Crate for Simplicity
 
-say_hello() returns a Future (impl Future<Output=String>) similar to SayHelloFuture.
+The async-trait crate lets you write async methods in traits naturally:
 
-.await makes the runtime poll this future.
+```rust
+use async_trait::async_trait;
 
-Since your future immediately returns a string, it quickly returns Poll::Ready("Hello, world!".to_string()).
+#[async_trait]
+trait AsyncSpeak {
+    async fn say(&self);
+}
 
-The await completes and the main function continues with the result.
+struct Dog;
 
-```
+#[async_trait]
+impl AsyncSpeak for Dog {
+    async fn say(&self) {
+        println!("Woof!");
+    }
+}
 
-```
-
-```
-
+#[tokio::main]
+async fn main() {
+    let dog = Dog;
+    dog.say().await;
+}
 ```
