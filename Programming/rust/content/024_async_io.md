@@ -158,3 +158,152 @@ tokio::spawn does not always create a new thread. Tokio uses a thread pool and i
 Tokio’s runtime uses cooperative multitasking, where tasks yield at .await points. It multiplexes many async tasks on limited OS threads, minimizing system resource usage.
 
 This explicit control increases flexibility and efficiency, unlike JavaScript’s implicit event-driven model.
+
+### Async in Traits - Simple Explanation with Examples
+
+What is a State Machine in Futures?
+When you write an async function like say_hello(), Rust transforms it into a state machine under the hood. This state machine keeps track of "where it is" in the async function's flow since async functions can be suspended and resumed multiple times.
+
+Imagine the async function is a vending machine.
+
+Each point where it might need to wait (like waiting for input or network) is a state.
+
+Polling the Future is like pressing a button on the vending machine to check if it's ready for the next step.
+
+The Future remembers the current state and moves forward when polled.
+
+Since in your example say_hello() returns immediately, there is basically one state that immediately returns a result.
+
+What is Polling?
+Polling means checking the Future's progress. The runtime calls the Future's poll method repeatedly.
+
+If the Future still needs to do some work or wait, poll returns Poll::Pending.
+
+If the Future has finished the work and has a value, it returns Poll::Ready(value).
+
+The runtime keeps polling until it gets Poll::Ready.
+
+.await and the Runtime
+When you use .await, Rust pauses the current async function until the Future is ready:
+
+The executor (like Tokio runtime) polls the Future repeatedly.
+
+When the Future is ready, .await resumes and returns the value.
+
+### What is the Future trait?
+
+The Future trait represents an asynchronous computation that may not have completed yet. It has:
+
+An associated output type: Output, the value produced when the future is ready.
+
+A method poll that the async runtime calls to check if the future is done.
+
+```rust
+trait Future {
+    type Output;
+    fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output>;
+}
+
+```
+
+poll returns Poll::Ready(val) when done, or Poll::Pending if not ready.
+
+The runtime calls poll repeatedly to drive the future to completion.
+
+### Manually implementing Future
+
+```rust
+struct SayHelloFuture {
+    state: bool,
+}
+
+impl Future for SayHelloFuture {
+    type Output = String;
+
+    fn poll(mut self: Pin<&mut Self>, _cx: &mut Context<'_>) -> Poll<Self::Output> {
+        if self.state {
+            Poll::Ready("Hello, world!".to_string())
+        } else {
+            self.state = true;
+            // In a real async scenario, you would return Poll::Pending here
+            Poll::Ready("Hello, world!".to_string())
+        }
+    }
+}
+```
+
+SayHelloFuture simulates a simple future with a state.
+
+When polled the first time, it sets state and returns ready immediately.
+
+Real futures may return Poll::Pending to indicate work is ongoing.
+
+## 3. Relation to async trait methods with associated futures
+
+When you write an async fn, Rust automatically generates a state machine implementing Future with a complex anonymous type. You can't write this type explicitly in stable Rust, so you:
+
+Define a trait with an associated type Fut representing some future.
+
+Return this future from the trait method.
+
+```rust
+use std::future::Future;  // Import the Future trait from stdlib
+
+// Define a trait with an associated type 'Fut' which must implement Future
+// The Output = String means the Future resolves to a String value
+trait AsyncTrait {
+    type Fut: Future<Output = String>;  // Associated type: named future returned by do_work
+
+    // Method that returns the future; NOT an async fn itself
+    fn do_work(&self) -> Self::Fut;
+}
+
+// A struct which will implement the trait
+struct MyStruct;
+
+// Implement the trait for MyStruct
+impl AsyncTrait for MyStruct {
+    // Use `impl Future` to tell the compiler the return type is some Future resolving to String
+    type Fut = impl Future<Output = String>;
+
+    // do_work returns an async block, which is a Future
+    fn do_work(&self) -> Self::Fut {
+        async {
+            "Hello from async trait".to_string()  // The resolved value of the Future
+        }
+    }
+}
+
+// Tokio runtime needed to drive async futures; uses #[tokio::main] macro to start runtime
+#[tokio::main]
+async fn main() {
+    let s = MyStruct;
+
+    // Call the trait method: returns a Future
+    // Await the future to get the String result asynchronously
+    let result = s.do_work().await;
+
+    // Print the result
+    println!("{}", result);
+}
+
+
+```
+
+### Explanation for your example
+
+say_hello() returns a Future (impl Future<Output=String>) similar to SayHelloFuture.
+
+.await makes the runtime poll this future.
+
+Since your future immediately returns a string, it quickly returns Poll::Ready("Hello, world!".to_string()).
+
+The await completes and the main function continues with the result.
+
+```
+
+```
+
+```
+
+```
