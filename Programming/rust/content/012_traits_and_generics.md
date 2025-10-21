@@ -842,3 +842,54 @@ fn main(){
 
 - Use : to say a type implements a trait.
 - Use :: to access an item inside a type or trait, like an associated type, constant, or method
+
+### Advanced Trait Patterns
+
+#### Blanket Implementations
+
+What is it?
+It means "implementing a trait for all types (or all types meeting certain conditions) at once."
+
+Instead of writing the same trait implementation repeatedly for many types, you write a generic one rule that applies broadly.
+
+### Simple analogy
+
+- Imagine a "Speak" rule that says "everyone who knows a language can say hello." Instead of teaching each person individually how to say hello, you teach the rule generally.
+
+```rust
+// Trait that defines greeting behavior
+trait HasName {
+    fn name(&self) -> &str;
+}
+
+trait CanGreet {
+    fn greet(&self);
+}
+
+// Blanket implementation of CanGreet for any type that implements HasName
+impl<T> CanGreet for T
+where
+    T: HasName,
+{
+    fn greet(&self) {
+        println!("Hello, {}!", self.name());
+    }
+}
+
+// Specific type implementing HasName
+struct Person {
+    name: String,
+}
+
+impl HasName for Person {
+    fn name(&self) -> &str {
+        &self.name
+    }
+}
+
+fn main() {
+    let p = Person { name: "Alice".to_string() };
+    p.greet();  // CanGreet implemented automatically!
+}
+
+```
