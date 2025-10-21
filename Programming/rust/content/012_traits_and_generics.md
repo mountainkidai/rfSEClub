@@ -893,3 +893,44 @@ fn main() {
 }
 
 ```
+
+### 2. Combination with Generics and Lifetimes
+
+#### What is it?
+
+Traits often use generic types and lifetimes to be flexible and safe.
+
+Generics allow traits to work with any data type.
+
+Lifetimes ensure references don’t become invalid (no dangling refs).
+
+### Simple analogy
+
+- Think of "LanguageSpeaker" as a trait generic over the language they speak, and we track how long that "language proficiency" lasts (lifetime).
+
+```rust
+trait Greeter<'a, T> {
+    fn greet(&self, name: &'a str) -> T;
+}
+
+struct Dog;
+
+impl<'a> Greeter<'a, String> for Dog {
+    fn greet(&self, name: &'a str) -> String {
+        format!("{} the dog says woof!", name)
+    }
+}
+
+fn greet_any<'a, T, G>(greeter: &G, name: &'a str) -> T
+where
+    G: Greeter<'a, T>,
+{
+    greeter.greet(name)
+}
+
+fn main() {
+    let dog = Dog;
+    let greeting = greet_any(&dog, "Rex");
+    println!("{}", greeting);
+}
+```

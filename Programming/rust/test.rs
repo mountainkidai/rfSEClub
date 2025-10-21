@@ -1,14 +1,25 @@
-fn longer(x: &str, y: &str) -> &str {
-    if x.len() > y.len() { x } else { y }
+// Trait without lifetime annotations
+trait Greeter<T> {
+    fn greet(&self, name: &str) -> T;
+}
+
+struct Dog;
+
+impl Greeter<String> for Dog {
+    fn greet(&self, name: &str) -> String {
+        format!("{} the dog says woof!", name)
+    }
+}
+
+fn greet_any<T, G>(greeter: &G, name: &str) -> T
+where
+    G: Greeter<T>,
+{
+    greeter.greet(name)
 }
 
 fn main() {
-    let string1 = String::from("short");
-    let result;
-    {
-        let string2 = String::from("a longer string");
-        result = longer(string1.as_str(), string2.as_str());
-        println!("Longer string is {}", result);
-    } // string2 is dropped here
-    // println!("Longer string is {}", result); // ERROR if uncommented - dangling reference
+    let dog = Dog;
+    let greeting = greet_any(&dog, "Rex");
+    println!("{}", greeting);
 }
