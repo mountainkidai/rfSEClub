@@ -181,3 +181,25 @@ unsafe {
     // println!("{}", u.i); // Would be unsafe here — we wrote `f`, not `i`
 }
 }
+
+trait FoodProvider<T>{
+    fn food(&self) ->T;
+}
+
+struct Dog;
+
+impl FoodProvider<String> for Dog {
+    fn food(&self)->String {
+        "Fish".to_string()
+    }
+}
+
+fn print_food<P:FoodProvider<String>>(p:&P){
+    println!("Food : {} ", p.food());
+}
+
+
+fn main(){
+    let dog = Dog;
+    print_food(&dog);
+}

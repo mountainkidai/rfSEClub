@@ -1,32 +1,27 @@
+trait FoodProvider{
+    type Food;
+    fn food(&self) ->Self::Food;
+}
+
 struct Dog;
-struct Cat;
 
-trait Animal {
-    fn talk(&self);
-}
-
-impl Animal for Dog {
-    fn talk(&self) {
-        println!("dog says bow bow");
+impl FoodProvider for Dog {
+    type Food = String;
+    fn food(&self)->Self::Food {
+        "Fish".to_string()
     }
 }
 
-impl Animal for Cat {
-    fn talk(&self) {
-        println!("Cat says meow meow");
-    }
+fn print_food<P>(p:&P)
+where
+P:FoodProvider,
+P::Food:std::fmt::Display,
+{
+    println!("Food : {} ", p.food());
 }
 
-fn main() {
-    let cat = Cat;
+
+fn main(){
     let dog = Dog;
-
-    // Trait object references: a pointer to a value of some type implementing Animal
-    let animal1: &dyn Animal = &cat;
-    let animal2: &dyn Animal = &dog;
-
-    // When calling talk(), Rust uses dynamic dispatch:
-    // it looks up the correct method for the actual type to call at runtime.
-    animal1.talk();  // Output: Cat says meow meow
-    animal2.talk();  // Output: dog says bow bow
+    print_food(&dog);
 }
