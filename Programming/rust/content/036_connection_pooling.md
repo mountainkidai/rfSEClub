@@ -67,28 +67,32 @@ fn main() {
 ```rust
 mod bb8 {
     pub struct Pool<T> {
-        manager: T,
+        pub manager: T,
     }
 
     impl<T> Pool<T> {
         pub fn builder() -> PoolBuilder<T> {
             PoolBuilder { manager: None }
         }
-
-        pub async fn build(manager: T) -> Pool<T> {
-            // Normally initiates pool with the manager
-            Pool { manager }
-        }
     }
 
     pub struct PoolBuilder<T> {
-        manager: Option<T>,
+        pub manager: Option<T>,
     }
 
     impl<T> PoolBuilder<T> {
+        // Synchronous build method for this simplified example
         pub fn build(self, manager: T) -> Pool<T> {
             Pool { manager }
         }
+
+        // An async build example that might appear in real code
+        /*
+        pub async fn build(self, manager: T) -> Pool<T> {
+            // simulate async init;
+            Pool { manager }
+        }
+        */
     }
 }
 
@@ -107,19 +111,70 @@ async fn main() {
     // Create new manager (like RedisConnectionManager)
     let manager = CalculatorManager::new(10);
 
-    // Create a pool via bb8 module's builder (like bb8::Pool)
-    let pool = bb8::Pool::builder().build(manager);
+    // Get a PoolBuilder
+    let builder = bb8::Pool::builder();
+
+    // Build the pool using the builder and manager
+    let pool = builder.build(manager);
 
     // Now you have a pool managing your CalculatorManager
     println!("Created a pool with start value: {}", pool.manager.start_value);
 }
 
+
+
 ```
 
-CalculatorManager acts like RedisConnectionManager, created via .new().
+### Imagine you want to buy a custom pizza:
 
-bb8 is a module that contains Pool and PoolBuilder.
+Pool is like a cafe
+When you call Pool::builder(), you are essentially ordering a new pizza building session at the cafe.
 
-You create a pool by calling bb8::Pool::builder() and then .build(manager).
+This returns a PoolBuilder, which is like a customizable pizza order form.
 
-pool holds the manager, similar to how a connection pool holds the connection manager.
+On this order form (PoolBuilder), you specify what you want — for example:
+
+How many pizzas to prepare (max connections).
+
+Special toppings or preparation methods (timeouts, validation).
+
+You don’t give this order directly to the chef yet — you customize it first.
+
+After customization, you give the order (manager) to the cafe
+The manager is like the pizza chef who knows exactly how to make pizzas (create connections).
+
+When you call builder.build(manager), you hand this customized order form to the chef.
+
+The chef then starts making pizzas according to your specifications.
+
+The Pool is the cafe kitchen with pizzas ready to serve.
+
+Flow Summary:
+Pool::builder() — Get the pizza order form (PoolBuilder).
+
+Configure the order on the form (methods on PoolBuilder).
+
+Call build(manager) handing the order to the pizza chef (the manager).
+
+Chef makes pizzas; cafe holds ready pizzas (Pool with live connections).
+
+You grab pizzas instantly from the cafe when hungry (call pool.get() to get a connection)
+
+You pass the manager (the "pizza chef" who knows how to create connections).
+
+The builder takes your options and the manager and builds the actual connection pool (Pool).
+
+The pool is like the pizza shop stocked with ready pizzas (ready database connections).
+
+This pool is what you use in your program to get connections quickly without waiting for new ones to be created each time.
+
+Summary using the pizza analogy:
+Pool::builder() = go to the cafe and get the pizza order form.
+
+Configure your desired pizza (pool settings) on this form (builder).
+
+builder.build(manager) = hand the order form to the chef (manager).
+
+Chef prepares the pizzas as requested, creating the ready pizza shop (Pool).
+
+You use the shop to grab pizzas quickly (use pool to get connections).
