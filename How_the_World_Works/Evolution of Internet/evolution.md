@@ -327,11 +327,11 @@ Example: A 1.5 V battery delivering 2 A of current provides:
 ```text
 Concept  |  Symbol  |  Unit         |  Formula                   |  Meaning
 ---------+----------+---------------+----------------------------+-----------------------
-Charge   |  Q       |  Coulomb (C)  |  —                         |  Amount of electricity
+Charge   |  Q       |  Coulomb (C)  |  Q = Ixt                   |  Amount of electricity
 Current  |  I       |  Ampere (A)   |  I=Q/t                     |  Flow rate of charge per unit time.
-Voltage  |  V       |  Volt (V)     |  V=W/Q                     |  Energy per charge
-Energy   |  E       |  Joule (J)    |  E=V×Q                     |  Total work capacity
-Power    |  P       |  Watt (W)     |  P=V×I                     |  Rate of energy use
+Voltage  |  V       |  Volt (V)     |  V=W(E)/Q                  |  Energy per charge
+Energy   |  E       |  Joule (J)    |  E=V x Q                   |  Total work capacity
+Power    |  P       |  Watt (W)     |  P=E/t or VxI               |  Rate of energy use
 ```
 
 ```text
