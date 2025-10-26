@@ -11,7 +11,7 @@ You: "Phone lines? That sounds slow."
 
 Kleinrock: "It was! But that's where the real innovation came in. We didn't send continuous streams of data. Instead, we broke information into small pieces called packets, and each packet carried the address of where it should go—like tiny mail envelopes. This was packet switching, and it was revolutionary."
 
-## understanding packets:
+## understanding packets
 
 What is electricity? What actually moves?
 
@@ -366,3 +366,22 @@ Explain why power is given by
 P=V×I, and what the unit 'watt' represents.
 
 A power bank has a voltage of 5 V and capacity of 10,000 mAh. If it delivers 2 amps, how much power is it delivering?
+
+### Solutions
+
+- One coulomb is \(6.24 \times 10^{18}\) electrons.
+- Current (\(I\)) is the rate of charge flow: \(I = \frac{Q}{t}\). The unit is amperes (A).
+- Voltage (\(V\)) is energy per charge: \(V = \frac{E}{Q}\). It represents the energy needed to move one coulomb of charge.
+- For total energy, 10,000 joules fits a reasonable battery scale.
+- Electrons move toward the cathode, and ions follow in the electrolyte, maintaining internal charge balance.
+- Voltage acts like pressure that pushes electrons through the wire.
+- Ion movement directions: anions (–) move toward the anode (–), and cations (+) move toward the cathode (+).
+- During recharge, ions such as Zn²⁺ gain electrons (reduction) and return to metal form.
+- Power is the rate at which work is done: for example, \(5\text{ V} \times 2\text{ A} = 10\text{ W}\).
+- For energy capacity in joules:  
+  \[
+  10{,}000 \, \text{mAh} = 10 \, \text{Ah} = 10 \times 3600 = 36{,}000 \, \text{C}
+  \]  
+  \[
+  E = V \times Q = 5 \times 36{,}000 = 180{,}000 \, \text{J}
+  \]
