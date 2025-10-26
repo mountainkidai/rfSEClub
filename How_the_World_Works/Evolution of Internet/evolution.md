@@ -385,3 +385,73 @@ A power bank has a voltage of 5 V and capacity of 10,000 mAh. If it delivers 2 a
   \[
   E = V \times Q = 5 \times 36{,}000 = 180{,}000 \, \text{J}
   \]
+
+# Problem Set: Battery Life & Bulb Duration
+
+## Problem 1: Simple AA Battery with LED Bulb
+
+Given:
+
+- Battery: 1.5 V, 2000 mAh capacity
+- LED bulb power consumption: 0.5 W  
+  Find: How long can the bulb stay lit?
+
+## Problem 2: Power Bank Charging iPhone
+
+Given:
+
+- Power bank: 5 V, 20,000 mAh
+- iPhone 15: requires 5 W average power during charging  
+  Find: Approximately how many hours can the power bank fully charge the iPhone?
+
+## Problem 3: Flashlight Battery
+
+Given:
+
+- Battery: 9 V, 500 mAh capacity
+- Flashlight bulb: 3 W power consumption  
+  Find: How long (in minutes) will the flashlight stay on?
+
+## Problem 4: Multiple Batteries in Series
+
+Given:
+
+- Two 1.5 V batteries connected in series (voltages add), each 1000 mAh
+- Light bulb: 2 W power consumption  
+  Find:
+- a) What is the total voltage?
+- b) What is the total capacity in coulombs?
+- c) How long can the bulb stay lit?
+
+## Problem 5: Comparing Two Power Banks
+
+Power Bank A: 5 V, 10,000 mAh, powering a 2 W device  
+Power Bank B: 5 V, 20,000 mAh, powering a 5 W device  
+Find:
+
+- a) How long does each power bank last?
+- b) Which one lasts longer?
+
+## Problem 6: Smartphone Battery Drain
+
+Given:
+
+- Smartphone battery: 3.85 V, 3500 mAh
+- Average phone power draw while in use: 7 W  
+  Find: How many hours of use can you get from a full charge?
+
+## Problem 7: LED Strip with Battery
+
+Given:
+
+- 12 V rechargeable battery, 5000 mAh capacity
+- LED strip power consumption: 6 W  
+  Find: How long (in hours and minutes) will the LED strip run?
+
+## Problem 8: Headphones Battery
+
+Given:
+
+- Bluetooth headphones battery: 3.7 V, 400 mAh
+- Headphones power draw: 0.2 W  
+  Find: How many hours of continuous playback?
