@@ -1,3 +1,23 @@
+### Database
+
+A database is a structured storage system used to save, query, and manage data. PostgreSQL is a popular open-source relational database system.
+
+#### Connection
+
+A connection is a network session established between your application and the database server. Establishing a connection involves overhead—like authentication, network handshake, and resource allocation—which can be costly if done repeatedly for each database operation.
+
+#### Connection Pool
+
+A connection pool is a cache or pool of pre-established connections to the database. Instead of opening a new connection for each query, the application borrows a connection from the pool, uses it to perform operations, and then returns it to the pool for reuse.
+
+#### Benefits of Connection Pooling:
+
+Performance: Reusing connections avoids the overhead of creating and closing connections repeatedly.
+
+Resource Management: Limits the number of concurrent connections to prevent exhausting database resources.
+
+Concurrency: Supports multiple parallel database operations efficiently.
+
 ```rust
 use dotenv::dotenv;
 use sqlx::PgPool;
