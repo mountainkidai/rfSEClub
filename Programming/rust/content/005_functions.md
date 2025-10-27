@@ -62,3 +62,29 @@ fn main(){
 
 
 ```
+
+```rust
+struct Calc;
+
+// In Rust, associated functions (like constructors or static methods) with the signature fn new() -> Self are called on the type with ::.
+//Instance methods that take &self or &mut self are called on a specific instance with .
+impl Calc{
+//static methodod
+
+    pub fn new() -> Self{
+        println!("object created");
+        Calc
+    }
+    pub fn add(&self,a:i32,b:i32) -> i32 {
+    a+b
+    }
+}
+
+
+fn main(){
+    let rr = Calc::new().add(2,3);
+    println!("result is {rr}");
+}
+
+
+```
