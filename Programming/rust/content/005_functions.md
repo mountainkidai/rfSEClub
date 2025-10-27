@@ -22,3 +22,21 @@ fn main() {
 ```rust
 
 ```
+
+```rust
+fn add(a:i32,b:i32) -> i32{
+    a+b
+}
+
+
+
+fn main() {
+    let num1 = 2;
+    let num2 = 4;
+    let sub = |a:i32,b:i32| a+b;
+    let result = add(num1,num2);
+    let sub_result = sub(num1,num2);
+    println!("sub of {num1} and {num2} is {sub_result}");
+    println!("addition of {num1} and {num2} is {result}");
+}
+```
