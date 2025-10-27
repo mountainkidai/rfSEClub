@@ -40,3 +40,25 @@ fn main() {
     println!("addition of {num1} and {num2} is {result}");
 }
 ```
+
+```rust
+
+fn wrapper_function<F>(func:F)-> i32
+where F: Fn()-> i32,
+{
+    func()
+}
+
+fn add(a:i32,b:i32) -> i32 {
+    a+b
+}
+
+
+fn main(){
+    let result = wrapper_function(|| add(2,3));
+    println!("result is {result}");
+}
+
+
+
+```
