@@ -61,3 +61,21 @@ TLS: Secured communication via encryption.
 HTTP: Structured communication for the web.
 
 WebSocket: Real-time, low-latency two-way communication.
+
+```rust
+mod db;
+use axum::{routing::get};
+use axum::Router;
+
+#[tokio::main]
+async fn main() {
+let app = Router::new()
+.route("/", get(|| async {"Hello Koel"}))
+.route("/health",get(|| async {"PERFECT"}))
+;
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:4000").await.unwrap();
+axum::serve(listener,app).await.unwrap();
+
+}
+
+```
