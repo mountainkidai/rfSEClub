@@ -19,6 +19,32 @@ Resource Management: Limits the number of concurrent connections to prevent exha
 Concurrency: Supports multiple parallel database operations efficiently.
 
 ```rust
+use sqlx::PgPool;              // Import PostgreSQL connection pool
+use anyhow::Result;            // Import error handling
+
+pub struct Database {          // Create Database struct
+    pub pool: PgPool,          // pool = many reusable connections
+}
+
+impl Database {                // Add methods to Database struct
+    pub async fn new(database_url: &str) -> Result<Self> {
+        // async = non-blocking operation
+        // &str = reference to string (connection URL)
+        // Result<Self> = returns Database or Error
+
+        let pool = PgPool::connect(database_url).await?;
+        // PgPool::connect = connect to PostgreSQL
+        // .await? = wait for connection, return error if fails
+
+        println!("✅ Connected to database!");
+
+        Ok(Database { pool })  // Return successful Database
+    }
+}
+
+```
+
+```rust
 use dotenv::dotenv;
 use sqlx::PgPool;
 use bb8_redis::{bb8, RedisConnectionManager};
