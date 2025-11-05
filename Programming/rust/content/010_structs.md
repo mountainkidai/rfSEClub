@@ -139,3 +139,39 @@ String    |  Stack + Heap            |  Owned, mutable string data on heap
 &str      |  Stack + Program Memory  |  Borrowed string slice pointing to static/read-only data
 Box<str>  |  Stack + Heap            |  Owned, immutable string slice on heap
 ```
+
+```rust
+#[derive(Debug)]
+// properties
+struct InstaUser{
+    username : String,
+    age: i32,
+    minor:bool,
+}
+
+// bahavior
+impl InstaUser {
+    fn new_with_age_check(name:String,a:i32)-> InstaUser{
+    let mut minor = false;
+    if a < 18 {
+        minor = true;
+    }
+        InstaUser{
+            username: name,
+            age:a,
+            minor:minor,
+        }
+    }
+}
+
+fn main() {
+    // let user1 = InstaUser {
+    //     username:String::from("Nanda"),
+    //     age:18,
+
+    // };
+    let user2 = InstaUser::new_with_age_check(String::from("Lavesh"),12);
+    println!("user1 is {:?}",user2);
+
+}
+```

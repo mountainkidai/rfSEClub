@@ -119,6 +119,18 @@ println!("The simple interest is: {}", simple_interest);
 
 ---
 
+```rust
+fn main() {
+    let b = 4;
+    {
+        let a= 10;
+        println!("inside block a is {a}");
+    }
+    println!("outside block a is {a}");
+
+}
+```
+
 ## Summary
 
 - Variables are immutable by default; use `mut` to allow mutation.

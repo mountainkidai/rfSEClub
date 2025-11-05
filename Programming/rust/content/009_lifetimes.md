@@ -1,5 +1,7 @@
 ## Lifetimes
 
+Lifetimes annotate how long references are valid.
+
 - In Rust, every reference points to some data in memory.
 
 A lifetime is the span of time (or scope) during which that reference remains valid.
