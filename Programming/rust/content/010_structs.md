@@ -175,3 +175,47 @@ fn main() {
 
 }
 ```
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+
+impl Person {
+    // Associated function (like a constructor)
+    fn new(name: String, age: u32) -> Person {
+        Person { name, age }
+    }
+
+
+    // A method that borrows self immutably
+    fn greet(mut self) {
+        self.name = "Alice".to_string();
+        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
+    }
+
+
+
+
+}
+
+
+fn main() {
+    let mut p = Person::new(String::from("Koel"), 29);
+    p.greet();
+    // println!("Person's name is: {}", p.name);
+}
+
+main stack                      greet stack
+┌───────────────┐               ┌───────────────┐
+│ p: Person     │   --move-->   │ self: Person  │
+│ (owns data)   │               │ (now owns)    │
+└───────────────┘               └───────────────┘
+                                    ↑
+                                    │
+                                dropped after
+                                greet returns
+
+```
