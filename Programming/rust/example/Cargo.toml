@@ -4,3 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+rust-bert = "0.23.0"
+indicatif = { version = "0.18.3", features = ["default"] }
+console = { version = "0.16", features = ["std"] }

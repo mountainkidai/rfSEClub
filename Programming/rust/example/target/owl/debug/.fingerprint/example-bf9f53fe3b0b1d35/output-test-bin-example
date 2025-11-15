@@ -1,6 +1,0 @@
-2025-11-14T13:04:00.658Z INFO  [rustowlc::core] start borrowck of DefId(0:3 ~ example[4581]::main)
-2025-11-14T13:04:00.689Z INFO  [rustowlc::core::analyze] facts of DefId(0:3 ~ example[4581]::main) prepared; start analyze of DefId(0:3 ~ example[4581]::main)
-2025-11-14T13:04:00.692Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
-2025-11-14T13:04:00.693Z INFO  [rustowlc::core] borrow checked: 1 / 1
-2025-11-14T13:04:00.695Z INFO  [rustowlc::core::analyze] borrow check finished
-2025-11-14T13:04:00.765Z INFO  [rustowlc::core] analyzed one item of /Users/komalsambana/projects/opensource/rfSEClub/Programming/rust/example/src/main.rs
