@@ -4,162 +4,27 @@ Compound types in Rust group multiple values into a single type, allowing you to
 
 ### Types
 
-1. tuples
-2. arrays
+Compound Types
 
-## User-defined Types in Rust
+1. Primitive Compound Types (Built-in):​
 
-- User-defined Types — structs, enums, and unions. These let you create your own complex types by combining simpler ones.
+   1. [Tuples](/Programming/rust/content/004a_tuples.md)
+   2. [Arrays](/Programming/rust/content/004b_arrays.md)
 
-## 1. Structs
+2. User-Defined Compound Types:​
 
-- A struct is like a custom record or data container with named fields. It bundles related data into one type, making it easier to organize
-  your program.
+   1. [Structs](/Programming/rust/content/004c_structs.md)
+   2. [Enums](/Programming/rust/content/004d_enums.md)
 
-### Example
+3. Standard Library Compound Types:​
 
-```rust
-struct Person {
-    name: String,
-    age: u8,
-}
+   1. Vectors [Vec](/Programming/rust/content/004e_vectors.md)
+   2. Slices [&[T]](/Programming/rust/content/004f_slices.md)
+   3. Strings (String, &str)
 
-let alice = Person {
-    name: String::from("Alice"),
-    age: 30,
-};
+4. C-Compatible Union Type:​
 
-```
-
-You access fields with dot notation
-
-```rust
-alice.name
-```
-
-## 2. Enums
-
-An enum in Rust is like a list of choices where a value can be exactly one of those choices, called variants (Quit,Move,Write). Each variant can also hold its own data if needed (Move {x:i32,y:i32}). This helps you represent things that can be different types or states but are still grouped as one overall concept.
-
-Imagine you have a type called Shape that can be a Circle, Square, or Triangle. An enum lets you say "a shape is one of these kinds, but not more than one at the same time."
-
-### Example
-
-```rust
-enum Message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-}
-
-let msg1 = Message::Quit;
-let msg = Message::Move { x: 10, y: 20 };
-```
-
-### Match
-
-- The match statement in Rust is a powerful way to compare a value against a series of patterns and execute different code depending on which pattern matches. It works a bit like a switch in other languages but much more powerful and safe.
-
-```rust
-let number = 3;
-match number {
-    1 => println!("One"),
-    2 => println!("Two"),
-    3 => println!("Three"),
-    _ => println!("Something else"),
-}
-
-```
-
-### Important Features
-
-- Exhaustiveness: You must cover all possible cases, so the compiler checks you've handled every scenario. The wildcard \_ pattern catches everything else.
-
-- Multiple Values in One Arm: You can use | to combine patterns that run the same code.
-
-```rust
-match number {
-    1 | 2 | 3 => println!("One, two, or three"),
-    _ => println!("Other"),
-}
-```
-
-### Ranging patterns
-
-```rust
-match number {
-    1..=5 => println!("Between one and five"),
-    _ => println!("Other"),
-}
-```
-
-## Two Key Enums
-
-### Math with Option enum
-
-#### The Option enum represents a value that can either be
-
-- Some(T) — contains a value of type T.
-- None — means no value.
-- This is Rust's way of handling values that might be missing (like "null" in other languages, but safer).
-
-```rust
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    match x {
-        None => None,          // No value: return None
-        Some(i) => Some(i + 1), // Value `i`: add 1 and wrap in Some
-    }
-}
-
-fn main() {
-    let five = Some(5);
-    let none: Option<i32> = None;
-
-    let six = plus_one(five);
-    let still_none = plus_one(none);
-
-    println!("six = {:?}", six);         // Outputs: six = Some(6)
-    println!("still_none = {:?}", still_none); // Outputs: still_none = None
-}
-
-// When you write let five = 6;, the variable five directly holds the integer 6. Its type is i32 (by default).
-// When you write let five: Option<i32> = Some(6);, the variable five holds an Option wrapping the integer 6. It’s not just an i32; it’s an Option<i32>, which means it may or may not have an i32 inside.
-
-
-```
-
-### Match with Result
-
-#### Result<T, E> represents either a successful outcome
-
-- Ok(value) — contains a successful value
-- Err(error) — contains an error
-
-```rust
-fn divide(a: f64, b: f64) -> Result<f64, String> {
-    if b == 0.0 {
-        Err(String::from("Cannot divide by zero"))
-    } else {
-        Ok(a / b)
-    }
-}
-
-fn main() {
-    let result1 = divide(10.0, 2.0);
-    let result2 = divide(5.0, 0.0);
-
-    match result1 {
-        Ok(value) => println!("Success: {}", value),
-        Err(e) => println!("Error: {}", e),
-    }
-
-    match result2 {
-        Ok(value) => println!("Success: {}", value),
-        Err(e) => println!("Error: {}", e),
-    }
-}
-
-```
+   1. Unions (union)
 
 ## Union
 
