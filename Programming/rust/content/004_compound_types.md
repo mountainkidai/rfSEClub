@@ -8,23 +8,23 @@ Compound Types
 
 1. Primitive Compound Types (Built-in):​
 
-   1. [Tuples](/Programming/rust/content/004a_tuples.md)
-   2. [Arrays](/Programming/rust/content/004b_arrays.md)
+   1. [Tuples](https://www.rfse.club/#opensource/Programming/rust/content/004a_tuples.md)
+   2. [Arrays](https://www.rfse.club/#opensource/Programming/rust/content/004b_arrays.md)
 
 2. User-Defined Compound Types:​
 
-   1. [Structs](/Programming/rust/content/004c_structs.md)
-   2. [Enums](/Programming/rust/content/004d_enums.md)
+   1. [Structs](https://www.rfse.club/#opensource/Programming/rust/content/004c_structs.md)
+   2. [Enums](https://www.rfse.club/#opensource/Programming/rust/content/004d_enums.md)
 
 3. Standard Library Compound Types:​
 
-   1. [Vectors](/Programming/rust/content/004e_vectors.md)
-   2. [Slices &[T]](/Programming/rust/content/004f_slices.md)
-   3. [Strings (String, &str)](/Programming/rust/content/004g_strings.md)
+   1. [Vectors](https://www.rfse.club/#opensource/Programming/rust/content/004e_vectors.md)
+   2. [Slices &[T]](https://www.rfse.club/#opensource/Programming/rust/content/004f_slices.md)
+   3. [Strings (String, &str)](https://www.rfse.club/#opensource/Programming/rust/content/004g_strings.md)
 
 4. C-Compatible Union Type:​
 
-   1. [Unions (union)](/Programming/rust/content/004h_unions.md)
+   1. [Unions (union)](https://www.rfse.club/#opensource/Programming/rust/content/004h_unions.md)
 
 ## Union
 
