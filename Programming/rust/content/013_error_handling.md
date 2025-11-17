@@ -1,3 +1,20 @@
+#### Result is an enum type that has two variants:
+
+- Ok(T) which represents success and contains a value of type T
+- Err(E) which represents an error and contains an error value of type E
+
+#### Option is an enum type that has two variants:
+
+- Some(T) which contains a value of type T
+- None which represents the absence of a value
+
+Both Result and Option represent types that can either hold a value or represent a non-success/failure/absence.
+
+#### The methods unwrap() and expect() are provided on both Option and Result to extract the contained value when you are certain it is present (i.e., either Some or Ok):
+
+- unwrap() extracts the value and panics if called on None or Err.
+- expect() does the same but lets you provide a custom panic message for better debugging and clarity when the extraction fails.
+
 ### Match
 
 - The match statement in Rust is a powerful way to compare a value against a series of patterns and execute different code depending on which pattern matches. It works a bit like a switch in other languages but much more powerful and safe.
@@ -33,6 +50,15 @@ match number {
     1..=5 => println!("Between one and five"),
     _ => println!("Other"),
 }
+```
+
+## Enums
+
+- Take input from user
+
+```rust
+
+
 ```
 
 ## Two Key Enums

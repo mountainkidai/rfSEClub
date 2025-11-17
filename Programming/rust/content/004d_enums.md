@@ -5,32 +5,62 @@ An enum in Rust is like a list of choices where a value can be exactly one of th
 ### Example
 
 ```rust
-// Basic enum with unit variants
 enum Direction {
-    North,
-    South,
     East,
     West,
+    South,
+    North,
 }
 
-// Enum with associated data
-enum Message {
+
+fn main(){
+    let direction = Direction::East;
+
+match direction {
+    Direction::West => println!("go east"),
+    Direction::East => println!("go east"),
+    _=> println!("stand still"),
+};
+}
+```
+
+```rust
+// Basic enum with unit variants
+#[derive(Debug)]
+enum Direction {
+    East,
+    West,
+    South,
+    North,
+}
+#[derive(Debug)]
+enum Message{
     Quit,
-    Move { x: i32, y: i32 },
+    Move {x:i32,y:i32},
     Write(String),
-    ChangeColor(i32, i32, i32),
+    ChangeColor(i32,i32,i32),
 }
 
-// Create enum instances
-let msg1 = Message::Quit;
-let msg2 = Message::Write(String::from("hello"));
-let msg3 = Message::Move { x: 10, y: 20 };
+fn main(){
+    let destination = String::from("applehq");
 
-// Use match to handle enum variants
-match msg2 {
-    Message::Write(text) => println!("Text: {}", text),
-    Message::Move { x, y } => println!("Move to ({}, {})", x, y),
-    _ => println!("Other message"),
+    match destination.as_str() {
+        "applehq" => {
+            let direction = Direction::East;
+            match direction {
+                Direction::East => {
+                    let message = Message::Move{x:1,y:2};
+                    let newColor = Message::ChangeColor(244,232,211);
+                    println!("mesage is {:?}",message);
+                    println!("newColor is {:?}",newColor);
+
+                },
+                _ => println!("Stand still"),
+            };
+
+        }
+        _ => println!("please enter a destination"),
+    };
 }
 
 ```
