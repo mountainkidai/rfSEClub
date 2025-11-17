@@ -11,7 +11,6 @@
 ```rust
 fruit_tuple = ("apple", "banana", "cherry")
 print(fruit_tuple)  # outputs: ('apple', 'banana', 'cherry')
-
 ```
 
 ## Types in Tuples
