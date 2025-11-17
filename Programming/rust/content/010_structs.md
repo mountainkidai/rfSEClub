@@ -1,143 +1,428 @@
 ## Structs
 
-- when you need multiple related fields — struct lets you model this cleanly.
+lets understand struct
+
+- A struct is a custom data type that groups related values together under a single name.
+- It lets you organize complex data by bundling into one type.
+
+## Example
 
 ```rust
-struct Candle {
-    timestamp: u64,
-    open: f64,
-    high: f64,
-    low: f64,
-    close: f64,
-    volume: f64,
+struct Person {
+    name: String,
+    age: u32,
+}
+
+//Person has two fields: name (a string) and age (an unsigned 32-bit integer).
+
+```
+
+## Creating and Using Instances
+
+```rust
+fn main() {
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+    println!("{} is {} years old.", person.name, person.age);
 }
 
 ```
 
+## Final code:
+
 ```rust
-struct Alert {
-    symbol: String,   // heap-allocated string
-    target_price: f64,
-    active: bool,
+struct Person {
+    name: String,
+    age: u32,
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Sony"),
+        age: 30,
+    };
+}
+
+```
+
+## How does it store in the memory?
+
+```rust
+int a = 10;
+
+// a is stored on the stack.
+// The address of a points to a memory location holding the value 10.
+// The value is stored directly at that address.
+
+```
+
+```text
+a is like a label to Address (e.g., 0x7ffe_fffc20): holds value 10
+
+
+Stack Memory
+
+a (int) - > 0x7ffe_fffc20:
++--------------+
+| 10           |
++--------------+
+
+```
+
+When you write in Rust:
+
+```rust
+let name = String::from("Koel");
+
+```
+
+- String is a struct with three components:
+
+  - A pointer (ptr) to the heap where actual string bytes live.
+
+  - A length (len) describing how many bytes of string are currently used.
+
+  - A capacity (capacity) describing how much space is allocated on the heap for the string.
+
+- These three fields together determine the size of the String struct on the stack.
+
+- Typically, on a 64-bit system, each pointer or integer is 8 bytes, so:
+
+  - Pointer: 8 bytes
+  - Length: 8 bytes (usize)
+  - Capacity: 8 bytes (usize)
+  - Total size on stack: about 8 + 8 + 8 = 24 bytes
+
+- This is independent of string length; the heap holds the actual characters, but String struct size on the stack stays fixed.
+
+```text
+Stack Memory                        Heap Memory
+┌────────────────────────┐       ┌─────────────────────────┐
+│ 0x7ffe_abc130: name    │       │ 0x6000_4000: 'K' 0x4B  │
+│ ┌────────────────────┐ │       │ 0x6000_4001: 'o' 0x6F  │
+│ │ ptr: 0x60004000    │ ├──────▶│ 0x6000_4002: 'e' 0x65  │
+│ │ len: 4             │ │       │ 0x6000_4003: 'l' 0x6C  │
+│ │ capacity: 8        │ │       │ (no null terminator)    │
+│ └────────────────────┘ │       └─────────────────────────┘
+└────────────────────────┘
+
+```
+
+```text
+Stack Memory (24 bytes total)                   Heap Memory (4 bytes for "Koel")
+┌────────────────────────────┐                 ┌────────────────────────────┐
+│ 0x7ffe_abc130: name String  │                 │ 0x6000_4000: 'K' (0x4B)     │
+│ ┌────────┬────────┬───────┐│                 │ 0x6000_4001: 'o' (0x6F)     │
+│ │ ptr    │ len    │ cap   ││                 │ 0x6000_4002: 'e' (0x65)     │
+│ │ (8 B)  │ (8 B)  │ (8 B) ││                 │ 0x6000_4003: 'l' (0x6C)     │
+│ └────────┴────────┴───────┘│                 │ (no null terminator)         │
+│ 0x7ffe_abc130             0x7ffe_abc137      └────────────────────────────┘
+└────────────────────────────┘
+
+```
+
+- On the heap, the characters "Koel" occupy 4 bytes.
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+```
+
+- name occupies 24 bytes on stack.
+- age is 4 bytes.
+- To align the whole struct to an 8-byte boundary (max of fields), Rust inserts 4 bytes padding after age.
+  Why Is Padding Needed?
+  CPUs like aligned memory because:
+
+  - Misaligned accesses require multiple reads/writes.
+  - Aligned data accesses are faster and safer.
+    What is a Trait?
+
+```text
+Memory Layout (Stack)
+
++----------------------------+  0x7ffe_abc130
+| name: String (24 bytes)    |
+|   - ptr (8 B)              |
+|   - len (8 B)              |
+|   - capacity (8 B)         |
++----------------------------+
+| age: u32 (4 bytes)         |  0x7ffe_abc148
++----------------------------+
+| padding (4 bytes)          |  0x7ffe_abc14c
++----------------------------+
+Total size: 32 bytes
+
+```
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Sony"),
+        age: 30,
+    };
+}
+
+
+```
+
+```text
+Stack Memory (Person struct)               Heap Memory (String data "Sony")
+┌───────────────────────────────┐         ┌─────────────────────────┐
+│ 0x7ffe_abc200: person (32 B)  │         │ 0x6000_5000: 'S' (0x53) │
+│ ┌─────────────────────────┐   │         │ 0x6000_5001: 'o' (0x6F) │
+│ │ 0x7ffe_abc200: name     │   │────────▶│ 0x6000_5002: 'n' (0x6E) │
+│ │ ┌──────┬──────┬────────┐│   │         │ 0x6000_5003: 'y' (0x79) │
+│ │ │ ptr  │ len  │capacity││   │         │ (no null terminator)    │
+│ │ │(8 B) │(8 B) │ (8 B)  ││   │         └─────────────────────────┘
+│ │ │0x6000_5000           ││   │
+│ │ └──────┴──────┴────────┘│   │
+│ ├─────────────────────────┤   │
+│ │ 0x7ffe_abc218: age (4 B)│   │
+│ ├─────────────────────────┤   │
+│ │ 0x7ffe_abc21c: padding  │   │
+│ │ (4 B)                   │   │
+│ └─────────────────────────┘   │
+└───────────────────────────────┘
+
+
+
+```
+
+- person starts at 0x7ffe_abc200 on stack, size 32 bytes total.
+- name occupies bytes 0x7ffe_abc200 to 0x7ffe_abc217 (24 bytes for the String struct).
+- Inside name, ptr holds address 0x6000_5000 pointing to heap.
+- age stored at 0x7ffe_abc218 (4 bytes).
+- Padding (4 bytes) follows at 0x7ffe_abc21c to keep alignment.
+- The next free stack address after person is 0x7ffe_abc220 (32 bytes after start).
+
+## Methods on Structs
+
+What is a Method?
+
+- A method is a function associated with a struct (or enum).
+- Defines behavior or operations specific to that type.
+- Methods have an implicit self parameter representing the instance.
+
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+impl Person {
+    // Associated function (like a constructor)
+    fn new(name: String, age: u32) -> Person {
+        Person { name, age }
+    }
+
+    // A method that borrows self immutably
+    fn greet(&self) {
+        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
+    }
+
+    // A method that borrows self mutably to update state
+    fn have_birthday(&mut self) {
+        self.age += 1;
+        println!("Happy birthday! Now I am {} years old.", self.age);
+    }
+}
+
+fn main() {
+    let mut p = Person::new(String::from("Koel"), 29);
+    p.greet();
+    p.have_birthday();
+    p.greet();
 }
 
 ```
 
 ```text
-Stack Memory
--------------------------------------------------
-| Address        | Value                          |
--------------------------------------------------
-| 0x7ffeeff320  | ptr ──► 0x1000 (heap data)      |
-| 0x7ffeeff328  | length = 8                      |
-| 0x7ffeeff330  | capacity = 16                   |
-| 0x7ffeeff338  | target_price = 3450.75          |
-| 0x7ffeeff340  | active = true                  |
--------------------------------------------------
-
-Heap Memory
--------------------------------------------------
-| Address        | Value                          |
--------------------------------------------------
-| 0x1000         | "RELIANCE" (UTF-8 bytes)      |
--------------------------------------------------
-
-Stack Memory                      Heap Memory
-┌─────────────────────┐          ┌─────────────────────┐
-│ 0x7ffeeff320: ptr   │──ptr──► │ 0x1000: 'R' (byte)   │
-│ length = 8          │          │ 0x1001: 'E'          │
-│ capacity = 16       │          │ ...                  │
-│ target_price        │          │ 0x1007: 'E'          │
-│ active              │          │                     │
-└─────────────────────┘          └─────────────────────┘
-
-
+impl Person { ... } defines method implementations for Person.
+new is an associated function (no self), used like a constructor.
+Methods have &self or &mut self as first parameter (reference to instance).
+Can mutate fields with &mut self, read-only with &self.
 ```
 
-## 2. Using &str (String Slice)
+## Memory Layout
 
 ```rust
-struct Alert {
-    symbol: &str,      // string slice
-    target_price: f64,
-    active: bool,
+struct Person {
+    name: String,  // 24 bytes (on stack)
+    age: u32,     // 4 bytes (on stack)
+    // padding:    // 4 bytes (for alignment)
 }
 
 ```
 
 ```text
-Stack Memory
--------------------------------------------------
-| Address        | Value                          |
--------------------------------------------------
-| 0x7ffeeff320  | ptr ──► 0x400000 (static text)  |
-| 0x7ffeeff328  | length = 8                      |
-| 0x7ffeeff330  | target_price = 3450.75          |
-| 0x7ffeeff338  | active = true                  |
--------------------------------------------------
+A Person struct will require 32 bytes on the stack:
 
-Heap Memory
-No heap allocation for symbol string here; string literal stored in read-only program memory / Data Segment.
+name: String is 24 bytes (pointer, length, capacity).
 
-0x400000: "RELIANCE"
+age: u32 is 4 bytes.
 
-Diagram
-Stack Memory                      Read-Only Data
-┌─────────────────────┐          ┌─────────────────────┐
-│ 0x7ffeeff320: ptr   │──ptr──► │ 0x400000: 'R'        │
-│ length = 8          │          │ 0x400001: 'E'        │
-│ target_price        │          │ ...                   │
-│ active              │          │ 0x400007: 'E'        │
-└─────────────────────┘          └─────────────────────┘
+4 bytes of padding for alignment.
+```
 
+## 2. Implementation Block (impl Person { ... })
+
+This does not allocate memory itself—a method is just code logic stored in the binary.
+
+```text
+             Methods for Person
+┌────────────────────────────────────────┐
+│ Person::new(name, age)     // code only│
+│ Person::greet(&self)       // code only│
+│ Person::have_birthday(&mut self)// code│
+└────────────────────────────────────────┘
 
 ```
 
-## 3. Using Box<str> (Heap Allocated Immutable String)
+## The methods exist as compiled code
+
+- When called, they create their own tiny stack frames for arguments.
+- They operate on a Person instance in memory (see below).
+
+## Memory layout for new Function Call Frame with Return Space and Heap String
 
 ```rust
-struct Alert {
-    symbol: Box<str>, // heap allocated string slice
-    target_price: f64,
-    active: bool,
-}
+  fn new(name: String, age: u32) -> Person {
+        Person { name, age }
+    }
+   // when you call let mut p = Person::new(String::from("Koel"), 29);
 
 ```
 
 ```text
-Stack Memory
+Stack Memory (new() call frame)                              Heap Memory (String data "Koel")
+┌─────────────────────────────┐                            ┌─────────────────────────┐
+│ 0x7ffe_abd000: new() frame  │                            │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐ │                            │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abd000 + 0 B: name │───────────────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ ┌──────┬──────┬────────┐│ │                            │ 0x6000_5303: 'l' (0x6C) │
+│ │ │ ptr  │ len  │capacity││ │                            │ (no null terminator)    │
+│ │ │(8 B) │(8 B) │ (8 B)  ││ │
+│ │ │0x6000_5300           ││ │
+│ │ └──────┴──────┴────────┘│ │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abd000 + 24 B: age (4bytes) │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abd028 +4B:padding (4bytes) │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abd032 +32 B:return│
+│ │  (space for Person struct)│
+│ └─────────────────────────┘ │
+└─────────────────────────────┘
 
--------------------------------------------------
-| Address        | Value                          |
--------------------------------------------------
-| 0x7ffeeff320  | ptr ──► 0x2000 (heap data)      |
-| 0x7ffeeff328  | length = 8                      |
-| 0x7ffeeff330  | target_price = 3450.75          |
-| 0x7ffeeff338  | active = true                  |
--------------------------------------------------
 
-Heap memory:
--------------------------------------------------
-| Address        | Value                          |
--------------------------------------------------
-| 0x2000         | "RELIANCE" (UTF-8 bytes)      |
--------------------------------------------------
 
-Diagram:
+```
 
-Stack Memory                      Heap Memory
-┌─────────────────────┐          ┌─────────────────────┐
-│ 0x7ffeeff320: ptr   │──ptr──► │ 0x2000: 'R' (byte)   │
-│ length = 8          │          │ ...                  │
-│ target_price        │          │ 0x2007: 'E'          │
-│ active              │          │                     │
-└─────────────────────┘          └─────────────────────┘
+```rust
+fn main() {
+    let mut p = Person::new(String::from("Koel"), 29);
+    p.greet();
+    p.have_birthday();
+    p.greet();
+}
+```
 
-Approach  |  Data Location           |  Notes
-----------+--------------------------+---------------------------------------------------------
-String    |  Stack + Heap            |  Owned, mutable string data on heap
-&str      |  Stack + Program Memory  |  Borrowed string slice pointing to static/read-only data
-Box<str>  |  Stack + Heap            |  Owned, immutable string slice on heap
+## After creating p object
+
+```text
+Stack Memory (Person variable "p")                  Heap Memory (String data "Koel")
+┌─────────────────────────────┐                    ┌─────────────────────────┐
+│ 0x7ffe_abc300: p (32 B)     │                    │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐ │                    │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abc300 + 0 B: name │───────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ ┌──────┬──────┬────────┐│ │                    │ 0x6000_5303: 'l' (0x6C) │
+│ │ │ ptr  │ len  │capacity││ │                    │ (no null terminator)    │
+│ │ │(8 B) │(8 B) │ (8 B)  ││ │
+│ │ │0x6000_5300           ││ │
+│ │ └──────┴──────┴────────┘│ │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abc300 + 24B:age (4bytes) │ │
+│ ├─────────────────────────┤ │
+│ │ 0x7ffe_abc328 +4B:padding (4bytes) │
+│ ├─────────────────────────┤ │
+│ └─────────────────────────┘ │
+└─────────────────────────────┘
+
+
+```
+
+## During p.greet() call
+
+```rust
+   // A method that borrows self immutably
+    fn greet(&self) {
+        println!("Hello, my name is {} and I am {} years old.", self.name, self.age);
+    }
+```
+
+```text
+Stack Memory (greet() call frame)                   Heap Memory (String data "Koel")
+┌───────────────────────────────┐                   ┌─────────────────────────┐
+│ 0x7ffe_abd100: greet frame    │                   │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐   │                   │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abd100 + 0 B: self   │──────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ &Person (8 bytes)           │                   │ 0x6000_5303: 'l' (0x6C) │
+│ │ points to 0x7ffe_abc300     │                   │ (no null terminator)    │
+│ └─────────────────────────┘   │
+└───────────────────────────────┘
+
+(And the `p` struct on stack, as before.)
+
+```
+
+## NOTE:
+
+- The variable p is the full Person struct occupying 32 bytes on the stack.
+- The method greet takes &self, a reference to Person.
+- This reference is a pointer (address) to the stack location of p.
+- Hence, self in the method stack frame is 8 bytes (size of a pointer), not the entire 32 bytes.
+- So, when you see in the method call stack frame:
+
+  ```text
+  0x7ffe_abd100 + 0 B: self &Person (8 bytes)
+  ```
+
+## During p.have_birthday() Call
+
+```text
+Stack Memory (have_birthday() call frame)           Heap Memory (String data "Koel")
+┌───────────────────────────────┐                  ┌─────────────────────────┐
+│ 0x7ffe_abd120: have_birthday  │                  │ 0x6000_5300: 'K' (0x4B) │
+│ ┌─────────────────────────┐   │                  │ 0x6000_5301: 'o' (0x6F) │
+│ │ 0x7ffe_abd120 + 0 B: self  │──────────────────▶│ 0x6000_5302: 'e' (0x65) │
+│ │ &mut Person (8 bytes)        │                  │ 0x6000_5303: 'l' (0x6C) │
+│ │ points to 0x7ffe_abc300     │                  │ (no null terminator)    │
+│ └─────────────────────────┘   │
+└───────────────────────────────┘
+
+Stack Memory (`p`) before and after age increment:
+
+Before:
+┌───────────────────────────────┐
+│ 0x7ffe_abc300 + 24 B: age (4 bytes)      29 (0x0000001D) │
+└───────────────────────────────┘
+
+After:
+┌───────────────────────────────┐
+│ 0x7ffe_abc300 + 24 B: age (4 bytes)      30 (0x0000001E) │
+└───────────────────────────────┘
+
 ```
 
 ```rust

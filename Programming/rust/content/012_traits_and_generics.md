@@ -38,6 +38,11 @@
 
 ## Traits
 
+## lets understand Trait for this
+
+- For this, lets understand structs first
+  [Click here](/Programming/rust/content/010_structs.md)
+
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
 
 ```rust

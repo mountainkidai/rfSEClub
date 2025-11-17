@@ -1,5 +1,36 @@
 ## Lifetimes
 
+## Understanding Lifetimes in Rust
+
+- Lifetimes in Rust describe how long references are valid during program execution.
+
+- Every reference has a lifetime specifying the scope in which the data it points to is guaranteed to be valid.
+
+- Rust enforces lifetimes to prevent dangling references, which occur if a reference outlives the data it points to as have just seen in the above example
+
+```rust
+fn get_slice<'a>(s: &'a String) -> &'a str {
+    &s[0..5]
+}
+
+fn main() {
+    let my_string = String::from("Hello world");
+    let slice = get_slice(&my_string);
+    println!("{}", slice);  // prints "Hello"
+}
+
+```
+
+## Explanation
+
+### What is <'a>
+
+- We declare a generic lifetime parameter 'a that:
+  - Ties the input reference s to the same lifetime 'a.
+  - Ensures the returned &str slice lives at least as long as 'a.
+
+This guarantees safety because the slice cannot outlive the data it references.
+
 Lifetimes annotate how long references are valid.
 
 - In Rust, every reference points to some data in memory.
