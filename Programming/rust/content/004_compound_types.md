@@ -18,13 +18,13 @@ Compound Types
 
 3. Standard Library Compound Types:​
 
-   1. Vectors [Vec](/Programming/rust/content/004e_vectors.md)
-   2. Slices [&[T]](/Programming/rust/content/004f_slices.md)
-   3. Strings (String, &str)
+   1. [Vectors](/Programming/rust/content/004e_vectors.md)
+   2. [Slices &[T]](/Programming/rust/content/004f_slices.md)
+   3. [Strings (String, &str)](/Programming/rust/content/004g_strings.md)
 
 4. C-Compatible Union Type:​
 
-   1. Unions (union)
+   1. [Unions (union)](/Programming/rust/content/004h_unions.md)
 
 ## Union
 
