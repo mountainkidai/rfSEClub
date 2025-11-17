@@ -1,26 +1,3 @@
-### Understanding Memory in Programming from First Principles
-
-## Types
-
-- A type tells Rust what kind of data a value holds.
-- It defines:
-
-  - How the data is stored (memory layout)
-  - What operations you can perform (math, comparison, etc.)
-
-- Why Types?
-
-  - Why Are Types Important?
-    - Safety: Rust uses types to prevent errors like mixing numbers and text.
-    - Performance: Knowing types at compile time lets Rust generate efficient code.
-    - Clarity: Types make your code self-explanatory and easier to maintain.
-
-## What is a type?
-
-- A type defines what kind of data a value represents and what operations can be performed on it.
-
-- Types give structure and meaning to data, helping the compiler catch errors and organize memory.
-
 ## Scalar Types
 
 - Scalar types represent a single value.
@@ -34,12 +11,6 @@
 - Characters
 
   - Represent a single Unicode scalar value.
-
-## Compound types:
-
-- Structs (custom data types grouping multiple values)
-- Enums (types with variants)
-- Arrays and tuples (fixed collections of values)
 
 ```rust
 fn main() {
