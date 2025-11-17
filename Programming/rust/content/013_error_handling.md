@@ -128,3 +128,9 @@ fn main() {
 }
 
 ```
+
+```rust
+let fail = no_number.unwrap_or(0);  // Provide a default value instead of panicking
+println!("no is {:?}", fail);
+
+```
