@@ -120,6 +120,125 @@ fn main() {
 
 ```
 
+## Revision
+
+```rust
+// generics in rust
+
+// generics allow you to write flexible and reusable code
+// that can work with different data types
+use std::fmt::Display;
+// lets your write a function or a struct that can work with different data types
+// print pair function with generics
+fn print_pair<T:Display, U:Display>(a: T, b: U) {
+    // Display trait is used to format the output
+    println!("Pair: ({}, {})", a, b);
+}
+
+fn main() {
+    // calling print_pair with different types
+    print_pair(1, "hello");
+    print_pair(3.14, true);
+    print_pair("rust", 'R');
+}
+// output:
+// Pair: (1, hello)
+// Pair: (3.14, true)
+// Pair: (rust, R)
+// here T and U are type parameters that can be any type
+// this makes the function flexible and reusable with different data types
+
+```
+
+Or, if you want to print any type, use Debug:
+
+```rust
+use std::fmt::Debug;
+// lets your write a function or a struct that can work with different data types
+// print pair function with generics
+fn print_pair<T: Debug, U: Debug>(a: T, b: U) {
+    //Debug trait bound to ensure that the types can be printed using {:?}
+    println!("Pair: ({:?}, {:?})", a, b);
+}
+
+fn main() {
+    // calling print_pair with different types
+    print_pair(1, "hello");
+    print_pair(3.14, true);
+    print_pair("rust", 'R');
+}
+// output:
+// Pair: (1, hello)
+// Pair: (3.14, true)
+// Pair: (rust, R)
+// here T and U are type parameters that can be any type
+// this makes the function flexible and reusable with different data types
+```
+
+```text
+Formatter  |  Required Trait  |  Usage
+-----------+------------------+------------------------------
+{}         |  Display         |  Pretty, user-facing output
+{:?}       |  Debug           |  Debugging, programmer output
+```
+
+## What Does the use std::fmt::Display; Mean?
+
+- std is the Rust Standard Library root.
+- fmt is a module inside std that handles formatting.
+- Display is a trait defined inside std::fmt.
+- The :: notation accesses items inside modules or paths.
+- use std::fmt::Display; brings the Display trait into scope so you can use it directly.
+
+Example
+
+```rust
+//FILE 1:  print hello from a library - rfselib.rs
+
+pub fn print_hello() {
+    println!("Hello from rfselib!");
+}
+```
+
+```rust
+//FILE 2:  print hello from a library rfselib.rs
+
+mod rfselib; // include the library
+use rfselib::print_hello; // use the function from the library
+fn main() {
+    print_hello();
+}
+
+//output:
+// Hello from rfselib!
+```
+
+```text
+main stack:
+| my_string: String struct (ptr, len, cap) |
+---------------------------------------------
+        |
+        V
+heap: "Hello world"
+
+get_slice stack frame:
+| s: &my_string (reference with lifetime 'a) |
+----------------------------------------------
+
+Returns &str slice with same lifetime 'a:
+points into my_string's heap data
+
+Back in main stack:
+| my_string | slice (&str) |
+--------------------------------
+      |          |
+      V          V
+   heap: "Hello world"
+
+slice valid so long as my_string is alive → safe
+
+```
+
 ## What happens here?
 
 - print_value is generic over type T.
