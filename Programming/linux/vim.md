@@ -14,8 +14,6 @@
 - **Ctrl + u**: Scroll up half page
 - **Ctrl + f**: Scroll down full page
 - **Ctrl + b**: Scroll up full page
-- **]]**: Next function/block
-- **[[**: Previous function/block
 - **%**: Matching brace/parenthesis
 - **\***: Next word occurrence
 - **#**: Previous word occurrence
@@ -63,6 +61,7 @@
 ## VSCode-Specific
 
 - **Cmd + shift + o**: Jump to symbols
+- **Cmd + shift + .**: lets your jump to symbols using vim commands
 - **:w + Enter**: Save
 - **:q + Enter**: Close file
 - **:wq + Enter**: Save and close
