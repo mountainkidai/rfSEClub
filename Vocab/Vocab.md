@@ -55,3 +55,8 @@
 
     Meaning: To study hard.
     Example: "I have a big exam tomorrow, so I need to hit the books tonight."
+
+12. Abjure
+    
+    Meaning:To abandon forever.
+    Example:"He will abjure his allegiance to the king."
