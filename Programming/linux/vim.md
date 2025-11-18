@@ -14,7 +14,6 @@
 - **Ctrl + u**: Scroll up half page
 - **Ctrl + f**: Scroll down full page
 - **Ctrl + b**: Scroll up full page
-- **zz**: Center cursor line
 - **]]**: Next function/block
 - **[[**: Previous function/block
 - **%**: Matching brace/parenthesis
@@ -30,7 +29,6 @@
 - **o**: New line below, insert
 - **O**: New line above, insert
 - **x**: Delete character
-- **K**: Hover docs (Rust Analyzer)
 
 ## Deleting
 
@@ -53,7 +51,6 @@
 - **Ctrl + v**: Block-wise selection
 - **y**: Copy selection
 - **d**: Delete selection
-- **> / <**: Indent/unindent selection
 
 ## Search & Replace
 
@@ -65,13 +62,9 @@
 
 ## VSCode-Specific
 
-- **Ctrl + ~**: Toggle terminal
-- **Cmd + t**: Quick open files
 - **Cmd + shift + o**: Jump to symbols
 - **:w + Enter**: Save
 - **:q + Enter**: Close file
 - **:wq + Enter**: Save and close
 - **Cmd + shift + p**: Command Palette
-- **:G + Enter**: GitLens commands
-- **gcc**: Stage file (if supported)
 - **gd**: Go to definition (Rust Analyzer)

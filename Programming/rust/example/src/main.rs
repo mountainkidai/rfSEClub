@@ -1,11 +1,31 @@
+trait Summary{
+    fn summarize(&self);
+}
+#[derive(Debug)]
+struct Article {
+    author:String,
+    content:String,
+}
+struct Post {
+    author:String,
+    content:String,
+}
+
+
+impl Summary for Article{
+    fn summarize(&self){
+        println!("Summary : {}",&self.content);
+    }
+}
+
+fn notify(item: &impl Summary){
+item.summarize();
+}
 fn main(){
-let some_number = Some(7);
-let no_number: Option<i32> = None;
+let article = Article{
+    author:String::from("Steve"),
+    content:String::from("hey, this article is about rust"),
+};
 
-let number = some_number.unwrap();
-let fail = no_number.unwrap();
-
-println!("no is {:?}",number);
-println!("no is {:?}",fail);
-
+notify(&article);
 }
