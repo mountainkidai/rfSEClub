@@ -78,4 +78,13 @@ axum::serve(listener,app).await.unwrap();
 
 }
 
-```
+
+## Problems
+
+1. Create an Axum router with a single route "/" that returns "Hello, World!" and run the server
+2. Create an Axum router with two routes: "/" returning "Home" and "/about" returning "About page"
+3. Create an async handler function that returns a string, add it as a route handler, and test it
+4. Create an Axum server that listens on port 3000 with a route "/health" that returns "OK"
+5. Create an Axum router with a route "/greet/:name" that takes a path parameter and returns a personalized greeting
+
+

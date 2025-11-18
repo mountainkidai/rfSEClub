@@ -41,3 +41,11 @@ let s = &mut text;
  allows changing the value (only if the variable is declared mutable).
 
 ```
+
+## Problems
+
+1. Create a `String` variable `s1`, move it to `s2`, and try to use `s1` (this should cause an error - comment it out and explain)
+2. Create a `String` variable, create an immutable reference to it, and print the value using the reference
+3. Create a mutable `String` variable, create a mutable reference, modify it through the reference, and print the result
+4. Write a function that takes a `&String` parameter, prints its length, and call it without transferring ownership
+5. Write a function that takes a `&mut String` parameter, appends text to it, and demonstrate that the original string is modified.

@@ -77,7 +77,7 @@ stack:
 | capacity
 ```
 
-## Note:
+## **Note:**
 
 The variable name of type String is a struct stored on the stack containing these fields:
 
@@ -90,7 +90,7 @@ struct String {
 So name's stack frame holds this 3-field struct (pointer, length, capacity). The actual string data ("AlpKid Rocks") lives on the heap.
 ```
 
-2. Mutable Binding to String Literal Slice
+2.Mutable Binding to String Literal Slice
 
 ```rust
 let mut name = "AlpKid";
@@ -112,11 +112,11 @@ read-only data segment:
 
 ```
 
-## Note:
+## Note
 
 - string literals like "AlpKid" and "OtherName" both live permanently in the read-only data segment. Changing name to point elsewhere doesn't remove or move those literals—they remain in memory as static data.
 
-3. Owned, Mutable String (Heap allocated)
+3.Owned, Mutable String (Heap allocated)
 
 ```rust
 let mut name = String::from("AlpKid");
@@ -149,7 +149,7 @@ stack:
 | capacity
 ```
 
-## Note:
+## Note
 
 The variable name of type String is a struct stored on the stack containing these fields:
 
@@ -162,7 +162,7 @@ struct String {
 So name's stack frame holds this 3-field struct (pointer, length, capacity). The actual string data ("AlpKid Rocks") lives on the heap.
 ```
 
-4. ## changing static lifetime
+4.## changing static lifetime
 
 - To have a &str with a shorter or different lifetime than 'static, the data you borrow from must itself not live for the whole program, but only a part of it.
 
@@ -215,3 +215,11 @@ Returned &str points to freed memory (dangling pointer)
 ## Understanding Lifetimes in Rust
 
 [Lifetimes in Rust - Click to explore](/Programming/rust/content/009_lifetimes.md)
+
+## Problems
+
+1. Create a string literal `greeting = "Hello"` and a `String` from it, then print both
+2. Create a mutable `String` `name` with value "Rust", append " Programming" to it, and print the result
+3. Create a string slice `&str` from a string literal and a `String`, then print both
+4. Create a function that takes a `&str` parameter, prints it, and call it with both a string literal and a `String`
+5. Create a `String` variable, use `push_str` to add text to it, and print the final string.

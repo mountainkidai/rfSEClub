@@ -22,3 +22,11 @@ let s = "hello";
 let part = &s[0..3];  // "hel"
 
 ```
+
+## Problems
+
+1. Create an array `arr = [1, 2, 3, 4, 5]`, create a slice of the middle three elements, and print the slice
+2. Create a vector `v = vec![10, 20, 30, 40, 50]`, create a slice of the first three elements, and print them
+3. Create a string `s = "Hello, Rust!"`, create a slice of the first 5 characters, and print it
+4. Create an array of 10 numbers, create slices for the first half and second half, and print both slices
+5. Create a function that takes a slice of integers and returns the sum of all elements in the slice.

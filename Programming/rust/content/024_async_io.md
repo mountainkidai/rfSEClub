@@ -317,3 +317,11 @@ async fn main() {
     dog.say().await;
 }
 ```
+
+## Problems
+
+1. Create an async function that uses `tokio::time::sleep` to wait 2 seconds, then prints "Task completed"
+2. Create an async function that takes two numbers, sleeps for 100ms, then returns their sum
+3. Spawn two async tasks that each sleep for different durations, print messages, and await both
+4. Create an async function that simulates fetching data by sleeping, returns a `String`, and use it in async main
+5. Create an async function that uses `tokio::spawn` to run a background task, await it, and print the result.

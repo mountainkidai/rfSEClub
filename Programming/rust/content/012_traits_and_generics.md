@@ -41,7 +41,7 @@
 ## lets understand Trait for this
 
 - For this, lets understand structs first
-  [Click here](/Programming/rust/content/010_structs.md)
+  [Structs](/Programming/rust/content/010_structs.md)
 
 - They define shared behavior that types can implement. Think of them as a way to specify what a type can do, without saying how it does it.
 
@@ -576,7 +576,7 @@ fn main() {
 }
 ```
 
-## How where can fix this:
+## How where can fix this
 
 ```rust
 trait Printable {
@@ -661,7 +661,7 @@ fn main() {
 }
 ```
 
-## Why both can produce the same output but serve different roles:
+## Why both can produce the same output but serve different roles
 
 - Trait implementations (impl) provide abilities to types:
   - They attach behavior to a type.
@@ -724,7 +724,7 @@ Here, Dog and Cat are concrete types — you know exactly what they are.
 
 - A trait object like &dyn Animal is a pointer to some value that implements the Animal trait, but you don't know exactly which concrete type it is at compile time. It could be a Dog, Cat, or anything else that implements Animal.
 
-### For example:
+### For example
 
 ```rust
 let animal: &dyn Animal = &dog; // type erased to trait object
@@ -1164,4 +1164,10 @@ From a cleaner in Kullu at ₹2,000/month to a telecaller, writer, teacher, and 
 }
 
 
-```
+## Problems
+
+1. Define a trait `Drawable` with a method `draw()`, implement it for a struct `Circle`, and call the method
+2. Create a generic function `print_value<T: Display>` that takes any displayable value and prints it
+3. Define a trait `Area` with a method `area()`, implement it for `Rectangle` and `Circle` structs, and calculate areas
+4. Create a generic struct `Pair<T>` with two fields of type `T`, implement a method to swap the values, and test it
+5. Define a trait with a default implementation, implement it for a type without overriding, and another type that overrides the default
