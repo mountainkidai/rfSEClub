@@ -58,3 +58,11 @@ rustc main.rs
 ./main
 OUTPUT: Hello, world!
 ```
+
+## Problems
+
+1. Write a Rust program that prints "Hello, Rust!" to the console
+2. Create a program that prints your name and age on separate lines
+3. Write a program that prints "Welcome to Rust programming!" using println!
+4. Create a program that prints three different messages: "First message", "Second message", and "Third message"
+5. Write a program that prints a personalized greeting message with your name.

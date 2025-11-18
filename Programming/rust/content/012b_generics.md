@@ -53,4 +53,12 @@ Rust suggests implementing
 - using {:?} and implementing Debug.
 
 To understand traits:
-[Click here](/Programming/rust/content/012_traits_and_generics.md)
+[Traits and Generics](/Programming/rust/content/012_traits_and_generics.md)
+
+## Problems
+
+1. Write a generic function `identity<T>` that takes a value of type `T` and returns the same value
+2. Write a generic function `swap<T>` that takes two mutable references and swaps their values
+3. Create a generic struct `Container<T>` that holds a single value, implement a `new` method and a `get` method
+4. Write a generic function `largest<T: PartialOrd>` that takes a slice of `T` and returns a reference to the largest element
+5. Create a generic function `print_pair<T: Debug, U: Debug>` that takes two values of potentially different types and prints them.

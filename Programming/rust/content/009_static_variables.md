@@ -31,3 +31,11 @@ unsafe {
 }
 
 ```
+
+## Problems
+
+1. Create a static immutable variable `APP_NAME` with value "MyApp" and print it
+2. Create a static variable `MAX_CONNECTIONS` with type `u32` and value 100, then print it
+3. Create a static mutable variable `COUNTER`, increment it in an unsafe block, and print the value
+4. Create two static variables `MIN_VALUE` and `MAX_VALUE`, use them in a calculation, and print the result
+5. Create a static string slice `WELCOME_MSG` and use it in a function that prints a welcome message.

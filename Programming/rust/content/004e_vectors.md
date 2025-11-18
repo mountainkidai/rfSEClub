@@ -26,3 +26,11 @@ for num in &v {
 println!("{}", num);
 }
 ```
+
+## Problems
+
+1. Create an empty vector `numbers`, push three integers (1, 2, 3) into it, and print all elements
+2. Create a vector `names` with initial values ["Alice", "Bob", "Charlie"], add a fourth name, and print all names
+3. Create a vector `scores` of integers, calculate the sum of all scores, and print the result
+4. Create a vector `items`, add 5 elements, remove the last element using `pop()`, and print the remaining length
+5. Create a vector `data`, iterate over it using a for loop, and print each element with its index.

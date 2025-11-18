@@ -1,16 +1,16 @@
-#### Result is an enum type that has two variants:
+#### Result is an enum type that has two variants
 
 - Ok(T) which represents success and contains a value of type T
 - Err(E) which represents an error and contains an error value of type E
 
-#### Option is an enum type that has two variants:
+#### Option is an enum type that has two variants
 
 - Some(T) which contains a value of type T
 - None which represents the absence of a value
 
 Both Result and Option represent types that can either hold a value or represent a non-success/failure/absence.
 
-#### The methods unwrap() and expect() are provided on both Option and Result to extract the contained value when you are certain it is present (i.e., either Some or Ok):
+#### The methods unwrap() and expect() are provided on both Option and Result to extract the contained value when you are certain it is present (i.e., either Some or Ok)
 
 - unwrap() extracts the value and panics if called on None or Err.
 - expect() does the same but lets you provide a custom panic message for better debugging and clarity when the extraction fails.
@@ -134,3 +134,11 @@ let fail = no_number.unwrap_or(0);  // Provide a default value instead of panick
 println!("no is {:?}", fail);
 
 ```
+
+## Problems
+
+1. Write a function `safe_divide` that takes two `f64` numbers and returns `Result<f64, String>`, returning an error if dividing by zero
+2. Create a function that returns `Option<i32>`, use `match` to handle both `Some` and `None` cases, and print appropriate messages
+3. Write a function that uses `unwrap_or` to provide a default value when an `Option` is `None`
+4. Create a function that returns `Result<String, String>`, use the `?` operator to propagate errors, and handle the result in main
+5. Write a function that takes an `Option<i32>`, uses `if let` to extract and print the value if present, or print "No value" otherwise.

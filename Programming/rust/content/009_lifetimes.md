@@ -150,3 +150,11 @@ Compiler cannot infer returned reference lifetime; rejects code  |  Return lifet
 Ambiguous how long memory is valid                               |  Clear contract on reference validity
 Risk of dangling references at runtime (if allowed)              |  Compile-time safety guarantees
 ```
+
+## Problems
+
+1. Write a function `get_first_word` that takes a `&String` and returns a `&str` slice of the first word, using lifetime annotations
+2. Write a function `longer` that takes two `&str` parameters with the same lifetime and returns a reference to the longer string
+3. Create a struct with a lifetime parameter that holds a string slice, instantiate it, and print the value
+4. Write a function that takes a string slice and returns a reference to a substring, ensuring the lifetime is correctly annotated
+5. Create a function that concatenates two string slices and returns a `String` (not a reference), then use it to combine two string literals.

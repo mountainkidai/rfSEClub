@@ -38,3 +38,11 @@ You can declare a variable as mutable using `mut`. Attempting to modify an immut
 ---
 
 ## note
+
+## Problems
+
+1. Create an immutable variable `name` and assign your name to it, then print it
+2. Create a mutable variable `count` initialized to 0, increment it by 1, and print the result
+3. Create two variables `x` and `y`, swap their values using a mutable variable, and print both values
+4. Create a mutable variable `temperature` set to 25, change it to 30, and print the new value
+5. Create an immutable variable `pi` with value 3.14 and a mutable variable `radius` with value 5,   calculate and print the area of a circle (pi *radius* radius).

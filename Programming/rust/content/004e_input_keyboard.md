@@ -42,4 +42,13 @@ fn main(){
 
 }
 
-```
+
+## Problems
+
+1. Write a program that asks the user to enter their name, reads the input, and prints a greeting message
+2. Write a program that asks for two numbers, reads them as strings, converts them to integers, adds them, and prints the result
+3. Write a program that asks the user to enter a destination, reads it, and uses match to print different messages based on the input
+4. Write a program that asks for a number, reads it, and prints whether it's even or odd
+5. Write a program that asks for three pieces of information (name, age, city), reads them all, and prints a formatted summary
+
+

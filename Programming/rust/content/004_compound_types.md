@@ -102,3 +102,11 @@ let b = &mut a; // Mutable reference to a
 \*b += 5;
 println!("a after mutation: {}", a);
 ```
+
+## Problems
+
+1. Create a tuple containing a name (string), age (number), and active status (boolean), then print all three values
+2. Create an array of 5 integers, access the first and last elements, and print them
+3. Create a struct with at least two fields, instantiate it, and print the field values
+4. Create an enum with at least three variants, create an instance of one variant, and use match to handle it
+5. Create a vector, add three elements to it, and print all elements using a loop.

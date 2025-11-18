@@ -64,3 +64,11 @@ fn main(){
 }
 
 ```
+
+## Problems
+
+1. Create an enum `Status` with variants `Active`, `Inactive`, and `Pending`, create an instance, and use match to print a message for each variant
+2. Create an enum `Message` with variants `Quit`, `Move { x: i32, y: i32 }`, and `Write(String)`, create instances of each, and print them using Debug
+3. Create an enum `Color` with variants `Red`, `Green`, `Blue`, use match to return a string description for each color, and print the result
+4. Create an enum `Result` with variants `Success(String)` and `Error(String)`, create both types of instances, and handle them with match
+5. Create an enum `Shape` with variants `Circle(f64)`, `Rectangle(f64, f64)`, and `Square(f64)`, use match to calculate and print the area for each shape.

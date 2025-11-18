@@ -93,6 +93,10 @@ static GLOBAL_NUMBER: i32 = 10;
 static mut COUNTER: i32 = 0; // mutable static, requires unsafe usage to access
 ```
 
-```
+## Problems
 
-```
+1. Create a `Mutex<i32>` with initial value 0, lock it, increment the value, and print it
+2. Create an `Arc<Mutex<i32>>` counter, spawn two threads that each increment it 5 times, and print the final value
+3. Create a static mutable variable, increment it in an unsafe block, and print the value
+4. Create an `Arc<String>` that is shared between two threads, each thread prints the string
+5. Create a `Mutex<Vec<i32>>`, spawn multiple threads that each push a number to the vector, and print the final vector

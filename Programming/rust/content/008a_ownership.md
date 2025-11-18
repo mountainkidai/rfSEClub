@@ -41,3 +41,11 @@ let s = &mut text;
  allows changing the value (only if the variable is declared mutable).
 
 ```
+
+## Problems
+
+1. Create a `String` variable `text`, move it to another variable `text2`, and print `text2` (demonstrate ownership transfer)
+2. Create a `String`, pass it to a function that takes ownership, and try to use it after the function call (this should fail - comment it out)
+3. Create a `String`, create an immutable reference `&text`, print it using the reference, and then print the original string
+4. Create a mutable `String`, create a mutable reference, modify the string through the reference, and print the modified value
+5. Write a function that takes ownership of a `String` and returns it, then use the returned value in the caller.

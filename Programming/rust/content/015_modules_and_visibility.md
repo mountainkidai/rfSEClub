@@ -33,3 +33,11 @@ fn main() {
 }
 
 ```
+
+## Problems
+
+1. Create a module `math` with a public function `add` that takes two `i32` and returns their sum, then call it from `main`
+2. Create a module `utils` with a public function and a private function, demonstrate that only the public one is accessible
+3. Create a nested module structure (e.g., `outer::inner`), make functions public at the right levels, and call them from `main`
+4. Create a module with a public struct and implement a public method on it, then use the struct in `main`
+5. Create multiple modules (`math`, `string_utils`), each with public functions, and use functions from both modules in `main`.

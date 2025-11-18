@@ -47,3 +47,11 @@ Transport Layer: Protocols like TCP that ensure reliable data transport.
 Network Layer: Routes the data packets across networks (IP).
 
 Lower layers (Data Link, Physical) deal with hardware transmission.
+
+## Problems
+
+1. Create a Tokio async main function that prints "Hello from Tokio" and runs it
+2. Create an async function that sleeps for 1 second using `tokio::time::sleep`, call it from async main, and verify it works
+3. Spawn two async tasks using `tokio::spawn`, each printing a different message, and wait for both to complete
+4. Create an async function that simulates work by sleeping, spawn it multiple times concurrently, and await all tasks
+5. Create an async function that returns a value, spawn it as a task, await the result, and print it.

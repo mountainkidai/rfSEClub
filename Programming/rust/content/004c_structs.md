@@ -30,7 +30,7 @@ fn main() {
 
 ```
 
-## Final code:
+## Final code
 
 ```rust
 struct Person {
@@ -386,7 +386,7 @@ Stack Memory (greet() call frame)                   Heap Memory (String data "Ko
 
 ```
 
-## NOTE:
+## NOTE
 
 - The variable p is the full Person struct occupying 32 bytes on the stack.
 - The method greet takes &self, a reference to Person.
@@ -504,3 +504,11 @@ main stack                      greet stack
                                 greet returns
 
 ```
+
+## Problems
+
+1. Create a struct `Rectangle` with fields `width` and `height` (both f64), create an instance, and print both dimensions
+2. Create a struct `Student` with fields `name: String`, `age: u8`, and `grade: char`, create an instance, and print all fields
+3. Create a struct `Point` with `x` and `y` coordinates, implement a method `distance_from_origin` that calculates the distance from (0,0)
+4. Create a struct `Book` with fields `title`, `author`, and `pages`, implement a `new` associated function, and use it to create an instance
+5. Create a struct `Counter` with a field `value: i32`, implement methods to `increment` and `decrement` the value, and test them.

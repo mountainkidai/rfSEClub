@@ -10,7 +10,7 @@ A connection is a network session established between your application and the d
 
 A connection pool is a cache or pool of pre-established connections to the database. Instead of opening a new connection for each query, the application borrows a connection from the pool, uses it to perform operations, and then returns it to the pool for reuse.
 
-#### Benefits of Connection Pooling:
+#### Benefits of Connection Pooling
 
 Performance: Reusing connections avoids the overhead of creating and closing connections repeatedly.
 
@@ -171,7 +171,7 @@ async fn main() {
 
 ```
 
-### Imagine you want to buy a custom pizza:
+### Imagine you want to buy a custom pizza
 
 Pool is like a cafe
 When you call Pool::builder(), you are essentially ordering a new pizza building session at the cafe.
@@ -224,3 +224,11 @@ builder.build(manager) = hand the order form to the chef (manager).
 Chef prepares the pizzas as requested, creating the ready pizza shop (Pool).
 
 You use the shop to grab pizzas quickly (use pool to get connections).
+
+## Problems
+
+1. Create a simple connection pool structure that holds a vector of connections, implement methods to `get` and `return` connections
+2. Write code that simulates a connection pool with a maximum of 5 connections, create a function to borrow a connection
+3. Create a `Database` struct with a connection pool field, implement a `new` method that initializes the pool
+4. Write a function that demonstrates connection pooling by "borrowing" a connection, using it, and "returning" it to the pool
+5. Create a simple pool manager that tracks available and in-use connections, with methods to check pool status.

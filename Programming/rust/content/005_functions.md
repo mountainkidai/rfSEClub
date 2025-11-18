@@ -104,3 +104,11 @@ fn main(){
 
 
 ```
+
+## Problems
+
+1. Write a function `add` that takes two `i32` parameters and returns their sum, then call it and print the result
+2. Write a function `greet` that takes a `&str` parameter (name) and prints a greeting message
+3. Write a function `max` that takes two `i32` parameters and returns the larger one, test it with different values
+4. Write a function `is_even` that takes an `i32` and returns a `bool` indicating if the number is even
+5. Write a function `calculate_area` that takes `width` and `height` as `f64` parameters and returns the area of a rectangle.

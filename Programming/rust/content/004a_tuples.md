@@ -52,7 +52,7 @@ println!("Quotient: {}, Remainder: {}", result.0, result.1);
 
 ```
 
-## You can also have nested tuples or collections inside a tuple:
+## You can also have nested tuples or collections inside a tuple
 
 ```rust
 nested = (42, (1, 2), [3, 4])  # contains an int, a tuple, and a list
@@ -75,3 +75,11 @@ let tup = (1, "hello", true);
 let mut mut_tup = (1, "hello", true);
 mut_tup.0 = 2;  // This works because mut_tup is mutable
 ```
+
+## Problems
+
+1. Create a tuple `person` with three elements: a name (string), age (number), and city (string), then print all three values
+2. Create a tuple `coordinates` with two f64 values (3.5, 7.2), destructure it into `x` and `y` variables, and print them
+3. Create a function that takes a tuple `(i32, i32)` and returns a tuple `(i32, i32)` representing the sum and product of the two numbers
+4. Create a mutable tuple `data` with values (10, "hello", true), change the first element to 20, and print the updated tuple
+5. Create a nested tuple containing (42, ("inner", 100)), access both the outer and inner values, and print them.

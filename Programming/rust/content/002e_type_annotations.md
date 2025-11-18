@@ -57,3 +57,11 @@ fn main() {
 
 }
 ```
+
+## Problems
+
+1. Create a variable `age` with explicit type annotation `u8` and value 25, then print it
+2. Create a variable `temperature` with explicit type `f32` and value 36.5, then print it
+3. Create two variables `x: i32` and `y: i64`, assign values, and print both
+4. Create a variable `is_active` with explicit type `bool` and value true, then print it
+5. Create variables with different integer types (i8, u16, i32, u64) and print all of them.

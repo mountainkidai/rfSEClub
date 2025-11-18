@@ -39,3 +39,11 @@ impl Clone for i32 {
 
 - What happens: Bitwise copy of stack bytes. Two independent values.
 - Memory: Very low (stack only, ~4-8 bytes)
+
+## Problems
+
+1. Create two integer variables `x = 10` and `y = x`, verify they are independent by modifying `y` and printing both
+2. Create a variable `num: i32 = 42`, clone it to another variable, modify the clone, and verify the original is unchanged
+3. Create a tuple of integers, assign it to another variable, modify one field in the new tuple, and verify they are independent
+4. Create an array of integers, assign it to another variable, modify an element in one array, and check if the other is affected
+5. Create a struct with only `Copy` types (like integers), assign it to another variable, and demonstrate that both are independent copies.
