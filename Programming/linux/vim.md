@@ -6,6 +6,11 @@
 - **k**: Up one line
 - **h**: Left one character
 - **l**: Right one character
+- **b**: go back to the previous word starting
+- **0**: go to the starting char of the current line
+- **$**: go to the last char of the current line
+- **w**: go the next word first character
+- **e**: go the next word last character
 - **10j / 10k**: Down/up 10 lines (replace 10)
 - **gg**: File start
 - **G**: File end
@@ -28,27 +33,33 @@
 - **O**: New line above, insert
 - **x**: Delete character
 
-## Deleting
+## Deleting | Copying
 
 - **dd**: Delete line
 - **5dd**: Delete 5 lines (replace 5)
-- **dw**: Delete to word end
+- **dw**: Delete to word end including space
+- **de**: Delete to word end but not space
 - **d$**: Delete to line end
 - **d0**: Delete to line start
+- **cw**: Delete to word end and insert mode
+- **c$**: Delete to line end and insert mode
+- **c0**: Delete to line start and insert mode
 - **yy**: Copy line
 - **5yy**: Copy 5 lines
 - **p**: Paste after cursor
 - **P**: Paste before cursor
 - **u**: Undo
+- **r**: replace the current letter
 - **Ctrl + r**: Redo
 
 ## Selection (Visual Mode)
 
 - **v**: Character-wise selection
 - **V**: Line-wise selection
-- **Ctrl + v**: Block-wise selection
 - **y**: Copy selection
 - **d**: Delete selection
+- **p**: Paste after cursor
+- **P**: Paste before cursor
 
 ## Search & Replace
 
@@ -60,8 +71,7 @@
 
 ## VSCode-Specific
 
-- **Cmd + shift + o**: Jump to symbols
-- **Cmd + shift + .**: lets your jump to symbols using vim commands
+- **Cmd + shift + .**: lets your jump to symbols using vim commands j,k,h,l
 - **:w + Enter**: Save
 - **:q + Enter**: Close file
 - **:wq + Enter**: Save and close
