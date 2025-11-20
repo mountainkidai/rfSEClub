@@ -60,3 +60,7 @@
     
     Meaning:To abandon forever.
     Example:"He will abjure his allegiance to the king."
+
+13. Ubiquitous
+    Meaning:found everywhere..
+    Example:"In today's world, smartphones have become ubiquitous."
