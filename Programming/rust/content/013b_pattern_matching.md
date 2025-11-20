@@ -25,7 +25,6 @@ match x {
     1..=5 => println!("Between one and five"),
     _ => println!("Other"),
 }
-
 ```
 
 4. Matching enums and destructuring
