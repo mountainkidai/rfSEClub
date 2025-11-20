@@ -16,6 +16,16 @@ Constants are conventionally written in uppercase with underscores. They are han
 
 ---
 
+Note:
+
+- const variables do not have a fixed memory location.
+
+- const is not stored in data or static memory regions.
+
+- It exists only during compilation and is embedded directly into the executable code.
+
+- When you compile the program, the value becomes part of the machine instructions.
+
 ## Problems
 
 1. Create a constant `MAX_USERS` with value 100 and print it
