@@ -1,3 +1,59 @@
+Understanding Rust Threading, Memory Safety, and Mutability
+
+1. Basic Rust Thread Model
+
+   - What determines the number of threads in a Rust program (single vs multi-threading)?
+
+   - How Rust spawns and manages threads (standard library threads, async runtimes).
+
+2. Why Local Variables and Constants Are Safe
+
+   - Stack-based allocation and lexical scoping.
+
+   - Ownership and borrowing rules enforcing exclusive or shared access.
+
+   - Compile-time safety guarantees on non-static variables.
+
+3. The Global (Static) Variable Challenge
+
+   - Fixed memory location and global accessibility.
+
+   - Why Rust cannot guarantee safety of mutable globals at compile time.
+
+   - Unsafe blocks required for mutable static access.
+
+4. Where Else Mutable Aliasing Issues Arise
+
+   - Shared mutable references (&mut) and aliasing.
+
+   - Concurrency bugs: Data races and race conditions.
+
+   - Unsafe Rust and raw pointers.
+
+5. Rust's Concurrency Primitives as Solutions
+
+   - Mutexes (std::sync::Mutex), RwLocks, and atomic types (AtomicUsize, etc.).
+
+   - How these primitives enforce safe mutable shared state.
+
+   - Advantages of these primitives compared to static mut.
+
+6. Examples and Patterns for Safe Global Mutable State
+
+   - Using lazy_static! or once_cell for safe initialization.
+
+   - Safe wrappers around static variables.
+
+   - Proper synchronization patterns for shared state.
+
+7. Best Practices and Guidelines
+
+   - Avoidance of static mut in favor of safe abstractions.
+
+   - When to use unsafe and how to audit it.
+
+   - Understanding and leveraging Rust’s Send and Sync traits.
+
 ### Synchronization Primitives in Rust
 
 1. Mutex (Mutual Exclusion)
