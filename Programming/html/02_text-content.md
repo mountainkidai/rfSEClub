@@ -20,7 +20,6 @@ Used to define blocks of text.
 Paragraphs automatically add spacing above and below themselves to separate content visually.
 They are the most common way to write content on a web page.
 
-```html
 <p>This is a paragraph of text. It automatically adds spacing above and below.</p>
 ```
 

@@ -57,7 +57,7 @@
 9. under the weather
 
     Meaning: means feeling slightly ill.
-    Example: "I’m feeling a bit under 
+    Example: "I’m feeling a bit under the weather today; I might stay home and rest."
 
 10.  A blessing in disguise
   
