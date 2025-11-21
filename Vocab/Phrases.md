@@ -59,4 +59,7 @@
     Meaning: means feeling slightly ill.
     Example: "I’m feeling a bit under the weather today; I might stay home and rest."
 
-
+10.  A blessing in disguise
+  
+   Meaning: Something that seems bad at first but turns out to have good results.
+   Sentence: "Losing that job was a blessing in disguise because I found a much better position." 
