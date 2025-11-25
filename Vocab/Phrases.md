@@ -62,4 +62,9 @@
 10.  A blessing in disguise
   
    Meaning: Something that seems bad at first but turns out to have good results.
-   Sentence: "Losing that job was a blessing in disguise because I found a much better position." 
+   Sentence: "Losing that job was a blessing in disguise because I found a much better position."
+
+11.   A penny for your thoughts
+  
+    Meaning: A way to wish someone good luck, especially before a performance.
+    Example: “You’ve got your big presentation today—break a leg!”

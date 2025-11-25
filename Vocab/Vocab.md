@@ -60,3 +60,8 @@
 
     Meaning: To solemnly renounce a belief, cause, or claim  
     Example: "In order to become a citizen, he had to abjure his allegiance to his former country"
+
+13. FOMO
+
+    Meaning: fear of missing out
+     Example: "FOMO made me attend the boring lecture."
