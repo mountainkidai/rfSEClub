@@ -64,4 +64,9 @@
 13. FOMO
 
     Meaning: fear of missing out
-     Example: "FOMO made me attend the boring lecture."
+   Example: "FOMO made me attend the boring lecture."
+
+14. Lethargic 
+
+    Meaming:Sluggish, lacking energy
+    Example: "He is a bit lethargic today."

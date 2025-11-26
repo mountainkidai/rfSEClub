@@ -68,3 +68,10 @@
   
     Meaning: A way to wish someone good luck, especially before a performance.
     Example: “You’ve got your big presentation today—break a leg!”
+
+12.  piece of cake
+
+     Meaning: Something very easy.
+     Example: "The exam was a piece of cake!"
+
+ 
