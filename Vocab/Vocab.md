@@ -70,3 +70,11 @@
 
     Meaming:Sluggish, lacking energy
     Example: "He is a bit lethargic today."
+   
+ 15.  Sample
+ 
+    Meaning :A small part or quantity intended to show what the whole is like.
+    Example: "A blood sample was taken for analysis."
+
+
+  
