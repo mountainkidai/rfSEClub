@@ -59,4 +59,19 @@
     Meaning: means feeling slightly ill.
     Example: "I’m feeling a bit under the weather today; I might stay home and rest."
 
+10.  A blessing in disguise
+  
+   Meaning: Something that seems bad at first but turns out to have good results.
+   Sentence: "Losing that job was a blessing in disguise because I found a much better position."
 
+11.   A penny for your thoughts
+  
+    Meaning: A way to wish someone good luck, especially before a performance.
+    Example: “You’ve got your big presentation today—break a leg!”
+
+12.  piece of cake
+
+     Meaning: Something very easy.
+     Example: "The exam was a piece of cake!"
+
+ 

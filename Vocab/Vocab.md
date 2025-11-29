@@ -55,3 +55,18 @@
 
     Meaning: To study hard.
     Example: "I have a big exam tomorrow, so I need to hit the books tonight."
+
+12. abjure
+
+    Meaning: To solemnly renounce a belief, cause, or claim  
+    Example: "In order to become a citizen, he had to abjure his allegiance to his former country"
+
+13. FOMO
+
+    Meaning: fear of missing out
+   Example: "FOMO made me attend the boring lecture."
+
+14. Lethargic 
+
+    Meaming:Sluggish, lacking energy
+    Example: "He is a bit lethargic today."
