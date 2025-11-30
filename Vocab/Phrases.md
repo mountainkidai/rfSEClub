@@ -74,4 +74,10 @@
      Meaning: Something very easy.
      Example: "The exam was a piece of cake!"
 
+13.  Hit the nail on the head
+
+   Meaning: Describe exactly what is right or true.
+   Example: "You hit the nail on the head—that’s exactly the problem."
+
+ 
  
