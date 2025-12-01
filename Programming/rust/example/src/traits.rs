@@ -4,7 +4,7 @@
 /*
 
 1. struct
-2. impl 
+2. impl
 3. new constructor, ::,Self,
 4. . notation, self, mut self, &self, &mut self
 5. methods inside impl
@@ -20,7 +20,7 @@ Social media platform - sheldon.today
 1. Post
 2. Article
 
-Summarize function 
+Summarize function
 use traits, impl types, generics,
 
 
@@ -69,7 +69,7 @@ fn main(){
 /*
 
 1. struct
-2. impl 
+2. impl
 3. new constructor, ::,Self,
 4. . notation, self, mut self, &self, &mut self
 5. methods inside impl
@@ -85,14 +85,14 @@ Social media platform - sheldon.today
 1. Post
 2. Article
 3. notifcation feature
-Summarize function 
+Summarize function
 use traits, impl types, generics,
 
 
 */
 trait Summary{
     fn summarize(&self) -> String;
-    // getter function to get 
+    // getter function to get
     fn get_author(&self) -> String;
 }
 
@@ -169,7 +169,7 @@ From a cleaner in Kullu at ₹2,000/month to a telecaller, writer, teacher, and 
 
 trait Summary{
     fn summarize(&self) -> String;
-    // getter function to get 
+    // getter function to get
        fn get_author(&self) -> String{
         ""
 
@@ -208,14 +208,14 @@ impl Summary for Post{
     fn summarize(&self) -> String{
         format!("Summary: {} ", self.content, )
     }
-  
+
 }
 
 impl Summary for Article{
     fn summarize(&self) -> String{
         format!("Article Summary: {} by {}", self.large_content, self.author )
     }
-  
+
 }
 
 // T is a generic type that is either Post or Article
@@ -239,4 +239,3 @@ From a cleaner in Kullu at ₹2,000/month to a telecaller, writer, teacher, and 
    notifyUser(&post1);
 
 }
-
