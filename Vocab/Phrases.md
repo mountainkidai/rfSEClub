@@ -79,5 +79,11 @@
    Meaning: Describe exactly what is right or true.
    Example: "You hit the nail on the head—that’s exactly the problem."
 
+14.   "Break the ice"
+
+    Meaning: To do or say something to make people feel more comfortable in a social situation, especially when meeting for the first time
+    Example:"I told a joke to break the ice at the beginning of the meeting."
+   
+
  
  

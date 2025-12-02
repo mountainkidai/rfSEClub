@@ -76,5 +76,8 @@
     Meaning :A small part or quantity intended to show what the whole is like.
     Example: "A blood sample was taken for analysis."
 
+ 16. Serendipity
 
+    Meaning: Finding something good or valuable by accident or luck
+    Example:"It was pure serendipity that I met my best friend at the coffee shop that day."
   
