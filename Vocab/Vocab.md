@@ -64,3 +64,8 @@
 13. Ubiquitous
     Meaning:found everywhere..
     Example:"In today's world, smartphones have become ubiquitous."
+
+14. Metacognition
+    
+    Meaning:Awareness and understanding of one's own thought processes.
+    Example: Metacognition is a valuable skill for effective learning. 
