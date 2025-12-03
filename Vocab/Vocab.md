@@ -69,3 +69,25 @@
     
     Meaning:Awareness and understanding of one's own thought processes.
     Example: Metacognition is a valuable skill for effective learning. 
+12. abjure
+
+    Meaning: To solemnly renounce a belief, cause, or claim  
+    Example: "In order to become a citizen, he had to abjure his allegiance to his former country"
+
+13. FOMO
+
+    Meaning: fear of missing out
+   Example: "FOMO made me attend the boring lecture."
+
+14. Lethargic 
+
+    Meaming:Sluggish, lacking energy
+    Example: "He is a bit lethargic today."
+   
+ 15.  Sample
+ 
+    Meaning :A small part or quantity intended to show what the whole is like.
+    Example: "A blood sample was taken for analysis."
+
+
+  
