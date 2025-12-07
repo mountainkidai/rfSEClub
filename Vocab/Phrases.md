@@ -83,6 +83,12 @@
 
     Meaning: To do or say something to make people feel more comfortable in a social situation, especially when meeting for the first time
     Example:"I told a joke to break the ice at the beginning of the meeting."
+
+15.   "Hit the nail on the head"
+
+    Meaning: To describe exactly what is causing a situation or problem; to be exactly right about something
+    Example:"You hit the nail on the head when you said the project failed due to poor communication."
+
    
 
  

@@ -80,4 +80,9 @@
 
     Meaning: Finding something good or valuable by accident or luck
     Example:"It was pure serendipity that I met my best friend at the coffee shop that day."
-  
+
+ 17.  Resilient
+
+    Meaning: Able to recover quickly from difficulties; tough and flexible
+    Example:"Children are remarkably resilient and can adapt to new situations easily."
+ 
