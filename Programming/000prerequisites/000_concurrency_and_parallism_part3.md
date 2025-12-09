@@ -6,7 +6,7 @@ When an application runs, the OS decides how many threads to create based on loa
 
 Understanding Go and Rust: Concurrency, Runtime, and Memory Management from First Principles
 
-Programming modern high-performance applications like trading platforms (e.g., Zerodha, AlpKid) demands efficient management of tasks, threads, and memory. Two popular languages, Go and Rust, offer unique approaches rooted in fundamental principles to solve these challenges. This article breaks down these concepts to clarify how Go and Rust manage concurrency, execution runtime, threads, and memory, simplifying complex terms with practical examples.
+Programming modern high-performance applications like trading platforms (e.g., Zerodha ) demands efficient management of tasks, threads, and memory. Two popular languages, Go and Rust, offer unique approaches rooted in fundamental principles to solve these challenges. This article breaks down these concepts to clarify how Go and Rust manage concurrency, execution runtime, threads, and memory, simplifying complex terms with practical examples.
 
 1. Threads and Concurrency: The Basics
    What Are Threads?

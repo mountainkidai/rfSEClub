@@ -1,41 +1,3 @@
-### Traits basics
-
-- impl for traits
-- Traits with functions
-- The next topics to deepen your understanding of traits and their ecosystem are:
-
-## Trait Bounds
-
-- How to use traits as constraints on generic parameters
-- Inline bounds vs where clauses
-
-## Trait Objects (dyn Trait)
-
-- Dynamic dispatch with trait objects
-- When and why to use them
-
-## Default Implementations in Traits
-
-- Providing default method bodies
-- Overriding defaults in implementations
-
-## Trait Inheritance (Supertraits)
-
-- Traits requiring other traits
-
-## Generic Traits
-
-- Traits parameterized by generic types
-
-## Associated Types in Traits
-
-- Placeholder types inside traits tied to implementing types
-
-## Advanced Trait Patterns
-
-- Blanket implementations
-- Combination with generics and lifetimes
-
 ## Traits
 
 ## lets understand Trait for this
@@ -1171,3 +1133,4 @@ From a cleaner in Kullu at ₹2,000/month to a telecaller, writer, teacher, and 
 3. Define a trait `Area` with a method `area()`, implement it for `Rectangle` and `Circle` structs, and calculate areas
 4. Create a generic struct `Pair<T>` with two fields of type `T`, implement a method to swap the values, and test it
 5. Define a trait with a default implementation, implement it for a type without overriding, and another type that overrides the default
+```
