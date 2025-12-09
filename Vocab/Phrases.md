@@ -89,6 +89,11 @@
     Meaning: To describe exactly what is causing a situation or problem; to be exactly right about something
     Example:"You hit the nail on the head when you said the project failed due to poor communication."
 
+ 16.  "Under the weather"
+
+    Meaning: Feeling ill or sick; not feeling well
+    Example :"I'm feeling a bit under the weather today, so I'm staying home from work."   
+
    
 
  

@@ -85,4 +85,8 @@
 
     Meaning: Able to recover quickly from difficulties; tough and flexible
     Example:"Children are remarkably resilient and can adapt to new situations easily."
- 
+
+ 18.  Meticulous
+
+    Meaning: Showing great attention to detail; very careful and precise
+    Example:"The artist was meticulous in her work, spending hours on every small detail."  
