@@ -89,4 +89,9 @@
  18.  Meticulous
 
     Meaning: Showing great attention to detail; very careful and precise
-    Example:"The artist was meticulous in her work, spending hours on every small detail."  
+    Example:"The artist was meticulous in her work, spending hours on every small detail." 
+    
+ 19.   Ephemeral
+
+    Meaning: Lasting for a very short time; fleeting
+    Example:"The beauty of the cherry blossoms is ephemeral, lasting only a few days each year."

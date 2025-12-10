@@ -94,6 +94,10 @@
     Meaning: Feeling ill or sick; not feeling well
     Example :"I'm feeling a bit under the weather today, so I'm staying home from work."   
 
+17.  : "On the same page"
+
+    Meaning: To have the same understanding or agreement about something; to be in agreement
+    Example:"Let's make sure we're all on the same page before we start the project."
    
 
  
