@@ -98,6 +98,11 @@
 
     Meaning: To have the same understanding or agreement about something; to be in agreement
     Example:"Let's make sure we're all on the same page before we start the project."
+
+18.  "Spill the beans"
+
+    Meaning: To reveal a secret or tell information that was supposed to be kept hidden
+    Example:"Come on, spill the beans! What did they get you for your birthday?
    
 
  

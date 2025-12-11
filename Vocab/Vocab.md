@@ -95,3 +95,8 @@
 
     Meaning: Lasting for a very short time; fleeting
     Example:"The beauty of the cherry blossoms is ephemeral, lasting only a few days each year."
+
+20. Word: Candid
+
+    Meaning:Honest and straightforward; saying what you really think without hiding anything
+    Example:"I appreciate your candid feedback about my presentation."
