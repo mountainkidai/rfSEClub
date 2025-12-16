@@ -103,6 +103,12 @@
 
     Meaning: To reveal a secret or tell information that was supposed to be kept hidden
     Example:"Come on, spill the beans! What did they get you for your birthday?
+
+19.  "Pull the plug"
+
+    Meaning: To stop or end something, especially a project, activity, or system
+     Example:"The company decided to pull the plug on the failing product line."
+
    
 
  

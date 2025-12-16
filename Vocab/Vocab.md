@@ -100,3 +100,8 @@
 
     Meaning:Honest and straightforward; saying what you really think without hiding anything
     Example:"I appreciate your candid feedback about my presentation."
+
+30.  Pragmatic
+
+    Definition: Dealing with things in a practical way, focusing on what works rather than ideals
+    Example:"She took a pragmatic approach to solving the problem by testing different solutions."
