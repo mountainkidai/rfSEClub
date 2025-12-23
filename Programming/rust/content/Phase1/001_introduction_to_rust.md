@@ -275,7 +275,7 @@ hello_world/
 
 ---
 
-## ⚡ Advanced Concept: Build Profiles and Optimization
+Build Profiles and Optimization
 
 Compilation has **two modes**: **development** (fast compile, slow runtime) and **release** (slow compile, fast runtime).
 
@@ -355,3 +355,16 @@ lto = "fat" # Most aggressive LTO
 codegen-units = 1 # Single unit for max inlining
 panic = "abort"
 ```
+
+---
+
+## When to Optimize: The Top 1% Workflow
+
+| Stage            | Command                                    | Purpose                                             |
+| ---------------- | ------------------------------------------ | --------------------------------------------------- |
+| **Developing**   | `cargo run`                                | Fast feedback (compile fast, accept slower runtime) |
+| **Testing perf** | `cargo run --release`                      | See what your final binary will do                  |
+| **Benchmarking** | `cargo bench`                              | Measure performance systematically                  |
+| **Deploying**    | `cargo build --release` with tuned profile | Maximum speed/size tradeoff                         |
+
+---
