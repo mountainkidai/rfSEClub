@@ -1,4 +1,4 @@
-# Memory in Detail  - Part 6- How Program runs
+# Memory in Detail - Part 6- How Program runs
 
 ## **RAM is split into different memory regions:**
 
@@ -96,7 +96,7 @@ High Memory (Largest Addresses)
 fn add(x: i32, y: i32) -> i32 { x + y } // ✅ Stored in Text Segment
 ```
 
-### **2️⃣ Data Segment (Global & Static Variables)**
+### **2️⃣ Data Segment (Static Variables)**
 
 📌 **Stores global & static variables for the program’s lifetime.**
 
