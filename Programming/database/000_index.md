@@ -79,33 +79,52 @@
 
 ## Part II: PostgreSQL Architecture & Internals
 
-### Chapter 3: Process-Based Architecture
+### Chapter 3: Connection Handling Evolution (SQL → MySQL → PostgreSQL)
 
-#### 3.1 Postmaster Process
+#### 3.1 Raw SQL Era (1970s) - Single Process
 
-- Master controller, parent of all processes
+- One app = one process
+- No concurrency (queue everything)
+- Like single bank teller
+
+#### 3.2 MySQL - Threaded Architecture
+
+- One thread per connection (up to 50K+ threads)
+- Shared memory apartment 🏠
+- max_connections = 5000 → 5000 threads
+- Thread Pool mode (MySQL 8.0+): Fixed threads (64-512) + task queue
+- Pros: Low RAM
+- Cons: One crash kills all
+
+#### 3.3 PostgreSQL - Process-Based Architecture
+
+##### 3.3.1 Postmaster Process (Daddy 👑)
+
+Master controller, parent of ALL processes
+
 - Listens on port 5432
 - Forks backend process per connection
-- Manages server lifecycle
+- Manages server lifecycle (start/stop/restart)
 
-#### 3.2 Backend Processes
+##### 3.3.2 Backend Processes (Workers 👶)
 
 - Process-per-connection model
 - Each client gets dedicated OS process
 - Execute SQL queries, manage transactions
-- Isolation and stability over threads
+- Isolation + stability over threads
 - Controlled by max_connections
 - Trade-off: Memory overhead vs reliability
 
-#### 3.3 Why Processes Over Threads?
+##### 3.3.3 Why Processes > Threads?
 
-- Historical stability concerns
-- Easier maintenance and debugging
-- Forking with copy-on-write
-- Own memory space per process
-- Simpler internals, no fine-grained locking
+| Processes ✅            | Threads ❌ (MySQL)          |
+| ----------------------- | --------------------------- |
+| 1 crash ≠ kill everyone | 1 crash = kill WHOLE server |
+| Memory isolated         | Shared memory bugs          |
+| Easy debugging          | Hard debugging              |
+| Fork() copy-on-write    | Complex locking             |
 
-#### 3.4 Background Workers & Auxiliary Processes
+#### 3.3.4 Background Workers & Auxiliary Processes
 
 - Autovacuum workers: Cleanup dead tuples
 - WAL writer: Write-ahead log management
