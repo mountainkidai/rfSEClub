@@ -665,7 +665,53 @@ Linux chooses **monolithic** for performance. Other systems choose **microkernel
 
 Try answering these before reading the next article!
 
----
+### Answers
+
+## Kernel Core Functions
+
+The four core functions of a kernel are process management, memory management, device management, and system call management. Process management handles process creation, scheduling, and termination. Memory management allocates virtual memory and ensures isolation between processes.
+
+## Scheduler CPU Assignment
+
+The scheduler selects ready processes using algorithms like Completely Fair Scheduler (CFS) based on priority, fairness, and runtime. It assigns processes to CPU cores via load balancing across cores and CPU affinity masks in the process's task_struct to minimize migrations. Factors like core utilization and NUMA topology influence decisions for optimal performance.
+
+## Virtual Memory Purpose
+
+Virtual memory provides each process with its own isolated address space larger than physical RAM by mapping virtual pages to physical frames or disk. It enables multitasking beyond physical limits, simplifies memory allocation, and supports memory protection. Without it, processes would compete directly for limited RAM, causing frequent failures.
+
+## Process Memory Isolation
+
+The kernel uses per-process page tables and the MMU hardware to map virtual addresses uniquely for each process, marking foreign pages as inaccessible. Attempts to access another process's memory trigger page faults or protection violations handled by the kernel. Address Space Layout Randomization (ASLR) adds further protection against exploits.
+
+## Interrupts and Kernel Handling
+
+An interrupt is an asynchronous hardware signal (e.g., timer, I/O) that halts normal execution for urgent handling. The kernel consults the Interrupt Descriptor Table (IDT), executes the Interrupt Service Routine (ISR) in kernel mode, acknowledges the device, and uses bottom halves (softirqs) for deferred work before returning via IRET.
+
+## Kernel vs User Mode
+
+Kernel mode (ring 0) allows privileged instructions, full hardware access, and direct memory manipulation. User mode (ring 3) restricts these via a CPU mode bit, forcing system calls for kernel services to prevent crashes. This protects system integrity from faulty or malicious user programs.
+
+## Context Switch Steps
+
+A context switch saves the current process's CPU registers, program counter, and stack pointer to its Process Control Block (PCB). The scheduler selects and loads the next process's state, flushes TLB if address spaces differ, and resumes execution. It enables multitasking but incurs overhead from cache/TLB misses.
+
+## Monolithic vs Microkernel
+
+| Feature         | Monolithic Kernel Advantages         | Monolithic Disadvantages        | Microkernel Advantages   | Microkernel Disadvantages |
+| :-------------- | :----------------------------------- | :------------------------------ | :----------------------- | :------------------------ |
+| Performance     | High speed via direct function calls | Single crash affects all        | Modular fault isolation  | IPC overhead slows calls  |
+| Size/Complexity | Compact for simple systems           | Hard to maintain large codebase | Easier debugging/updates | Larger footprint overall  |
+| Examples        | Linux, Windows NT                    | -                               | Minix, QNX               | -                         |
+
+Monolithic integrates drivers/services in kernel space for efficiency; microkernels run them as user-space servers.
+
+## System Calls Overview
+
+A system call is a user-mode request for kernel services via software interrupt (syscall/sysenter instruction), switching to kernel mode. Examples: `read()` (file input), `fork()` (process creation), `execve()` (load program).
+
+## Space Separation Value
+
+Kernel/user space separation prevents user errors from corrupting kernel data or hardware, ensuring system stability. It enforces privilege levels, blocks direct device access, and limits exploit damage. This design supports secure multitasking on shared hardware.
 
 ## What's Next
 
