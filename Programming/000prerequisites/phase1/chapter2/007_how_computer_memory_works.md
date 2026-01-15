@@ -43,15 +43,20 @@ Examples (ARM64): X0-X31
 ### Characteristics
 
 | Aspect          | Value                                       |
-| --------------- | ------------------------------------------- |
+| --------------- | ------------------------------------------- | --------------- | -------------------------- |
 | **Size**        | 16 registers × 8 bytes = 128 bytes (x86-64) |
 | **Access Time** | 0 cycles (part of CPU, accessed directly)   |
 | **Bandwidth**   | Unlimited (multiple reads per cycle)        |
 | **Cost**        | Extremely expensive                         |
+| Metric          | Measures                                    | Units           | Analogy                    |
+| ----------      | -------------------------                   | --------------- | -------------------------- |
+| Bandwidth       | Theoretical max capacity                    | bps, Mbps, Gbps | Pipe width solarwinds​     |
+| Latency         | Delay in transmission                       | Milliseconds    | Travel time ir​            |
+| Throughput      | Actual data transfer rate                   | bps, Mbps, Gbps | Water flow volume qsfptek​ |
 
 ### Why So Expensive?
 
-Registers are literally part of the CPU die. Each register requires transistors for storage and wiring to connect to ALU. Adding more registers means:
+Registers are literally part of the CPU die (the actual silicon chip—flat square of semiconductor where all transistors live.). Each register requires transistors for storage and wiring to connect to ALU. Adding more registers means:
 
 - Larger CPU die (more expensive to manufacture)
 - More complex instruction encoding (limited registers per instruction)
@@ -536,38 +541,24 @@ fn access_array(arr: &[i32; 1000]) {
 
 You can write code that's efficient on multiple cache sizes without knowing exact L1/L2/L3 sizes.
 
-**Good**: Divide-and-conquer respecting memory hierarchy.
+Cache-Oblivious = Sari User List
 
-```rust
-// Matrix multiplication (cache-friendly)
-fn matmul_blocked(A: &Matrix, B: &Matrix, C: &mut Matrix) {
-    // Process in 64×64 blocks that fit in L3
-    for bi in 0..N/64 {
-        for bj in 0..N/64 {
-            for bk in 0..N/64 {
-                multiply_blocks(&A[bi], &B[bk], &C[bi][bj]);
-            }
-        }
-    }
-}
-// Only loads each cache line once per operation
+```text
+Good: Process users by city (grouped together)
+Delhi users 0-99 → Mumbai 100-199 → Chennai 200-299
+Load Delhi block → ALL Delhi data in cache → Fast!
+
+Bad: Process by user ID randomly
+User 5, 203, 67, 189 → Jump everywhere → Cache miss every time
 ```
 
-**Bad**: Random access ignoring memory hierarchy.
+Prefetching = Phunsuk Hotel List
 
-```rust
-// Matrix transpose (cache-hostile if large)
-fn transpose_naive(A: &Matrix) -> Matrix {
-    let mut B = Matrix::new();
-    for i in 0..N {
-        for j in 0..N {
-            B[j][i] = A[i][j];  // Column-wise write
-                                // Ignores cache lines
-        }
-    }
-    B
-}
-// Misses cache every time, 100x slower
+```text
+You search hotels: Hotel1, Hotel2, Hotel3 (sorted by price)
+CPU sees "+1 each time" → Pre-loads Hotel4,5,6 into L1 cache
+You click Hotel4 → Already loaded! Instant!
+False Sharing = Sari Counters
 ```
 
 ### Prefetching
@@ -588,42 +579,172 @@ When you access 0x10C0: Already in L1!
 
 ---
 
-## Multi-Core Memory Sharing
-
-With multiple cores accessing memory, complications arise.
-
-### False Sharing
-
-```
-Core 1: Modifies arr[0]
-Core 2: Modifies arr[1]
-
-But arr[0] and arr[1] are in same cache line!
-Core 1 modifies cache line → Invalidates Core 2's copy
-Core 2 must refetch → Cache miss
-
-Solution: Pad arrays to separate cache lines
-struct Item { data: u64, _pad: [u64; 7] } // 64-byte aligned
-```
-
-### Memory Barriers
-
-For thread safety with weak memory ordering (ARM64, RISC-V):
-
 ```rust
-// Thread 1
-data.store(42, Ordering::Relaxed);
-flag.store(true, Ordering::Release);  // ← Memory barrier
+// Sari App: Nutrition patient database
+struct Patient {
+    id: u32,        // 4 bytes
+    weight: u32,    // 4 bytes
+    water_needed: f32, // 4 bytes
+    city: [u8; 20], // 20 bytes (null padded)
+} // Total: 32 bytes per patient
 
-// Thread 2
-if flag.load(Ordering::Acquire) {     // ← Memory barrier
-    // Safe to read data
+fn main() {
+    // Simulate RAM: 1,000 patients (Delhi + Mumbai)
+    let mut patients: Vec<Patient> = vec![];
+
+    // Delhi patients (IDs 0-499) - GROUPED TOGETHER
+    for i in 0..500 {
+        patients.push(Patient {
+            id: i,
+            weight: 70 + (i % 10),
+            water_needed: 2.5,
+            city: *b"Delhi\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
+        });
+    }
+
+    // Mumbai patients (IDs 500-999)
+    for i in 500..1000 {
+        patients.push(Patient {
+            id: i,
+            weight: 65 + (i % 10),
+            water_needed: 2.2,
+            city: *b"Mumbai\0\0\0\0\0\0\0\0\0\0\0\0\0",
+        });
+    }
+
+    println!("🏥 Sari Clinic Ready! 1000 patients loaded");
+
+    // === FIRST LOOKUP: John (Delhi patient 45) ===
+    println!("\n🔍 FIRST lookup: patient[45] (John Delhi)");
+    let john = lookup_patient(&patients, 45);
+    println!("✅ John: {}kg, needs {}L water", john.weight, john.water_needed);
+    // RAM → L3 → L2 → L1 → REGISTER (SLOW first time)
+
+    // === NEXT LOOKUP: Nearby Mary (patient 46) ===
+    println!("\n🔍 NEXT lookup: patient[46] (Mary Delhi)");
+    let mary = lookup_patient(&patients, 46);
+    println!("✅ Mary: {}kg, needs {}L water", mary.weight, mary.water_needed);
+    // SAME 64-byte line in L1! ⚡️ INSTANT!
+
+    // === JUMP LOOKUP: Far away Raj (patient 500 Mumbai) ===
+    println!("\n🔍 JUMP lookup: patient[500] (Raj Mumbai)");
+    let raj = lookup_patient(&patients, 500);
+    println!("✅ Raj: {}kg, needs {}L water", raj.weight, raj.water_needed);
+    // NEW cache line → RAM fetch again (SLOW!)
 }
+
+fn lookup_patient(patients: &Vec<Patient>, index: usize) -> Patient {
+    // CPU simulates: REGISTER X0 = patients[index]
+    patients[index]  // ← Triggers cache journey!
+}
+
 ```
 
-The `Release` and `Acquire` orderings ensure visibility across cores.
+| Level           | What it holds               | Pieces per Core           | Size per Piece | Total Capacity | Latency           | Speed  | Power  | Job                     | Sari Example                      |
+| --------------- | --------------------------- | ------------------------- | -------------- | -------------- | ----------------- | ------ | ------ | ----------------------- | --------------------------------- |
+| Registers       | Live numbers during math    | 32                        | 64 bits        | 256B/core      | 0-1 cycle ⚡️     | Max    | Tiny   | CPU math workspace      | John's weight (70) during calc    |
+| L1 Data P-core  | Hot patient data            | 2,048                     | 64 bytes       | 128KB/core     | 3-5 cycles ⚡️    | Max    | Low    | Fastest patient lookups | Delhi patients 0-4K (P-core 0)    |
+| L1 Data E-core  | Hot patient data            | 1,024                     | 64 bytes       | 64KB/core      | 3-5 cycles ⚡️    | Medium | Tiny   | Background data         | Database sync patients (E-core 3) |
+| L1 Instr P-core | Hot code                    | 3,072                     | 64 bytes       | 192KB/core     | 3-5 cycles ⚡️    | Max    | Low    | Fast code execution     | Sari Rust code (P-core 0)         |
+| L1 Instr E-core | Hot code                    | 2,048                     | 64 bytes       | 128KB/core     | 3-5 cycles ⚡️    | Medium | Tiny   | Background code         | Supabase sync code (E-core 3)     |
+| L2 P-cluster    | Recent data (4 P-cores)     | 262,144 (shared 4 cores)  | 64 bytes       | 16MB (P-group) | 10-15 cycles ⚡   | High   | Medium | P-core recent data      | All Delhi patients (P-group)      |
+| L2 E-cluster    | Recent data (4 E-cores)     | 65,536 (shared 4 cores)   | 64 bytes       | 4MB (E-group)  | 10-15 cycles ⚡   | Medium | Low    | E-core recent data      | Background sync data (E-group)    |
+| SLC (ex-L3)     | Shared data (all cores+GPU) | 8M (shared)               | 64 bytes       | 32MB (shared)  | 30-50 cycles ⚡   | Medium | Medium | Team shared data        | Delhi+Mumbai patients (all cores) |
+| Unified RAM     | Everything                  | 1B (SHARED all cores+GPU) | 64 bytes       | 16GB (SHARED)  | 100-200 cycles 🐌 | Slow   | High   | Permanent storage       | 1M patients + OS + images         |
 
----
+**SECOND 0**: Power ON → **ALL EMPTY**
+Registers: Empty ❌ | L1/L2/SLC/RAM: Only RAM has patients
+
+### 1️⃣ FIRST LOOKUP: John (patient) - 100 cycles SLOW
+
+```text
+CPU: "Need patient[45]!"
+
+REGISTER? ❌ Empty (0 cycles)
+L1 Data P-core? ❌ Empty (3 cycles)
+L2 P-cluster? ❌ Empty (10 cycles)
+SLC? ❌ Empty (30 cycles)
+**UNIFIED RAM → GRABS 64-BYTE BOX #45** (100 cycles 🐌)
+
+BOX #45 contents (64 bytes):
+[John: ID45,70kg,2.5L][Mary: ID46,72kg,2.6L]
+
+RAM → SLC → L2 → **L1 FILLED** → **X0 = John's 32 bytes**
+✅ **Total: 143 cycles** (first miss)
+```
+
+### 2️⃣ SECOND LOOKUP: Mary (patient) - 1 cycle ⚡️
+
+```text
+CPU: "Need patient[46]!"
+
+REGISTER? ❌
+**L1 Data P-core? YES!** ← Mary in same BOX #45
+**X1 = Mary's 32 bytes**
+
+✅ **Total: 3 cycles** (L1 HIT!)
+```
+
+### 3️⃣ THIRD LOOKUP: Raj (patient) - 100 cycles SLOW
+
+```text
+CPU: "Need patient[500]!"
+
+REGISTER? ❌
+L1? ❌ (evicts old Delhi box)
+L2? ❌
+SLC? ❌
+**RAM → NEW BOX #500** (100 cycles 🐌)
+
+BOX #500 contents:
+[Raj: ID500,65kg,2.2L][Next: ID501,...]
+
+RAM → SLC → L2 → L1 → **X2 = Raj's data**
+✅ **Total: 143 cycles** (new miss)
+```
+
+### M2 MEMORY LADDER (Your MacBook Pro)
+
+```text
+RAM (16GB shared) ──────💾 100-200 cycles ────> SLC (32MB shared)
+    ↓                                                         ↑
+L2 P-cluster (16MB/4 cores) ────⚡ 10-15 cycles ────> L1 Data (128KB/core)
+    ↓                                                         ↑
+                  L1 Instr (192KB/core) ────⚡️ 3-5 cycles ────> **REGISTER (32×64bit)**
+```
+
+### Timeline
+
+```text
+Time   What Happens                           Where John Lives
+0ns    Power on                               RAM only
+100ns  patients[45] ← RAM fetch BOX#45        L1 P-core 0 (John+Mary)
+101ns  patients[46] ← L1 hit!                 L1 P-core 0 (same BOX)
+201ns  patients[500]← RAM fetch BOX#500       L1 P-core 0 (Raj+next)
+```
+
+```text
+1000 patients × 32B = **32KB**
+= **25% of 1 P-core L1** (128KB)
+= **Group by city** → All Delhi in 16 boxes → **999 L1 hits** after first fetch!
+
+**Result**: Lightning fast Sari app on your M2!** 🚀
+```
+
+### Another example
+
+```text
+500MB Video in RAM:
+┌───────────────────────────────────────┐
+│ Frame 0-100 → P-core 0 L1 (128KB)     │ ⚡️
+│ Frame 101-200 → P-core 1 L1 (128KB)   │ ⚡️
+│ Frame 201-300 → P-core 2 L1 (128KB)   │ ⚡️
+│ Frame 301-400 → P-core 3 L1 (128KB)   │ ⚡️
+│ AI filters → GPU (direct RAM)         │ 🚀
+│ Encoding → E-cores (background)       │ ⚡
+└───────────────────────────────────────┘
+SLC (32MB): Popular frames shared
+```
 
 ## Key Takeaways
 
@@ -637,6 +758,12 @@ The `Release` and `Acquire` orderings ensure visibility across cores.
 8. **Page faults**: Disk access = 1,000,000+ cycles
 9. **Multi-core**: Cache coherency and false sharing matter
 10. **Optimization starts here**: Fix memory access patterns before anything else
+
+**1 Cycle** = 1 CPU clock tick
+
+**Modern CPU**: 3.5 GHz (M2 P-core) = **3.5 billion cycles/second**
+
+**1 cycle** = **0.286 nanoseconds** (ns)
 
 ## Implications for Programmers
 
@@ -669,8 +796,115 @@ The `Release` and `Acquire` orderings ensure visibility across cores.
 
 Try answering these before reading the next article!
 
+```text
+1.
+REGISTER (0 cycles) ──⚡️──> L1 Cache (3 cycles) ──⚡──> L2 (10 cycles)
+                      │
+                      └───⚡──> SLC/L3 (30 cycles) ──🐌──> RAM (100 cycles)
+                                             │
+                                             └───💾──> SSD (1M cycles)
+
+```
+
+2.**Cache Line = 64-byte box** CPU grabs from RAM
+
+**Why 64 bytes?**
+
+- Hardware bus optimized for 64B transfers
+- **Prefetches nearby data** (spatial locality)
+- Single byte request → **Whole box fetched anyway**
+
+Sari: `patients[45]` → Gets patients[45+46] FREE!
+
 ---
+
+### 3. L1 Miss vs L2 Hit
+
+| Situation        | Where Data Lives              | Total Time    | Sari Example                       |
+| ---------------- | ----------------------------- | ------------- | ---------------------------------- |
+| L1 HIT           | Already in L1 (fastest cache) | 3 cycles ⚡️  | Mary (already loaded with John)    |
+| L1 MISS → L2 HIT | Not in L1, but in L2          | 13 cycles ⚡  | Delhi patients (L2 has city block) |
+| L1/L2 MISS → RAM | Nowhere fast, in RAM          | 150 cycles 🐌 | First Mumbai patient (cold RAM)    |
+
+### 4.
+
+**4 RAM fetches for 4 accesses** 🐌
+
+| Type           | Meaning                        | Code Example                                                      | Sari Win                        |
+| -------------- | ------------------------------ | ----------------------------------------------------------------- | ------------------------------- |
+| TEMPORAL(Time) | Recently used → Used again     | rust<br>sum += arr; // Reuse arr<br>sum += arr; // Same spot!<br> | Reuse "Delhi patients" list     |
+| SPATIAL(Space) | Nearby addresses used together | rust<br>arr; // John<br>arr; // Mary next door!<br>               | Delhi patients grouped together |
+
+### 5.
+
+SEQUENTIAL (16 patients):
+1 RAM fetch (100 cycles) + 15 L1 hits (3 cycles) = 145 cycles
+145 ÷ 16 = **9 cycles average** ⚡️
+
+RANDOM (16 patients):
+16 RAM fetches × 100 cycles = **1600 cycles**
+1600 ÷ 16 = **100 cycles average** 🐌
+
+**100x slower!**
+
+### 6.
+
+| Without Virtual         | With Virtual          |
+| ----------------------- | --------------------- |
+| App1: RAM 0-4GB         | App1: Fake RAM 0-16EB |
+| App2: RAM 4-8GB         | App2: Fake RAM 0-16EB |
+| Fragmented + Crash risk | Isolated + Huge space |
+
+### 7
+
+**Problem**: App uses FAKE addresses (0x1000)
+**CPU needs REAL** RAM addresses (0x7FFF)
+
+**TLB = Tiny notebook** with 64 most-used mappings:
+
+```text
+Sari Fake RAM ──📱TLB───> Real RAM ──💾───> SLC ──⚡───> L1 ──⚡️───> Register
+↓ ↓ ↓
+Heap: patients[45] → 0xABCD5A9C → BOX w/John+Mary → L1 P-core 0 → X0=John
+```
+
+### 8
+
+**RAM = Collection of 4KB Pages**
+
+16GB RAM = 16GB ÷ 4KB = **4 MILLION pages**
+
+| Page             | Page Fault               |
+| ---------------- | ------------------------ |
+| 4KB memory chunk | "Page missing from RAM!" |
+
+```text
+RAM (16GB):
+[Page 0][Page 1][Page 2]...[Page 4,000,000]
+[4KB]  [4KB]  [4KB]     [4KB]
+```
+
+```text
+**1 Page (4KB)** = **128 Sari patients** (32B each)
+4KB ÷ 32B = 128 patients
+
+**Sari 1000 patients** = **8 pages** (1000 ÷ 128)
+
+**Your M2 16GB RAM** = **2M patient records** possible!
+
+```
+
+### 9
+
+| Problem | False Sharing                            |
+| ------- | ---------------------------------------- |
+| What    | 2 threads fight over same 64B cache line |
+| Fix     | Pad data to 64B boundaries               |
 
 ## What's Next
 
 Now that you understand the memory hierarchy, the next article will dive into **The Stack**—the fast, structured memory where local variables live.
+
+```
+
+```
