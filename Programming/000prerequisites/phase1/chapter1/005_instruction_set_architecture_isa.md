@@ -53,15 +53,192 @@ Microarchitecture: Uses 3 pipelines, out-of-order execution to compute it
 - Registers: Tiny super-fast storage boxes inside the CPU chip. Hold numbers CPU works on right now.
 - Addressing Modes: Ways CPU finds data in memory (like "address + 8 bytes" or "array").
 - ADD Instruction: CPU math command. X = A + B.
+
   - LOAD Instruction: Grab data from RAM into CPU registers.
   - ISA Characteristics Comparison (With Explanations)
-    | Characteristic | CISC (x86-64) | RISC: ARM64 | RISC: RISC-V | Simple Explanation |
+
+    | Characteristic     | CISC (x86-64)                      | RISC: ARM64             | RISC: RISC-V         | Simple Explanation                                                                 |
     | ------------------ | ---------------------------------- | ----------------------- | -------------------- | ---------------------------------------------------------------------------------- |
-    | Instruction Length | Variable (1-15 bytes) | Fixed 4 bytes | Fixed 4 bytes | Fixed wins: CPU always jumps +4 bytes. Variable = guess length first (wasted time) |
-    | Registers | 16 (RAX-R15) | 31 (X0-X30) | 32 (X0-X31) | More = faster: Registers inside CPU (1 cycle). RAM = 100+ cycles away |
-    | Addressing Modes | Complex: [Base+Index×Scale+Offset] | Simple: [Base+Offset] | Simple: Offset(Base) | Simple = faster clock: Complex needs big decoder hardware |
-    | ADD Example | ADD RAX,RBX (destroys RAX) | ADD X0,X1,X2 (X0=X1+X2) | ADD X1,X2,X3 (safe) | 3-operand: RISC preserves source values |
-    | LOAD Example | MOV RAX,[RBX] | LDR X0,[X1] | LW X1,0(X2) | Predictable format: RISC always "dest = memory[src]" |
+    | Instruction Length | Variable (1-15 bytes)              | Fixed 4 bytes           | Fixed 4 bytes        | Fixed wins: CPU always jumps +4 bytes. Variable = guess length first (wasted time) |
+    | Registers          | 16 (RAX-R15)                       | 31 (X0-X30)             | 32 (X0-X31)          | More = faster: Registers inside CPU (1 cycle). RAM = 100+ cycles away              |
+    | Addressing Modes   | Complex: [Base+Index×Scale+Offset] | Simple: [Base+Offset]   | Simple: Offset(Base) | Simple = faster clock: Complex needs big decoder hardware                          |
+    | ADD Example        | ADD RAX,RBX (destroys RAX)         | ADD X0,X1,X2 (X0=X1+X2) | ADD X1,X2,X3 (safe)  | 3-operand: RISC preserves source values                                            |
+    | LOAD Example       | MOV RAX,[RBX]                      | LDR X0,[X1]             | LW X1,0(X2)          | Predictable format: RISC always "dest = memory[src]"                               |
+
+## Major ISA Families
+
+### x86-64 (CISC)
+
+**Full Name**: x86-64, x64, AMD64, Intel 64
+
+**History**:
+
+- 1970s: Intel 8086 (16-bit)
+- 1985: Intel 80386 (32-bit)
+- 2003: AMD64 (64-bit) - AMD's extension to x86
+- 2004: Intel adopts as "Intel 64"
+
+**Type**: CISC (Complex Instruction Set Computing)
+
+**Key Characteristics**:
+
+- **Variable instruction length**: 1-15 bytes
+- **16 64-bit registers**: RAX, RBX, RCX, RDX, RSI, RDI, RBP, RSP, R8-R15
+- **Complex addressing modes**: Memory operations can be complex
+- **Rich instruction set**: String operations, multiply, bit manipulation
+- **Backward compatible**: Runs 1970s code on 2026 CPUs
+
+**Used In**:
+
+- Desktop PCs (Windows, Linux, macOS Intel)
+- Servers (AWS, Google Cloud Intel instances)
+- Enterprise applications
+
+**Strengths**:
+
+- Massive software ecosystem
+- Backward compatibility (30+ year legacy)
+- Optimized for decades
+- Best for single-threaded performance
+- Excellent floating-point (AVX-512)
+
+**Weaknesses**:
+
+- Complex decoder (power hungry)
+- Harder to pipeline due to variable instruction length
+- Heavy instruction (for mobile)
+- Complex ISA makes CPU design harder
+
+**Example Code**:
+
+```asm
+; x86-64 assembly
+MOV RAX, 5          ; RAX = 5
+MOV RBX, 10         ; RBX = 10
+ADD RAX, RBX        ; RAX = RAX + RBX (15)
+MOV [mem], RAX      ; Store RAX to memory
+```
+
+### ARM64 (RISC)
+
+**Full Name**: ARM64, AArch64, ARMv8-A
+
+**History**:
+
+- 1985: ARM1 (Acorn RISC Machine)
+- 2011: ARMv8 with 64-bit support
+- 2020-2026: Dominates mobile, growing in servers
+
+**Type**: RISC (Reduced Instruction Set Computing)
+
+**Key Characteristics**:
+
+- **Fixed instruction length**: 4 bytes (always)
+- **32 64-bit registers**: X0-X31 (X31 is zero or stack pointer)
+- **Load/Store architecture**: Only LOAD/STORE access memory
+- **Simple, regular format**: Easy to pipeline
+- **Power efficient**: Low power consumption
+
+**Used In**:
+
+- iPhones, iPads (Apple Silicon M1/M2/M3)
+- Android devices (Qualcomm Snapdragon, MediaTek)
+- AWS Graviton servers
+- Raspberry Pi 5+
+- Kubernetes control planes
+
+**Strengths**:
+
+- Power efficient (crucial for mobile)
+- Easy to pipeline (high clock speeds)
+- Large register set reduces memory access
+- Simple decoder (low power)
+- Growing server adoption
+
+**Weaknesses**:
+
+- Smaller software ecosystem than x86
+- Historically less optimized (catching up)
+- Less legacy code support
+- Some scientific workloads optimized for x86
+
+**Example Code**:
+
+```asm
+; ARM64 assembly
+MOV X0, #5          ; X0 = 5
+MOV X1, #10         ; X1 = 10
+ADD X0, X0, X1      ; X0 = X0 + X1 (15)
+STR X0, [X2]        ; Store X0 to memory at X2
+```
+
+### RISC-V (RISC)
+
+**Full Name**: RISC-V (Reduced Instruction Set Computer - Five)
+
+**History**:
+
+- 2010: Developed at UC Berkeley
+- 2014: ISA specification finalized
+- 2016+: Commercial chips (SiFive)
+- 2026: Growing adoption in embedded and servers
+
+**Type**: RISC (Reduced Instruction Set Computing)
+
+**Key Characteristics**:
+
+- **Fixed instruction length**: 4 bytes (with 2-byte compressed variant)
+- **32 registers**: X0-X31 (X0 always zero)
+- **Load/Store architecture**: Only LOAD/STORE access memory
+- **Modular extensions**: Add only what you need
+- **Open source**: Free ISA, anyone can implement
+- **Simple base ISA**: Very small specification
+
+**Used In**:
+
+- SiFive boards (educational, embedded)
+- Alibaba T-Head processors
+- Western Digital embedded systems
+- Research institutions
+- Custom silicon
+
+**Strengths**:
+
+- Open source (no licensing fees)
+- Modular (add extensions as needed)
+- Simple to implement (lower design cost)
+- Growing ecosystem
+- Perfect for custom silicon
+
+**Weaknesses**:
+
+- Smaller ecosystem than ARM/x86
+- Less software/library support
+- Young architecture (less optimized)
+- Still gaining industry adoption
+
+**Example Code**:
+
+```asm
+; RISC-V assembly
+ADDI X1, X0, 5      ; X1 = 0 + 5 = 5
+ADDI X2, X0, 10     ; X2 = 0 + 10 = 10
+ADD X1, X1, X2      ; X1 = X1 + X2 (15)
+SW X1, 0(X3)        ; Store word X1 to memory at X3+0
+```
+
+## Key Differences Summarized
+
+| Aspect                 | x86-64                | ARM64                      | RISC-V             |
+| ---------------------- | --------------------- | -------------------------- | ------------------ |
+| **Type**               | CISC                  | RISC                       | RISC               |
+| **Instruction Length** | Variable (1-15 bytes) | Fixed (4 bytes)            | Fixed (4 bytes)    |
+| **Registers**          | 16 x 64-bit           | 32 x 64-bit                | 32 x 64-bit        |
+| **Memory Access**      | Complex modes         | Load/Store                 | Load/Store         |
+| **Architecture**       | Monolithic            | Clean design               | Modular/Extensible |
+| **Licensing**          | Proprietary           | Proprietary (but licensed) | Open source        |
+| **Market Share**       | Servers/Desktop       | Mobile/Servers/Cloud       | Emerging           |
+| **Ecosystem**          | Mature, huge          | Very large                 | Growing            |
 
 ### Eg
 
@@ -405,3 +582,54 @@ Still fastest for many workloads
 8. What is a memory barrier and why do weak-memory architectures need them?
 9. How does backward compatibility affect x86-64 evolution?
 10. Which ISA would you choose for: a) smartphone, b) high-performance server, c) custom embedded device?
+
+### Answers
+
+## ISA Understanding Answers
+
+### ISA vs Microarchitecture
+
+**ISA** = CPU's public language contract (registers, instructions). **Microarchitecture** = secret internal implementation (pipeline, cache). Same ISA (x86), different microarch (Intel Alder Lake vs AMD Zen5).
+
+### Instruction Length x86 vs ARM
+
+**x86-64**: Variable 1-15 bytes. **ARM64**: Fixed 4 bytes. **Matters**: Fixed = predictable PC jumps, perfect pipelining. Variable = decode stalls.
+
+### RISC Load/Store Architecture
+
+Only LOAD/STORE touch memory. Math uses registers only. **Why**: Separates memory ops → easier pipelining + out-of-order execution. CISC mixes memory+math = pipeline chaos.
+
+### 64-bit Registers Count
+
+- **x86-64**: 16 (RAX-R15)
+- **ARM64**: 31 (X0-X30)
+- **RISC-V**: 32 (X0-X31)
+
+### CISC vs RISC Strengths/Weaknesses
+
+|              | **CISC (x86)**  | **RISC (ARM/RISC-V)**       |
+| :----------- | :-------------- | :-------------------------- |
+| **Strength** | Dense code      | Fast clocks, more registers |
+| **Weakness** | Complex decoder | Verbose code                |
+
+### Calling Convention
+
+**x86-64**: Args in registers (RDI,RSI,RDX,RCX,R8,R9) then stack. **ARM64**: X0-X7 registers, then stack. ARM passes more args in registers (fewer stack spills).
+
+### RISC-V Future Interest
+
+**Free/open-source** (no royalties). Modular extensions. Linux servers → microcontrollers. Perfect for custom AI accelerators.
+
+### Memory Barrier
+
+Fence instruction forcing memory order. **Weak memory** (ARM/RISC-V) reorders loads/stores for speed. Barrier says "finish all memory ops NOW" → multithread safety.
+
+### x86 Backward Compatibility
+
+Can't break 1978 8086 software. Stuck with 16 registers, variable length. Intel decodes → micro-ops → modern pipeline (ugly but works).
+
+### ISA Choices
+
+- a **Smartphone**: ARM64 (power efficiency)
+- b**Server**: x86-64 (legacy software) or RISC-V (cost)
+- c **Embedded**: RISC-V (free, customizable)
