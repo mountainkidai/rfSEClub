@@ -84,7 +84,14 @@ console.log(fruits.length); // 3
   let first = fruits.shift();
   console.log(first);  // Apricot
   console.log(fruits); // ["Apple", "Blueberry", "Cherry"]
-  ```
+
+* **`splice()`**: changing contant of array by **removing or replacing or adding** a element.
+
+  ```js
+  const fruits = ["Apple", "blueberry", "Cherry"];
+  fruits.splice(1, 0, "Dates");  // Inserts at index 1
+  console.log(months);         // Expected output: Array ["Apple", "Dates", "blueberry", "Cherry"]
+  // syntax : splice(start, deleteCount, item1, item2, /* …, */ itemN)
 
 ## 5. Finding Items
 
