@@ -453,6 +453,46 @@ fn good(data: &mut [i32]) {
 
 Try answering these before reading the next article!
 
+## Fetch-Execute Cycle
+
+The four steps are **Fetch** (grab next instruction from memory), **Decode** (figure out what it does), **Execute** (ALU/math unit runs it), **Store** (write results back to registers/memory). Cycle repeats billions/sec.
+
+## Core vs Thread
+
+**Core** = physical processor unit (actual hardware transistors). **Thread** = software execution path (one core handles 2 threads via hyperthreading). More cores = true parallelism; threads share core resources.
+
+## Registers vs RAM
+
+Registers live **inside the CPU chip** (nanoseconds access)—hold data CPU works on right now. RAM is **off-chip** (100+ cycles away). Registers: 32-64 tiny slots (bytes); RAM: GBs but slow bus travel time.
+
+## ALU Role
+
+**ALU** (Arithmetic Logic Unit) does math (+ - \* /) and logic (AND OR NOT comparisons). Every calculation like `5+3` or `if(x>10)` runs here first.
+
+## Pipelining Benefit
+
+Pipelining overlaps steps like assembly line: while Core A executes instr\#1, fetch instr\#2 simultaneously. Without: 4 cycles/instr. With: ~1 cycle/instr (5x speedup). Stalls happen on branches/data waits.
+
+## Branch Prediction
+
+CPU guesses if `if-statement` goes true/false path to keep pipeline full. Wrong guess = **pipeline flush** (wasted cycles). Modern predictors >95% accurate using history tables—critical for 20-30% performance.
+
+## Multiple Cache Levels
+
+Can't build one giant fast cache: physics limit. **L1** (tiny 32KB, 1 cycle) → **L2** (1MB, 10 cycles) → **L3** (36MB, 40 cycles). Hits 90%+ in L1/L2; size doubles, speed halves each level.
+
+## CISC vs RISC
+
+**CISC** (x86 Intel/AMD): Complex instr (one does load+math+store). **RISC** (ARM Apple): Simple instr (many tiny steps). RISC = simpler hardware, easier pipelining, better mobile power. x86 dominates desktops via legacy.
+
+## Kernel Scheduler
+
+Linux/Windows kernel picks "best" thread for each core based on **priority, runtime fairness, cache affinity** (keep thread on same core). Uses Completely Fair Scheduler (CFS) timer interrupts—runs `schedule()` every 1-10ms.
+
+## Rust CPU Performance
+
+Rust's **zero-cost abstractions + ownership** prevent hidden allocations/locks blocking cores. Use `rayon` for true parallelism across cores; `std::hint::spin_loop` for low-latency waits. Wrong: sequential loops waste cores. Right: `par_iter()` feeds all cores data. Cache-aware code (stride-1 arrays) beats naive parallelism.
+
 ---
 
 ## What's Next
