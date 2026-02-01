@@ -66,6 +66,9 @@ Unchangeable History: If someone tried to change an old transaction in any past 
 
 Security: This massive amount of work is practically impossible to do, especially against all the honest miners who have invested huge resources. This linking property is what makes Bitcoin's blockchain and all the transactions in it immutable (cannot be changed).
 
+![1769970009214](images/Bacics_of_Blockcahin_and_Bitcoin/1769970009214.png)
+
+
 ### Public versus Private Blockchains
 
 Blockchains are broadly categorized as either public (like the Internet) or private (like a company's intranet), a distinction that centers on who is allowed to access and participate in the network. Public blockchains (or permissionless systems), such as Bitcoin and Ethereum, are open to anyone who has the necessary hardware and software, creating a competitive economic system where participation is driven by potential earnings. In contrast, private blockchains (or permissioned systems) function like a walled garden, requiring specific authorization before an entity can join and access the information; these were developed later, largely embraced by financial services and other enterprises that needed the utility of blockchain technology but required more controlled access for legal and security reasons. While both types are useful, the text emphasizes that public blockchains hold the greatest potential for creating revolutionary value, much like the public Internet did compared to private intranets, and the book will focus on these public systems and their associated cryptoassets (like bitcoin and ether) as the greatest opportunity for investors.  
