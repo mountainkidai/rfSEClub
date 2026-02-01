@@ -66,7 +66,7 @@ Unchangeable History: If someone tried to change an old transaction in any past 
 
 Security: This massive amount of work is practically impossible to do, especially against all the honest miners who have invested huge resources. This linking property is what makes Bitcoin's blockchain and all the transactions in it immutable (cannot be changed).
 
-![1769970009214](images/Bacics_of_Blockcahin_and_Bitcoin/1769970009214.png)
+![1769970009214](images/Basics_of_Blockchain_and_Bitcoin/1769970009214.png)
 
 
 ### Public versus Private Blockchains
