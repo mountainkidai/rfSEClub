@@ -105,3 +105,9 @@
 
     Definition: Dealing with things in a practical way, focusing on what works rather than ideals
     Example:"She took a pragmatic approach to solving the problem by testing different solutions."
+
+31. Meticulous
+ 
+    Definition: Showing great attention to detail; very careful and precise
+    Example:"She's a meticulous worker who never makes mistakes in her reports."
+ 
