@@ -87,21 +87,29 @@ Server A  Server B  Server C
 
 ## Two Types (This Matters a Lot)
 
-### L4 Load Balancer (Layer 4 — TCP/UDP)
+### L4 Load Balancer (TCP level)
 
-**Operates on:**
+L4 sees ONLY:
 
-- IP
-- Port
-- Protocol
+- Source IP
+- Destination IP
+- Source port
+- Destination port
+- Protocol (TCP/UDP)
+
+Destination Server IP + Destination Port + Protocol (TCP/UDP)
 
 **It does not understand HTTP.**
 
-**It sees:**
+- It does NOT see:
+  - URLs
+  - Headers
+  - Cookies
 
-```
-TCP packet → forward
-```
+#### Its job:
+
+- “This TCP connection came in
+- I’ll forward it to backend server X”
 
 **Examples:**
 
@@ -116,21 +124,23 @@ TCP packet → forward
 
 ---
 
-### L7 Load Balancer (Layer 7 — HTTP)
+### L7 Load Balancer (Layer 7 — HTTP LEVELS)
 
-**Understands:**
+It can read:
 
-- URLs
-- Headers
-- Cookies
-- Methods
+- /api/login
+- Host: phunsuk.com
+- Cookie: session=abc
+  **Understands:**
 
 **Can route like:**
 
 ```
-/api → backend A
-/images → backend B
+“Send /api to service A
+Send /images to service B”
 ```
+
+This is intent-based routing.
 
 **Examples:**
 
@@ -289,6 +299,13 @@ Limits how many requests a client can make in a time window
 ```
 100 requests / minute / IP
 ```
+
+| Status | Meaning                        | Fix          | Your Code         |
+| ------ | ------------------------------ | ------------ | ----------------- |
+| 429    | "Too fast! ✅ You're valid"    | Wait + retry | setTimeout(60000) |
+| 400    | "Bad request! ❌ Syntax error" | Fix code     | JSON.parse()      |
+| 401    | "No login! ❌ Auth fail"       | Login        | Bearer token      |
+| 500    | "Server crash! ❌ My fault"    | Wait         | Nothing           |
 
 ---
 
@@ -578,16 +595,15 @@ Then try again (probe)
 
 ---
 
-### Koel Auth
+### Your Auth
 
 - Load balancer distributes login requests
 - Reverse proxy terminates TLS (saves CPU)
 - Rate limiting prevents brute force
-- Sticky sessions or JWT (you chose JWT ✅)
 
 ---
 
-### Phunsuk
+### AirBnB
 
 - Maps API needs L7 routing (location-based)
 - Payments must have TLS termination (security)
@@ -596,16 +612,7 @@ Then try again (probe)
 
 ---
 
-### Sari AI
-
-- Model inference needs L4 balancing (compute-heavy)
-- Inference cache critical (reuse results)
-- Timeouts essential (models hang sometimes)
-- Rate limiting protects GPU budget
-
----
-
-## Lock-In Questions (Answer Instantly)
+## Problems
 
 - Why L4 vs L7 matters
 - Why TLS terminates at proxy, not app
