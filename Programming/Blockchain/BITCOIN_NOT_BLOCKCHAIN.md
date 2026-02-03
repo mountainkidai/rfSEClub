@@ -12,6 +12,7 @@ After its birth and a quiet, nerdy start, Bitcoin quickly gained notoriety begin
 
 Google search trends are a useful indicator of what is grabbing mainstream attention. The innovative investor can go to https://trends.google.com/ and explore the patterns of how people are searching for different topics. Google even provides the option to explore search trends by geographical location, giving charts of where interest is spiking, as well as showing what related top-ics are on the rise. For example, after typing in "bitcoin," investors can look at Google search trends for the last year, or five years, or a custom range, and investigate how Nigeria differs from India. We recommend orienting with this tool even beyond cryptoassets, as it's a fascinating window into the global mesh of minds.
 
+
 ![1769970059176](images/1769970059176.png)
 
 ## Blockchain as a General Purpose Technology 
