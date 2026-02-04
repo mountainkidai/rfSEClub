@@ -68,14 +68,14 @@ Digital:
 
 ```
 localStorage:
-const data = JSON.parse(localStorage.getItem('ledger'));
+const data = JSON.parse(localStorage.getItem('Register'));
 const filtered = data.filter(entry => entry.amount > 1000);
 // Must load ALL data into memory
 // Then filter in JavaScript
 // Slow with large datasets
 
 IndexedDB:
-const filtered = await db.ledger.where('amount').above(1000).toArray();
+const filtered = await db.Register.where('amount').above(1000).toArray();
 // Database does filtering
 // Only loads matching records
 // Fast even with 100,000 records
@@ -168,12 +168,12 @@ If EITHER fails → BOTH are cancelled (rollback) ✅
 Transaction = All-or-nothing guarantee
 ```
 
-**In your ledger:**
+**In your Register:**
 
 ```javascript
-await db.transaction("rw", db.ledger, async () => {
-  await db.ledger.clear(); // Step 1 (temporary)
-  await db.ledger.bulkAdd(entries); // Step 2 (temporary)
+await db.transaction("rw", db.Register, async () => {
+  await db.Register.clear(); // Step 1 (temporary)
+  await db.Register.bulkAdd(entries); // Step 2 (temporary)
 });
 // COMMIT happens here (both succeed or both fail)
 ```
@@ -266,7 +266,7 @@ Timeline:
 
 ```javascript
 // IndexedDB is asynchronous
-const data = await db.ledger.toArray(); // Takes 100ms
+const data = await db.Register.toArray(); // Takes 100ms
 console.log('Done'); // But UI doesn't freeze
 
 Timeline:
@@ -298,7 +298,7 @@ Asynchronous:
 
 ## **📚 PART 3: A SAMPLE CODE EXPLAINED LINE-BY-LINE**
 
-### **File 1: `blockchain-ledger-db.ts` (Database Schema)**
+### **File 1: `blockchain-Register-db.ts` (Database Schema)**
 
 ```typescript
 import Dexie, { Table } from "dexie";
@@ -322,7 +322,7 @@ request.onsuccess = (event) => {
 };
 
 With Dexie:
-await db.ledger.add(data);
+await db.Register.add(data);
 
 Same thing, 100x simpler ✅
 ```
@@ -330,7 +330,7 @@ Same thing, 100x simpler ✅
 ---
 
 ```typescript
-export interface LedgerEntry {
+export interface RegisterEntry {
   id?: number; // Auto-increment primary key
   server_id?: string; // database UUID (unique)
   amount_paid: number;
@@ -346,7 +346,7 @@ Defines what shape data must have
 
 Think of it as a form:
 ┌─────────────────────────┐
-│ Ledger Entry Form       │
+│ Register Entry Form       │
 ├─────────────────────────┤
 │ ID: [auto]              │
 │ From: [required]        │
@@ -366,28 +366,28 @@ TypeScript checks:
 
 ```text
 Table<ROW TYPE,     KEY TYPE>
-Table<LedgerEntry,  number>
+Table<RegisterEntry,  number>
  ↑                  ↑
 What row contains  How to find row (ID type)
 ```
 
 ```ts
-interface LedgerEntry {
+interface RegisterEntry {
   id: number; // ← THIS matches the "number" type
   hotel: string;
   amount: number;
 }
 
-class PhunsukDB {
-  ledger!: Table<LedgerEntry, number>; // number = id: number
+class airbnbDB {
+  Register!: Table<RegisterEntry, number>; // number = id: number
 }
 ```
 
-| Table Declaration               | Your Schema        | What id Field Looks Like           |
-| ------------------------------- | ------------------ | ---------------------------------- |
-| Table<LedgerEntry, number>      | "++id, hotel"      | id: number = 1, 2, 3...            |
-| Table<User, string>             | "email"            | email: string = "john@phunsuk.com" |
-| Table<Booking, [number,string]> | "[userId+hotelId]" | [userId: number, hotelId: string]  |
+| Table Declaration               | Your Schema        | What id Field Looks Like          |
+| ------------------------------- | ------------------ | --------------------------------- |
+| Table<RegisterEntry, number>    | "++id, hotel"      | id: number = 1, 2, 3...           |
+| Table<User, string>             | "email"            | email: string = "john@airbnb.com" |
+| Table<Booking, [number,string]> | "[userId+hotelId]" | [userId: number, hotelId: string] |
 
 ```ts
 interface User {
@@ -395,7 +395,7 @@ interface User {
   name: string;
 }
 
-class PhunsukDB {
+class airbnbDB {
   users!: Table<User, string>; // string = email ID!
 
   constructor() {
@@ -408,7 +408,7 @@ class PhunsukDB {
 
 ```ts
 Email ID          | Name
-"john@phunsuk.com" | "John Doe"
+"john@airbnb.com" | "John Doe"
 "jane@mountain.com"| "Jane Smith"
 "admin@hotels.com" | "Admin User"
 ```
@@ -416,23 +416,23 @@ Email ID          | Name
 ```ts
 // Add user (email = ID)
 await db.users.add({
-  email: "john@phunsuk.com",
+  email: "john@airbnb.com",
   name: "John",
 });
 
 // Find by EMAIL (string ID)
-const john = await db.users.get("john@phunsuk.com");
-console.log(john); // { email: "john@phunsuk.com", name: "John" }
+const john = await db.users.get("john@airbnb.com");
+console.log(john); // { email: "john@airbnb.com", name: "John" }
 ```
 
 ```typescript
-class PhunsukDB {
-  ledger!: Table<LedgerEntry, number>;  // 1+2+3
+class airbnbDB {
+  Register!: Table<RegisterEntry, number>;  // 1+2+3
   ↑       ↑_____________↑      ↑
   1=Prop  2=Generic     3=Promise later
 
   constructor() {
-    this.version(1).stores({ ledger: "++id, hotel" });  // 4=INITIALIZER
+    this.version(1).stores({ Register: "++id, hotel" });  // 4=INITIALIZER
   }
 }
 ```
@@ -448,50 +448,50 @@ interface {}  → "Object must have these fields"
 ```
 
 ```typescript
-export class LedgerDatabase extends Dexie {
-  ledger!: Table<LedgerEntry, number>;
+export class RegisterDatabase extends Dexie {
+  Register!: Table<RegisterEntry, number>;
 ```
 
 **What is `!` (Non-null assertion)?**
 
 ```
-ledger!: Table<LedgerEntry, number>;
+Register!: Table<RegisterEntry, number>;
        ↑
 This means: "Trust me, this will be set"
 
 Without !:
-ledger: Table<LedgerEntry, number>;
-// TypeScript error: "Property 'ledger' has no initializer"
+Register: Table<RegisterEntry, number>;
+// TypeScript error: "Property 'Register' has no initializer"
 
 With !:
-ledger!: Table<LedgerEntry, number>;
+Register!: Table<RegisterEntry, number>;
 // TypeScript: "OK, I trust you initialized it"
 
 We initialize it in constructor:
-this.version(1).stores({ ledger: "++id, ..." });
+this.version(1).stores({ Register: "++id, ..." });
                          ↑
-                    This creates the ledger table
+                    This creates the Register table
 ```
 
-**What is `Table<LedgerEntry, number>`?**
+**What is `Table<RegisterEntry, number>`?**
 
 ```
-Table<LedgerEntry, number>
+Table<RegisterEntry, number>
       ↑           ↑
       │           └─ Primary key type (number)
-      └─ Record type (LedgerEntry)
+      └─ Record type (RegisterEntry)
 
 Means:
-- Each record is a LedgerEntry object
+- Each record is a RegisterEntry object
 - Primary key is a number (id field)
 ```
 
 ```ts
 Before: No tables
-this.version(1).stores({ ledger: "++id, hotel" })
+this.version(1).stores({ Register: "++id, hotel" })
 After:
 ┌─────────────┐
-│ ledger table│  ← CREATED!
+│ Register table│  ← CREATED!
 ├─────────────┤
 │ id │ hotel  │
 │ 1  │ Shimla │
@@ -502,26 +502,26 @@ After:
 ---
 
 ```ts
-stores({ ledger: "++id" }); // Only id indexed
+stores({ Register: "++id" }); // Only id indexed
 
 // ✅ Fast - id is ALWAYS indexed
-await db.ledger.get(1);
+await db.Register.get(1);
 
 // ❌ SLOW - hotel NOT indexed (scans ALL rows)
-await db.ledger.where("hotel").equals("Shimla"); // Works but SLOW!
+await db.Register.where("hotel").equals("Shimla"); // Works but SLOW!
 ```
 
 ```ts
-stores({ ledger: "++id, hotel" }); // id + hotel indexed
+stores({ Register: "++id, hotel" }); // id + hotel indexed
 
 // ✅ Both FAST!
-await db.ledger.get(1);
-await db.ledger.where("hotel").equals("Shimla");
+await db.Register.get(1);
+await db.Register.where("hotel").equals("Shimla");
 ```
 
 ```typescript
 constructor() {
-  super("PhunsukLedgerDB");
+  super("airbnbRegisterDB");
 ```
 
 **What is `super()`?**
@@ -535,16 +535,19 @@ class Animal {
 
 class Dog extends Animal {
   constructor(name, breed) {
-    super(name);  // Call parent constructor
+    super(name); // Call parent constructor
     this.breed = breed;
   }
 }
+```
 
 In your code:
-class LedgerDatabase extends Dexie {
+
+```ts
+class RegisterDatabase extends Dexie {
   constructor() {
-    super("PhunsukLedgerDB");  // Call Dexie constructor
-    // This creates the database named "PhunsukLedgerDB"
+    super("airbnbRegisterDB"); // Call Dexie constructor
+    // This creates the database named "airbnbRegisterDB"
   }
 }
 ```
@@ -553,7 +556,7 @@ class LedgerDatabase extends Dexie {
 
 ```typescript
 this.version(1).stores({
-  ledger:
+  Register:
     "++id, " + // Primary key (auto-increment)
     "&server_id, " + // Unique index
     "from_area_id, " + // Regular index
@@ -625,21 +628,21 @@ user_hash:
 ---
 
 ```typescript
-export const db = new LedgerDatabase();
+export const db = new RegisterDatabase();
 ```
 
 **What is `export const`?**
 
 ```
-const db = new LedgerDatabase();
+const db = new RegisterDatabase();
 └─ Create one instance
 
 export const db = ...
 └─ Make it available to other files
 
 In other files:
-import { db } from './ledger-db';
-await db.ledger.add(entry);  // Use the same instance
+import { db } from './Register-db';
+await db.Register.add(entry);  // Use the same instance
 ```
 
 **Why single instance?**
@@ -647,48 +650,48 @@ await db.ledger.add(entry);  // Use the same instance
 ```
 Wrong (multiple instances):
 // File A
-const db = new LedgerDatabase();
-db.ledger.add(entry1);
+const db = new RegisterDatabase();
+db.Register.add(entry1);
 
 // File B
-const db = new LedgerDatabase();  // Different instance!
-const entries = await db.ledger.toArray();
+const db = new RegisterDatabase();  // Different instance!
+const entries = await db.Register.toArray();
 // Might not see entry1! (different connection)
 
 Right (single instance):
-// ledger-db.ts
-export const db = new LedgerDatabase();
+// Register-db.ts
+export const db = new RegisterDatabase();
 
 // File A
-import { db } from './ledger-db';
-db.ledger.add(entry1);
+import { db } from './Register-db';
+db.Register.add(entry1);
 
 // File B
-import { db } from './ledger-db';
-const entries = await db.ledger.toArray();
+import { db } from './Register-db';
+const entries = await db.Register.toArray();
 // Sees entry1! (same connection) ✅
 ```
 
 ---
 
-### **File 2: `ledger-sync.ts` (Sync Engine)**
+### **File 2: `Register-sync.ts` (Sync Engine)**
 
 ```typescript
-const SYNC_KEY = "ledger:last-sync";
+const SYNC_KEY = "Register:last-sync";
 const SYNC_INTERVAL = 30_000; // 30 seconds
 ```
 
 **What are constants?**
 
 ```
-const SYNC_KEY = "ledger:last-sync";
+const SYNC_KEY = "Register:last-sync";
 └─ Value never changes (constant)
 
 Why not just use the string directly?
 
 Bad:
-localStorage.setItem("ledger:last-sync", timestamp);
-localStorage.getItem("ledger:last-synk");  // Typo! Bug!
+localStorage.setItem("Register:last-sync", timestamp);
+localStorage.getItem("Register:last-synk");  // Typo! Bug!
 
 Good:
 localStorage.setItem(SYNC_KEY, timestamp);
@@ -814,7 +817,7 @@ Try fetch
 ---
 
 ```typescript
-export class LedgerSync {
+export class RegisterSync {
   private static intervalId: NodeJS.Timeout | null = null;
 ```
 
@@ -848,13 +851,13 @@ c2.increment();  // Counter.count = 2 (shared!)
 private static intervalId: NodeJS.Timeout | null = null;
 
 Means:
-- intervalId is shared across all uses of LedgerSync
+- intervalId is shared across all uses of RegisterSync
 - Can't access it from outside (private)
 - Stores the timer ID
 
 Usage:
-LedgerSync.startPeriodicSync();  // Creates timer, stores ID
-LedgerSync.startPeriodicSync();  // Clears old timer first
+RegisterSync.startPeriodicSync();  // Creates timer, stores ID
+RegisterSync.startPeriodicSync();  // Clears old timer first
 └─ Prevents multiple timers running
 ```
 
@@ -881,7 +884,7 @@ Why?
 
 For React cleanup:
 useEffect(() => {
-  const cleanup = LedgerSync.startPeriodicSync();
+  const cleanup = RegisterSync.startPeriodicSync();
   return cleanup;  // React calls this on unmount
 }, []);
 ```
@@ -1025,7 +1028,7 @@ A cleanup function
 
 React usage:
 useEffect(() => {
-  const cleanup = LedgerSync.startPeriodicSync();
+  const cleanup = RegisterSync.startPeriodicSync();
 
   // When component unmounts:
   return cleanup;  // React calls this
@@ -1046,7 +1049,7 @@ What happens:
 static async fullSync(limit = 500): Promise<void> {
   try {
     const resp = await fetchWithRetry(
-      `/api/travel-ledgers?limit=${limit}`
+      `/api/travel-Registers?limit=${limit}`
     );
 
     const entries: any[] = await resp.json();
@@ -1082,10 +1085,10 @@ resp.json() converts to JavaScript:
 ---
 
 ```typescript
-await db.transaction("rw", db.ledger, async () => {
-  await db.ledger.clear();
+await db.transaction("rw", db.Register, async () => {
+  await db.Register.clear();
   if (entries.length > 0) {
-    await db.ledger.bulkAdd(
+    await db.Register.bulkAdd(
       entries.map((entry) => ({
         ...entry,
         server_id: entry.id,
@@ -1104,7 +1107,7 @@ Options:
 "r"  = Read-only (can't modify)
 "rw" = Read-Write (can modify)
 
-db.transaction("rw", db.ledger, async () => {
+db.transaction("rw", db.Register, async () => {
                 ↑
                 └─ Need write permission for clear() and bulkAdd()
 ```
@@ -1132,7 +1135,7 @@ Output:
 ]
 
 Why?
-Supabase uses 'id' field
+database uses 'id' field
 IndexedDB uses 'server_id' (to avoid conflict with auto-increment id)
 We copy 'id' to 'server_id' before storing
 ```
@@ -1180,7 +1183,7 @@ Used for:
 
 ```typescript
 const dbEntries = useLiveQuery(
-  () => db.ledger.orderBy("paid_at").reverse().limit(20).toArray(),
+  () => db.Register.orderBy("paid_at").reverse().limit(20).toArray(),
   [limit],
 );
 ```
@@ -1196,7 +1199,7 @@ Magic React hook that:
 5. Auto updates UI
 
 Example:
-const entries = useLiveQuery(() => db.ledger.toArray());
+const entries = useLiveQuery(() => db.Register.toArray());
 
 Timeline:
 0ms   → useLiveQuery executes → Returns []
@@ -1216,14 +1219,14 @@ Completely reactive!
 **Query breakdown:**
 
 ```typescript
-db.ledger                    // Select from ledger table
+db.Register                    // Select from Register table
   .orderBy("paid_at")       // Sort by date
   .reverse()                 // Newest first
   .limit(20)                // Take first 20
   .toArray()                // Return as array
 
 SQL equivalent:
-SELECT * FROM ledger
+SELECT * FROM Register
 ORDER BY paid_at DESC
 LIMIT 20
 ```
@@ -1232,7 +1235,7 @@ LIMIT 20
 
 ```typescript
 useLiveQuery(
-  () => db.ledger.limit(limit).toArray(),
+  () => db.Register.limit(limit).toArray(),
   [limit]  // Re-run when limit changes
 );
 
@@ -1271,12 +1274,12 @@ limit = 60 → Query re-runs → Returns 60 entries
 
 ```javascript
 // ❌ Slow (no index)
-const entries = await db.ledger.toArray();
+const entries = await db.Register.toArray();
 const filtered = entries.filter((e) => e.amount > 1000);
 // Loads ALL entries into memory, then filters
 
 // ✅ Fast (uses index)
-const filtered = await db.ledger.where("amount").above(1000).toArray();
+const filtered = await db.Register.where("amount").above(1000).toArray();
 // Database does filtering, only loads matches
 ```
 
@@ -1285,11 +1288,11 @@ const filtered = await db.ledger.where("amount").above(1000).toArray();
 ```javascript
 // ❌ Slow (multiple transactions)
 for (const entry of entries) {
-  await db.ledger.add(entry); // 500 transactions
+  await db.Register.add(entry); // 500 transactions
 }
 
 // ✅ Fast (single transaction)
-await db.ledger.bulkAdd(entries); // 1 transaction
+await db.Register.bulkAdd(entries); // 1 transaction
 // 50x faster!
 ```
 
@@ -1301,13 +1304,12 @@ await db.ledger.bulkAdd(entries); // 1 transaction
 
 ```typescript
 this.version(1).stores({
-  ledger: "++id, [from_area_id+to_area_id]",
+  Register: "++id, [from_area_id+to_area_id]",
   // ↑ Compound index (multiple fields)
 });
 
 // Fast query on combination:
-await db.ledger
-  .where("[from_area_id+to_area_id]")
+await db.Register.where("[from_area_id+to_area_id]")
   .equals(["shimla", "manali"])
   .toArray();
 
@@ -1343,7 +1345,7 @@ entries.map((entry) => ({
 }));
 
 // Query
-await db.ledger.where("searchText").startsWith(query.toLowerCase()).toArray();
+await db.Register.where("searchText").startsWith(query.toLowerCase()).toArray();
 ```
 
 ---
@@ -1356,8 +1358,8 @@ await db.ledger.where("searchText").startsWith(query.toLowerCase()).toArray();
 1. Open DevTools (F12)
 2. Application tab
 3. IndexedDB section
-4. Expand "PhunsukLedgerDB"
-5. Click "ledger" table
+4. Expand "airbnbRegisterDB"
+5. Click "Register" table
 6. See all records ✅
 
 Right-click → Delete Database
@@ -1370,16 +1372,16 @@ Right-click → Delete Database
 // In browser console:
 
 // View all entries
-await db.ledger.toArray();
+await db.Register.toArray();
 
 // Count entries
-await db.ledger.count();
+await db.Register.count();
 
 // Clear everything
-await db.ledger.clear();
+await db.Register.clear();
 
 // Add test entry
-await db.ledger.add({
+await db.Register.add({
   from_area_id: "test",
   to_area_id: "test",
   amount_paid: 1000,
@@ -1391,7 +1393,7 @@ await db.ledger.add({
 
 ```typescript
 const startTime = performance.now();
-const entries = await db.ledger.toArray();
+const entries = await db.Register.toArray();
 const elapsed = performance.now() - startTime;
 console.log(`Query took ${elapsed}ms`);
 
@@ -1401,3 +1403,92 @@ console.log(`Query took ${elapsed}ms`);
 ```
 
 ---
+
+### async and await
+
+```ts
+// STEP 1: Create the Promise function
+function makePizza() {
+  return new Promise((resolve, reject) => {
+    console.log("2. Inside anonymous function");
+
+    setTimeout(() => {
+      console.log("3. Timer fired! Resolving...");
+      resolve("🍕 Pizza ready!");
+    }, 1000);
+  });
+}
+
+// STEP 2: Create async function
+async function orderPizza() {
+  console.log("1. Creating promise...");
+
+  const pizzaPromise = makePizza();
+  console.log("4. Promise created");
+  console.log(pizzaPromise); // Promise { <pending> }
+
+  // AWAIT - Wait for promise to resolve
+  const pizza = await pizzaPromise;
+  //     ↑↑↑↑↑
+  // Pauses here until resolve() is called!
+
+  console.log("5. await finished!");
+  console.log(pizza); // "🍕 Pizza ready!"
+}
+
+console.log("Start");
+orderPizza();
+console.log("6. Code finished");
+
+// OUTPUT:
+// Start
+// 1. Creating promise...
+// 2. Inside anonymous function
+// 4. Promise created
+// Promise { <pending> }
+// 6. Code finished
+// [1 second waits...]
+// 3. Timer fired! Resolving...
+// 5. await finished!
+// 🍕 Pizza ready!
+```
+
+### WITH .then()
+
+```ts
+const pizzaPromise = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("🍕 Pizza ready!");
+  }, 1000);
+});
+
+pizzaPromise.then((pizza) => {
+  console.log(pizza); // Runs LATER when resolve() called
+});
+
+console.log("Code continues"); // Runs IMMEDIATELY
+```
+
+WITH async/await
+
+###
+
+```ts
+javascript;
+async function orderPizza() {
+  const pizzaPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("🍕 Pizza ready!");
+    }, 1000);
+  });
+
+  const pizza = await pizzaPromise;
+  //              ↑↑↑↑↑
+  // PAUSES here - waits for resolve()
+
+  console.log(pizza); // Runs AFTER resolve() called
+}
+
+orderPizza();
+console.log("Code continues"); // Runs IMMEDIATELY
+```

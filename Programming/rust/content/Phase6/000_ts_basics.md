@@ -145,21 +145,55 @@ myCar.engine = "V8";
 
 ### super()
 
-#### Think Like This
+### Think Like This
 
 ```text
-Animal = Basic pet (HAS name)
-Dog = Animal + extra (HAS name + breed)
+Pizza = Basic dough (size)
+CheesePizza = Pizza dough + cheese toppings
+super() = "Make dough FIRST, then add cheese"
 ```
 
-### WITHOUT super() = BROKEN DOG ❌
+### Step 1: Basic Pizza (Parent)
 
 ```ts
-class Dog extends Animal {
-  constructor(name, breed) {
-    // Forgot Animal part!
-    this.breed = breed;
+class Pizza {
+  constructor(size) {
+    this.size = size; // All pizzas have size
   }
 }
-new Dog("Buddy", "Labrador"); // ERROR! name never set!
+
+const pizza = new Pizza("large");
+console.log(pizza.size); // "large"
+```
+
+### Step 2: Fancy Pizza (Child) - PROBLEM ❌
+
+```ts
+class CheesePizza extends Pizza {
+  constructor(size, toppings) {
+    // Only sets toppings, FORGETS size!
+    this.toppings = toppings;
+  }
+}
+
+const cheesePizza = new CheesePizza("large", "cheese");
+console.log(cheesePizza.size); // undefined ❌
+console.log(cheesePizza.toppings); // "cheese" ✅
+```
+
+Problem: CheesePizza has toppings but NO DOUGH (Pizza base never built)!
+
+### Step 3: FIX with super() ✅
+
+```typescript
+class CheesePizza extends Pizza {
+  constructor(size, toppings) {
+    super(size); // 1. FIRST: Make Pizza dough (sets size)
+    this.toppings = toppings; // 2. THEN: Add cheese to dough
+  }
+}
+
+const cheesePizza = new CheesePizza("large", "cheese");
+console.log(cheesePizza.size); // "large" ✅ - dough exists!
+console.log(cheesePizza.toppings); // "cheese" ✅ - toppings added!
 ```
