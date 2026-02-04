@@ -211,6 +211,40 @@ Durable: Power outage doesn't lose committed data
 
 ---
 
+### 2 C = Consistent
+
+- Data always follows your business rules.
+
+```text
+Before: Balance = ₹5000 ✓ (valid)
+Transaction: Book hotel ₹4500
+After: Balance = ₹500 ✓ (still valid)
+```
+
+### Wrong: Balance = -₹500 ❌ (violates "no negative balance" rule → transaction REJECTED)
+
+### 3 I = Isolated
+
+- Transactions don't interfere with each other.
+
+```text
+User A books Shimla Grand hotel (Room 101)
+User B books same room SIMULTANEOUSLY
+```
+
+- Without Isolation: Both get Room 101 → double booking disaster!
+- With Isolation: User B sees "Room unavailable" → only one booking succeeds.
+
+### 4 D = Durable
+
+- Once saved = saved FOREVER, even if server crashes.
+
+```text
+Your booking saved → COMMIT
+Server crashes 2 seconds later →
+On restart: Booking STILL THERE ✓
+```
+
 ### **3. Synchronous vs Asynchronous**
 
 **Synchronous (Blocking):**
@@ -237,7 +271,9 @@ console.log('Done'); // But UI doesn't freeze
 
 Timeline:
 0ms   → Start toArray()
-0ms   → Browser continues (UI responsive)
+0ms   → Browser continues
+       ( UI stays responsive ✅ (scroll, click works)
+        User interacts normally...)
 100ms → toArray() finishes
 100ms → console.log runs
 
@@ -260,9 +296,9 @@ Asynchronous:
 
 ---
 
-## **📚 PART 3: YOUR CODE EXPLAINED LINE-BY-LINE**
+## **📚 PART 3: A SAMPLE CODE EXPLAINED LINE-BY-LINE**
 
-### **File 1: `ledger-db.ts` (Database Schema)**
+### **File 1: `blockchain-ledger-db.ts` (Database Schema)**
 
 ```typescript
 import Dexie, { Table } from "dexie";
@@ -296,10 +332,7 @@ Same thing, 100x simpler ✅
 ```typescript
 export interface LedgerEntry {
   id?: number; // Auto-increment primary key
-  server_id?: string; // Supabase UUID (unique)
-  from_area_id: string;
-  to_area_id: string;
-  transport_mode: string;
+  server_id?: string; // database UUID (unique)
   amount_paid: number;
   // ... other fields
 }
@@ -318,7 +351,7 @@ Think of it as a form:
 │ ID: [auto]              │
 │ From: [required]        │
 │ To: [required]          │
-│ Amount: [required]      │
+│ amount_paid: [required] │
 └─────────────────────────┘
 
 TypeScript checks:
@@ -328,6 +361,91 @@ TypeScript checks:
 ```
 
 ---
+
+## 6.example
+
+```text
+Table<ROW TYPE,     KEY TYPE>
+Table<LedgerEntry,  number>
+ ↑                  ↑
+What row contains  How to find row (ID type)
+```
+
+```ts
+interface LedgerEntry {
+  id: number; // ← THIS matches the "number" type
+  hotel: string;
+  amount: number;
+}
+
+class PhunsukDB {
+  ledger!: Table<LedgerEntry, number>; // number = id: number
+}
+```
+
+| Table Declaration               | Your Schema        | What id Field Looks Like           |
+| ------------------------------- | ------------------ | ---------------------------------- |
+| Table<LedgerEntry, number>      | "++id, hotel"      | id: number = 1, 2, 3...            |
+| Table<User, string>             | "email"            | email: string = "john@phunsuk.com" |
+| Table<Booking, [number,string]> | "[userId+hotelId]" | [userId: number, hotelId: string]  |
+
+```ts
+interface User {
+  email: string; // ← ID = email (NOT number!)
+  name: string;
+}
+
+class PhunsukDB {
+  users!: Table<User, string>; // string = email ID!
+
+  constructor() {
+    this.version(1).stores({
+      users: "email, name", // email = primary key (no ++id)
+    });
+  }
+}
+```
+
+```ts
+Email ID          | Name
+"john@phunsuk.com" | "John Doe"
+"jane@mountain.com"| "Jane Smith"
+"admin@hotels.com" | "Admin User"
+```
+
+```ts
+// Add user (email = ID)
+await db.users.add({
+  email: "john@phunsuk.com",
+  name: "John",
+});
+
+// Find by EMAIL (string ID)
+const john = await db.users.get("john@phunsuk.com");
+console.log(john); // { email: "john@phunsuk.com", name: "John" }
+```
+
+```typescript
+class PhunsukDB {
+  ledger!: Table<LedgerEntry, number>;  // 1+2+3
+  ↑       ↑_____________↑      ↑
+  1=Prop  2=Generic     3=Promise later
+
+  constructor() {
+    this.version(1).stores({ ledger: "++id, hotel" });  // 4=INITIALIZER
+  }
+}
+```
+
+## Quick Cheat Sheet
+
+```
+: Type        → "This is a string/number/etc"
+interface {}  → "Object must have these fields"
+<T>           → "Reusable for any Type T"
+= value       → "Default value"
+!             → "Trust me, I'll set it later"
+```
 
 ```typescript
 export class LedgerDatabase extends Dexie {
@@ -368,7 +486,38 @@ Means:
 - Primary key is a number (id field)
 ```
 
+```ts
+Before: No tables
+this.version(1).stores({ ledger: "++id, hotel" })
+After:
+┌─────────────┐
+│ ledger table│  ← CREATED!
+├─────────────┤
+│ id │ hotel  │
+│ 1  │ Shimla │
+│ 2  │ Kufri  │
+└─────────────┘
+```
+
 ---
+
+```ts
+stores({ ledger: "++id" }); // Only id indexed
+
+// ✅ Fast - id is ALWAYS indexed
+await db.ledger.get(1);
+
+// ❌ SLOW - hotel NOT indexed (scans ALL rows)
+await db.ledger.where("hotel").equals("Shimla"); // Works but SLOW!
+```
+
+```ts
+stores({ ledger: "++id, hotel" }); // id + hotel indexed
+
+// ✅ Both FAST!
+await db.ledger.get(1);
+await db.ledger.where("hotel").equals("Shimla");
+```
 
 ```typescript
 constructor() {
@@ -377,7 +526,7 @@ constructor() {
 
 **What is `super()`?**
 
-```
+```ts
 class Animal {
   constructor(name) {
     this.name = name;
@@ -1252,66 +1401,3 @@ console.log(`Query took ${elapsed}ms`);
 ```
 
 ---
-
-## **🎓 TOP 1% KNOWLEDGE UNLOCKED**
-
-**You now understand:**
-
-✅ Why IndexedDB exists (offline-first apps)
-✅ How indexes work (B-trees, O(log n))
-✅ Why transactions matter (ACID properties)
-✅ Async vs sync (non-blocking UI)
-✅ Dexie abstractions (raw IndexedDB is painful)
-✅ Schema design (choosing indexes)
-✅ Query optimization (use indexes!)
-✅ React integration (useLiveQuery magic)
-✅ Sync patterns (polling + real-time)
-✅ Error handling (retries, transactions)
-✅ Performance tuning (bulkAdd, compound indexes)
-✅ Debugging (DevTools, console commands)
-
-**You can now:**
-
-- Build offline-first apps
-- Design efficient database schemas
-- Optimize complex queries
-- Debug IndexedDB issues
-- Understand how Twitter/Instagram work
-- Interview at FAANG (this is actual interview material)
-
-**Welcome to the top 1%. 🚀**
-<span style="display:none">[^1][^10][^11][^12][^13][^14][^15][^16][^2][^3][^4][^5][^6][^7][^8][^9]</span>
-
-<div align="center">⁂</div>
-
-[^1]: image.jpg
-
-[^2]: paste.txt
-
-[^3]: paste.txt
-
-[^4]: paste.txt
-
-[^5]: paste.txt
-
-[^6]: paste.txt
-
-[^7]: paste.txt
-
-[^8]: paste.txt
-
-[^9]: paste.txt
-
-[^10]: paste.txt
-
-[^11]: paste.txt
-
-[^12]: paste.txt
-
-[^13]: image.jpg
-
-[^14]: paste.txt
-
-[^15]: paste.txt
-
-[^16]: image.jpg
