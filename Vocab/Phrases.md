@@ -79,5 +79,40 @@
    Meaning: Describe exactly what is right or true.
    Example: "You hit the nail on the head—that’s exactly the problem."
 
+14.   "Break the ice"
+
+    Meaning: To do or say something to make people feel more comfortable in a social situation, especially when meeting for the first time
+    Example:"I told a joke to break the ice at the beginning of the meeting."
+
+15.   "Hit the nail on the head"
+
+    Meaning: To describe exactly what is causing a situation or problem; to be exactly right about something
+    Example:"You hit the nail on the head when you said the project failed due to poor communication."
+
+ 16.  "Under the weather"
+
+    Meaning: Feeling ill or sick; not feeling well
+    Example :"I'm feeling a bit under the weather today, so I'm staying home from work."   
+
+17.  : "On the same page"
+
+    Meaning: To have the same understanding or agreement about something; to be in agreement
+    Example:"Let's make sure we're all on the same page before we start the project."
+
+18.  "Spill the beans"
+
+    Meaning: To reveal a secret or tell information that was supposed to be kept hidden
+    Example:"Come on, spill the beans! What did they get you for your birthday?
+
+19.  "Pull the plug"
+
+    Meaning: To stop or end something, especially a project, activity, or system
+     Example:"The company decided to pull the plug on the failing product line."
+
+20. "Spill the beans"
+  
+   Meaning: To reveal a secret or tell information that was supposed to be kept private
+   Example :"Come on, spill the beans! What did they get you for your birthday?"  
+
  
  
