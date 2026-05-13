@@ -15,7 +15,9 @@
  13. diffie hellman equation
  14. eculidean algorithm
                    weierstrass equation
- 
+  15. Learned  Tokens , RSA Encryption,Discreate Algorithm
+  16. Trapdoor Functions,ECE - Exchanges 
+  17. digital Signatures 
  
  #### DOUBTS & Doing 
 

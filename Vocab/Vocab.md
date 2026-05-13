@@ -76,5 +76,38 @@
     Meaning :A small part or quantity intended to show what the whole is like.
     Example: "A blood sample was taken for analysis."
 
+ 16. Serendipity
 
-  
+    Meaning: Finding something good or valuable by accident or luck
+    Example:"It was pure serendipity that I met my best friend at the coffee shop that day."
+
+ 17.  Resilient
+
+    Meaning: Able to recover quickly from difficulties; tough and flexible
+    Example:"Children are remarkably resilient and can adapt to new situations easily."
+
+ 18.  Meticulous
+
+    Meaning: Showing great attention to detail; very careful and precise
+    Example:"The artist was meticulous in her work, spending hours on every small detail." 
+    
+ 19.   Ephemeral
+
+    Meaning: Lasting for a very short time; fleeting
+    Example:"The beauty of the cherry blossoms is ephemeral, lasting only a few days each year."
+
+20. Word: Candid
+
+    Meaning:Honest and straightforward; saying what you really think without hiding anything
+    Example:"I appreciate your candid feedback about my presentation."
+
+30.  Pragmatic
+
+    Definition: Dealing with things in a practical way, focusing on what works rather than ideals
+    Example:"She took a pragmatic approach to solving the problem by testing different solutions."
+
+31. Meticulous
+ 
+    Definition: Showing great attention to detail; very careful and precise
+    Example:"She's a meticulous worker who never makes mistakes in her reports."
+ 

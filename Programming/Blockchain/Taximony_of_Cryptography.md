@@ -3,3 +3,7 @@ AS we seen,Bitcoin has ignited the cryptoasset revoultion and it sucess had beco
 As the investment landscape grows to cryptoassests. So since its vital for innovative investers to understand the historical contex,categorisation, and applicability of these digital siblings,so the potential investment oppurtunities can be identified . throughi this process we will introduce more detail cocepts that will gp innovative investers tolset when investing future cryptoassets.
 
 ## CRYPTOCURRENCIES,CRYPTOCOMMODITIES,CRYPTOTOKENS
+
+Historically, cryptoassets have most commonly been referred to as crypto-currencies, which we think confuses new users and constrains the conver-sation on the future of these assets. We would not classify the majority of cryptoassets as currencies, but rather most are either digital commodities (cryptocommodities), provisioning raw digital resources, or digital tokens (cryptotokens), provisioning finished digital goods and services 
+
+A currency fulfills three well-defined purposes: to serve as a means of exchange, store of value, and unit of account. However, the form of currency itself often has little inherent value. For example, the paper bills in people's wallets have about as little value as the paper in their printer. Instead, they have the illusion of value, which if shared widely enough by society and endorsed by the government, allows these monetary bills to be used to buy goods and services, to store value for later purchases, and to serve as a metric to price the value of other things.
