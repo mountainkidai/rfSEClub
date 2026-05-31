@@ -238,3 +238,143 @@ Now:
 
 - OS watches port 3000
 - Incoming packets go to your app
+
+Simple version:
+
+### What is a port?
+
+A **port is like a numbered door to a program.**
+
+```text id="r6f0bd"
+Computer (house)
+
+Port 80  → web server door
+
+Port 5432 → postgres door
+
+Port 6379 → redis door
+```
+
+When data comes to your machine:
+
+> "Which program should receive this?"
+
+Ports answer that.
+
+---
+
+### How many ports exist?
+
+Ports are numbers:
+
+```text id="6ycj3k"
+0 → 65535
+```
+
+So roughly:
+
+```text id="zqah9q"
+65,536 possible ports
+```
+
+---
+
+### Why does HTTP use 80?
+
+Convention:
+
+```text id="omq4xy"
+80 → HTTP
+
+443 → HTTPS
+
+5432 → Postgres
+
+6379 → Redis
+```
+
+Programs can technically use other ports too.
+
+---
+
+### Multiple servers?
+
+Yes.
+
+You cannot have:
+
+```text id="4h0jpm"
+Server A → port 80
+
+Server B → port 80
+```
+
+because:
+
+> One host port can belong to one process/container at a time.
+
+So:
+
+```text id="6p52pn"
+Server A → 80
+
+Server B → 3000
+
+Server C → 8080
+```
+
+or:
+
+```text id="gtsq2d"
+App1 → localhost:8000
+
+App2 → localhost:8001
+
+App3 → localhost:8002
+```
+
+---
+
+### Why do websites usually not show ports?
+
+Because browsers assume:
+
+```text id="h8vqur"
+http://example.com
+↓
+port 80
+
+https://example.com
+↓
+port 443
+```
+
+But:
+
+```text id="dd4zcw"
+localhost:3000
+```
+
+explicitly uses port 3000.
+
+---
+
+**Mental model:**
+
+```text id="8zhy6o"
+IP address = building address
+
+Port = apartment number / door
+
+Program = person inside apartment
+```
+
+So:
+
+```text id="j1tldu"
+192.168.1.10:5432
+```
+
+means:
+
+> "Go to building 192.168.1.10 and knock on door 5432."
