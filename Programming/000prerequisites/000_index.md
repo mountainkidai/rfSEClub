@@ -1,540 +1,1225 @@
-# How Computers Work: A Complete First Principles Learning Series
+# How Computers Work: A Complete First Principles Roadmap
 
-## Overview
-
-This learning series teaches you **how computers actually work** from the ground up—from the moment you turn on your machine to how complex systems handle millions of concurrent users. Each article is intentionally small and focused, making it easy to understand one concept before moving to the next.
-
-The series is divided into **three major phases**:
-
-- **Phase 1: How Computers Work** (Hardware + OS + Software Fundamentals)
-- **Phase 2: How Apps Run** (Execution Model + Concurrency + Async)
-- **Phase 3: Backend Systems at Scale** (Databases + Servers + Rust + Scaling)
+## From Electricity to Planet-Scale Systems
 
 ---
 
-## PHASE 1: How Computers Work (Hardware, OS, Software)
+# Goal
 
-### Foundation Concepts
+This roadmap is designed to take you from:
 
-1. **What Actually Happens When You Turn On Your Computer**
+> "I can write code"
 
-   - Power flows through the CPU
-   - BIOS/UEFI runs initialization
-   - Bootloader launches the kernel
-   - OS takes control
+to
 
-2. **What is an Operating System (OS)?**
+> "I understand every layer from silicon to distributed systems and can build world-class software in Rust."
 
-   - Definition: Software that manages hardware and software
-   - Key components: Kernel, File System, Shell, Device Drivers, Libraries
-   - Examples: Windows, macOS, Linux, iOS, Android
+The philosophy:
 
-3. **The Kernel: The Core of Everything**
-
-   - What the kernel does
-   - Kernel space vs User space
-   - Why this separation matters
-   - Privilege levels and why they exist
-
-4. **CPUs and CPU Cores: The Brain of the Computer**
-
-   - What is a CPU?
-   - What are cores?
-   - Single-core vs Multi-core processors
-   - How cores execute instructions
-
-5. **Instruction Set Architecture (ISA)**
-
-   - What is an ISA?
-   - x86-64 (Intel/AMD) - CISC
-   - ARM (Apple M-series, Mobile) - RISC
-   - RISC-V (Open-source) - RISC
-   - Why it matters
-
-6. **The Fetch-Execute Cycle**
-   - How your CPU actually executes code
-   - Program counter, registers, memory
-   - Step-by-step execution of a simple program
-
-### Memory Fundamentals
-
-7. **How Computer Memory Works (The Big Picture)**
-
-   - RAM vs Storage
-   - Memory hierarchy (CPU cache → RAM → Disk)
-   - Why memory layout matters for speed
-   - Memory addressing
-
-8. **The Stack: Fast, Simple Memory**
-
-   - What lives on the stack
-   - LIFO (Last-In-First-Out) order
-   - Fixed-size data
-   - Automatic cleanup
-   - Stack frame and function calls
-
-9. **The Heap: Flexible, Dynamic Memory**
-
-   - What lives on the heap
-   - Why heap memory exists
-   - Pointers: the bridge between stack and heap
-   - Heap fragmentation
-   - Manual vs Automatic memory management
-
-10. **Pointers: Addresses and Indirection**
-    - What is a pointer?
-    - Memory addresses and how they work
-    - Why pointers exist
-    - Pointer arithmetic
-    - Dereferencing
-
-### File Systems and Storage
-
-11. **File Systems Explained**
-
-    - What is a file system?
-    - How files are organized on disk
-    - File system hierarchies
-    - Common file systems (APFS, NTFS, ext4, FAT32)
-
-12. **File System Directories on Unix/Linux/macOS**
-
-    - The root directory (/)
-    - Home directory (~)
-    - System directories (/bin, /usr, /etc, /var)
-    - How paths work
-    - Absolute vs Relative paths
-
-13. **How Your Computer Reads and Writes Files**
-    - From your program's perspective
-    - System calls and the kernel
-    - Disk IO operations
-    - File descriptors
-    - Buffering
-
-### Processes, Tasks, and Threads
-
-14. **What is a Process?**
-
-    - Definition: An isolated instance of a running program
-    - Process memory space
-    - Process ID (PID)
-    - Process lifecycle
-    - Why processes are isolated
-
-15. **What is a Task?**
-
-    - Definition: A unit of work to be done
-    - Tasks within processes
-    - How tasks relate to threads
-    - Task scheduling
-
-16. **What is a Thread?**
-
-    - Definition: A unit of execution within a process
-    - Threads share process memory
-    - Each thread has its own stack and registers
-    - Program counter (PC) and instruction pointer
-    - OS threads (kernel threads)
-
-17. **How the OS Schedules Threads**
-    - The OS scheduler
-    - Thread states (New, Runnable, Running, Blocked, Terminated)
-    - Context switching
-    - Time slicing on single-core CPUs
-    - True parallelism on multi-core CPUs
-
-### Practical Example: Opening an Application
-
-18. **Case Study: Opening Chrome Browser**
-    - Kernel creates a process for Chrome
-    - Memory allocated for the app
-    - Multiple threads created (UI thread, network thread, rendering thread)
-    - How threads map to CPU cores
-    - How different tabs might use different threads
+- Learn from first principles.
+- Never memorize abstractions before understanding the layer below.
+- Every topic builds on previous topics.
+- Build projects after every major phase.
 
 ---
 
-## PHASE 2: How Apps Run (Execution Model, Concurrency, Async)
+# PHASE 0 — DIGITAL LOGIC & COMPUTER ARCHITECTURE
 
-### Concurrency Basics
-
-19. **Concurrency vs Parallelism**
-
-    - Concurrency: Many tasks progress by switching between them
-    - Parallelism: Multiple tasks run literally at the same time
-    - Why the distinction matters
-    - Real-world examples
-
-20. **Shared Data and Race Conditions**
-
-    - Why shared data is dangerous
-    - Data races: what happens when threads collide
-    - Example: Two threads modifying the same counter
-    - Why this breaks programs
-
-21. **Protecting Shared Data: Locks and Mutexes**
-
-    - Mutex: Mutual Exclusion Lock
-    - How a mutex works
-    - Locked vs Unlocked states
-    - Critical sections
-    - Deadlock: When mutexes go wrong
-
-22. **Other Synchronization Tools**
-    - Semaphores
-    - Condition variables
-    - Read-write locks
-    - Atomic operations
-    - Lock-free data structures
-
-### Threading Models
-
-23. **Creating and Managing Threads**
-
-    - OS-level thread creation
-    - Thread libraries (pthreads on Unix/Linux/macOS)
-    - Creating a thread with code examples
-    - Joining threads
-    - Thread cleanup
-
-24. **Thread Pools**
-
-    - What is a thread pool?
-    - Why thread pools exist (avoiding thread creation overhead)
-    - How a thread pool works
-    - Producer-consumer pattern
-    - Work queues
-
-25. **The Cost of Threads**
-    - Memory overhead per thread (stack size)
-    - Context switching overhead
-    - Cache misses from switching
-    - Creating too many threads
-    - Why you can't have millions of threads
-
-### Async Programming Fundamentals
-
-26. **The Problem: I/O Blocking**
-
-    - What is blocking I/O?
-    - Reading from a file (slow!)
-    - Waiting for network data (very slow!)
-    - Database queries (very very slow!)
-    - Why threads block
-
-27. **Introduction to Async Programming**
-
-    - What is async programming?
-    - Cooperative multitasking vs preemptive
-    - Why async saves resources
-    - Async doesn't mean concurrent by default
-    - Single-threaded event loop model
-
-28. **Futures and Promises**
-
-    - What is a future?
-    - States of a future (Pending, Ready, Consumed)
-    - How futures compose
-    - Promise pattern
-    - How to await a future
-
-29. **Event Loops**
-
-    - What is an event loop?
-    - How an event loop works
-    - Non-blocking operations
-    - Task readiness and scheduling
-    - Example: JavaScript event loop
-
-30. **Async Runtimes**
-    - What is a runtime?
-    - Async runtime components (event loop, thread pool, scheduler)
-    - How runtimes manage many tasks on few threads
-    - Examples: Tokio (Rust), Node.js (JavaScript), Asyncio (Python)
-
-### Language-Specific Implementations
-
-31. **Concurrency in C (pthreads)**
-
-    - Creating threads with pthread_create
-    - Passing data to threads
-    - Mutexes with pthread_mutex
-    - Joining threads
-    - Complete threaded counter example
-
-32. **Concurrency in Rust (Safe Threads)**
-
-    - Rust's ownership system applied to threads
-    - Arc for sharing across threads
-    - Mutex in Rust
-    - Safe by design
-    - Complete example: thread-safe counter
-
-33. **Async/Await in Rust**
-
-    - Rust's async/await syntax
-    - Futures in Rust
-    - Tokio runtime
-    - Running async code
-    - Combining async with threads
-
-34. **JavaScript: Single-Threaded Event Loop**
-
-    - JavaScript execution model
-    - Call stack, callback queue, event loop
-    - Callbacks and promises
-    - Async/await in JavaScript
-    - Web Workers for real threading
-
-35. **Python: Threading and Asyncio**
-
-    - The Global Interpreter Lock (GIL)
-    - Threading limitations in Python
-    - Asyncio for single-threaded concurrency
-    - Multiprocessing for true parallelism
-    - When to use what
-
-36. **Go: Goroutines and Channels**
-    - What are goroutines?
-    - Lightweight user-space threads
-    - M:N scheduling (many goroutines on few OS threads)
-    - Channels for safe communication
-    - Why Go excels at concurrency
-
-### Combining Async and Parallelism
-
-37. **Using Async With Multiple Cores**
-
-    - Running async tasks on a thread pool
-    - Each thread runs an event loop
-    - Work stealing and load balancing
-    - Tokio's multi-threaded runtime
-    - Go scheduler across cores
-
-38. **Choosing Your Concurrency Model**
-    - OS threads: When to use them
-    - Async: When to use it
-    - User-space threads (goroutines): Rust + async runtime
-    - Hybrid approaches
-    - Decision matrix
+Everything begins here.
 
 ---
 
-## PHASE 3: Backend Systems at Scale (Databases, Servers, Rust + Axum, Scaling)
+## 0.1 What Is Information?
 
-### Network and Server Basics
-
-39. **Networks and the Internet (Simplified)**
-
-    - Packets and packet routing
-    - TCP/IP basics
-    - Client-server model
-    - Request-response cycle
-    - Network latency
-
-40. **What is a Web Server?**
-
-    - Definition: Software that listens on a port and serves requests
-    - Sockets: How programs receive network data
-    - Port numbers
-    - Listen, Accept, Read, Write, Close
-    - Single-threaded vs multi-threaded servers
-
-41. **Building a Basic HTTP Server**
-    - HTTP protocol basics
-    - Request structure
-    - Response structure
-    - Simple echo server
-    - Handling multiple clients (naive approach)
-
-### Axum Framework (Rust Web Framework)
-
-42. **Introduction to Axum**
-
-    - What is Axum?
-    - Why Axum (speed, safety, async-first)
-    - Setting up your first Axum project
-    - Hello World: Creating a simple endpoint
-    - Routing requests to handlers
-
-43. **Axum: Handling Requests**
-
-    - Request extractors
-    - Path parameters
-    - Query strings
-    - JSON bodies
-    - Headers and cookies
-
-44. **Axum: Returning Responses**
-
-    - Response types
-    - JSON serialization
-    - Status codes
-    - Custom response types
-    - Error handling
-
-45. **Axum: Middleware and State**
-
-    - What is middleware?
-    - Common middleware patterns (logging, authentication)
-    - Application state
-    - Sharing data across requests
-    - Thread-safe state with Arc
-
-46. **Axum: Advanced Routing**
-    - Nested routers
-    - Fallback handlers
-    - Dynamic routes
-    - Method-based routing
-    - Route parameters and validation
-
-### Databases and Data Persistence
-
-47. **What is a Database?**
-
-    - Definition: Persistent, organized data storage
-    - Why databases exist (vs files)
-    - Relational vs Non-relational
-    - ACID properties
-    - Transactions
-
-48. **Relational Databases (SQL)**
-
-    - Tables, rows, columns
-    - Primary keys and foreign keys
-    - SQL queries (SELECT, INSERT, UPDATE, DELETE)
-    - Joins
-    - Indexes for speed
-
-49. **How Databases Store Data on Disk**
-
-    - B-trees and indexing structures
-    - Page-based storage
-    - Write-ahead logging (WAL)
-    - Durability and recovery
-    - Optimization
-
-50. **Querying a Database from Your App**
-
-    - Database connections
-    - Connection pools
-    - Query execution
-    - Result sets
-    - Error handling
-
-51. **Using Databases with Rust (sqlx, ORM basics)**
-
-    - Connecting to PostgreSQL
-    - Running SQL queries
-    - Type-safe queries
-    - ORM vs Raw SQL
-    - Handling database errors
-
-52. **N+1 Query Problem**
-
-    - What is the N+1 problem?
-    - Why it's slow
-    - How to detect it
-    - Solutions: JOINs, eager loading, batching
-    - Real example with code
-
-53. **Caching: Reducing Database Load**
-    - Why caching matters
-    - In-memory caches (Redis)
-    - Cache invalidation
-    - TTL (Time to Live)
-    - Cache-aside pattern
-
-### Scaling Your Backend
-
-54. **Understanding Load**
-
-    - Requests per second (RPS)
-    - Latency vs Throughput
-    - Response time percentiles (p50, p95, p99)
-    - Bottlenecks: CPU, Memory, Network, Disk I/O
-    - Profiling and monitoring
-
-55. **Vertical Scaling (Making One Machine Faster)**
-
-    - More CPU cores
-    - More RAM
-    - Faster storage (SSD)
-    - Limitations
-    - When vertical scaling works
-
-56. **Horizontal Scaling (More Machines)**
-
-    - Running multiple instances
-    - Load balancers
-    - Distributing traffic
-    - Stateless vs Stateful applications
-    - Sticky sessions
-
-57. **Load Balancing**
-
-    - What is a load balancer?
-    - Round-robin distribution
-    - Health checks
-    - Session persistence
-    - Load balancer algorithms
-
-58. **Database Scaling**
-
-    - Read replicas
-    - Master-slave replication
-    - Sharding: Splitting data across machines
-    - Consistency and eventual consistency
-    - When to shard
-
-59. **Caching at Scale**
-
-    - Redis and Memcached
-    - Cache layers in architecture
-    - Distributed caching
-    - Cache coherency
-    - When caching helps most
-
-60. **Async + Concurrency for Backend Scalability**
-    - Why async matters at scale
-    - Handling thousands of concurrent connections
-    - Async database drivers
-    - Non-blocking I/O throughout the stack
-    - Resource efficiency at scale
-
-### Real-World Backend Architecture
-
-61. **Putting It Together: A Scalable Web App Architecture**
-
-    - Load balancer
-    - Multiple app servers (Axum instances)
-    - Database with replicas
-    - Cache layer
-    - How requests flow
-    - Single point of failures and redundancy
-
-62. **Monitoring and Observability**
-
-    - Logging (structured logging)
-    - Metrics (request count, latency, error rate)
-    - Tracing requests across services
-    - Dashboards
-    - Alerting
-
-63. **Common Patterns in Scalable Systems**
-
-    - Circuit breakers for resilience
-    - Retry logic and backoff
-    - Rate limiting and throttling
-    - Bulkheads (isolation)
-    - Graceful degradation
-
-64. **Deploying and Running at Scale**
-    - Containerization (Docker)
-    - Orchestration (Kubernetes basics)
-    - Rolling updates
-    - Auto-scaling
-    - Configuration management
+- What is information?
+- Why computers only understand states
+- Physical representation of information
+- Analog vs Digital systems
 
 ---
+
+## 0.2 Binary Number System
+
+- Decimal numbers
+- Binary numbers
+- Converting decimal ↔ binary
+- Binary arithmetic
+- Signed vs unsigned integers
+
+---
+
+## 0.3 Hexadecimal
+
+- Why hexadecimal exists
+- Binary ↔ Hex conversion
+- Memory addresses
+
+---
+
+## 0.4 Boolean Logic
+
+- True and False
+- Boolean algebra
+- Truth tables
+
+---
+
+## 0.5 Logic Gates
+
+- AND
+- OR
+- NOT
+- XOR
+- NAND
+- NOR
+
+---
+
+## 0.6 Building Computation from Gates
+
+- Half adder
+- Full adder
+- Multiplexer
+- Decoder
+- Comparators
+
+---
+
+## 0.7 Registers
+
+- What is a register
+- Temporary storage
+- Register operations
+
+---
+
+## 0.8 Arithmetic Logic Unit (ALU)
+
+- Arithmetic operations
+- Logical operations
+- Comparisons
+
+---
+
+## 0.9 CPU Control Unit
+
+- Fetch instruction
+- Decode instruction
+- Execute instruction
+
+---
+
+## 0.10 Building a Simple CPU
+
+- Program counter
+- Instruction register
+- Control flow
+- Branching
+
+---
+
+## 0.11 Computer Memory Hardware
+
+- SRAM
+- DRAM
+- Flash Memory
+
+---
+
+## 0.12 CPU Cache
+
+- Why cache exists
+- L1 cache
+- L2 cache
+- L3 cache
+- Cache locality
+- Cache misses
+
+---
+
+## 0.13 Memory Hierarchy
+
+CPU Registers
+
+↓
+
+L1 Cache
+
+↓
+
+L2 Cache
+
+↓
+
+L3 Cache
+
+↓
+
+RAM
+
+↓
+
+SSD
+
+↓
+
+HDD
+
+---
+
+## 0.14 Introduction to Assembly
+
+- What assembly is
+- Registers
+- Instructions
+- Jumps
+- Function calls
+
+---
+
+# PHASE 1 — OPERATING SYSTEM FUNDAMENTALS
+
+How software controls hardware.
+
+---
+
+## 1.1 What Happens When You Press the Power Button?
+
+- Electricity flow
+- Firmware
+- Boot process
+
+---
+
+## 1.2 BIOS and UEFI
+
+- Hardware initialization
+- Boot sequence
+
+---
+
+## 1.3 Bootloaders
+
+- GRUB
+- Loading kernels
+
+---
+
+## 1.4 What Is an Operating System?
+
+- Purpose of an OS
+- Resource management
+
+---
+
+## 1.5 The Kernel
+
+- What is a kernel
+- Responsibilities
+- Architecture
+
+---
+
+## 1.6 User Space vs Kernel Space
+
+- Separation
+- Privileges
+- Protection
+
+---
+
+## 1.7 System Calls
+
+- Why system calls exist
+- Crossing boundaries
+
+---
+
+## 1.8 Interrupts
+
+- Hardware interrupts
+- Software interrupts
+
+---
+
+## 1.9 Device Drivers
+
+- Communication with hardware
+
+---
+
+## 1.10 Virtual Memory
+
+- Address translation
+- Memory abstraction
+
+---
+
+## 1.11 Page Tables
+
+- Virtual addresses
+- Physical addresses
+
+---
+
+## 1.12 Memory Mapping
+
+- mmap
+- Shared memory
+
+---
+
+## 1.13 Processes
+
+- Process creation
+- Process lifecycle
+- Process isolation
+
+---
+
+## 1.14 Threads
+
+- Thread model
+- Shared memory
+
+---
+
+## 1.15 Context Switching
+
+- Saving execution state
+- Scheduling
+
+---
+
+## 1.16 CPU Scheduling
+
+- Round Robin
+- Priority scheduling
+
+---
+
+## 1.17 Signals
+
+- Process communication
+
+---
+
+## 1.18 File Systems
+
+- Why file systems exist
+- Data organization
+
+---
+
+## 1.19 Linux Directory Structure
+
+- /
+- /home
+- /usr
+- /etc
+- /var
+
+---
+
+## 1.20 File Descriptors
+
+- stdin
+- stdout
+- stderr
+
+---
+
+## 1.21 Reading and Writing Files
+
+- Disk operations
+- Buffers
+
+---
+
+# PHASE 2 — NETWORKING FUNDAMENTALS
+
+How computers talk.
+
+---
+
+## 2.1 What Is a Network?
+
+- Connected machines
+
+---
+
+## 2.2 Packets
+
+- Breaking data into packets
+
+---
+
+## 2.3 OSI Model
+
+- Physical
+- Data Link
+- Network
+- Transport
+- Session
+- Presentation
+- Application
+
+---
+
+## 2.4 TCP/IP Model
+
+- Practical networking
+
+---
+
+## 2.5 IP Addresses
+
+- IPv4
+- IPv6
+
+---
+
+## 2.6 Ports
+
+- Service identification
+
+---
+
+## 2.7 DNS
+
+- Domain resolution
+
+---
+
+## 2.8 TCP
+
+- Handshake
+- Reliability
+- Flow control
+
+---
+
+## 2.9 UDP
+
+- Connectionless communication
+
+---
+
+## 2.10 TLS
+
+- Encryption
+- Certificates
+
+---
+
+## 2.11 HTTP
+
+- Requests
+- Responses
+
+---
+
+## 2.12 HTTP/1.1
+
+---
+
+## 2.13 HTTP/2
+
+---
+
+## 2.14 HTTP/3
+
+---
+
+## 2.15 QUIC
+
+---
+
+## 2.16 WebSockets
+
+---
+
+## 2.17 gRPC
+
+---
+
+# PHASE 3 — PROGRAM EXECUTION
+
+How software actually runs.
+
+---
+
+## 3.1 What Is a Program?
+
+---
+
+## 3.2 Source Code
+
+---
+
+## 3.3 Compilation
+
+---
+
+## 3.4 Linking
+
+---
+
+## 3.5 Executables
+
+---
+
+## 3.6 Machine Code
+
+---
+
+## 3.7 Runtime Memory Layout
+
+- Code segment
+- Data segment
+- Heap
+- Stack
+
+---
+
+## 3.8 Function Calls
+
+---
+
+## 3.9 Stack Frames
+
+---
+
+## 3.10 Program Counter
+
+---
+
+## 3.11 Registers
+
+---
+
+## 3.12 Heap Allocation
+
+---
+
+## 3.13 Memory Leaks
+
+---
+
+## 3.14 Garbage Collection
+
+---
+
+## 3.15 Manual Memory Management
+
+---
+
+# PHASE 4 — RUST FOUNDATIONS
+
+Learning Rust from first principles.
+
+---
+
+## 4.1 Why Rust Exists
+
+---
+
+## 4.2 Ownership
+
+---
+
+## 4.3 Move Semantics
+
+---
+
+## 4.4 Borrowing
+
+- Immutable borrow
+- Mutable borrow
+
+---
+
+## 4.5 Lifetimes
+
+---
+
+## 4.6 Structs
+
+---
+
+## 4.7 Enums
+
+---
+
+## 4.8 Pattern Matching
+
+---
+
+## 4.9 Traits
+
+---
+
+## 4.10 Generics
+
+---
+
+## 4.11 Option
+
+---
+
+## 4.12 Result
+
+---
+
+## 4.13 Error Handling
+
+---
+
+## 4.14 Modules
+
+---
+
+## 4.15 Crates
+
+---
+
+## 4.16 Smart Pointers
+
+- Box
+- Rc
+- Arc
+
+---
+
+## 4.17 Interior Mutability
+
+- RefCell
+- Mutex
+- RwLock
+
+---
+
+## 4.18 Unsafe Rust
+
+---
+
+## 4.19 FFI
+
+---
+
+# PHASE 5 — CONCURRENCY
+
+How multiple tasks work together.
+
+---
+
+## 5.1 What Is Concurrency?
+
+---
+
+## 5.2 Concurrency vs Parallelism
+
+---
+
+## 5.3 Race Conditions
+
+---
+
+## 5.4 Mutexes
+
+---
+
+## 5.5 RwLocks
+
+---
+
+## 5.6 Semaphores
+
+---
+
+## 5.7 Atomics
+
+---
+
+## 5.8 Lock-Free Programming
+
+---
+
+## 5.9 Thread Creation
+
+---
+
+## 5.10 Thread Pools
+
+---
+
+## 5.11 Work Queues
+
+---
+
+## 5.12 Producer Consumer
+
+---
+
+## 5.13 Channels
+
+---
+
+## 5.14 Message Passing
+
+---
+
+# PHASE 6 — ASYNC RUST
+
+How Rust handles millions of tasks.
+
+---
+
+## 6.1 Blocking I/O
+
+---
+
+## 6.2 Non-Blocking I/O
+
+---
+
+## 6.3 Futures
+
+---
+
+## 6.4 async/await
+
+---
+
+## 6.5 Poll Trait
+
+---
+
+## 6.6 Wakers
+
+---
+
+## 6.7 Executors
+
+---
+
+## 6.8 Event Loops
+
+---
+
+## 6.9 Tokio Runtime
+
+---
+
+## 6.10 Work Stealing
+
+---
+
+## 6.11 Cooperative Scheduling
+
+---
+
+## 6.12 Async Streams
+
+---
+
+## 6.13 Cancellation
+
+---
+
+# PHASE 7 — LINUX SYSTEMS PROGRAMMING
+
+The foundation of modern backend engineering.
+
+---
+
+## 7.1 Processes Internals
+
+---
+
+## 7.2 Threads Internals
+
+---
+
+## 7.3 epoll
+
+---
+
+## 7.4 io_uring
+
+---
+
+## 7.5 Shared Memory
+
+---
+
+## 7.6 Pipes
+
+---
+
+## 7.7 Unix Sockets
+
+---
+
+## 7.8 Namespaces
+
+---
+
+## 7.9 cgroups
+
+---
+
+## 7.10 Containers
+
+---
+
+## 7.11 Docker Internals
+
+---
+
+# PHASE 8 — DATABASES
+
+How data survives.
+
+---
+
+## 8.1 Why Databases Exist
+
+---
+
+## 8.2 Relational Databases
+
+---
+
+## 8.3 PostgreSQL Architecture
+
+---
+
+## 8.4 SQL Fundamentals
+
+---
+
+## 8.5 Indexes
+
+---
+
+## 8.6 B-Trees
+
+---
+
+## 8.7 Transactions
+
+---
+
+## 8.8 ACID
+
+---
+
+## 8.9 MVCC
+
+---
+
+## 8.10 WAL
+
+---
+
+## 8.11 Query Planner
+
+---
+
+## 8.12 Locks
+
+---
+
+## 8.13 Isolation Levels
+
+---
+
+## 8.14 Replication
+
+---
+
+## 8.15 Partitioning
+
+---
+
+## 8.16 Sharding
+
+---
+
+## 8.17 Connection Pools
+
+---
+
+## 8.18 SQLx
+
+---
+
+# PHASE 9 — WEB SERVERS & AXUM
+
+Building real systems.
+
+---
+
+## 9.1 Sockets
+
+---
+
+## 9.2 TCP Servers
+
+---
+
+## 9.3 HTTP Servers
+
+---
+
+## 9.4 Hyper
+
+---
+
+## 9.5 Tower
+
+---
+
+## 9.6 Axum Basics
+
+---
+
+## 9.7 Routing
+
+---
+
+## 9.8 Extractors
+
+---
+
+## 9.9 Middleware
+
+---
+
+## 9.10 Authentication
+
+---
+
+## 9.11 Authorization
+
+---
+
+## 9.12 State Management
+
+---
+
+## 9.13 Error Handling
+
+---
+
+## 9.14 Background Jobs
+
+---
+
+## 9.15 WebSockets
+
+---
+
+# PHASE 10 — PERFORMANCE ENGINEERING
+
+Where elite engineers separate themselves.
+
+---
+
+## 10.1 Measuring Performance
+
+---
+
+## 10.2 Profiling
+
+---
+
+## 10.3 Flamegraphs
+
+---
+
+## 10.4 CPU Bottlenecks
+
+---
+
+## 10.5 Memory Bottlenecks
+
+---
+
+## 10.6 Cache Misses
+
+---
+
+## 10.7 Branch Prediction
+
+---
+
+## 10.8 Memory Allocation
+
+---
+
+## 10.9 Zero Copy
+
+---
+
+## 10.10 SIMD
+
+---
+
+## 10.11 NUMA
+
+---
+
+## 10.12 Benchmarking
+
+---
+
+# PHASE 11 — DISTRIBUTED SYSTEMS
+
+Building internet-scale systems.
+
+---
+
+## 11.1 Why Distributed Systems Exist
+
+---
+
+## 11.2 CAP Theorem
+
+---
+
+## 11.3 Consistency Models
+
+---
+
+## 11.4 Replication
+
+---
+
+## 11.5 Consensus
+
+### Raft
+
+### Paxos
+
+---
+
+## 11.6 Leader Election
+
+---
+
+## 11.7 Distributed Locks
+
+---
+
+## 11.8 Message Queues
+
+---
+
+## 11.9 Kafka
+
+---
+
+## 11.10 NATS
+
+---
+
+## 11.11 RabbitMQ
+
+---
+
+## 11.12 Event Sourcing
+
+---
+
+## 11.13 CQRS
+
+---
+
+## 11.14 Service Discovery
+
+---
+
+## 11.15 Distributed Tracing
+
+---
+
+# PHASE 12 — SECURITY
+
+Mandatory for production systems.
+
+---
+
+## 12.1 Cryptography Basics
+
+---
+
+## 12.2 Hashing
+
+---
+
+## 12.3 Symmetric Encryption
+
+---
+
+## 12.4 Asymmetric Encryption
+
+---
+
+## 12.5 TLS
+
+---
+
+## 12.6 JWT
+
+---
+
+## 12.7 OAuth
+
+---
+
+## 12.8 OpenID Connect
+
+---
+
+## 12.9 Rate Limiting
+
+---
+
+## 12.10 SQL Injection
+
+---
+
+## 12.11 XSS
+
+---
+
+## 12.12 CSRF
+
+---
+
+## 12.13 SSRF
+
+---
+
+## 12.14 Secrets Management
+
+---
+
+# PHASE 13 — COMPILER ENGINEERING
+
+Understanding how Rust becomes machine code.
+
+---
+
+## 13.1 Lexing
+
+---
+
+## 13.2 Parsing
+
+---
+
+## 13.3 AST
+
+---
+
+## 13.4 Type Checking
+
+---
+
+## 13.5 MIR
+
+---
+
+## 13.6 LLVM
+
+---
+
+## 13.7 Optimization Passes
+
+---
+
+## 13.8 Code Generation
+
+---
+
+## 13.9 Assembly Output
+
+---
+
+# PHASE 14 — BUILDING WORLD-CLASS SYSTEMS
+
+Mastery.
+
+---
+
+## Build a KV Database
+
+---
+
+## Build Redis Clone
+
+---
+
+## Build HTTP Server
+
+---
+
+## Build Reverse Proxy
+
+---
+
+## Build Async Runtime
+
+---
+
+## Build Distributed Cache
+
+---
+
+## Build Message Queue
+
+---
+
+## Build Search Engine
+
+---
+
+## Build Raft Consensus System
+
+---
+
+## Build PostgreSQL Clone
+
+---
+
+## Build Distributed Database
+
+---
+
+# End Goal
+
+At this point you should understand:
+
+Electricity
+→ Logic Gates
+→ CPU
+→ Memory
+→ Operating System
+→ Networking
+→ Program Execution
+→ Rust
+→ Concurrency
+→ Async
+→ Linux
+→ Databases
+→ Web Servers
+→ Performance
+→ Distributed Systems
+→ Security
+→ Compilers
+→ Planet Scale Systems
+
+This is the path from junior developer to world-class systems engineer.
