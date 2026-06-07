@@ -563,6 +563,35 @@ If you understand this chapter, you now understand the numbering systems used th
 
 ---
 
+## Solution
+
+1. Why was hexadecimal invented?
+- To provide a compact, human-friendly way to read and write long binary values.
+
+2. What does Base 16 mean?
+- It is a number system using sixteen symbols (0–9, A–F); place values are powers of 16.
+
+3. What is the decimal value of `A`?
+- A = 10.
+
+4. What is the decimal value of `F`?
+- F = 15.
+
+5. Convert binary `1111` to hexadecimal.
+- `1111₂ = F₁₆`.
+
+6. Convert hexadecimal `A` to binary.
+- `A₁₆ = 1010₂`.
+
+7. How many bits does one hexadecimal digit represent?
+- One hex digit = 4 bits.
+
+8. How many hex digits are needed for one byte?
+- Two hex digits (2 × 4 = 8 bits).
+
+9. Why are memory addresses displayed in hexadecimal?
+- Hex is compact and aligns with byte boundaries (2 hex digits per byte), making addresses easier to read and debug.
+
 # Next Topic
 
 ## Phase 0.4 — Boolean Logic

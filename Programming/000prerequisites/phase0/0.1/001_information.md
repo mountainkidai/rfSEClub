@@ -367,6 +367,26 @@ All of them are built on top of this foundation.
   - Move information
   - Transform information
 
+## Solution
+
+1. What is information in this context?
+- Information is a distinguishable difference between physical states that can be observed and assigned meaning.
+
+2. Why is "information is physical" important?
+- Because information must be represented by a physical medium (charges, magnetic states, light) — there is no abstract information without physical representation.
+
+3. What is a bit?
+- The smallest unit of information that can be in one of two states (0 or 1), commonly mapped to low/high voltage.
+
+4. Why use binary instead of many states?
+- Two states are easier and more reliable to distinguish in hardware, reducing error rates and complexity.
+
+5. How do computers represent text, images, and programs?
+- They encode them as numbers (bytes) which are stored as binary patterns; e.g., text via ASCII/Unicode, images via pixel values, programs as instruction codes.
+
+6. What are the four basic operations every computer performs?
+- Store, retrieve, move, and transform information.
+
 ---
 
 # Mental Model

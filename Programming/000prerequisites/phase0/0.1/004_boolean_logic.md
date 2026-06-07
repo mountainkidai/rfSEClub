@@ -609,6 +609,32 @@ If you understand this chapter, you understand the mathematical foundation of ev
 
 ---
 
+## Solution
+
+1. What are the two possible Boolean values?
+- TRUE and FALSE (represented as 1 and 0).
+
+2. What does NOT do?
+- It flips the value: NOT TRUE = FALSE, NOT FALSE = TRUE.
+
+3. When does AND return TRUE?
+- Only when all inputs are TRUE.
+
+4. When does OR return TRUE?
+- When at least one input is TRUE.
+
+5. What is the result of: TRUE AND FALSE
+- FALSE.
+
+6. What is the result of: TRUE OR FALSE
+- TRUE.
+
+7. Why does every CPU depend on Boolean Logic?
+- CPUs make decisions and comparisons; Boolean logic is the simple, reliable system (1/0) used to express those decisions in hardware.
+
+8. How does Boolean Logic connect to transistors?
+- Transistors act as electronic switches that are arranged to implement logic gates (AND, OR, NOT), so transistor networks realize Boolean functions.
+
 ## Next Topic
 
 # Phase 0.5 — Logic Gates

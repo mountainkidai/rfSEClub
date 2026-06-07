@@ -641,6 +641,31 @@ If you understand this chapter, you now understand the language every computer s
 | 126 | 7E  | Tilde                | ~    |           |
 | 127 | 7F  | Delete               | DEL  |           |
 
+
+
+## Solution
+
+1. Why do computers use binary instead of decimal?
+- Because electronic hardware gives two reliable states (low/high). Binary (base 2) maps directly to those two states, making circuits simpler and more reliable.
+
+2. What does Base 2 mean?
+- A number system that uses two symbols, 0 and 1; each position is a power of two.
+
+3. Convert binary 1010 to decimal.
+- 1010₂ = 8 + 0 + 2 + 0 = 10₁₀.
+
+4. Convert decimal 13 to binary.
+- 13₁₀ = 1101₂.
+
+5. How many values can one byte store?
+- 2⁸ = 256 distinct values (0 through 255).
+
+6. How does a computer store the letter A?
+- As a number (ASCII 65), which is stored in binary: 01000001.
+
+7. Are programs fundamentally different from numbers?
+- No. Programs are sequences of numbers (binary) stored in memory; the CPU interprets those numbers as instructions.
+
 # Next Topic
 
 Phase 0.3 — Hexadecimal: The Human-Friendly Representation of Binary

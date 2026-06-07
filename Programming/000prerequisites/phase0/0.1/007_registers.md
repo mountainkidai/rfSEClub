@@ -941,6 +941,38 @@ If you understand this chapter, you understand how computers remember informatio
 
 ---
 
+## Solution
+
+1. What problem do registers solve?
+- They let the CPU remember intermediate results and state so subsequent operations can use them.
+
+2. What is state?
+- Information that persists over time (saved values that the CPU can read later).
+
+3. Why are logic gates alone insufficient for memory?
+- Gates are stateless: their outputs depend only on current inputs. Memory requires feedback or storage elements to hold values across time.
+
+4. What is a feedback loop?
+- A connection that routes outputs back into inputs so a circuit can preserve its previous value.
+
+5. What is a flip-flop?
+- A clocked memory element that stores one bit and updates on a clock edge.
+
+6. How many flip-flops are needed for a 64-bit register?
+- 64 flip-flops (one per bit).
+
+7. Why are registers faster than RAM?
+- Registers sit inside the CPU, so access involves far fewer logic stages and much lower latency than external RAM.
+
+8. What is a register file?
+- A collection of registers (the CPU's set of fast storage locations) with read/write ports.
+
+9. What is the role of the instruction pointer?
+- The instruction pointer (program counter) stores the address of the next instruction to fetch.
+
+10. Why do compilers try to keep data in registers?
+- Because register access is extremely fast and improves program performance.
+
 ## Next Topic
 
 # Phase 0.8 — Arithmetic Logic Unit (ALU)
