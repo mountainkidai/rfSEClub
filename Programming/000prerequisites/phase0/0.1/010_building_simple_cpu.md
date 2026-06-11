@@ -808,6 +808,39 @@ A CPU works exactly the same way.
 
 ---
 
+## Solution
+
+1. What are the minimum components needed to build a simple CPU?
+- At minimum: Registers, an ALU, and a Control Unit (plus Program Counter and Instruction Register to sequence instructions).
+
+2. What is the purpose of the Program Counter?
+- To store the address of the next instruction to fetch (it tracks where execution is in the program).
+
+3. What is the purpose of the Instruction Register?
+- To hold the fetched instruction so the Control Unit can decode and execute it.
+
+4. What happens during Fetch?
+- The CPU reads the instruction at the PC from memory into the Instruction Register.
+
+5. What happens during Decode?
+- The Control Unit translates the instruction into control signals and determines required operands and destinations.
+
+6. What happens during Execute?
+- The ALU and other hardware perform the requested operation and the result is stored where needed.
+
+7. Why does the CPU need jumps?
+- Jumps change the Program Counter, enabling branching and control flow (if/loops), so execution can move to different code locations.
+
+8. How do if statements become machine instructions?
+- Compilers turn high-level conditionals into comparisons and conditional jumps (compare -> set flags -> JUMP_IF_*).
+
+9. What does `JUMP 10` do?
+- It sets the Program Counter to address 10 so the next fetched instruction comes from that address.
+
+10. Why is the CPU considered programmable?
+- Because it executes sequences of instructions stored in memory, and the Control Unit can interpret different instruction sequences to perform arbitrary tasks.
+
+
 ## Next Topic
 
 # Phase 0.11 — Computer Memory Hardware

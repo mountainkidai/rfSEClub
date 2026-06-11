@@ -1038,6 +1038,39 @@ That is exactly what the Control Unit does.
 
 ---
 
+## Solution
+
+1. What problem does the Control Unit solve?
+- It coordinates CPU components and sequences instruction execution, deciding what to read, what to compute, and where to store results.
+
+2. Why can't the ALU work by itself?
+- The ALU only performs operations; it needs the Control Unit to provide operands, timing, and instruction sequencing.
+
+3. What are control signals?
+- Electrical commands from the Control Unit that enable register reads/writes, select ALU modes, and route data.
+
+4. What are the three stages of CPU execution?
+- Fetch, Decode, Execute.
+
+5. What happens during Fetch?
+- The CPU reads the next instruction from memory (using the Program Counter) into the Instruction Register.
+
+6. What happens during Decode?
+- The Control Unit interprets the instruction and determines the required control signals and data movement.
+
+7. What happens during Execute?
+- The CPU performs the operation (ALU computation, memory access, register write), and updates state/flags.
+
+8. What is microcode?
+- A low-level sequence of micro-operations (an internal program) the Control Unit can run to implement complex ISA instructions.
+
+9. Why is the Control Unit necessary?
+- Without it the CPU's parts would be uncoordinated; the Control Unit makes the hardware execute meaningful programs.
+
+10. How does the Control Unit interact with registers and the ALU?
+- It issues read/write enables, supplies operands to the ALU, sets the ALU operation, and commands registers to store results.
+
+
 ## Next Topic
 
 # Phase 0.10 — Building A Simple CPU

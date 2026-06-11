@@ -549,6 +549,38 @@ If you understand this chapter, you understand the first physical building block
 
 ---
 
+## Solution
+
+1. What is the purpose of a logic gate?
+- To implement a Boolean operation in hardware; transform binary inputs into a binary output.
+
+2. What does a NOT gate do?
+- It inverts its input (0→1, 1→0).
+
+3. When does an AND gate produce TRUE?
+- When all of its inputs are TRUE.
+
+4. When does an OR gate produce TRUE?
+- When at least one input is TRUE.
+
+5. What makes XOR different from OR?
+- XOR is true only when exactly one input is true; OR is true when one or more inputs are true.
+
+6. What is NAND?
+- NAND = NOT(AND); it outputs false only when all inputs are true.
+
+7. Why is NAND important?
+- Because NAND is functionally complete: you can build any other gate using only NANDs.
+
+8. What does "functional completeness" mean?
+- A set of gates is functionally complete if it can implement any Boolean function (e.g., NAND or NOR alone suffice).
+
+9. What are logic gates built from?
+- Transistors arranged as switches to perform the required logic.
+
+10. How do logic gates eventually become CPUs?
+- Gates combine into circuits (adders, multiplexers, registers, etc.), which assemble into ALUs, register files, and control units; those combined systems form a CPU.
+
 ## Next Topic
 
 # Phase 0.6 — Building Computation From Gates

@@ -1047,6 +1047,38 @@ If you understand this chapter, you understand the first real computational buil
 
 ---
 
+## Solution
+
+1. What is the difference between a gate and a circuit?
+- A gate performs a single logical operation; a circuit combines many gates to implement a larger function (adder, comparator, etc.).
+
+2. Why does a Half Adder need a Carry output?
+- Because adding 1 + 1 produces a two-bit result; the Carry carries the overflow into the next higher bit.
+
+3. Which gates are used inside a Half Adder?
+- Typically an XOR for the SUM and an AND for the CARRY.
+
+4. Why are Full Adders necessary?
+- Full Adders accept a carry-in as well as A and B, allowing multi-bit addition with chained carries.
+
+5. What does a comparator do?
+- It checks two values and reports relationships like equal, greater, or less.
+
+6. What is a multiplexer?
+- A MUX selects one of several input signals to pass to the output, based on selector bits.
+
+7. What is a decoder?
+- A decoder activates exactly one output line for a given input code (used for selecting a destination or memory row).
+
+8. Why are registers important?
+- Registers provide very fast storage for intermediate results and state inside the CPU.
+
+9. What makes registers different from other circuits?
+- Registers store state using flip-flops/feedback; they retain values across cycles rather than producing transient outputs.
+
+10. Why are registers considered memory?
+- Because they hold data persistently (for as long as needed) and provide read/write access to the CPU; they are the CPU's fastest memory.
+
 ## Next Topic
 
 # Phase 0.7 — Registers
