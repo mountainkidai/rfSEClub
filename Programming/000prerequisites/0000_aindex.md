@@ -120,13 +120,17 @@ Everything begins here.
 
 ## 0.11 Computer Memory Hardware
 
+---
+
+## 0.12 Computer Memory Hardware
+
 - SRAM
 - DRAM
 - Flash Memory
 
 ---
 
-## 0.12 CPU Cache
+## 0.13 CPU Cache
 
 - Why cache exists
 - L1 cache
@@ -137,7 +141,7 @@ Everything begins here.
 
 ---
 
-## 0.13 Memory Hierarchy
+## 0.14 Memory Hierarchy
 
 CPU Registers
 
@@ -167,7 +171,9 @@ HDD
 
 ---
 
-## 0.14 Introduction to Assembly
+## 0.15 — Memory Addressing
+
+## 0.16 Introduction to Assembly
 
 - What assembly is
 - Registers
