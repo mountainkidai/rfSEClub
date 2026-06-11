@@ -1,932 +1,1176 @@
-# Phase 0.11 — Computer Memory Hardware
+# Phase 0.12 — The Birth of Memory
 
 ## Introduction
 
-In the previous chapters, we built the fundamental pieces of a CPU.
+Before learning about:
 
-Our CPU now contains:
+- Registers
+- RAM
+- Cache
+- CPUs
 
-```text
-+----------------+
-| Control Unit   |
-+----------------+
+we must answer a much deeper question:
 
-+----------------+
-| Registers      |
-+----------------+
+> How can a circuit remember something?
 
-+----------------+
-| ALU            |
-+----------------+
+A CPU can remember numbers.
 
-+----------------+
-| Program Counter|
-+----------------+
+RAM can remember programs.
 
-+----------------+
-| Instruction Reg|
-+----------------+
-```
+Caches can remember recently used data.
 
-The CPU can:
+> But where does memory come from?
 
-- Execute instructions
-- Perform calculations
-- Store temporary values
+Let’s rebuild memory from absolute first principles.
 
-This sounds impressive.
+---
 
-But there is a problem.
+## The Problem
 
-A modern web browser may use:
+Imagine somebody gives you an AND gate.
 
 ```text
-Hundreds of MB
+A and B go into an AND gate.
+The gate produces an output.
 ```
 
-A video game may use:
+Suppose:
 
 ```text
-Several GB
+A = 1
+B = 1
 ```
 
-An AI model may use:
+The output becomes:
 
 ```text
-Many GB
+1
 ```
 
-Our CPU only has a small number of registers.
+Now disconnect both inputs.
+
+```text
+A = ?
+B = ?
+```
+
+What happens?
+
+The output disappears.
+
+The gate forgot everything.
+
+---
+
+The same is true for:
+
+```text
+AND
+OR
+NOT
+XOR
+NAND
+NOR
+```
+
+All logic gates have the same limitation:
+
+```text
+They react.
+They do not remember.
+```
+
+---
+
+## What Does Memory Mean?
+
+Imagine this conversation.
+
+```text
+Store: 1
+```
+
+Some time later:
+
+```text
+What was stored?
+```
+
+If the answer is:
+
+```text
+1
+```
+
+then memory exists.
+
+---
+
+Memory means:
+
+> The present depends on the past.
+
+Normal logic gates cannot do this.
+
+Their outputs depend only on current inputs.
+
+---
+
+## Why Gates Forget
+
+A normal circuit looks like this:
+
+```text
+Input goes into a gate.
+The gate produces an output.
+Information moves only forward.
+```
+
+Once the input disappears:
+
+```text
+Input gone.
+Output gone.
+```
+
+No memory exists.
+
+---
+
+## The Missing Ingredient
+
+Engineers eventually discovered the secret.
+
+Memory appears when a circuit can see its own output.
+
+In other words:
+
+```text
+The output is fed back into the circuit.
+```
+
+This idea is called:
+
+```text
+Feedback
+```
+
+Feedback is the birth of memory.
+
+---
+
+## Understanding Feedback
+
+Imagine two people.
+
+Alice and Bob.
+
+Rules:
+
+```text
+Alice repeats what Bob says.
+Bob repeats what Alice says.
+```
+
+Suppose we start the system by telling Alice:
+
+```text
+1
+```
+
+Alice says:
+
+```text
+1
+```
+
+Bob hears:
+
+```text
+1
+```
+
+So Bob says:
+
+```text
+1
+```
+
+Alice hears:
+
+```text
+1
+```
+
+So Alice says:
+
+```text
+1
+```
+
+The cycle continues forever.
+
+---
+
+Even if the original speaker disappears:
+
+```text
+Someone injects a value into the system.
+
+Then stops interacting with it.
+Teacher: "Say 1"
+
+Alice: "1"
+Bob:   "1"
+
+Teacher leaves.
+Alice and Bob keep repeating the same value.
+```
+
+The information survives.
+
+The system is now remembering.
+
+---
+
+## Stable States
+
+Memory requires stability.
+
+Imagine a ball sitting on a hill.
+
+```text
+The ball rolls away.
+This is unstable.
+```
+
+Now imagine a valley.
+
+```text
+The ball naturally stays there.
+This is stable.
+```
+
+Memory circuits work exactly the same way.
+
+They create stable electrical states.
+
+For a single bit, we need only two stable states:
+
+```text
+State A = remember 0
+State B = remember 1
+```
+
+---
+
+## The First Memory Circuit
+
+Engineers discovered that two NOR gates can create these stable states.
+
+This circuit is called an SR latch.
+
+SR stands for:
+
+```text
+Set
+Reset
+```
+
+Meaning:
+
+```text
+Set = store 1
+Reset = store 0
+```
+
+---
+
+## Understanding a NOR Gate
+
+A NOR gate behaves like this:
+
+```text
+0 NOR 0 = 1
+0 NOR 1 = 0
+1 NOR 0 = 0
+1 NOR 1 = 0
+```
+
+Only one situation produces a 1:
+
+```text
+0 NOR 0
+```
+
+Everything else becomes 0.
+
+---
+
+## Building the SR Latch
+
+A NOR gate normally forgets everything once its inputs disappear.
+
+To create memory, engineers connected two NOR gates together so that each gate uses the other gate's output as one of its inputs.
+
+```text
+                S
+                |
+                v
+
+      Q' ---> NOR A -----> Q
+
+
+
+
+                R
+                |
+                v
+
+      Q  ---> NOR B -----> Q'
+```
+
+Notice what is happening:
+
+```text
+NOR A inputs:
+- S
+- Q'
+
+NOR B inputs:
+- R
+- Q
+```
+
+This means:
+
+```text
+Q depends on Q'
+
+Q' depends on Q
+```
+
+The outputs feed back into the circuit.
+
+This is called **feedback**.
+
+---
+
+## Storing a 1
+
+Suppose we want the circuit to remember a `1`.
+
+Apply:
+
+```text
+S = 0
+R = 1
+```
+
+The circuit becomes:
+
+```text
+                S=0
+                 |
+                 v
+
+      Q' ---> NOR A -----> Q
+
+
+
+
+               R=1
+                 |
+                 v
+
+      Q  ---> NOR B -----> Q'
+```
+
+### Step 1: Evaluate NOR B
+
+NOR B receives:
+
+```text
+R = 1
+Q = anything
+```
+
+From the NOR truth table:
+
+```text
+1 NOR anything = 0
+```
+
+Therefore:
+
+```text
+Q' = 0
+```
+
+---
+
+### Step 2: Evaluate NOR A
+
+NOR A receives:
+
+```text
+S  = 0
+Q' = 0
+```
+
+From the NOR truth table:
+
+```text
+0 NOR 0 = 1
+```
+
+Therefore:
+
+```text
+Q = 1
+```
+
+The circuit has now settled into:
+
+```text
+Q  = 1
+Q' = 0
+```
+
+> `we are really using Q as the memory bit.`
+
+So the bit `1` is stored.
+
+---
+
+## Why Does It Stay There?
+
+Notice the current state:
+
+```text
+Q  = 1
+Q' = 0
+```
+
+Now look at the circuit again:
+
+```text
+                S=0
+                 |
+                 v
+
+      Q'=0 --> NOR A -----> Q=1
+
+
+
+
+               R=1
+                 |
+                 v
+
+      Q=1  --> NOR B -----> Q'=0
+```
+
+NOR B sees:
+
+```text
+R = 1
+Q = 1
+```
+
+Therefore:
+
+```text
+Q' = 0
+```
+
+NOR A sees:
+
+```text
+S  = 0
+Q' = 0
+```
+
+Therefore:
+
+```text
+Q = 1
+```
+
+Nothing changes.
+
+The state reinforces itself.
+
+---
+
+## Removing the Input
+
+Now remove the forcing signal:
+
+```text
+S = 0
+R = 0
+```
+
+The circuit becomes:
+
+```text
+                S=0
+                 |
+                 v
+
+      Q'=0 --> NOR A -----> Q=1
+
+
+
+
+               R=0
+                 |
+                 v
+
+      Q=1  --> NOR B -----> Q'=0
+```
+
+Let's evaluate again.
+
+### NOR B
+
+Inputs:
+
+```text
+R = 0
+Q = 1
+```
+
+Result:
+
+```text
+0 NOR 1 = 0
+```
+
+Therefore:
+
+```text
+Q' = 0
+```
+
+### NOR A
+
+Inputs:
+
+```text
+S  = 0
+Q' = 0
+```
+
+Result:
+
+```text
+0 NOR 0 = 1
+```
+
+Therefore:
+
+```text
+Q = 1
+```
+
+The state remains:
+
+```text
+Q  = 1
+Q' = 0
+```
+
+---
+
+## The Feedback Loop
+
+The reason memory exists is that the outputs keep recreating each other.
+
+```text
+Q = 1
+   |
+   v
+
+NOR B
+
+   |
+   v
+
+Q' = 0
+   |
+   v
+
+NOR A
+
+   |
+   v
+
+Q = 1
+```
+
+Read it like this:
+
+```text
+Q = 1
+forces
+Q' = 0
+```
+
+and
+
+```text
+Q' = 0
+forces
+Q = 1
+```
+
+The two outputs keep each other alive.
+
+The original input is gone, but the state survives.
+
+This is the first true memory circuit.
+
+Memory is born when feedback allows a circuit to preserve a state after the original input disappears.
+
+---
+
+## The Limitation of SR Latches
+
+SR latches work.
+
+But modern CPUs contain billions of memory elements.
+
+Imagine if each one changed whenever it wanted.
+
+```text
+Chaos
+```
+
+Computers require coordination.
+
+Everything must update at predictable moments.
+
+---
+
+## Enter the Clock
+
+A CPU contains a clock signal.
+
+Not a wall clock.
+
+An electrical pulse.
+
+```text
+Tick
+Tick
+Tick
+Tick
+```
+
+A simplified waveform:
+
+```text
+High
+Low
+High
+Low
+High
+Low
+```
+
+Every tick tells the CPU:
+
+```text
+Update now.
+```
+
+---
+
+## From Latch to Flip-Flop
+
+Engineers added clock control to memory circuits.
+
+The result is called a:
+
+```text
+Flip-Flop
+
+
+---
+
+SR Latch + Clock = Flip-Flop
+```
+
+A flip-flop behaves like a latch with discipline.
+
+Think of it like this:
+
+```text
+SR latch = store whenever inputs change
+Flip-flop = store only when the clock allows
+```
+
+---
+
+## One Flip-Flop Stores One Bit
+
+A single flip-flop can store exactly one bit.
+
+```text
+0
+```
+
+or
+
+```text
+1
+```
+
+Almost.
+
+The confusion is between:
+
+```text
+Q
+```
+
+and
+
+```text
+Flip-Flop
+```
+
+They are not the same thing.
+
+Think of it like this:
+
+```text id="zn36bo"
+SR Latch
+   |
+   +----> Q
+   |
+   +----> Q'
+```
+
+The latch is the **memory circuit**.
+
+`Q` is just the output where you read the stored value.
+
+---
+
+For example:
+
+```text id="q1hb1n"
+      SR Latch
+
+      +-------+
+      |       |
+      +-------+
+          |
+          v
+
+          Q = 1
+```
+
+We say:
+
+```text id="34jpjc"
+Stored value = 1
+```
+
+because Q is 1.
+
+---
+
+Now engineers added a clock.
+
+Instead of:
+
+```text id="nl03cq"
+Change whenever S or R changes
+```
+
+they wanted:
+
+```text id="c8gm3h"
+Change only when clock says so
+```
+
+So they built:
+
+```text id="j4qzcm"
+SR Latch
+     +
+Clock
+     =
+Flip-Flop
+```
+
+---
+
+A flip-flop still has an output:
+
+```text id="77xekm"
+Q
+```
+
+and often:
+
+```text id="mvv1l5"
+Q'
+```
+
+too.
+
+Example:
+
+```text id="8iwf6j"
+       Flip-Flop
+
+      +-----------+
+      |           |
+CLK ->|           |
+D   ->|           |
+      |           |
+      +-----------+
+            |
+            v
+
+            Q
+```
+
+---
+
+Now the important statement:
+
+> One flip-flop stores one bit.
+
+means:
+
+```text id="p4ekso"
+If Q = 0
+
+Stored bit = 0
+```
+
+or
+
+```text id="6njlwm"
+If Q = 1
+
+Stored bit = 1
+```
+
+The flip-flop is the memory device.
+
+Q is the value currently stored inside it.
+
+---
+
+Think of a flip-flop like a box:
+
+```text id="dgtf7g"
++-----------+
+| Flip-Flop |
++-----------+
+      |
+      v
+
+      Q
+```
+
+If:
+
+```text id="5n1lkt"
+Q = 1
+```
+
+the box contains 1.
+
+If:
+
+```text id="yzwsga"
+Q = 0
+```
+
+the box contains 0.
+
+---
+
+So:
+
+```text id="6l8g57"
+Flip-Flop = memory cell
+```
+
+```text id="7q3itn"
+Q = value stored in that memory cell
+```
+
+This is why later we can build a register:
+
+```text id="bq1g0j"
+
+             CPU Clock
+                 |
+      -----------------------
+      |     |     |     |
+      v     v     v     v
+
+     FF1   FF2   FF3   FF4
+
+School Bell (master clock)
+     |
+     +--> Student 1 ears
+     +--> Student 2 ears
+     +--> Student 3 ears
+
+Flip-Flop 1 -> Q = 1
+Flip-Flop 2 -> Q = 0
+Flip-Flop 3 -> Q = 1
+Flip-Flop 4 -> Q = 0
+```
+
+Together:
+
+```text id="52f3wl"
+1010
+```
+
+So a register is just multiple flip-flops, each contributing its own `Q` bit.
+
+The next mental model should be:
+
+```text id="zuxk1r"
+SR Latch
+    ↓
+Clock added
+    ↓
+Flip-Flop
+    ↓
+Stores 1 bit
+    ↓
+Many Flip-Flops
+    ↓
+Register
+```
+
+That's the correct hierarchy.
+
+Nothing else.
+
+Examples:
+
+```text
+Stored = 0
+Stored = 1
+```
+
+Can one flip-flop store:
+
+```text
+1010
+```
+
+No.
+
+That requires four bits.
+
+---
+
+## Building Larger Memory
+
+Suppose we want to store:
+
+```text
+1010
+```
+
+Each digit requires one flip-flop.
+
+```text
+1
+0
+1
+0
+```
+
+Total:
+
+```text
+4 flip-flops
+```
+
+working together.
+
+---
+
+## Register
+
+A collection of flip-flops working together is called a register.
+
+Definition:
+
+> A register is a group of flip-flops that stores multiple bits as a single value.
+
+Example:
+
+```text
+Bit 3 = 1
+Bit 2 = 0
+Bit 1 = 1
+Bit 0 = 0
+```
+
+Together:
+
+```text
+1010
+```
+
+---
+
+## Why Registers Have Different Sizes
+
+Different CPUs need different amounts of storage.
+
+Common register sizes:
+
+```text
+8-bit
+16-bit
+32-bit
+64-bit
+```
+
+The size simply means:
+
+```text
+Number of flip-flops inside the register
+```
+
+Example:
+
+```text
+8-bit register = 8 flip-flops
+64-bit register = 64 flip-flops
+```
+
+---
+
+## Why Modern CPUs Use 64 Bits
+
+Modern CPUs frequently store:
+
+- Numbers
+- Memory addresses
+- Pointers
+
+These values can become very large.
+
+Therefore modern processors usually use:
+
+```text
+64-bit registers
+```
+
+---
+
+## Register File
+
+A CPU needs many registers.
+
+Not just one.
+
+Examples:
 
 ```text
 RAX
 RBX
 RCX
 RDX
-...
 ```
 
-Even a modern CPU typically has only a few dozen general-purpose registers.
+Each register stores 64 bits.
 
-Clearly:
-
-> Registers are not enough.
-
-We need much larger storage.
-
-This leads us to computer memory.
-
----
-
-# Why Memory Exists
-
-Imagine a CPU with only registers.
+Together they form the:
 
 ```text
-CPU
-│
-├── Registers
-├── ALU
-└── Control Unit
+Register file
 ```
 
-Suppose we want to store:
+Think of a register file as:
 
 ```text
-5
-```
-
-Easy.
-
-Store it in a register.
-
-Now suppose we want:
-
-```text
-1,000,000 numbers
-```
-
-Impossible.
-
-There are not enough registers.
-
-We need a giant storage system.
-
-That storage system is called:
-
-> Main Memory
-
-or simply:
-
-> RAM
-
----
-
-# What Is Memory?
-
-Memory is nothing more than:
-
-> A large collection of storage locations.
-
-Think of an apartment building.
-
-```text
-Apartment 0
-Apartment 1
-Apartment 2
-Apartment 3
-...
-Apartment N
-```
-
-Each apartment stores something.
-
-Memory works the same way.
-
-```text
-Memory Cell 0
-Memory Cell 1
-Memory Cell 2
-Memory Cell 3
-...
-Memory Cell N
-```
-
-Each memory cell stores information.
-
----
-
-# Memory Stores Bits
-
-At the lowest level, a memory cell stores:
-
-```text
-0
-```
-
-or
-
-```text
-1
-```
-
-Nothing else.
-
-Example:
-
-```text
-Address    Value
-
-0          1
-1          0
-2          1
-3          1
-4          0
-```
-
-Computers build everything from these bits.
-
----
-
-# From Bits To Bytes
-
-One bit is very small.
-
-Computers usually group bits together.
-
-```text
-8 Bits = 1 Byte
-```
-
-Example:
-
-```text
-10110010
-```
-
-This entire sequence is:
-
-```text
-1 Byte
-```
-
-Most modern memory is organized around bytes.
-
----
-
-# Memory Addresses
-
-A critical question appears:
-
-> How does the CPU know where information is stored?
-
-Answer:
-
-Every memory location has an address.
-
-Think of houses.
-
-```text
-House #1
-House #2
-House #3
-House #4
-```
-
-You find a house using its address.
-
-Memory works exactly the same way.
-
----
-
-# Example Memory Layout
-
-```text
-Address      Data
-
-0            10101010
-1            00001111
-2            11110000
-3            00110011
-```
-
-The CPU can request:
-
-```text
-Read Address 2
-```
-
-Memory responds:
-
-```text
-11110000
+A small cabinet containing many registers inside the CPU.
 ```
 
 ---
 
-# Reading Memory
+## Where Registers Live
 
-Suppose:
+Registers are physically located inside the processor.
+
+Very close to the ALU.
 
 ```text
-Address 100
+Registers are placed near the ALU.
 ```
 
-contains:
+Because the distance is tiny:
 
 ```text
-42
+Access is extremely fast.
 ```
 
-CPU request:
+---
+
+## Memory Hierarchy So Far
+
+We can now trace the entire evolution of memory.
 
 ```text
-Read Address 100
-```
-
-Memory returns:
-
-```text
-42
-```
-
-Visual:
-
-```text
-CPU
- |
- | Read Address 100
- |
- v
-
-+------------+
-|   Memory   |
-+------------+
-
- |
- | 42
- |
- v
-
+Transistor
+Logic gate
+Feedback
+SR latch
+Flip-flop
+Register
+Register file
 CPU
 ```
 
 ---
 
-# Writing Memory
+## Key Takeaway
 
-Suppose the CPU wants to store:
+Memory is not magic.
 
-```text
-99
-```
+A transistor does not remember.
 
-at:
+A logic gate does not remember.
 
-```text
-Address 100
-```
+Memory appears when feedback creates stable electrical states.
 
-Operation:
+Everything else is simply larger and more organized versions of that idea.
 
 ```text
-Write 99 -> Address 100
-```
-
-Memory updates:
-
-```text
-Address 100 = 99
-```
-
-The value is now remembered.
-
----
-
-# Memory Is Built From Cells
-
-A memory chip contains millions or billions of memory cells.
-
-Each cell stores:
-
-```text
-0
-or
-1
-```
-
-Example:
-
-```text
-+---+---+---+---+
-| 1 | 0 | 1 | 1 |
-+---+---+---+---+
-
-+---+---+---+---+
-| 0 | 1 | 0 | 0 |
-+---+---+---+---+
-
-+---+---+---+---+
-| 1 | 1 | 1 | 0 |
-+---+---+---+---+
-```
-
-Modern RAM contains billions of these cells.
-
----
-
-# Why Not Use Registers For Everything?
-
-Registers are the fastest memory.
-
-So why not build:
-
-```text
-1 TB of Registers
-```
-
-instead of RAM?
-
-Because registers are expensive.
-
-Registers are built from flip-flops.
-
-Flip-flops require many transistors.
-
-This means:
-
-```text
-Large
-Expensive
-Power Hungry
-```
-
-A CPU made entirely from registers would be enormous.
-
----
-
-# Memory Hierarchy
-
-Different memory technologies make different trade-offs.
-
-Some are:
-
-```text
-Fast
-```
-
-but expensive.
-
-Others are:
-
-```text
-Large
-```
-
-but slower.
-
-Therefore computers use layers.
-
-```text
-Registers
-↓
-Cache
-↓
-RAM
-↓
-SSD
-↓
-Hard Disk
-```
-
-Each layer trades:
-
-```text
-Speed
-Capacity
-Cost
-```
-
-against the others.
-
----
-
-# SRAM (Static RAM)
-
-SRAM stands for:
-
-```text
-Static Random Access Memory
-```
-
-SRAM stores information using transistor feedback circuits.
-
-Conceptually:
-
-```text
-SRAM Cell
-≈
-Tiny Self-Remembering Circuit
-```
-
-Once a value is written:
-
-```text
-0
-```
-
-or
-
-```text
-1
-```
-
-the cell continuously remembers it.
-
-As long as power exists.
-
----
-
-## SRAM Cell Analogy
-
-Imagine a light switch.
-
-```text
-Switch Up   = 1
-
-Switch Down = 0
-```
-
-As long as electricity exists:
-
-```text
-State remains.
-```
-
-No refreshing required.
-
----
-
-## Advantages Of SRAM
-
-```text
-Extremely Fast
-Very Low Latency
-No Refresh Needed
-CPU Friendly
-```
-
----
-
-## Disadvantages Of SRAM
-
-Each bit requires several transistors.
-
-Typical SRAM cell:
-
-```text
-6 Transistors
-```
-
-per bit.
-
-This makes SRAM:
-
-```text
-Large
-Expensive
-Lower Density
-```
-
----
-
-## Where SRAM Is Used
-
-SRAM is used for:
-
-```text
-CPU Registers
-L1 Cache
-L2 Cache
-L3 Cache
-```
-
-where speed is critical.
-
----
-
-# DRAM (Dynamic RAM)
-
-DRAM stands for:
-
-```text
-Dynamic Random Access Memory
-```
-
-Unlike SRAM:
-
-```text
-1 Transistor
-+
-1 Capacitor
-```
-
-stores one bit.
-
-This makes DRAM much smaller and cheaper.
-
----
-
-# Capacitor Analogy
-
-Imagine a tiny bucket.
-
-```text
-Bucket Full  = 1
-
-Bucket Empty = 0
-```
-
-The bucket stores electrical charge.
-
-That charge represents information.
-
----
-
-# The Problem With DRAM
-
-Capacitors leak.
-
-Imagine:
-
-```text
-Bucket Full
-```
-
-slowly becoming:
-
-```text
-Bucket Empty
-```
-
-even if nobody touches it.
-
-The stored information slowly disappears.
-
----
-
-# DRAM Refresh
-
-To prevent data loss:
-
-```text
-Read Cell
-Rewrite Cell
-```
-
-must occur continuously.
-
-Millions of times every second.
-
-This process is called:
-
-> Refreshing
-
-Without refresh:
-
-```text
-1 → 0
-```
-
-and information would disappear.
-
----
-
-## Advantages Of DRAM
-
-```text
-Cheap
-Dense
-Large Capacity
-```
-
-Billions of DRAM cells fit on a chip.
-
----
-
-## Disadvantages Of DRAM
-
-```text
-Slower Than SRAM
-Requires Refreshing
-Higher Latency
-```
-
----
-
-# SRAM vs DRAM
-
-| Feature        | SRAM      | DRAM   |
-| -------------- | --------- | ------ |
-| Speed          | Faster    | Slower |
-| Cost           | Expensive | Cheap  |
-| Density        | Lower     | Higher |
-| Refresh Needed | No        | Yes    |
-| Typical Use    | Cache     | RAM    |
-
----
-
-# DDR3, DDR4, DDR5
-
-Many people think:
-
-```text
-DRAM
-DDR4
-```
-
-are different things.
-
-They are not.
-
-Relationship:
-
-```text
+Transistor
+Gate
+Feedback
 Memory
-│
-└── DRAM
-     │
-     └── DDR SDRAM
-          │
-          ├── DDR3
-          ├── DDR4
-          └── DDR5
-```
-
-Therefore:
-
-```text
-DDR4 = A Type Of DRAM
-```
-
----
-
-# What People Mean By RAM
-
-When somebody says:
-
-```text
-16 GB RAM
-```
-
-they almost always mean:
-
-```text
-16 GB DRAM
-```
-
-typically:
-
-```text
-DDR4
-or
-DDR5
-```
-
----
-
-# Volatile Memory
-
-RAM loses information when power disappears.
-
-```text
-Power ON
-↓
-Data Exists
-
-Power OFF
-↓
-Data Gone
-```
-
-This is called:
-
-> Volatile Memory
-
-Both SRAM and DRAM are volatile.
-
----
-
-# Non-Volatile Memory
-
-Storage devices behave differently.
-
-Examples:
-
-```text
-SSD
-Hard Disk
-USB Drive
-```
-
-These retain information after power loss.
-
-This is called:
-
-> Non-Volatile Memory
-
----
-
-# Example: Opening Chrome
-
-Suppose Chrome is installed on an SSD.
-
-```text
-SSD
-↓
-Chrome Files
-```
-
-When launched:
-
-```text
-SSD
-↓
-RAM
-↓
+Flip-flop
+Register
 CPU
 ```
 
-The operating system loads Chrome into RAM.
+Understanding this chain is the foundation for everything that comes next:
 
-The CPU then executes the code from RAM.
-
-Not directly from SSD.
-
----
-
-# Why Memory Hierarchy Exists
-
-Users want memory that is:
-
-```text
-Fast
-Cheap
-Large
-```
-
-Unfortunately:
-
-```text
-Fast
-Cheap
-Large
-```
-
-cannot all be maximized simultaneously.
-
-Therefore computers use layers:
-
-```text
-Small + Fast
-    Registers
-
-Medium + Fast
-    Cache
-
-Large + Slower
-    RAM
-
-Huge + Slow
-    SSD
-```
-
-This compromise makes modern computing possible.
-
----
-
-# Mental Model
-
-Think of memory as a city.
-
-```text
-Registers = Desk
-
-Cache = Office
-
-RAM = Building
-
-SSD = Warehouse
-```
-
-Frequently used information stays close.
-
-Rarely used information stays farther away.
-
-The CPU constantly moves data between these layers.
-
----
-
-# First Principles Summary
-
-Memory is a collection of storage locations.
-
-Each location contains:
-
-```text
-Address
-+
-Data
-```
-
-Computers store information using memory cells.
-
-Modern systems use multiple memory technologies:
-
-```text
-Registers
-↓
-SRAM
-↓
-DRAM
-↓
-SSD
-```
-
-Each layer trades:
-
-```text
-Speed
-Capacity
-Cost
-```
-
-against the others.
-
-No single technology can simultaneously be:
-
-```text
-Fast
-Cheap
-Large
-```
-
-The entire memory hierarchy exists because of this fundamental trade-off.
-
-## Next Topic
-
-# Phase 0.12 — CPU Cache
-
-We now understand RAM.
-
-But modern CPUs almost never access RAM directly.
-
-Instead they use:
-
-```text
-L1 Cache
-L2 Cache
-L3 Cache
-```
-
-which are among the most important performance technologies ever invented.
+- SRAM
+- DRAM
+- Cache
+- RAM
+- CPU architecture
+- Operating systems
