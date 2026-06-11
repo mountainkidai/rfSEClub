@@ -1209,6 +1209,7 @@ Mastery.
 
 At this point you should understand:
 
+```text
 Electricity
 → Logic Gates
 → CPU
@@ -1227,5 +1228,6 @@ Electricity
 → Security
 → Compilers
 → Planet Scale Systems
+```
 
 This is the path from junior developer to world-class systems engineer.
