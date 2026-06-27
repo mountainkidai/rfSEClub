@@ -99,8 +99,7 @@ Eventually, you forget one page.
 
 Now your website looks inconsistent.
 
-> [!WARNING]
-> This is one of the oldest problems in software engineering: duplicated code becomes hard to maintain.
+> `This is one of the oldest problems in software engineering: duplicated code becomes hard to maintain.`
 
 ---
 
@@ -199,8 +198,7 @@ Many beginners think a component is:
 
 None of those are true.
 
-> [!NOTE]
-> A React component is simply a JavaScript function. [nios-students.pages](https://nios-students.pages.dev/typography)
+> A React component is simply a JavaScript function.
 
 Example:
 
@@ -297,7 +295,7 @@ Which returns a React Element:
 
 > [!IMPORTANT]
 > A component does **not** return HTML.  
-> It returns a **React Element**, which is simply a JavaScript object. [nios-students.pages](https://nios-students.pages.dev/typography)
+> It returns a **React Element**, which is simply a JavaScript object.
 
 ---
 
@@ -579,8 +577,7 @@ Dashboard
 
 Small components are easier to understand.
 
-> [!TIP]
-> If a component is doing too many unrelated jobs, it probably needs to be split into smaller components. [nios-students.pages](https://nios-students.pages.dev/typography)
+> If a component is doing too many unrelated jobs, it probably needs to be split into smaller components.
 
 ---
 
@@ -616,8 +613,7 @@ React applications work the same way.
 - Those React Elements describe what the user interface should look like.
 - React executes these functions, builds an element tree, compares it with the previous tree, and updates the browser when needed.
 
-> [!IMPORTANT]
-> **A React component is a reusable JavaScript function whose only responsibility is to describe one piece of the user interface.** [nios-students.pages](https://nios-students.pages.dev/typography)
+> **A React component is a reusable JavaScript function whose only responsibility is to describe one piece of the user interface.**
 
 ---
 

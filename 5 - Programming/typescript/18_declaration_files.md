@@ -23,10 +23,8 @@ KoelAuth.prototype.verify = function () {
 };
 
 const user1 = new KoelAuth("Aariv");
-const user2 = new KoelAuth("Sarika");
 
 console.log(user1.verify()); // Outputs: Aariv verified with Aadhaar KYC
-console.log(user2.verify()); // Outputs: Sarika verified with Aadhaar KYC
 console.log(user1.verify === user2.verify); // Outputs: true (same method, saves memory)
 
 // Update method centrally
@@ -35,7 +33,6 @@ KoelAuth.prototype.verify = function () {
 };
 
 console.log(user1.verify()); // Outputs: Aariv verified with Aadhaar + Biometric
-console.log(user2.verify()); // Outputs: Sarika verified with Aadhaar + Biometric
 ```
 
 ## ...args
