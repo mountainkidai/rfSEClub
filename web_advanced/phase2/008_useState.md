@@ -561,3 +561,558 @@ The next question is even more interesting.
 > **Why does `useState()` return an array instead of an object?**
 
 We'll answer that in the next chapter.
+
+# 5. Why Does `useState()` Return an Array Instead of an Object?
+
+> **Core Idea**
+>
+> `useState()` could have returned an object.
+>
+> React intentionally returns an array because it works beautifully with JavaScript's **array destructuring**, allows developers to choose meaningful variable names, and keeps the API concise.
+
+---
+
+# A Common Beginner Question
+
+Most React tutorials simply tell you to write this.
+
+```tsx
+const [count, setCount] = useState(0);
+```
+
+But many beginners naturally wonder:
+
+> **Why an array?**
+
+Why not this?
+
+```tsx
+const state = useState(0);
+
+console.log(state.value);
+
+state.setValue(1);
+```
+
+Or even
+
+```tsx
+const { value, setValue } = useState(0);
+```
+
+Those look perfectly reasonable.
+
+So why did React choose an array?
+
+Let's build the answer from first principles.
+
+---
+
+# First, Remember What `useState()` Does
+
+In the previous chapter, we learned that `useState()` is simply a bridge between your component and React's internal memory.
+
+```text
+React Executes Component
+        │
+        ▼
+useState()
+        │
+        ▼
+React Internal Memory
+        │
+        ▼
+Returns Current State
++
+Setter Function
+        │
+        ▼
+Component Continues Executing
+```
+
+Notice something.
+
+React always needs to return **two things**.
+
+1. The current value.
+2. A function that updates the value.
+
+Conceptually,
+
+React behaves something like this.
+
+```javascript
+function useState(initialValue) {
+  return [currentValue, updateFunction];
+}
+```
+
+The question now becomes:
+
+> **Why an array instead of an object?**
+
+---
+
+# Option 1 — Returning an Object
+
+React could have been designed like this.
+
+```javascript
+function useState(initialValue) {
+  return {
+    value: currentValue,
+
+    setValue: updateFunction,
+  };
+}
+```
+
+Then we would write
+
+```tsx
+const state = useState(0);
+
+console.log(state.value);
+
+state.setValue(1);
+```
+
+Or using object destructuring
+
+```tsx
+const { value, setValue } = useState(0);
+```
+
+Nothing is wrong with this.
+
+It would work perfectly.
+
+So why didn't React choose this design?
+
+---
+
+# Problem 1 — Fixed Property Names
+
+Imagine you have three different pieces of state.
+
+```tsx
+const { value, setValue } = useState(0);
+
+const { value, setValue } = useState("");
+
+const { value, setValue } = useState(false);
+```
+
+Immediately you have a problem.
+
+Every object has
+
+```text
+value
+
+setValue
+```
+
+JavaScript won't allow duplicate variable names.
+
+You'd have to rename everything.
+
+```tsx
+const { value: count, setValue: setCount } = useState(0);
+
+const { value: username, setValue: setUsername } = useState("");
+
+const { value: isOpen, setValue: setIsOpen } = useState(false);
+```
+
+This works...
+
+But it becomes verbose.
+
+---
+
+# Option 2 — Returning an Array
+
+Instead React returns
+
+```javascript
+[currentValue, updateFunction];
+```
+
+Now JavaScript lets us choose the names ourselves.
+
+```tsx
+const [count, setCount] = useState(0);
+```
+
+Another state
+
+```tsx
+const [username, setUsername] = useState("");
+```
+
+Another state
+
+```tsx
+const [isOpen, setIsOpen] = useState(false);
+```
+
+Notice something beautiful.
+
+React never decided the variable names.
+
+**You did.**
+
+---
+
+# React Doesn't Know What You're Storing
+
+Suppose React returned an object.
+
+What property names should it use?
+
+Imagine these examples.
+
+```tsx
+const age = useState(21);
+
+const email = useState("");
+
+const darkMode = useState(false);
+
+const cartItems = useState([]);
+```
+
+Should React return
+
+```text
+age
+
+setAge
+```
+
+or
+
+```text
+email
+
+setEmail
+```
+
+or
+
+```text
+cartItems
+
+setCartItems
+```
+
+It can't.
+
+React has no idea what you're storing.
+
+Only **you** know.
+
+Returning an array solves this problem perfectly.
+
+---
+
+# JavaScript Already Has Array Destructuring
+
+React isn't inventing anything new.
+
+This is ordinary JavaScript.
+
+Example:
+
+```javascript
+const person = ["Aariv", 24];
+
+const [name, age] = person;
+
+console.log(name);
+console.log(age);
+```
+
+Output
+
+```text
+Aariv
+
+24
+```
+
+React simply uses the exact same feature.
+
+```javascript
+const state = [0, setCount];
+
+const [count, setCount] = state;
+```
+
+Nothing React-specific is happening.
+
+---
+
+# Let's Connect It to the Rendering Pipeline
+
+Suppose React executes your component.
+
+```tsx
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return <button>Count: {count}</button>;
+}
+```
+
+Here's what happens internally.
+
+```text
+React Executes Counter()
+        │
+        ▼
+useState(0)
+        │
+        ▼
+React Internal Memory
+        │
+        ▼
+Returns
+
+[
+    0,
+    setCount()
+]
+
+        │
+        ▼
+JavaScript Array Destructuring
+
+count = 0
+
+setCount = function
+
+        │
+        ▼
+Component Continues Executing
+        │
+        ▼
+Returns JSX
+
+<button>
+
+Count: 0
+
+</button>
+
+        │
+        ▼
+React.createElement()
+        │
+        ▼
+React Elements
+        │
+        ▼
+React DOM
+        │
+        ▼
+Browser DOM
+        │
+        ▼
+Pixels
+```
+
+Notice something important.
+
+`useState()` does **not** return two separate variables.
+
+It returns **one array**.
+
+JavaScript then destructures that array into two variables.
+
+---
+
+# Let's Prove It
+
+These two pieces of code are identical.
+
+### Version 1
+
+```tsx
+const [count, setCount] = useState(0);
+```
+
+---
+
+### Version 2
+
+```tsx
+const state = useState(0);
+
+const count = state[0];
+
+const setCount = state[1];
+```
+
+The first version is simply cleaner.
+
+---
+
+# Why Not Return Multiple Values?
+
+Someone might ask
+
+> Why doesn't JavaScript simply allow this?
+
+```javascript
+const count,
+  setCount = useState(0);
+```
+
+Because JavaScript functions always return **one value**.
+
+That value can be
+
+- a number
+
+```javascript
+return 10;
+```
+
+- a string
+
+```javascript
+return "Hello";
+```
+
+- an object
+
+```javascript
+return {};
+```
+
+- an array
+
+```javascript
+return [];
+```
+
+When React wants to return multiple pieces of information,
+
+it wraps them inside one array.
+
+---
+
+# Real-World Analogy
+
+Imagine ordering food.
+
+The waiter brings you a tray.
+
+```text
+Tray
+
+🍔 Burger
+
+🥤 Drink
+```
+
+The waiter returns **one tray**.
+
+The tray contains two items.
+
+You unpack them.
+
+```text
+Tray
+
+↓
+
+Burger
+
+Drink
+```
+
+React works the same way.
+
+```text
+useState()
+
+↓
+
+Returns One Array
+
+↓
+
+JavaScript Destructures It
+
+↓
+
+count
+
+setCount
+```
+
+---
+
+# Mental Model
+
+Think of `useState()` as handing your component a package.
+
+```text
+useState()
+
+        │
+
+        ▼
+
+┌────────────────────────┐
+│                        │
+│   [                  ] │
+│                        │
+│   0                    │
+│   setCount()           │
+│                        │
+└────────────────────────┘
+
+        │
+
+        ▼
+
+JavaScript Destructuring
+
+        │
+
+        ▼
+
+count
+
+setCount
+```
+
+The package is one value.
+
+JavaScript simply opens the package for you.
+
+---
+
+# Key Takeaways
+
+- `useState()` always returns one value: an array.
+- That array contains two items:
+  - The current state.
+  - The setter function.
+- React chose an array because JavaScript's array destructuring makes the API concise.
+- Arrays let developers choose meaningful variable names.
+- React doesn't know what your state represents, so it lets you decide the names.
+
+---
+
+# Coming Up Next
+
+Now we understand why `useState()` returns an array.
+
+The next question is even more interesting:
+
+> **What actually happens during the very first call to `useState(0)`? How does React know whether to create a new state or return an existing one?**
