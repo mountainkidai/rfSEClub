@@ -1,5 +1,3 @@
-Here’s a cleaner, docs-style Markdown version with stronger hierarchy, code fencing, callouts, and separation between concepts. The structure follows common Markdown documentation patterns that improve scanning and readability for technical content. [nextjs](https://nextjs.org/docs/app)
-
 # Layer 5: Next.js App Router — The Complete Mental Model
 
 The **App Router** in Next.js 13+ is a file-system based router built around layouts, pages, server components, and streaming. [en.nextjs](https://en.nextjs.im/docs/app)
@@ -590,8 +588,3 @@ wangdu/
 - **Day 5:** Move only the quiz and interaction layer into Client Components. [nextjs](https://nextjs.org/docs/app/getting-started/server-and-client-components)
 - **Day 6:** Optimize with `next/image`, `next/font`, and bundle analysis. [nextjs](https://nextjs.org/docs)
 - **Day 7:** Deploy and test under throttled network conditions using Lighthouse and real-device inspection. [nextjs](https://nextjs.org/docs)
-
-> [!IMPORTANT]
-> The core mental model is simple: the server is close to data and cheaper to compute on, while the browser is constrained by network, CPU, and bundle size, so move as much work server-side as you responsibly can. [nextjs](https://nextjs.org/docs/app)
-
-Would you like me to turn this into an even more polished **book-style chapter Markdown** with consistent callouts, tables, and visual diagrams like the previous one?
