@@ -1,354 +1,243 @@
-# **PATTERN MATCHING (THE CORE THINKING TOOL IN RUST)**
+Awesome. The next concept is one of the most important in Rust because it appears **everywhere**.
 
-If lifetimes taught you **time**,
+# Pattern Matching
 
-pattern matching teaches you **logic**.
+> **Pattern matching means checking a value against different possible patterns and running the matching code.**
 
-Pattern matching is how Rust makes branching **safe, explicit, and complete**.
-
----
-
-## **FIRST PRINCIPLE (THE WHY)**
-
-> **Reality has cases.**
-
-> **Code must handle all cases.**
-
-Bugs happen when:
-
-- a case exists
-
-- code forgets to handle it
-
-Rust says: _"You don't get to forget."_
+The simplest example is with an enum.
 
 ---
 
-## **WHAT match REALLY IS**
+## Imagine this enum
 
-> **match is a proof to the compiler that all possible states are handled.**
-
----
-
-## **STEP 1 --- MATCH ON ENUM (THE CANONICAL CASE)**
-
-```rs
-enum AuthState {
-    LoggedOut,
-    LoggedIn { user_id: u64 },
-    Banned,
+```rust
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
 }
 ```
 
-Now use it:
+Now suppose you have
 
-```rs
-fn handle(state: AuthState) {
-    match state {
-        AuthState::LoggedOut => {
-            println!("Please log in");
-        }
-        AuthState::LoggedIn { user_id } => {
-            println!("Welcome user {}", user_id);
-        }
-        AuthState::Banned => {
-            println!("Access denied");
-        }
+```rust
+let light = TrafficLight::Red;
+```
+
+How do you know which variant it is?
+
+Rust gives you `match`.
+
+```rust
+match light {
+    TrafficLight::Red => {
+        println!("Stop");
+    }
+
+    TrafficLight::Yellow => {
+        println!("Slow down");
+    }
+
+    TrafficLight::Green => {
+        println!("Go");
     }
 }
 ```
 
-### **What Rust enforces**
+---
 
-- Exactly **one** branch executes
+## Think like a security guard
 
-- All variants **must** be handled
+Imagine someone enters a building.
 
-- No invalid states possible
+The guard asks
+
+```text
+Who are you?
+
+Employee?
+Visitor?
+Delivery?
+```
+
+Depending on the answer, they perform different actions.
+
+```text
+Person
+   │
+   ▼
+
+Employee  → Allow
+
+Visitor   → Register
+
+Delivery  → Send to Warehouse
+```
+
+That's exactly what pattern matching is.
 
 ---
 
-## **STEP 2 --- WHAT HAPPENS IF YOU MISS A CASE**
+## Why is it called "Pattern" Matching?
 
-Add a new variant:
+Because Rust is trying to match a **pattern**.
 
+Example:
+
+```rust
+TrafficLight::Red
 ```
-enum AuthState {
-    LoggedOut,
-    LoggedIn { user_id: u64 },
-    Suspended,
-    Banned,
+
+is a pattern.
+
+Rust asks
+
+```text
+Does light match
+
+TrafficLight::Red ?
+
+Yes
+
+↓
+
+Run this code.
+```
+
+If not,
+
+```text
+Does it match
+
+TrafficLight::Yellow ?
+
+No
+
+↓
+
+Check next.
+```
+
+---
+
+## Another example
+
+```rust
+enum Direction {
+    North,
+    South,
+    East,
+    West,
 }
 ```
 
-Compiler error:
-
-```
-non-exhaustive patterns
+```rust
+let direction = Direction::West;
 ```
 
-Meaning:
-
-> "Reality changed. Update your logic."
-
-This is **compile-time correctness**.
+```rust
+match direction {
+    Direction::North => println!("Go Up"),
+    Direction::South => println!("Go Down"),
+    Direction::East => println!("Go Right"),
+    Direction::West => println!("Go Left"),
+}
+```
 
 ---
 
-## **STEP 3 --- MATCH RETURNS VALUES (VERY IMPORTANT)**
+## Why is this useful?
 
-match is an **expression**, not a statement.
+Imagine Phunsuk.
 
+```rust
+enum BookingStatus {
+    Pending,
+    Confirmed,
+    Cancelled,
+}
 ```
-fn message(state: AuthState) -> &'static str {
-    match state {
-        AuthState::LoggedOut => "Please log in",
-        AuthState::LoggedIn { .. } => "Welcome",
-        AuthState::Banned => "Access denied",
+
+```rust
+match booking {
+    BookingStatus::Pending => {
+        println!("Wait for confirmation");
+    }
+
+    BookingStatus::Confirmed => {
+        println!("Send hotel details");
+    }
+
+    BookingStatus::Cancelled => {
+        println!("Refund customer");
     }
 }
 ```
 
-Rule:
-
-> **All match arms must return the same type.**
-
-This keeps logic predictable.
+Every state has different logic.
 
 ---
 
-## **STEP 4 --- DESTRUCTURING (UNPACKING DATA SAFELY)**
+## First Principle
 
+An enum asks
+
+> **"What am I?"**
+
+Pattern matching answers
+
+> **"If you're this, I'll do this."**
+
+```text
+BookingStatus
+
+Pending
+      │
+      ▼
+Wait
+
+Confirmed
+      │
+      ▼
+Send Details
+
+Cancelled
+      │
+      ▼
+Refund
 ```
-AuthState::LoggedIn { user_id }
-```
-
-This:
-
-- checks the variant
-
-- extracts user_id
-
-- guarantees it exists
-
-No nulls.
-
-No casts.
-
-No runtime checks.
 
 ---
 
-## **STEP 5 --- MATCH ON **
+## One important thing
 
-## **Option<T>**
+Rust forces you to handle **every possible variant**.
 
-```
-fn print_email(email: Option<String>) {
-    match email {
-        Some(e) => println!("Email: {}", e),
-        None => println!("No email"),
-    }
+If your enum has
+
+```rust
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
 }
 ```
 
-First principle:
+and you forget
 
-> **If something may be missing, code must say what to do when it is missing.**
+```rust
+Green
+```
+
+Rust won't compile.
+
+This is one of Rust's biggest safety features—it ensures you don't accidentally ignore a possible state.
 
 ---
 
-## **STEP 6 --- MATCH ON **
+### Your mental model
 
-## **Result<T, E>**
-
-```
-fn handle_login(result: Result<u64, AuthError>) {
-    match result {
-        Ok(user_id) => println!("Logged in: {}", user_id),
-        Err(err) => println!("Login failed: {:?}", err),
-    }
-}
-```
-
-This forces:
-
-- success path
-
-- failure path
-
-No silent failure.
-
----
-
-## **STEP 7 --- **
-
-## **if let**
-
-## ** (CONTROLLED SHORTCUT)**
-
-When you care about **one case only**:
-
-```
-if let AuthState::LoggedIn { user_id } = state {
-    println!("User {}", user_id);
-}
-```
-
-Meaning:
-
-```
-If matches → run
-Else → ignore
-```
-
-Rule:
-
-> Use if let for **single-branch interest**
-
-> Use match for **full logic**
-
----
-
-## **STEP 8 --- MATCH GUARDS (CONDITIONAL LOGIC)**
-
-```
-fn classify(age: u8) -> &'static str {
-    match age {
-        a if a < 18 => "Minor",
-        a if a < 65 => "Adult",
-        _ => "Senior",
-    }
-}
-```
-
-Guards allow:
-
-- value-based logic
-
-- still exhaustive
-
-- no if/else mess
-
----
-
-## **STEP 9 --- MATCH ON STRUCTS**
-
-```
-struct Session {
-    user_id: u64,
-    expired: bool,
-}
-```
-
-```
-fn check(session: Session) {
-    match session {
-        Session { expired: true, .. } => println!("Session expired"),
-        Session { user_id, expired: false } => println!("User {}", user_id),
-    }
-}
-```
-
-You can:
-
-- match on fields
-
-- ignore others with ..
-
----
-
-## **STEP 10 --- WHY **
-
-## **\_**
-
-## ** EXISTS (BUT MUST BE USED CAREFULLY)**
-
-```
-match state {
-    AuthState::LoggedOut => {}
-    _ => println!("Other"),
-}
-```
-
-Rule:
-
-> \_ is acceptable **only when you truly don't care**.
-
-In auth logic:
-
-- ❌ often dangerous
-
-- hides future states
-
-Prefer explicit matches.
-
----
-
-## **STEP 11 --- MATCH AS STATE TRANSITION ENGINE**
-
-This is how auth should look:
-
-```
-fn login(state: AuthState, user_id: u64) -> AuthState {
-    match state {
-        AuthState::LoggedOut => AuthState::LoggedIn { user_id },
-        AuthState::LoggedIn { .. } => state,
-        AuthState::Banned => state,
-    }
-}
-```
-
-Rules:
-
-- transitions explicit
-
-- illegal transitions impossible
-
-- no hidden mutation
-
----
-
-## **STEP 12 --- WHY THIS MAKES AUTH SAFE**
-
-Without pattern matching:
-
-- forgotten states
-
-- invalid transitions
-
-- runtime bugs
-
-With pattern matching:
-
-- compiler-enforced correctness
-
-- future-proof logic
-
-- readable intent
-
----
-
-## **🔒 DESIGN INVARIANT**
-
-> **If logic depends on "which case",**
-
-> **use pattern matching --- not flags, not if-else chains.**
-
----
-
-## **✅ CHECKPOINT (ANSWERED)**
-
-1.  **Why is** **match** **safer than** **if/else\*\***?\*\*
-
-    → It forces all possible cases to be handled.
-
-2.  **When should you avoid** **\_\*\***?\*\*
-
-    → When future states could cause bugs.
-
-3.  **Why is pattern matching essential for auth?**
-
-    → Auth is state-driven; missing a state is a security bug.
+- **Enum** = "One of many possibilities."
+- **Pattern matching** = "Figure out which possibility it currently is."
 
 ---
