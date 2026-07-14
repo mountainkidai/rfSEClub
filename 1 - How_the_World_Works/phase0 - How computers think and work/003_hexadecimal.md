@@ -6,11 +6,11 @@ In the previous chapter, we learned that computers store everything using binary
 
 Examples:
 
-text 13 = 1101
+`13 = 1101`
 
-text 255 = 11111111
+`255 = 11111111`
 
-text 1024 = 10000000000
+`1024 = 10000000000`
 
 While computers work perfectly with binary, humans quickly run into a problem:
 
@@ -18,7 +18,7 @@ While computers work perfectly with binary, humans quickly run into a problem:
 
 Imagine debugging a program and seeing:
 
-text 11010110101101011110101010101010
+`11010110101101011110101010101010`
 
 Is that:
 
@@ -39,19 +39,19 @@ Hexadecimal is simply a more compact way to represent binary.
 
 Suppose you have:
 
-text 11111111
+`11111111`
 
 Humans can read it.
 
 Now imagine:
 
-text 11111111111111111111111111111111
+`11111111111111111111111111111111`
 
 Much harder.
 
 Now imagine:
 
-text 1111111111111111111111111111111111111111111111111111111111111111
+`1111111111111111111111111111111111111111111111111111111111111111`
 
 Nearly impossible to read accurately.
 
@@ -67,11 +67,11 @@ Hexadecimal was invented to make binary easier for humans.
 
 Hexadecimal is a number system that uses:
 
-text 16 symbols
+`16 symbols`
 
 instead of:
 
-text 10 symbols
+`10 symbols`
 
 used by decimal.
 
@@ -85,11 +85,11 @@ Therefore hexadecimal is called:
 
 Decimal uses:
 
-text 0 1 2 3 4 5 6 7 8 9
+`0 1 2 3 4 5 6 7 8 9`
 
 Total:
 
-text 10 symbols
+`10 symbols`
 
 ---
 
@@ -97,11 +97,11 @@ text 10 symbols
 
 Binary uses:
 
-text 0 1
+`0 1`
 
 Total:
 
-text 2 symbols
+`2 symbols`
 
 ---
 
@@ -109,11 +109,11 @@ text 2 symbols
 
 Hexadecimal uses:
 
-text 0 1 2 3 4 5 6 7 8 9 A B C D E F
+`0 1 2 3 4 5 6 7 8 9 A B C D E F`
 
 Total:
 
-text 16 symbols
+`16 symbols`
 
 ---
 
@@ -132,9 +132,9 @@ Hexadecimal extends decimal using letters.
 
 Example:
 
-text A = 10
+`A = 10`
 
-text F = 15
+`F = 15`
 
 ---
 
@@ -167,23 +167,23 @@ Every position is a power of 16.
 
 Consider:
 
-text 1A
+`1A`
 
 Expand:
 
-text (1 × 16) + (A × 1)
+`(1 × 16) + (A × 1)`
 
 Remember:
 
-text A = 10
+`A = 10`
 
 Therefore:
 
-text 16 + 10 = 26
+`16 + 10 = 26`
 
 Result:
 
-text 1A₁₆ = 26₁₀
+`1A₁₆ = 26₁₀`
 
 ---
 
@@ -191,23 +191,23 @@ text 1A₁₆ = 26₁₀
 
 Convert:
 
-text 2F
+`2F`
 
 Expand:
 
-text (2 × 16) + (F × 1)
+`(2 × 16) + (F × 1)`
 
 Remember:
 
-text F = 15
+`F = 15`
 
 Calculate:
 
-text 32 + 15 = 47
+`32 + 15 = 47`
 
 Result:
 
-text 2F₁₆ = 47₁₀
+`2F₁₆ = 47₁₀`
 
 ---
 
@@ -227,15 +227,15 @@ This relationship is perfect.
 
 Four binary bits can represent:
 
-text 0000
+`0000`
 
 through:
 
-text 1111
+`1111`
 
 Total possibilities:
 
-text 16
+`16`
 
 Exactly the same number of symbols available in hexadecimal.
 

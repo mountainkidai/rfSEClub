@@ -6,7 +6,7 @@ In the previous chapter, we learned that computers store information using bits.
 
 A bit can only have two values:
 
-text 0 1
+`0 1`
 
 This raises an important question:
 
@@ -26,11 +26,11 @@ Humans use the decimal number system.
 
 For example:
 
-text 0 1 2 3 4 5 6 7 8 9 10 11 12 ...
+`0 1 2 3 4 5 6 7 8 9 10 11 12 ...`
 
 This system uses ten symbols:
 
-text 0 1 2 3 4 5 6 7 8 9
+`0 1 2 3 4 5 6 7 8 9`
 
 Because it uses ten symbols, it is called:
 
@@ -44,7 +44,7 @@ Computers use a different number system.
 
 Instead of ten symbols, computers use only two:
 
-text 0 1
+`0 1`
 
 This system is called:
 
@@ -62,7 +62,7 @@ Humans likely developed decimal because we have ten fingers.
 
 You can count:
 
-text 1 finger 2 fingers 3 fingers ... 10 fingers
+`1 finger 2 fingers 3 fingers ... 10 fingers`
 
 Decimal is convenient for humans.
 
@@ -78,15 +78,15 @@ Computers are electronic machines.
 
 Electronic circuits naturally produce two reliable states:
 
-text Low Voltage High Voltage
+`Low Voltage High Voltage`
 
 or
 
-text Off On
+`Off On`
 
 Represented as:
 
-text 0 1
+`0 1`
 
 Because hardware naturally operates using two states, binary becomes the most reliable number system.
 
@@ -98,19 +98,19 @@ To understand binary, we must first understand how decimal works.
 
 Consider:
 
-text 572
+`572`
 
 Most people know this means:
 
-text 5 hundreds 7 tens 2 ones
+`5 hundreds 7 tens 2 ones`
 
 Expanded:
 
-text (5 × 100) + (7 × 10) + (2 × 1)
+`(5 × 100) + (7 × 10) + (2 × 1)`
 
 Which equals:
 
-text 500 + 70 + 2 = 572
+`500 + 70 + 2 = 572`
 
 The place values in decimal are powers of ten:
 
@@ -142,7 +142,7 @@ The only difference is that place values are powers of two.
 
 Notice:
 
-text 1 2 4 8 16 32 64 128
+`1 2 4 8 16 32 64 128`
 
 Every position doubles.
 
@@ -152,7 +152,7 @@ Every position doubles.
 
 Consider:
 
-text 1011
+`1011`
 
 Using place values:
 
@@ -165,15 +165,15 @@ Using place values:
 
 Multiply and add:
 
-text (1 × 8) + (0 × 4) + (1 × 2) + (1 × 1)
+`(1 × 8) + (0 × 4) + (1 × 2) + (1 × 1)`
 
 Equals:
 
-text 8 + 0 + 2 + 1 = 11
+`8 + 0 + 2 + 1 = 11`
 
 Therefore:
 
-text 1011₂ = 11₁₀
+`1011₂ = 11₁₀`
 
 (Binary 1011 equals Decimal 11)
 
@@ -183,7 +183,7 @@ text 1011₂ = 11₁₀
 
 Convert:
 
-text 1101
+`1101`
 
 Place values:
 
@@ -196,11 +196,11 @@ Place values:
 
 Calculation:
 
-text 8 + 4 + 0 + 1 = 13
+`8 + 4 + 0 + 1 = 13`
 
 Result:
 
-text 1101₂ = 13₁₀
+`1101₂ = 13₁₀`
 
 ---
 
@@ -208,49 +208,49 @@ text 1101₂ = 13₁₀
 
 Convert:
 
-text 13
+`13`
 
 Find the largest power of two less than or equal to 13.
 
-text 8
+`8`
 
 Subtract:
 
-text 13 - 8 = 5
+`13 - 8 = 5`
 
 Next power:
 
-text 4
+`4`
 
 Subtract:
 
-text 5 - 4 = 1
+`5 - 4 = 1`
 
 Next power:
 
-text 2
+`2`
 
 Cannot use it.
 
 So place:
 
-text 0
+`0`
 
 Next power:
 
-text 1
+`1`
 
 Subtract:
 
-text 1 - 1 = 0
+`1 - 1 = 0`
 
 Result:
 
-text 1101
+`1101`
 
 Therefore:
 
-text 13₁₀ = 1101₂
+`13₁₀ = 1101₂`
 
 ---
 
@@ -258,25 +258,25 @@ text 13₁₀ = 1101₂
 
 Decimal counting:
 
-text 0 1 2 3 4 5 6 7 8 9 10
+`0 1 2 3 4 5 6 7 8 9 10`
 
 Binary counting:
 
-text 0 1 10 11 100 101 110 111 1000 1001 1010
+`0 1 10 11 100 101 110 111 1000 1001 1010`
 
 Notice:
 
 After:
 
-text 1
+`1`
 
 there is no digit:
 
-text 2
+`2`
 
 because binary only has:
 
-text 0 and 1
+`0 and 1`
 
 ---
 
@@ -288,7 +288,7 @@ Computers group bits together.
 
 The most common grouping is:
 
-text 8 bits
+`8 bits`
 
 called:
 
@@ -296,7 +296,7 @@ called:
 
 Example:
 
-text 10101100
+`10101100`
 
 This is one byte.
 
@@ -306,23 +306,23 @@ This is one byte.
 
 Each bit has two possibilities:
 
-text 0 1
+`0 1`
 
 Eight bits:
 
-text 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2
+`2 × 2 × 2 × 2 × 2 × 2 × 2 × 2`
 
 Which equals:
 
-text 2⁸ = 256
+`2⁸ = 256`
 
 A byte can store:
 
-text 0 → 255
+`0 → 255`
 
 which is:
 
-text 256 unique values
+`256 unique values`
 
 ---
 
@@ -342,11 +342,11 @@ Examples:
 
 When someone says:
 
-text 16 GB RAM
+`16 GB RAM`
 
 they mean:
 
-text 16 billion+ bytes of storage
+`16 billion+ bytes of storage`
 
 ---
 
@@ -356,19 +356,19 @@ Computers store letters as numbers.
 
 Example:
 
-text A
+`A`
 
 ASCII assigns:
 
-text 65
+`65`
 
 Decimal 65 becomes binary:
 
-text 01000001
+`01000001`
 
 Therefore:
 
-text A = 65 = 01000001
+`A = 65 = 01000001`
 
 The computer never stores "A".
 
@@ -380,19 +380,19 @@ It stores bits.
 
 Suppose a pixel is:
 
-text Red = 255 Green = 0 Blue = 0
+`Red = 255 Green = 0 Blue = 0`
 
 Pure red.
 
 Internally:
 
-text 255 = 11111111
+`255 = 11111111`
 
-text 0 = 00000000
+`0 = 00000000`
 
 Stored as:
 
-text 11111111 00000000 00000000
+`11111111 00000000 00000000`
 
 Even images eventually become binary numbers.
 
@@ -404,7 +404,7 @@ CPU instructions are also numbers.
 
 Example:
 
-text ADD MOV JUMP LOAD STORE
+`ADD MOV JUMP LOAD STORE`
 
 Each instruction is encoded as binary.
 
@@ -418,19 +418,19 @@ Programs themselves are just binary numbers.
 
 At the hardware level:
 
-text 1
+`1`
 
 might mean:
 
-text 5 volts
+`5 volts`
 
 and:
 
-text 0
+`0`
 
 might mean:
 
-text 0 volts
+`0 volts`
 
 The CPU continuously reads billions of these states every second.
 
@@ -446,11 +446,11 @@ Binary is simply a number system based on powers of two.
 
 Humans use:
 
-text Base 10
+`Base 10`
 
 Computers use:
 
-text Base 2
+`Base 2`
 
 because electronic hardware naturally operates with two stable states.
 

@@ -122,7 +122,7 @@ Engineers discovered that using only two distinguishable states makes systems re
 
 Instead of trying to distinguish hundreds of possible values, a computer only needs to determine:
 
-text Is the signal high? or Is the signal low?
+`Is the signal high? or Is the signal low?`
 
 This simplicity allows modern computers to operate reliably billions of times every second.
 
@@ -134,7 +134,7 @@ This statement surprises many new engineers.
 
 Consider the number:
 
-text 5
+`5`
 
 Humans understand the meaning immediately.
 
@@ -152,7 +152,7 @@ Instead, it only sees patterns of electrical states.
 
 For example:
 
-text 00000101
+`00000101`
 
 Humans interpret that pattern as the number 5.
 
@@ -166,7 +166,7 @@ The meaning comes from how we choose to interpret those bits.
 
 Consider the word:
 
-text HELLO
+`HELLO`
 
 Humans see letters and language.
 
@@ -174,7 +174,7 @@ Computers do not.
 
 The computer sees something closer to:
 
-text 01001000 01000101 01001100 01001100 01001111
+`01001000 01000101 01001100 01001100 01001111`
 
 Even those binary values are merely abstractions.
 
@@ -182,7 +182,7 @@ At the hardware level they are represented by electrical states.
 
 The computer never sees:
 
-text HELLO
+`HELLO`
 
 It only sees patterns.
 
@@ -205,7 +205,7 @@ A computer sees none of these.
 
 Instead it stores:
 
-text Pixel 1: Red value Pixel 2: Green value Pixel 3: Blue value ...
+`Pixel 1: Red value Pixel 2: Green value Pixel 3: Blue value ...`
 
 Each value is ultimately stored as binary data.
 
@@ -219,7 +219,7 @@ Videos appear complex.
 
 However, a video is simply:
 
-text Image + Image + Image + Image + Audio Data
+`Image + Image + Image + Image + Audio Data`
 
 Each frame is an image.
 
@@ -241,23 +241,23 @@ Bit stands for:
 
 A bit can only have one of two possible values:
 
-text 0
+`0`
 
 or
 
-text 1
+`1`
 
 You can think of a bit as a switch.
 
-text 0 = OFF 1 = ON
+`0 = OFF 1 = ON`
 
 Or:
 
-text 0 = FALSE 1 = TRUE
+`0 = FALSE 1 = TRUE`
 
 Or:
 
-text 0 = LOW VOLTAGE 1 = HIGH VOLTAGE
+`0 = LOW VOLTAGE 1 = HIGH VOLTAGE`
 
 The interpretation changes.
 
@@ -281,13 +281,13 @@ The answer is reliability.
 
 Imagine building a computer that must distinguish:
 
-text State 1 State 2 State 3 ... State 100
+`State 1 State 2 State 3 ... State 100`
 
 Tiny electrical noise could easily cause mistakes.
 
 Now compare that with:
 
-text OFF ON
+`OFF ON`
 
 The distinction becomes much easier.
 
@@ -333,7 +333,19 @@ No exceptions.
 
 At the deepest level:
 
-text Information ↓ Physical States ↓ Bits ↓ Logic ↓ Computation ↓ Software
+```text
+Information
+↓
+Physical States
+↓
+Bits
+↓
+Logic
+↓
+Computation
+↓
+Software
+```
 
 Everything in modern computing begins with information represented as physical states.
 
