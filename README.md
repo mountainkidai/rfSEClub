@@ -1,28 +1,198 @@
-# rfSE Club - Radical Future Scientists and Engineers Club 🌏
+# Wangdu
 
-## What We Are
+> **Building engineers who invent/innovate, not just engineers who code.**
 
-rfSE Club is an innovative education initiative by MountainKid AI with a motive to create real engineers who can invent and innovate things..
+Wangdu is an engineering-first learning platform built by MountainKid Innovation Private Limited with a single mission:
 
-## The Problem
+> **To create world-class engineers through first-principles thinking.**
 
-The current education system isn’t keeping up with advancements around the world. And it has become more of job-oriented / grade-oriented instead of focussing on innovation / inventions.
+We believe engineering is not about memorizing syntax, collecting certificates, or chasing grades.
 
-## The Solution
-
-We are building rfSE Club to empower students with first-principles thinking, mathematics, problem analysis, and programming, equipping them to innovate/invent and solve problems.
-
-## Current Status
-
-At the moment, we are working actively in preparing the curriculum with quick iterations. Simultaneously we are connecting schools, colleges and individual free minded souls to Engineers at MountainKid bypassing the traditional education system. And hopefully by the end of this year, we will be releasing a virtual school software for everyone to improve the user experience.
-
-## What's next?
-
-our ultimate goal is to scale this model across Himachal Schools initially and expand it further across the country and the world by integrating MountainKid custom in-house language models along with AR/VR-based learning, to create a innovative, tech-driven education system that inspires the next generation of innovators.
+Engineering is the ability to understand how the world works, break problems into their fundamental principles, and build solutions that improve humanity.
 
 ---
 
-**Join us in building the future of education!**
-Contact: [hello@rfse.club](mailto:hello@rfse.club)
+# Why Wangdu?
 
-Visit: [rfse.club](https://www.rfse.club/)
+The traditional education system was designed for a different era.
+
+Today, students spend years learning technologies that become obsolete within months, while graduating without deeply understanding:
+
+- How computers actually work
+- How the internet functions
+- Mathematics behind engineering
+- Problem solving
+- System design
+- Software architecture
+- Building products from scratch
+- Thinking from first principles
+
+Instead of producing innovators, most institutions produce job seekers.
+
+We believe this has to change.
+
+---
+
+# Our Mission
+
+Our mission is simple:
+
+> **Create engineers capable of building the future.**
+
+Not employees.
+
+Not certificate collectors.
+
+Not tutorial followers.
+
+Engineers.
+
+People who can look at any problem and confidently say:
+
+> "I can figure this out."
+
+---
+
+# Our Philosophy
+
+Technology changes.
+
+Programming languages change.
+
+Frameworks change.
+
+AI models change.
+
+But fundamentals rarely do.
+
+At Wangdu we focus on building permanent knowledge instead of temporary skills.
+
+Members learn:
+
+- First Principles Thinking
+- Mathematics
+- Computer Science
+- Systems Thinking
+- Software Engineering
+- Artificial Intelligence
+- Product Engineering
+- Communication
+- Real-world problem solving
+
+Once the foundations are strong, learning any new technology becomes easy.
+
+---
+
+# What You'll Learn
+
+The curriculum is built from the ground up.
+
+Instead of jumping directly into frameworks, we start with understanding how everything works.
+
+Topics include:
+
+- Mathematics for Engineers
+- How Computers Work
+- Computer Networks
+- Internet Architecture
+- Programming Fundamentals
+- Git & Version Control
+- JavaScript
+- TypeScript
+- Rust
+- Databases
+- Backend Engineering
+- Frontend Engineering
+- Distributed Systems
+- Authentication
+- APIs
+- Real-time Systems
+- DevOps
+- Cloud Infrastructure
+- AI Engineering
+- System Design
+- Open Source Development
+
+Every topic is taught from first principles.
+
+---
+
+# Our Long-Term Vision
+
+Our goal isn't to become another online course platform.
+
+We are building an entirely new way of engineering education.
+
+Over the coming years, Wangdu will evolve into a complete engineering ecosystem.
+
+This includes:
+
+- Interactive simulations
+- Virtual laboratories
+- First Principles based learning
+- Intelligent feedback systems
+- Community-driven learning
+- Open-source curriculum
+- Personalized learning paths
+
+Ultimately, we aim to make world-class engineering education accessible to anyone, anywhere.
+
+---
+
+# Who Is Wangdu For?
+
+Wangdu is for people who are curious.
+
+People who enjoy asking:
+
+- Why?
+- How?
+- What happens underneath?
+
+Whether you're:
+
+- A school student
+- A college student
+- A working professional
+- A career switcher
+- Or simply someone who loves learning
+
+If you enjoy building things, you'll feel at home here.
+
+---
+
+# Open Source
+
+Knowledge grows when it's shared.
+
+Much of our educational content, notes, and learning resources are being developed openly so that anyone can learn from them and contribute back to the community.
+
+---
+
+# Our Goal
+
+We aren't trying to create more programmers.
+
+We are trying to create engineers capable of solving problems that don't have answers yet.
+
+The world doesn't need more people who know frameworks.
+
+It needs more people who understand systems.
+
+---
+
+# Join the Journey
+
+If you believe education should create inventors instead of memorization machines, we'd love to have you with us.
+
+🌐 **Website:** https://www.wangdu.world
+
+📚 **Docs:** https://www.wangdu.world/docs
+
+💬 **Email:** hello@mountainkid.ai
+
+---
+
+> _"The best engineers are not the ones who know the most technologies._
+>
+> _They are the ones who can understand any technology."_
