@@ -63,15 +63,7 @@ Book #4
 ...
 ```
 
-The books belong to the library.
-
-Not the students.
-
-If a student wants a book,
-
-they don't walk into storage and grab one.
-
-Instead they ask the librarian.
+The books belong to the library. Not the students. If a student wants a book, they don't walk into storage and grab one. Instead they ask the librarian.
 
 ```text
 Student
@@ -1115,4 +1107,4 @@ Now we understand why `useState()` returns an array.
 
 The next question is even more interesting:
 
-> **What actually happens during the very first call to `useState(0)`? How does React know whether to create a new state or return an existing one?**
+> **Building useState() From Scratch**
