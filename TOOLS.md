@@ -1,7 +1,6 @@
 # Tools & Requirements
 
 1. **Laptop** - Preferred: MacBook Air M2 on later
-
    - If not MacBook, get any laptop with:
      - 16GB RAM
      - 256GB SSD
@@ -19,7 +18,6 @@
    - [Netlify Account](https://www.netlify.com/)
    - [Vercel Account](https://vercel.com/)
 5. **Cloud & Enterprise Services**
-
    - [AWS Account](https://aws.amazon.com/)
    - [Jira Account](https://www.atlassian.com/software/jira)
    - [Confluence Account](https://www.atlassian.com/software/confluence)
@@ -34,5 +32,9 @@
    - [Vim Editor](https://www.vim.org/)
    - [Terminator](https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md/) (form linux)
    - [iTerm2](https://iterm2.com/) (for macbook)
+   - [Nodejs] (https://nodejs.org/en)
+   - [Rust] (https://rust-lang.org/)
+   - [Bun] (https://bun.com/)
+   - [Docker] (https://www.docker.com/)
 9. **Productivity & Database**
    - [Google Calendar](https://calendar.google.com/)
