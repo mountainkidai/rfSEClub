@@ -76,5 +76,22 @@
     Meaning :A small part or quantity intended to show what the whole is like.
     Example: "A blood sample was taken for analysis."
 
+16. Adjure
+    
+    Meaning:To formally and earnestly ask someone to do something.
+    Example:The doctor adjured his patient to undergo the surgery.
 
-  
+
+17. Apparent 
+    Meaning:Clearly visible or understood; seemingly.
+    Example:The building's apparent age was questionable given its modern architecture.    
+
+
+18. Badinage
+    Meaning:A playful and witty exchange of teasing remarks.
+    Example:The conversation was full of lighthearted badinage between the friends.
+
+
+19. Brusque 
+    Meaning:Abrupt or offhand in speech or manner.
+    Example: He responded to the question with a brusque "no."      
