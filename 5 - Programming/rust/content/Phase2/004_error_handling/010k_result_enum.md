@@ -1,395 +1,716 @@
-# **Result<T, E> (FAILURE IS ALSO A VALUE)**
-
-If Option<T> models **absence**,
-
-Result<T, E> models **outcomes**.
-
-Auth systems live and die here.
+Once you understand `Result<T, E>`, you'll understand about 80% of real Rust code.
 
 ---
 
-## **STEP 1 --- FIRST PRINCIPLE (THE REAL WORLD TRUTH)**
+# `Result<T, E>`
 
-In reality, actions can:
+## First Principle
 
-- succeed
+`Option<T>` answers one question:
 
-- fail (for specific reasons)
+> **"Does a value exist?"**
 
-Failure is **not exceptional**.
+It has only two possibilities.
 
-Failure is **expected**.
+```text
+Some(Value)
 
-Rust treats failure as **data**, not chaos.
-
----
-
-## **STEP 2 --- WHAT Result is really?**
-
+None
 ```
+
+---
+
+But sometimes "no value" isn't enough.
+
+Suppose login fails.
+
+You don't just want to know it failed.
+
+You want to know **why**.
+
+- Wrong password?
+- User not found?
+- Database offline?
+- Network timeout?
+
+That's what `Result` is for.
+
+---
+
+## Definition
+
+The real Rust source code is almost exactly this.
+
+```rust
 enum Result<T, E> {
     Ok(T),
     Err(E),
 }
 ```
 
-That's it.
+Look carefully.
 
-Meaning:
-
-```
-Success → Ok(value)
-Failure → Err(reason)
-```
-
-No magic.
-
-No exceptions.
-
-No hidden control flow.
+**Result is also just an enum.**
 
 ---
 
-## **STEP 3 --- BASIC EXAMPLE**
+## Breaking it down
 
-```
-fn divide(a: i32, b: i32) -> Result<i32, String> {
-    if b == 0 {
-        Err("division by zero".to_string())
-    } else {
-        Ok(a / b)
-    }
-}
+```rust
+Ok(T)
 ```
 
-Usage:
+means
 
-```
-fn main() {
-    let result = divide(10, 2);
-
-    match result {
-        Ok(v) => println!("Result = {}", v),
-        Err(e) => println!("Error = {}", e),
-    }
-}
-```
-
-Both paths handled.
-
-No surprises.
+> Success.
 
 ---
 
-## **STEP 4 --- WH Result  IS NOT "ERROR HANDLING"**
-
-This is key.
-
-Result is **protocol design**.
-
-It answers:
-
-> "What are all the possible outcomes of this operation?"
-
-Auth example:
-
-```
-Result<Session, AuthError>
+```rust
+Err(E)
 ```
 
-Meaning:
+means
 
-```
-Either:
-- you get a valid Session
-OR
-- you get a specific AuthError
-```
-
-No guessing.
+> Something went wrong.
 
 ---
 
-## **STEP 5 --- DEFINING DOMAIN ERRORS (CRITICAL)**
+## Visualization
 
-```
-enum AuthError {
-    InvalidCredentials,
-    UserNotFound,
-    SessionExpired,
-    UserBanned,
-}
-```
+```text
+Result
 
-Now:
+├── Ok(Value)
 
-```
-fn login(user: &str, pass: &str) -> Result<Session, AuthError> {
-    // ...
-}
-```
-
-This is **self-documenting logic**.
-
----
-
-## **STEP 6 --- WHY NOT ?**
-
-❌ Bad:
-
-```
-fn login(...) -> bool
-```
-
-What does false mean?
-
-- wrong password?
-
-- banned?
-
-- server down?
-
-- expired OTP?
-
-You don't know. Bugs follow.
-
-✅ Good:
-
-```
-Result<Session, AuthError>
-```
-
-Compiler enforces clarity.
-
----
-
-## **STEP 7 ---  OPERATOR (CONTROL FLOW WITHOUT NOISE)**
-
-```
-fn authenticate() -> Result<User, AuthError> {
-    let user = find_user()?;        // if Err → return early
-    let session = create_session(user)?;
-    Ok(session.user)
-}
-```
-
-Meaning:
-
-```
-If any step fails → stop and return the error
-If all succeed → continue
-```
-
-No try/catch.
-
-No hidden jumps.
-
-100% visible.
-
-```rs
-use std::fmt;  // For custom error
-
-#[derive(Debug)]
-enum AuthError {
-    UserNotFound,
-    SessionFailed,
-}
-
-impl fmt::Display for AuthError {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match self {
-            AuthError::UserNotFound => write!(f, "User not found"),
-            AuthError::SessionFailed => write!(f, "Failed to create session"),
-        }
-}
-
-impl std::error::Error for AuthError {}
-
-// Helper: Pretends to find user (fails sometimes)
-fn find_user() -> Result<User, AuthError> {
-    // Simulate failure: e.g., DB query fails
-    Err(AuthError::UserNotFound)  // Or Ok(User { name: "Alice".to_string() })
-}
-
-// Helper: Creates session
-fn create_session(_user: User) -> Result<Session, AuthError> {
-    // Simulate possible failure
-    Ok(Session { user: User { name: "Alice".to_string() } })
-}
-
-#[derive(Debug)]
-struct User {
-    name: String,
-}
-
-#[derive(Debug)]
-struct Session {
-    user: User,
-}
-
-fn authenticate() -> Result<User, AuthError> {
-    let user = find_user()?;     // Err? → return AuthError::UserNotFound early
-    let session = create_session(user)?;  // Err? → return AuthError::SessionFailed early
-    Ok(session.user)             // All good → return User
-}
-
-fn main() {
-    match authenticate() {
-        Ok(user) => println!("Success: Welcome, {}", user.name),
-        Err(e) => println!("Failed: {}", e),  // Handles propagated error
-    }
-}
-
+└── Err(Error)
 ```
 
 ---
 
-## **STEP 8 --- HOW ACTUALLY WORKS (IMPORTANT)**
+## Think about ordering food
 
-This:
+You order pizza.
 
+Two possibilities.
+
+```text
+Restaurant
+
+↓
+
+Pizza Delivered
 ```
-let x = foo()?;
+
+or
+
+```text
+Restaurant
+
+↓
+
+Out of Stock
 ```
 
-Is equivalent to:
+The second one isn't simply "no pizza."
 
+It tells you **why**.
+
+Exactly like
+
+```rust
+Result<Pizza, Error>
 ```
-let x = match foo() {
-    Ok(v) => v,
+
+---
+
+# Creating a Result
+
+Success
+
+```rust
+let score: Result<i32, String> = Ok(95);
+```
+
+Failure
+
+```rust
+let score: Result<i32, String> =
+    Err(String::from("Exam not found"));
+```
+
+---
+
+## Reading a Result
+
+Since it's an enum,
+
+we use `match`.
+
+```rust
+let score = Ok(95);
+
+match score {
+    Ok(value) => println!("{}", value),
+
+    Err(error) => println!("{}", error),
+}
+```
+
+Output
+
+```text
+95
+```
+
+---
+
+Another example
+
+```rust
+let score =
+    Err(String::from("Exam not found"));
+
+match score {
+    Ok(value) => println!("{}", value),
+
+    Err(error) => println!("{}", error),
+}
+```
+
+Output
+
+```text
+Exam not found
+```
+
+---
+
+# Compare Option vs Result
+
+## Option
+
+```text
+Some(User)
+
+None
+```
+
+Question answered
+
+> Does a user exist?
+
+---
+
+## Result
+
+```text
+Ok(User)
+
+Err(Database Error)
+```
+
+Question answered
+
+> Did the operation succeed?
+
+If not,
+
+> Why?
+
+---
+
+# Real Example
+
+Searching for a user.
+
+Using Option
+
+```rust
+Option<User>
+```
+
+Possible
+
+```text
+Some(User)
+
+None
+```
+
+---
+
+Connecting to the database.
+
+Possible outcomes
+
+```text
+Connected
+
+↓
+
+Success
+```
+
+or
+
+```text
+Connection Refused
+
+↓
+
+Failure
+```
+
+Rust
+
+```rust
+Result<Connection, DatabaseError>
+```
+
+---
+
+# Real Koel Example
+
+Login
+
+Possible outcomes
+
+```text
+Success
+
+↓
+
+Access Token
+```
+
+or
+
+```text
+Wrong Password
+```
+
+or
+
+```text
+Database Offline
+```
+
+or
+
+```text
+User Doesn't Exist
+```
+
+Instead of
+
+```rust
+Option<User>
+```
+
+Rust uses
+
+```rust
+Result<User, LoginError>
+```
+
+because you need the reason for failure.
+
+---
+
+# Why not use Option?
+
+Suppose
+
+```rust
+None
+```
+
+What happened?
+
+```text
+Wrong Password?
+
+Database Offline?
+
+Network Failed?
+
+User Missing?
+
+JWT Invalid?
+```
+
+You don't know.
+
+Result tells you exactly.
+
+---
+
+# Another Example
+
+Reading a file.
+
+Possible
+
+```text
+File Exists
+```
+
+↓
+
+Read contents
+
+or
+
+```text
+File Missing
+```
+
+↓
+
+Return
+
+```rust
+Err("File not found")
+```
+
+---
+
+# Mental Model
+
+```text
+Result<T, E>
+
+             │
+
+      ┌──────┴──────┐
+
+      │             │
+
+   Ok(Value)    Err(Error)
+
+  Success        Failure
+```
+
+---
+
+# Option vs Result
+
+```text
+Option
+
+Some(Value)
+
+None
+
+
+
+Result
+
+Ok(Value)
+
+Err(Error)
+```
+
+One answers
+
+> Is there a value?
+
+The other answers
+
+> Did the operation succeed?
+
+---
+
+# Rule to Remember
+
+- `Result<T, E>` is an **enum**.
+- `Ok(T)` means success.
+- `Err(E)` means failure.
+- Use `Option` when a value may or may not exist.
+- Use `Result` when an operation can succeed or fail.
+
+---
+
+# Problems
+
+## Problem 1
+
+Create a `Result<i32, String>` representing a successful exam score of `90`.
+
+---
+
+## Problem 2
+
+Create a `Result<i32, String>` representing the error:
+
+```text
+Student not found
+```
+
+---
+
+## Problem 3
+
+Print the value using `match`.
+
+```rust
+let result = Ok(100);
+```
+
+---
+
+## Problem 4
+
+Print the error using `match`.
+
+```rust
+let result =
+    Err(String::from("Network Error"));
+```
+
+---
+
+## Problem 5
+
+Which should you use?
+
+Finding a hotel.
+
+```text
+Hotel exists
+
+Hotel doesn't exist
+```
+
+Option or Result?
+
+Explain.
+
+---
+
+## Problem 6
+
+Which should you use?
+
+Connecting to PostgreSQL.
+
+Option or Result?
+
+Why?
+
+---
+
+## Problem 7
+
+Fill in the blanks.
+
+```text
+Option
+
+Some(____)
+
+None
+
+
+
+Result
+
+Ok(____)
+
+Err(____)
+```
+
+---
+
+## Problem 8
+
+Your login API can return:
+
+- User logged in
+- Wrong password
+- Database offline
+
+Should it return `Option<User>` or `Result<User, LoginError>`?
+
+Explain why.
+
+---
+
+# Solutions
+
+## Solution 1
+
+```rust
+let score: Result<i32, String> = Ok(90);
+```
+
+---
+
+## Solution 2
+
+```rust
+let score: Result<i32, String> =
+    Err(String::from("Student not found"));
+```
+
+---
+
+## Solution 3
+
+```rust
+let result = Ok(100);
+
+match result {
+    Ok(value) => println!("{}", value),
+
+    Err(error) => println!("{}", error),
+}
+```
+
+Output
+
+```text
+100
+```
+
+---
+
+## Solution 4
+
+```rust
+let result =
+    Err(String::from("Network Error"));
+
+match result {
+    Ok(value) => println!("{}", value),
+
+    Err(error) => println!("{}", error),
+}
+```
+
+Output
+
+```text
+Network Error
+```
+
+---
+
+## Solution 5
+
+Use **`Option<Hotel>`**.
+
+Reason:
+
+You're only asking whether a hotel exists.
+
+Possible outcomes:
+
+- `Some(Hotel)`
+- `None`
+
+No detailed error is needed.
+
+---
+
+## Solution 6
+
+Use **`Result<Connection, DatabaseError>`**.
+
+Reason:
+
+A database connection can fail for many reasons:
+
+- Wrong credentials
+- Server offline
+- Network timeout
+- SSL error
+
+You need the specific reason for the failure.
+
+---
+
+## Solution 7
+
+```text
+Option
+
+Some(Value)
+
+None
+
+
+
+Result
+
+Ok(Value)
+
+Err(Error)
+```
+
+---
+
+## Solution 8
+
+Use **`Result<User, LoginError>`**.
+
+Reason:
+
+Login is an **operation** that can fail for multiple reasons. Returning `Result` allows the caller to distinguish between:
+
+- `Ok(User)` → login succeeded.
+- `Err(LoginError::WrongPassword)`
+- `Err(LoginError::UserNotFound)`
+- `Err(LoginError::DatabaseOffline)`
+
+This makes error handling precise and informative.
+
+---
+
+## The Big Picture
+
+At this point, you've learned two of Rust's most important enums:
+
+```text
+Option<T>
+
+├── Some(T)
+└── None
+```
+
+```text
+Result<T, E>
+
+├── Ok(T)
+└── Err(E)
+```
+
+Notice the pattern:
+
+- **Enums** represent different states.
+- **`match`**, **`if let`**, and **`while let`** let you work with those states.
+- The compiler ensures you consider every possibility.
+
+This consistency is one of Rust's biggest strengths.
+
+### Next Concept
+
+The next concept is the **`?` operator**.
+
+It's one of Rust's most beloved features because it turns verbose error handling like this:
+
+```rust
+match read_file() {
+    Ok(data) => data,
     Err(e) => return Err(e),
-};
-```
-
-So:
-
-- no magic
-
-- no exceptions
-
-- pure pattern matching
-
----
-
-## **STEP 9 --- Result + Option TOGETHER (VERY COMMON)**
-
-```
-fn get_email(user: &User) -> Result<Option<String>, DbError> {
-    // DB might fail
-    // Email might not exist
 }
 ```
 
-Meaning:
+into a single, elegant line:
 
-```
-Database may fail
-Even if DB succeeds, email may be missing
-```
-
-Reality, modeled precisely.
-
----
-
-## **STEP 10 --- NEVER unwrap() IN AUTH CODE**
-
-This is a hard rule.
-
-❌ Wrong:
-
-```
-let session = login(...).unwrap();
+```rust
+let data = read_file()?;
 ```
 
-This means:
-
-```
-Crash the server if login fails
-```
-
-Unacceptable.
-
-✅ Right:
-
-```
-match login(...) {
-    Ok(session) => proceed(session),
-    Err(err) => deny(err),
-}
-```
-
----
-
-## **STEP 11 --- ERROR TRANSLATION (BOUNDARIES)**
-
-Inside core logic:
-
-```rs
-AuthError::InvalidCredentials
-```
-
-At API boundary:
-
-```rs
-401 Unauthorized
-```
-
-At UI boundary:
-
-```rs
-"Incorrect email or password"
-```
-
-Same error.
-
-Different representations.
-
-This is **clean architecture**.
-
----
-
-## **STEP 12 --- WHY AUTH WITHOUT Result IS BROKEN**
-
-Auth is literally:
-
-```
-Try → Validate → Fail or Succeed
-```
-
-If failures are not explicit:
-
-- security bugs appear
-
-- logs lie
-
-- clients misbehave
-
-Rust forces honesty.
-
----
-
-## **🔒 DESIGN INVARIANT**
-
-> **If an operation can fail,**
-
-> **its return type must say so.**
-
-No exceptions.
-
----
-
-## **✅ CHECKPOINT (ANSWERED)**
-
-1.  **What does** **Result<T, E>** **represent?**
-
-    → An operation that can succeed or fail, with explicit outcomes.
-
-2.  **Why is** **Result** **better than exceptions?**
-
-    → Control flow is visible and enforced by the compiler.
-
-3.  **Why is** **?** **safe?**
-
-    → It's just early-return pattern matching.
-
----
+Once you understand `?`, a huge amount of Rust code suddenly becomes much easier to read.
